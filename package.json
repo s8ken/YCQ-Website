@@ -4,9 +4,9 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/s8ken/SYMBI-Website.git"
+    "url": "https://github.com/s8ken/YCQ-Website.git"
   },
-  "homepage": "https://yseeku.com",
+  "homepage": "https://www.ycq.com",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",

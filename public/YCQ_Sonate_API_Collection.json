@@ -23,7 +23,7 @@
         "exec": [
           "// Auto-set base URL if not configured",
           "if (!pm.environment.get('baseUrl')) {",
-          "    pm.environment.set('baseUrl', 'https://api.yseeku.com');",
+          "    pm.environment.set('baseUrl', 'https://api.ycq.com');",
           "}"
         ]
       }
@@ -32,7 +32,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "https://api.yseeku.com",
+      "value": "https://api.ycq.com",
       "type": "string"
     }
   ],
