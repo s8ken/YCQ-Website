@@ -40,14 +40,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-stone-900 mb-4">
-              YCQ Sonate
+              Trust Infrastructure for AI Agents
             </h1>
             <h2 className="text-2xl md:text-3xl text-amber-700 mb-6 font-semibold">
-              Where audit meets orchestration.
+              W3C-compliant DID/VC infrastructure with cryptographic audit trails
             </h2>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              Trust-first AI orchestration with cryptographic audit trails and fairness-aware QA across OpenAI, Anthropic, and more. 
-              Prove integrity—then scale what resonates.
+              YCQ Sonate: Production-ready enterprise platform built on SYMBI Trust Protocol.
+              4 DID methods, verifiable credentials, privacy-preserving revocation. 95% test coverage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link href={CONSOLE_URL} target="_blank" className="bg-stone-800 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-900 transition-colors">
@@ -92,6 +92,83 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Three-Tier Architecture Section */}
+      <section className="py-16 bg-stone-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-stone-900 mb-4">
+              Three-Tier Architecture
+            </h2>
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto">
+              Understanding the relationship between SYMBI Trust Protocol, YCQ Sonate Platform, and SYMBI DAO
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-sm border-2 border-blue-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">SYMBI Trust Protocol</h3>
+              <p className="text-stone-600 mb-4">
+                <strong>Open-source foundation layer.</strong> W3C-compliant DID resolution (4 methods), verifiable credentials, Status List 2021 revocation.
+              </p>
+              <ul className="text-sm text-stone-600 space-y-2">
+                <li>• GitHub: SYMBI Symphony</li>
+                <li>• 95 tests passing</li>
+                <li>• Production-ready</li>
+                <li>• No tokens required</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-sm border-2 border-green-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">YCQ Sonate Platform</h3>
+              <p className="text-stone-600 mb-4">
+                <strong>Commercial SaaS product.</strong> Enterprise AI trust infrastructure built on SYMBI Trust Protocol.
+              </p>
+              <ul className="text-sm text-stone-600 space-y-2">
+                <li>• Ledger, Guardrails, Roundtable</li>
+                <li>• Multi-model orchestration</li>
+                <li>• Cryptographic audit trails</li>
+                <li>• No tokens required</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-sm border-2 border-purple-200">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">SYMBI DAO</h3>
+              <p className="text-stone-600 mb-4">
+                <strong>Optional governance layer.</strong> Community governance for protocol development. Uses trust protocol for contributor verification.
+              </p>
+              <ul className="text-sm text-stone-600 space-y-2">
+                <li>• Non-transferable tokens</li>
+                <li>• Governance-only rights</li>
+                <li>• No financial value</li>
+                <li>• <strong>100% optional</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <p className="text-sm text-stone-600 bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-4xl mx-auto">
+              <strong>Important:</strong> SYMBI Trust Protocol and YCQ Sonate Platform require NO tokens or DAO participation.
+              The DAO is a separate governance layer for contributors who want to participate in protocol development decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* YCQ Sonate Platform Section */}
       <section className="py-20 bg-white scroll-mt-24" id="platform">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,10 +177,10 @@ export default function Home() {
               The YCQ Sonate Platform
             </h2>
             <p className="text-xl text-stone-600 mb-6 max-w-3xl mx-auto">
-              Trust first. Then scale what resonates.
+              Enterprise AI trust infrastructure built on W3C-compliant protocol
             </p>
             <p className="text-lg text-stone-700 max-w-4xl mx-auto">
-              Enterprise AI trust and compliance orchestration: cryptographic audit trails, fairness-aware QA (AI vs human), and vendor-agnostic guardrails across all AI-powered business operations.
+              Cryptographic audit trails, fairness-aware QA (AI vs human), and vendor-agnostic guardrails across all AI-powered business operations. Built on SYMBI Trust Protocol foundation.
             </p>
           </div>
 
@@ -563,6 +640,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-stone-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            <div className="bg-stone-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-stone-900 mb-3">
+                Do I need DAO tokens to use SYMBI Trust Protocol or YCQ Sonate Platform?
+              </h3>
+              <p className="text-stone-600">
+                <strong>No.</strong> SYMBI Trust Protocol is open-source infrastructure available on GitHub (SYMBI Symphony).
+                YCQ Sonate Platform is a commercial SaaS product with standard enterprise pricing. Neither requires tokens or DAO participation.
+                The SYMBI DAO is a completely separate, optional governance layer for contributors who want to participate in protocol development decisions.
+              </p>
+            </div>
+
+            <div className="bg-stone-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-stone-900 mb-3">
+                What is the SYMBI DAO and who is it for?
+              </h3>
+              <p className="text-stone-600">
+                The SYMBI DAO provides community governance for protocol development roadmap decisions.
+                It uses the trust protocol itself for contributor verification (DIDs, VCs, trust scores).
+                Governance tokens are non-transferable, have no financial value, and grant only voting rights for protocol decisions.
+                It&apos;s designed for active contributors (developers, researchers, integrators) who want input on the protocol&apos;s future direction.
+              </p>
+            </div>
+
+            <div className="bg-stone-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-stone-900 mb-3">
+                What are the 4 DID methods SYMBI supports?
+              </h3>
+              <p className="text-stone-600">
+                SYMBI Trust Protocol supports <strong>did:web</strong> (enterprise-friendly, DNS-based),
+                <strong>did:key</strong> (lightweight, cryptographic), <strong>did:ethr</strong> (Ethereum-based),
+                and <strong>did:ion</strong> (Bitcoin-anchored, Microsoft&apos;s Sidetree implementation).
+                This multi-method approach ensures interoperability across different enterprise requirements and blockchain preferences.
+              </p>
+            </div>
+
+            <div className="bg-stone-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-stone-900 mb-3">
+                How does this help with EU AI Act compliance?
+              </h3>
+              <p className="text-stone-600">
+                The EU AI Act requires transparency, auditability, and human oversight for high-risk AI systems.
+                YCQ Sonate provides cryptographic audit trails (tamper-evident ledger), verifiable credentials for AI agent capabilities,
+                privacy-preserving revocation (Status List 2021), and complete attribution (AI vs human decisions).
+                All logged immutably with W3C-compliant infrastructure that regulators can independently verify.
+              </p>
+            </div>
+
+            <div className="bg-stone-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-stone-900 mb-3">
+                Is SYMBI open-source or proprietary?
+              </h3>
+              <p className="text-stone-600">
+                <strong>Both.</strong> The SYMBI Trust Protocol (DID resolution, VC infrastructure, revocation) is open-source on GitHub.
+                YCQ Sonate Platform (enterprise features like Ledger, Guardrails, Roundtable, Capsules) is proprietary SaaS.
+                This model ensures trust infrastructure transparency while providing commercial enterprise-grade tooling and support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-20 bg-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -570,7 +715,7 @@ export default function Home() {
             Ready to Discuss Investment?
           </h2>
           <p className="text-xl text-stone-300 mb-8 max-w-2xl mx-auto">
-            YCQ Sonate represents a compelling opportunity in the AI trust and compliance infrastructure market. 
+            YCQ Sonate represents a compelling opportunity in the AI trust and compliance infrastructure market.
             Let&apos;s discuss how we can scale this technology across enterprise AI operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -580,6 +725,15 @@ export default function Home() {
             <Link href={CONSOLE_URL} target="_blank" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">
               Try Demo First
             </Link>
+          </div>
+
+          {/* Footer Disclaimer */}
+          <div className="border-t border-stone-700 pt-8 mt-12">
+            <p className="text-sm text-stone-400 text-center max-w-3xl mx-auto">
+              <strong>IMPORTANT:</strong> SYMBI governance tokens (if participating in the DAO) have no financial value,
+              no expectation of profit, and grant no economic rights. Tokens are non-transferable and used solely for protocol governance voting.
+              SYMBI Trust Protocol and YCQ Sonate Platform do not require tokens or DAO participation for use.
+            </p>
           </div>
         </div>
       </section>
