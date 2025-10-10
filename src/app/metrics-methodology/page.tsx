@@ -43,7 +43,7 @@ export default function MetricsMethodology() {
               Metrics Methodology
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-2xl mx-auto">
-              Understanding YCQ Sonate's fairness-aware metrics and trust scoring methodology
+              Understanding YCQ Sonate&apos;s fairness-aware metrics and trust scoring methodology
             </p>
             <Link href="/" className="text-blue-600 hover:text-blue-800 font-medium">
               ← Back to Platform Overview

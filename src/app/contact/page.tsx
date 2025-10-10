@@ -74,7 +74,7 @@ export default function Contact() {
                 Thank You for Your Interest!
               </h1>
               <p className="text-lg text-stone-600 mb-8">
-                We've received your message and will get back to you within 24 hours with a personalized consultation plan.
+                We&apos;ve received your message and will get back to you within 24 hours with a personalized consultation plan.
               </p>
               <div className="space-y-4">
                 <p className="text-stone-600">

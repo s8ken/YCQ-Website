@@ -157,7 +157,7 @@ export default function RiskAssessment() {
                 Your AI Risk Assessment Results
               </h1>
               <p className="text-xl text-stone-600">
-                Based on your responses, here's your personalized risk profile and recommendations.
+                Based on your responses, here&apos;s your personalized risk profile and recommendations.
               </p>
             </div>
 
