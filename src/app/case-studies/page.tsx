@@ -43,7 +43,7 @@ export default function CaseStudies() {
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
               See how organizations across industries have successfully implemented 
-              SYMBI's transparent AI solutions to drive growth while mitigating risks.
+              SYMBI&apos;s transparent AI solutions to drive growth while mitigating risks.
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function CaseStudies() {
                   Regional Hospital Network Reduces Diagnostic Errors by 40%
                 </h2>
                 <p className="text-lg text-stone-600 mb-6">
-                  A 12-hospital network implemented SYMBI's explainable AI for radiology diagnosis, 
+                  A 12-hospital network implemented SYMBI&apos;s explainable AI for radiology diagnosis, 
                   achieving significant improvements in accuracy while maintaining full HIPAA compliance 
                   and providing clear audit trails for every decision.
                 </p>
@@ -144,7 +144,7 @@ export default function CaseStudies() {
                 Transparent Credit Scoring Increases Approvals by 30%
               </h4>
               <p className="text-stone-600 mb-4">
-                A regional credit union implemented SYMBI's explainable credit scoring system, 
+                A regional credit union implemented SYMBI&apos;s explainable credit scoring system, 
                 reducing bias while improving approval rates and member satisfaction.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -174,7 +174,7 @@ export default function CaseStudies() {
                 Predictive Maintenance Reduces Downtime by 60%
               </h4>
               <p className="text-stone-600 mb-4">
-                A major auto parts manufacturer deployed SYMBI's transparent predictive maintenance 
+                A major auto parts manufacturer deployed SYMBI&apos;s transparent predictive maintenance 
                 system, dramatically reducing unplanned downtime and maintenance costs.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -204,7 +204,7 @@ export default function CaseStudies() {
                 Transparent Recommendations Boost Sales by 35%
               </h4>
               <p className="text-stone-600 mb-4">
-                An online retailer replaced black-box recommendations with SYMBI's explainable system, 
+                An online retailer replaced black-box recommendations with SYMBI&apos;s explainable system, 
                 improving customer trust and conversion rates while maintaining privacy.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -234,7 +234,7 @@ export default function CaseStudies() {
                 Fair Housing Algorithm Eliminates Discrimination
               </h4>
               <p className="text-stone-600 mb-4">
-                A major city implemented SYMBI's transparent housing assistance algorithm, 
+                A major city implemented SYMBI&apos;s transparent housing assistance algorithm, 
                 ensuring fair distribution while maintaining complete accountability to citizens.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -264,7 +264,7 @@ export default function CaseStudies() {
                 Startup Scales Customer Support with Transparent AI
               </h4>
               <p className="text-stone-600 mb-4">
-                A growing SaaS startup implemented SYMBI's explainable customer support AI, 
+                A growing SaaS startup implemented SYMBI&apos;s explainable customer support AI, 
                 scaling from 100 to 10,000 customers while maintaining personalized service.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -294,7 +294,7 @@ export default function CaseStudies() {
                 Claims Processing Automation Reduces Fraud by 70%
               </h4>
               <p className="text-stone-600 mb-4">
-                A regional insurer deployed SYMBI's transparent fraud detection system, 
+                A regional insurer deployed SYMBI&apos;s transparent fraud detection system, 
                 dramatically reducing fraudulent claims while speeding up legitimate payouts.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
