@@ -42,7 +42,7 @@ export default function Solutions() {
               <span className="block text-amber-700">Business Need</span>
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              SYMBI's transparent AI platform adapts to your industry's unique challenges, 
+              SYMBI&apos;s transparent AI platform adapts to your industry's unique challenges, 
               providing accountable solutions that drive results while mitigating risks.
             </p>
           </div>
