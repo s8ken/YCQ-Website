@@ -226,7 +226,7 @@ export default function Technology() {
               Exceptional Developer Experience
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              Enterprise security doesn't mean complex integration. Built for developers who value both security and simplicity.
+              Enterprise security doesn&apos;t mean complex integration. Built for developers who value both security and simplicity.
             </p>
           </div>
 
