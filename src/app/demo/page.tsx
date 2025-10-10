@@ -291,7 +291,7 @@ const isRevoked = await checkRevocationStatus(credential)
             <div className="bg-white border border-stone-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-stone-900 mb-4">Complete Trust Chain Verification</h3>
               <p className="text-stone-600 mb-6">
-                Every trust operation is logged with Ed25519 signatures in Sonate Ledger's append-only, hash-chained structure
+                Every trust operation is logged with Ed25519 signatures in Sonate Ledger&apos;s append-only, hash-chained structure
               </p>
 
               <div className="bg-stone-900 p-6 rounded text-sm overflow-x-auto">
