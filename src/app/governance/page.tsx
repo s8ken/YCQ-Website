@@ -297,7 +297,7 @@ export default function Governance() {
     function _beforeTokenTransfer(
         address from,
         address to,
-        uint256 tokenId
+        uint256 _tokenId
     ) internal pure override {
         require(
             from == address(0) || to == address(0),
@@ -312,7 +312,7 @@ export default function Governance() {
     ) external onlyOwner {
         require(verifiedContributors[contributorDID], "Not verified");
         trustScore[contributorDID] = _trustScore;
-        _mint(contributorDID, tokenId);
+        _mint(contributorDID, _tokenId);
     }
 
     // Revoke for violations
@@ -381,7 +381,7 @@ export default function Governance() {
             If you&apos;re building with or extending SYMBI Trust Protocol, governance participation may be for you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="https://github.com/symbi-trust" target="_blank" className="bg-purple-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-purple-700 transition-colors">
+            <Link href="https://github.com/symbi-trust" target="_blank" rel="noopener noreferrer" className="bg-purple-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-purple-700 transition-colors">
               View on GitHub
             </Link>
             <Link href="mailto:stephen@yseeku.com?subject=SYMBI DAO Contribution" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">

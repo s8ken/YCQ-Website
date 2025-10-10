@@ -23,7 +23,7 @@ export default function TechnicalDemo() {
                 <Link href="/demo" className="text-stone-900 px-3 py-2 text-sm font-medium border-b-2 border-amber-600">
                   Demo
                 </Link>
-                <Link href={CONSOLE_URL} target="_blank" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
+                <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
                   Live Demo
                 </Link>
               </div>
@@ -56,7 +56,7 @@ export default function TechnicalDemo() {
             <p className="text-lg text-stone-600 mb-6 max-w-2xl mx-auto">
               Experience YCQ Sonate live with production-ready trust infrastructure
             </p>
-            <Link href={CONSOLE_URL} target="_blank" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors inline-block">
+            <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors inline-block">
               Launch Interactive Demo →
             </Link>
             <p className="text-sm text-stone-500 mt-4">
@@ -419,7 +419,7 @@ const isValid = await verifyAuditChain(eventId)
               Launch the interactive platform demo to experience production-ready trust infrastructure in action
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={CONSOLE_URL} target="_blank" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors">
+              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors">
                 Launch Interactive Demo →
               </Link>
               <Link href="mailto:stephen@yseeku.com?subject=YCQ Technical Discussion" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">
