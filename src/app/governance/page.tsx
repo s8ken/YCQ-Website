@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CONSOLE_URL } from "@/lib/site";
 
 export default function Governance() {
   return (
