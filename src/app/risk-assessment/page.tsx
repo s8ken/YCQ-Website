@@ -178,7 +178,7 @@ export default function RiskAssessment() {
                 <div>
                   <h3 className="text-xl font-semibold text-stone-900 mb-4">Key Risk Areas</h3>
                   <div className="space-y-3">
-                    {questions.map((q, index) => {
+                    {questions.map((q) => {
                       const answer = answers[q.id];
                       return (
                         <div key={q.id} className="flex justify-between items-center">
