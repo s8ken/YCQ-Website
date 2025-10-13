@@ -49,19 +49,78 @@ export default function TechnicalDemo() {
       {/* Live Demo Section */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-lg mb-12 text-center">
-            <h2 className="text-2xl font-bold text-stone-900 mb-4">
-              🎯 Interactive Platform Demo
-            </h2>
-            <p className="text-lg text-stone-600 mb-6 max-w-2xl mx-auto">
-              Experience YCQ Sonate live with production-ready trust infrastructure
-            </p>
-            <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors inline-block">
-              Launch Interactive Demo →
-            </Link>
-            <p className="text-sm text-stone-500 mt-4">
-              No signup required • Production environment • 95% test coverage
-            </p>
+          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-10 rounded-xl mb-12 text-white shadow-2xl">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-green-500/30 backdrop-blur-sm text-green-100 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-green-400/30">
+                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                Live Demo Available Now
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                🎯 Interactive Platform Demo
+              </h2>
+              <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
+                Experience YCQ Sonate live with production-ready trust infrastructure — no signup required
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8 max-w-4xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-xl font-bold mb-4">Demo Credentials</h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm text-blue-200 mb-2 font-semibold">Email:</p>
+                    <code className="block bg-black/40 text-green-300 px-4 py-3 rounded-lg font-mono text-base border border-green-500/30">
+                      demo@symbi-trust.com
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-blue-200 mb-2 font-semibold">Password:</p>
+                    <code className="block bg-black/40 text-green-300 px-4 py-3 rounded-lg font-mono text-base border border-green-500/30">
+                      demo123
+                    </code>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-xl font-bold mb-4">What You'll Experience</h3>
+                <ul className="space-y-2 text-blue-100 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-400 mt-0.5">✓</span>
+                    <span>Cryptographic trust receipts for every AI interaction</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-400 mt-0.5">✓</span>
+                    <span>Multi-provider AI comparison (OpenAI, Anthropic, Perplexity)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-400 mt-0.5">✓</span>
+                    <span>Real-time bias detection & compliance scoring</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-400 mt-0.5">✓</span>
+                    <span>Interactive audit trail exploration</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Link
+                href={CONSOLE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-blue-600 px-10 py-4 rounded-lg text-xl font-bold hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+              >
+                Launch Interactive Demo
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </Link>
+              <p className="text-sm text-blue-200 mt-4">
+                Demo Limits: 3 conversations • 10 messages per conversation • Data purged every 24 hours
+              </p>
+            </div>
           </div>
 
           {/* DID Resolution Demo */}
