@@ -49,8 +49,22 @@
   </div>
 
 <script>
-  // --- Helpers ---------------------------------------------------------------
-  const te = new TextEncoder();
+   <script>
+     // Auto-load receipt from URL hash if present
+     try {
+       if (location.hash.startsWith('#r=')) {
+         const json = decodeURIComponent(escape(atob(location.hash.slice(3).replace(/-/g,'+').replace(/_/g,'/'))));
+         document.addEventListener('DOMContentLoaded', () => {
+           document.getElementById('receipt').value = json;
+         });
+       }
+     } catch(e) {
+       console.warn('Failed to auto-load receipt from hash:', e);
+     }
+
+     // --- Helpers ---------------------------------------------------------------
+     const te = new TextEncoder();
+     const td = new TextDecoder();
   const td = new TextDecoder();
 
   function hexToBytes(h){

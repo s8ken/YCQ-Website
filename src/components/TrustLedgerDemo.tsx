@@ -29,13 +29,14 @@ interface TrustDeclaration {
 const DEMO_API_URL = process.env.NEXT_PUBLIC_TRUST_DEMO_API || 'https://5001-93f6dde3-aaae-4b3e-ae57-a7d3bd733547.proxy.daytona.works/api';
 
 export default function TrustLedgerDemo() {
-  const [activeTab, setActiveTab] = useState<'analytics' | 'create' | 'generate' | 'verify'>('analytics');
+  const [activeTab, setActiveTab] = useState<'analytics' | 'create' | 'generate' | 'verify' | 'receipt'>('analytics');
   const [loading, setLoading] = useState(false);
   const [analytics, setAnalytics] = useState<any>(null);
   const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
   const [trustReceipt, setTrustReceipt] = useState<TrustReceipt | null>(null);
   const [verificationResult, setVerificationResult] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const [demoReceipt, setDemoReceipt] = useState<any>(null);
 
   // Form states
   const [agentName, setAgentName] = useState('Demo AI Agent');
@@ -144,6 +145,51 @@ export default function TrustLedgerDemo() {
     }
   };
 
+  const generateDemoReceipt = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('/api/receipts/demo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          actor: 'demo@ycq',
+          intent: 'verify-demo',
+          inputs: { query: 'What is SYMBI Trust Protocol?', timestamp: new Date().toISOString() },
+          outputs: { 
+            response: 'SYMBI Trust Protocol is a cryptographic framework for AI trust verification with 6 fundamental principles.',
+            compliance_score: 0.98,
+            trust_articles_verified: 6
+          }
+        }),
+      });
+      const data = await response.json();
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setDemoReceipt(data);
+      }
+    } catch (err: any) {
+      setError('Network error generating receipt: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const copyReceiptToClipboard = () => {
+    if (demoReceipt) {
+      navigator.clipboard.writeText(JSON.stringify(demoReceipt, null, 2));
+      alert('Receipt copied to clipboard!');
+    }
+  };
+
+  const openInVerifier = () => {
+    if (demoReceipt) {
+      const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(demoReceipt))));
+      window.open(`/verifier.html#r=${encoded}`, '_blank');
+    }
+  };
+
   useEffect(() => {
     if (activeTab === 'analytics') {
       loadAnalytics();
@@ -158,11 +204,12 @@ export default function TrustLedgerDemo() {
       <div className="border-b border-stone-200">
         <div className="flex overflow-x-auto">
           {[
-            { id: 'analytics', label: '📊 Analytics', icon: '📊' },
-            { id: 'create', label: '✨ Create Declaration', icon: '✨' },
-            { id: 'generate', label: '🤖 AI + Receipt', icon: '🤖' },
-            { id: 'verify', label: '🔍 Verify Receipt', icon: '🔍' },
-          ].map((tab) => (
+               { id: 'analytics', label: '📊 Analytics', icon: '📊' },
+               { id: 'receipt', label: '🎫 Demo Receipt', icon: '🎫' },
+               { id: 'create', label: '✨ Create Declaration', icon: '✨' },
+               { id: 'generate', label: '🤖 AI + Receipt', icon: '🤖' },
+               { id: 'verify', label: '🔍 Verify Receipt', icon: '🔍' },
+             ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
@@ -350,6 +397,70 @@ export default function TrustLedgerDemo() {
         )}
 
         {/* Verify Tab */}
+          {/* Demo Receipt Tab */}
+          {activeTab === 'receipt' && (
+            <div>
+              <h3 className="text-xl font-bold text-stone-900 mb-4">Generate Demo Trust Receipt</h3>
+              <p className="text-stone-700 mb-4">
+                Generate a cryptographically signed trust receipt using Ed25519 signatures. 
+                This demonstrates the complete trust verification workflow.
+              </p>
+              <div className="space-y-4">
+                <button
+                  onClick={generateDemoReceipt}
+                  disabled={loading}
+                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+                >
+                  {loading ? 'Generating...' : '🎫 Generate Demo Receipt'}
+                </button>
+                
+                {demoReceipt && (
+                  <div className="space-y-4">
+                    <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
+                      <h4 className="font-semibold text-green-900 mb-2">✅ Receipt Generated Successfully</h4>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>Entry Hash:</span>
+                          <span className="font-mono text-xs text-green-700">{demoReceipt.entry_hash?.slice(0, 16)}...</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Policy ID:</span>
+                          <span className="font-bold text-green-700">{demoReceipt.policy_id}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Signature:</span>
+                          <span className="font-mono text-xs text-green-700">{demoReceipt.ed25519_sig?.slice(0, 16)}...</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-stone-50 border border-stone-200 p-4 rounded-lg">
+                      <h4 className="font-semibold text-stone-900 mb-2">Receipt JSON</h4>
+                      <pre className="text-xs overflow-auto max-h-64 bg-white p-3 rounded border border-stone-200">
+                        {JSON.stringify(demoReceipt, null, 2)}
+                      </pre>
+                    </div>
+
+                    <div className="flex gap-2">
+                      <button
+                        onClick={copyReceiptToClipboard}
+                        className="flex-1 bg-stone-600 text-white px-4 py-2 rounded-lg hover:bg-stone-700 transition-colors"
+                      >
+                        📋 Copy to Clipboard
+                      </button>
+                      <button
+                        onClick={openInVerifier}
+                        className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                      >
+                        🔍 Verify in Browser
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
         {activeTab === 'verify' && (
           <div>
             <h3 className="text-xl font-bold text-stone-900 mb-4">Verify Trust Receipt</h3>
