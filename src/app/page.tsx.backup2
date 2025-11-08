@@ -1097,16 +1097,8 @@ if (!consent || !override) {
               Enterprise-Grade Quality Assurance
             </h2>
             <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-                95% test coverage across 313+ test files. Every component verified through comprehensive unit, integration, and end-to-end testing.
-              </p>
-              <div className="mt-6">
-                <Link href="/metrics-methodology" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                  View methodology & assumptions 
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
+              95% test coverage across 313+ test files. Every component verified through comprehensive unit, integration, and end-to-end testing.
+            </p>
           </div>
 
           {/* Testing Metrics Grid */}
@@ -1437,7 +1429,8 @@ if (!consent || !override) {
                 The result is a production-ready platform that solves real problems in the rapidly expanding AI trust and compliance market.&rdquo;
               </blockquote>
               <div className="text-stone-600">
-                <p className="font-semibold">Stephen — Founder, YCQ Sonate</p>
+                <p className="font-semibold">Stephen YCQ Sonate</p>
+                <p>Founder, YCQ Sonate</p>
               </div>
             </div>
           </div>
