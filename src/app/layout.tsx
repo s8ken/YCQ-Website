@@ -14,8 +14,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "YCQ Sonate — Where audit meets orchestration",
-  description: "YCQ Sonate is trust-first AI orchestration—where audit meets orchestration. Hash-chained logs, fairness-aware KPIs, and policy guardrails across OpenAI/Anthropic. Prove integrity, then perform.",
+  title: "YCQ Sonate — AI Trust Infrastructure with Cryptographic Receipts",
+  description: "Enterprise AI trust platform built on SYMBI Trust Protocol. Cryptographic audit trails, automated compliance scoring, W3C-compliant DID/VC infrastructure. 6 trust principles mapped to EU AI Act &amp; GDPR. Try live demo.",
+  keywords: "AI trust, cryptographic receipts, compliance automation, EU AI Act, GDPR, trust ledger, verifiable credentials, DID, AI governance, ethical AI",
+  authors: [{ name: "YCQ Sonate" }],
+  openGraph: {
+    title: "YCQ Sonate — AI Trust Infrastructure",
+    description: "Cryptographic trust receipts for AI. Automated compliance scoring. Built on SYMBI Trust Protocol with 6 fundamental trust principles.",
+    url: "https://yseeku.com",
+    siteName: "YCQ Sonate",
+    images: [
+      {
+        url: "https://yseeku.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "YCQ Sonate - AI Trust Infrastructure",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "YCQ Sonate — AI Trust Infrastructure",
+    description: "Cryptographic trust receipts for AI. Try live demo at yseeku.com/trust-demo",
+    images: ["https://yseeku.com/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
