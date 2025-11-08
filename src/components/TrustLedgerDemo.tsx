@@ -253,7 +253,7 @@ export default function TrustLedgerDemo() {
                   type="text"
                   value={agentName}
                   onChange={(e) => setAgentName(e.target.value)}
-                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
                 />
               </div>
               <div>
@@ -267,7 +267,7 @@ export default function TrustLedgerDemo() {
                         onChange={(e) => setTrustArticles({ ...trustArticles, [key]: e.target.checked })}
                         className="w-4 h-4"
                       />
-                      <span className="text-sm font-medium text-stone-800">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+                      <span className="text-sm font-bold text-gray-900">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
                     </label>
                   ))}
                 </div>
@@ -316,7 +316,7 @@ export default function TrustLedgerDemo() {
                   value={aiPrompt}
                   onChange={(e) => setAiPrompt(e.target.value)}
                   rows={4}
-                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
                 />
               </div>
               <button
@@ -361,7 +361,7 @@ export default function TrustLedgerDemo() {
                   value={eventId}
                   onChange={(e) => setEventId(e.target.value)}
                   placeholder="evt_xxx"
-                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
                 />
               </div>
               <button
