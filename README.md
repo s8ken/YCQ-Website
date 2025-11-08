@@ -14,6 +14,7 @@ YCQ-Website serves as the enterprise portal for YCQ-Sonate, providing:
 
 - **Business Landing Pages**: Professional presentation for enterprise clients
 - **Technical Documentation**: Comprehensive API and integration guides
+- **Interactive Trust Ledger Demo**: Live demonstration of cryptographic trust receipts
 - **Case Studies**: Real-world implementations and success stories
 - **Enterprise Solutions**: B2B features and pricing information
 - **Developer Portal**: Technical resources and SDK documentation
@@ -22,7 +23,7 @@ YCQ-Website serves as the enterprise portal for YCQ-Sonate, providing:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/YCQ-Website.git
+git clone https://github.com/s8ken/YCQ-Website.git
 cd YCQ-Website
 
 # Install dependencies
@@ -30,12 +31,26 @@ npm install
 # or
 pnpm install
 
+# Configure environment variables
+cp .env.example .env.local
+# Edit .env.local with your configuration
+
 # Start development server
 npm run dev
 # or
 pnpm dev
 
 # Open http://localhost:3000
+```
+
+### 🔐 Trust Ledger Demo Setup
+
+```bash
+# Set the Trust Demo API endpoint
+echo "NEXT_PUBLIC_TRUST_DEMO_API=https://your-demo-api.com/api" >> .env.local
+
+# The demo is now available at:
+# http://localhost:3000/trust-demo
 ```
 
 ## 🏗️ Architecture
@@ -484,6 +499,37 @@ Licensed under Enterprise Commercial License. See [LICENSE](LICENSE) for terms.
 - **Website**: [https://ycq-sonate.com](https://ycq-sonate.com)
 - **LinkedIn**: [YCQ-Sonate](https://linkedin.com/company/ycq-sonate)
 - **Twitter**: [@YCQSonate](https://twitter.com/YCQSonate)
+
+---
+
+## 🔐 Trust Ledger Demo
+
+### **Interactive Demo Features**
+
+The Trust Ledger Demo provides a live, interactive demonstration of SYMBI's cryptographic trust infrastructure:
+
+- **📊 Trust Analytics**: Real-time compliance metrics and trust scores
+- **✨ Create Declarations**: Build trust declarations with 6 fundamental articles
+- **🤖 AI + Trust Receipts**: Generate AI responses with automatic cryptographic receipts
+- **🔍 Verify Receipts**: One-click cryptographic verification of trust receipts
+
+### **Demo Access**
+
+**URL**: [https://www.ycq.com/trust-demo](https://www.ycq.com/trust-demo)
+
+**Demo Credentials**:
+- Email: `demo@symbi-trust.com`
+- Password: `demo123`
+
+**Demo Limits**:
+- 50 requests per 15 minutes
+- Data purged every 24 hours
+- No real API keys or sensitive data
+
+### **Documentation**
+
+- **Security**: See [TRUST_DEMO_SECURITY.md](./TRUST_DEMO_SECURITY.md)
+- **Deployment**: See [TRUST_DEMO_DEPLOYMENT.md](./TRUST_DEMO_DEPLOYMENT.md)
 
 ---
 

@@ -21,10 +21,13 @@ export default function TechnicalDemo() {
                   Technology
                 </Link>
                 <Link href="/demo" className="text-stone-900 px-3 py-2 text-sm font-medium border-b-2 border-amber-600">
-                  Demo
+                  Technical Demo
                 </Link>
-                <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
-                  Live Demo
+                <Link href="/trust-demo" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
+                     Trust Ledger
+                   </Link>
+                   <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
+                  Full Platform
                 </Link>
               </div>
             </div>
@@ -130,13 +133,13 @@ export default function TechnicalDemo() {
               SYMBI Trust Protocol supports four W3C-compliant DID methods, providing flexibility for different enterprise requirements.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="grid md:grid-cols-1 gap-8 mb-8 max-w-2xl mx-auto">
               <div className="bg-white border border-stone-200 rounded-lg p-6">
                 <h3 className="text-xl font-semibold text-stone-900 mb-4 flex items-center">
                   <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold mr-3">1</span>
                   did:web
                 </h3>
-                <p className="text-stone-600 mb-4">Enterprise-friendly, DNS-based identity resolution</p>
+                <p className="text-stone-600 mb-4">Enterprise gold standard - DNS-based, no blockchain required</p>
                 <div className="bg-stone-900 p-4 rounded text-sm overflow-x-auto">
                   <pre className="text-green-400">
 {`// Resolve a did:web identifier
@@ -162,7 +165,7 @@ const result = await resolveDID(did)
                   <span className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold mr-3">2</span>
                   did:key
                 </h3>
-                <p className="text-stone-600 mb-4">Lightweight, cryptographic-only identity</p>
+                <p className="text-stone-600 mb-4">Zero-infrastructure trust receipts - perfect for testing</p>
                 <div className="bg-stone-900 p-4 rounded text-sm overflow-x-auto">
                   <pre className="text-green-400">
 {`// Resolve a did:key identifier
