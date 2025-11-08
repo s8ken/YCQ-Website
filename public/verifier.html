@@ -50,18 +50,42 @@
 
 <script>
    <script>
-     // Auto-load receipt from URL hash if present
-     try {
-       if (location.hash.startsWith('#r=')) {
-         const json = decodeURIComponent(escape(atob(location.hash.slice(3).replace(/-/g,'+').replace(/_/g,'/'))));
-         document.addEventListener('DOMContentLoaded', () => {
-           document.getElementById('receipt').value = json;
-         });
-       }
-     } catch(e) {
-       console.warn('Failed to auto-load receipt from hash:', e);
-     }
+      <script>
+        // Auto-load from URL hash (#r=base64url(json)) or localStorage fallback
+        (function(){
+          try{
+            const t = document.getElementById('receipt');
+            if(location.hash.startsWith('#r=')){
+              const b64 = location.hash.slice(3).replace(/-/g,'+').replace(/_/g,'/');
+              const json = decodeURIComponent(escape(atob(b64)));
+              document.addEventListener('DOMContentLoaded', () => {
+                t.value = json;
+                const verdict = document.getElementById('verdict');
+                if(verdict) {
+                  verdict.className = 'muted';
+                  verdict.textContent = 'Receipt pre‑loaded — click Verify';
+                }
+              });
+            } else {
+              // Fallback to localStorage
+              document.addEventListener('DOMContentLoaded', () => {
+                const cached = localStorage.getItem('ycq_last_receipt');
+                if(cached) {
+                  t.value = cached;
+                  const verdict = document.getElementById('verdict');
+                  if(verdict) {
+                    verdict.className = 'muted';
+                    verdict.textContent = 'Receipt pre‑loaded from cache — click Verify';
+                  }
+                }
+              });
+            }
+          }catch(e){
+            console.warn('Failed to auto-load receipt:', e);
+          }
+        })();
 
+        // --- Helpers ---------------------------------------------------------------
      // --- Helpers ---------------------------------------------------------------
      const te = new TextEncoder();
      const td = new TextDecoder();

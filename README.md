@@ -8,6 +8,47 @@
 
 > **Professional enterprise website showcasing YCQ-Sonate's AI trust platform capabilities, technical documentation, and business solutions.**
 
+---
+
+## 🎯 YCQ Sonate — 60‑second Trust Receipt Demo (For YC Reviewers)
+
+**Goal:** Mint a cryptographically signed Trust Receipt and verify it entirely in your browser.
+
+### Live Demo (Recommended)
+1. Visit **https://yseeku.com/trust-demo**
+2. Click the **🎫 Demo Receipt** tab
+3. Click **"Generate Demo Receipt"**
+4. Click **"Verify in Browser"** → a new tab opens at `/verifier.html` with the receipt pre‑loaded
+5. Click **"Verify"** and confirm both checks are **✅ OK** (entry_hash + signature)
+
+### Local Testing
+```bash
+pnpm install
+pnpm dev
+# In another terminal:
+curl -X POST http://localhost:3000/api/receipts/demo \
+  -H 'content-type: application/json' \
+  -d '{"inputs":{"q":"hello"},"outputs":{"a":"hi"}}'
+# Then open http://localhost:3000/trust-demo
+```
+
+### What This Demonstrates
+- **Real Cryptography**: Ed25519 signatures, SHA-256 hashing, canonical JSON
+- **Zero Trust**: Complete client-side verification using Web Crypto API
+- **Production Ready**: Proper key management, error handling, security practices
+- **Regulatory Alignment**: Maps to EU AI Act Articles 13, 14, 61
+
+### Security Notes
+- Demo keys are for **verification only**
+- Production receipts are signed by a managed key
+- Public key available at `/.well-known/ycq-receipt-pubkey`
+- No PII is logged; verification happens **fully client‑side**
+
+📖 **Full Documentation**: [TRUST_DEMO_README.md](./TRUST_DEMO_README.md)
+
+---
+
+
 ## 🎯 Overview
 
 YCQ-Website serves as the enterprise portal for YCQ-Sonate, providing:
