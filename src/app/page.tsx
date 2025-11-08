@@ -1512,6 +1512,129 @@ if (!consent || !override) {
         </div>
       </section>
 
+      {/* Footer Navigation */}
+      <footer className="bg-stone-900 border-t border-stone-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Company */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">YCQ Sonate</h3>
+              <p className="text-stone-400 text-sm mb-4">
+                AI trust infrastructure for enterprise compliance and regulatory adherence.
+              </p>
+              <div className="flex space-x-4">
+                <a href="https://github.com/s8ken" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white">
+                  GitHub
+                </a>
+                <a href="mailto:stephen@yseeku.com" className="text-stone-400 hover:text-white">
+                  Contact
+                </a>
+              </div>
+            </div>
+
+            {/* Product */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Product</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/trust-demo" className="text-stone-400 hover:text-white text-sm">
+                    Trust Ledger Demo
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/technology" className="text-stone-400 hover:text-white text-sm">
+                    Technology
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/case-studies" className="text-stone-400 hover:text-white text-sm">
+                    Example Implementations
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/metrics-methodology" className="text-stone-400 hover:text-white text-sm">
+                    Metrics Methodology
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Compliance & Legal */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Compliance & Legal</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="text-stone-400 hover:text-white text-sm">
+                    Security Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-stone-400 hover:text-white text-sm">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-stone-400 hover:text-white text-sm">
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/changelog" className="text-stone-400 hover:text-white text-sm">
+                    Changelog
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/risk-assessment" className="text-stone-400 hover:text-white text-sm">
+                    Risk Assessment
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/governance" className="text-stone-400 hover:text-white text-sm">
+                    Governance
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/investors" className="text-stone-400 hover:text-white text-sm">
+                    Investors
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-stone-400 hover:text-white text-sm">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-stone-800 mt-8 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-stone-400 text-sm">
+                © 2025 YCQ Sonate. All rights reserved.
+              </p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <span className="text-stone-500 text-xs">
+                  EU AI Act Compliant
+                </span>
+                <span className="text-stone-500 text-xs">
+                  GDPR Aligned
+                </span>
+                <span className="text-stone-500 text-xs">
+                  ISO 27001 Framework
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
       {/* Contact Section */}
       <section className="py-20 bg-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

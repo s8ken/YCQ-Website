@@ -26,7 +26,7 @@ interface TrustDeclaration {
   };
 }
 
-const DEMO_API_URL = process.env.NEXT_PUBLIC_TRUST_DEMO_API || 'https://5001-93f6dde3-aaae-4b3e-ae57-a7d3bd733547.proxy.daytona.works/api';
+const DEMO_API_URL = '/api/trust-demo';
 
 export default function TrustLedgerDemo() {
   const [activeTab, setActiveTab] = useState<'analytics' | 'create' | 'generate' | 'verify'>('analytics');
@@ -54,7 +54,7 @@ export default function TrustLedgerDemo() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${DEMO_API_URL}/trust/analytics`);
+      const response = await fetch(`${DEMO_API_URL}/analytics`);
       const data = await response.json();
       if (data.success) {
         setAnalytics(data.data);
@@ -72,7 +72,7 @@ export default function TrustLedgerDemo() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${DEMO_API_URL}/trust`, {
+      const response = await fetch(`${DEMO_API_URL}/declarations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -99,7 +99,7 @@ export default function TrustLedgerDemo() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${DEMO_API_URL}/llm/generate`, {
+      const response = await fetch(`${DEMO_API_URL}/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -130,7 +130,13 @@ export default function TrustLedgerDemo() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${DEMO_API_URL}/trust/verify/${eventId}`);
+      const response = await fetch(`${DEMO_API_URL}/verify`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ eventId }),
+      });
       const data = await response.json();
       if (data.success) {
         setVerificationResult(data.verification);

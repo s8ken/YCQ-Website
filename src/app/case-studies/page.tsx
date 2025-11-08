@@ -42,21 +42,21 @@ export default function CaseStudies() {
               <span className="block text-amber-700">Transparent AI</span>
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              See how organizations across industries have successfully implemented 
-              SYMBI&apos;s transparent AI solutions to drive growth while mitigating risks.
+              These example implementations demonstrate how organizations across industries could 
+              implement SYMBI&apos;s transparent AI solutions to drive growth while mitigating risks.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Featured Case Study */}
+      {/* Example Case Study */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-stone-50 to-amber-50 rounded-2xl p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-800 mb-4">
-                  Featured Case Study
+                  Example Implementation
                 </div>
                 <h2 className="text-3xl font-bold text-stone-900 mb-4">
                   Regional Hospital Network Reduces Diagnostic Errors by 40%
@@ -121,7 +121,7 @@ export default function CaseStudies() {
               Success Stories Across Industries
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              From startups to Fortune 500 companies, see how SYMBI delivers 
+              These example scenarios show how SYMBI could deliver 
               measurable results while maintaining transparency and accountability.
             </p>
           </div>
