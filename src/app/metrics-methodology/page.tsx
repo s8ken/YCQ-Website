@@ -393,6 +393,11 @@ export default function MetricsMethodology() {
                 <li>Check policy metadata (human-in-loop flags, escalation state)</li>
               </ol>
             </div>
+              <div className="mt-4 text-center">
+                <a href="/verifier.html" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                  Open in-browser verifier →
+                </a>
+              </div>
           </div>
 
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-lg text-center">
@@ -400,9 +405,9 @@ export default function MetricsMethodology() {
             <p className="text-stone-700 mb-6 max-w-2xl mx-auto">
               Try our minimalist web verifier (pure JS) to paste a receipt and verify its signature and hash-chain integrity
             </p>
-            <Link href="/trust-demo" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-              Try Live Verification
-            </Link>
+            <Link href="/verifier.html" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                Open In-Browser Verifier
+              </Link>
           </div>
         </div>
       </section>
