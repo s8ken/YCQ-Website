@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trust Receipt Verifier — YCQ Sonate</title>
+  <style>
+    body{font-family:ui-sans-serif,system-ui,-apple-system;max-width:920px;margin:32px auto;padding:0 16px}
+    .row{display:flex;gap:16px;align-items:center}
+    textarea{width:100%;min-height:260px}
+    pre{background:#f6f7f8;padding:12px;border-radius:12px;overflow:auto}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid #ddd;background:#fff;cursor:pointer}
+    .btn:hover{background:#f3f4f6}
+    .ok{color:#065f46;background:#ecfdf5;border-color:#a7f3d0}
+    .bad{color:#991b1b;background:#fef2f2;border-color:#fecaca}
+    .muted{color:#6b7280}
+    .inline{display:inline-block;margin-left:6px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width: 800px){.grid{grid-template-columns:1fr}}
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <h1>Trust Receipt Verifier</h1>
+  <div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:12px;margin:16px 0;border-radius:8px">
+    <p style="color:#92400e;font-weight:600;margin:0 0 8px 0">🚧 Demo Version</p>
+    <p style="color:#78350f;font-size:14px;margin:0">
+      This verifier demonstrates cryptographic verification capabilities. 
+      Production integration with live trust receipts in development.
+    </p>
+  </div>
+  <p class="muted">Paste a receipt JSON below. We will: (1) recompute <em>entry_hash</em> from <em>prev_hash + inputs_hash + outputs_hash</em>, (2) verify the Ed25519 signature over the <em>payload</em>, and (3) show a concise verdict.</p>
+
+  <div class="grid">
+    <div>
+      <label for="receipt">Receipt JSON</label>
+      <textarea id="receipt" placeholder='{"inputs_hash":"…","outputs_hash":"…","prev_hash":"…","entry_hash":"…","payload":"…","ed25519_pubkey":"…","ed25519_sig":"…"}'></textarea>
+      <div class="row" style="margin-top:8px">
+        <button class="btn" id="btnVerify">Verify</button>
+        <button class="btn" id="btnExample">Load Example</button>
+        <span class="muted">No data leaves your browser.</span>
+      </div>
+    </div>
+    <div>
+      <div id="verdict" class="muted">Awaiting input…</div>
+      <h3>Details</h3>
+      <pre id="details">—</pre>
+    </div>
+  </div>
+
+<script>
+  // --- Helpers ---------------------------------------------------------------
+  const te = new TextEncoder();
+  const td = new TextDecoder();
+
+  function hexToBytes(h){
+    const s = h.replace(/^0x/,'').toLowerCase();
+    if(s.length % 2) throw new Error('Hex length must be even');
+    const a = new Uint8Array(s.length/2);
+    for(let i=0;i<a.length;i++) a[i] = parseInt(s.substr(i*2,2),16);
+    return a;
+  }
+  function b64uToBytes(b){
+    // accept base64 or base64url
+    const pad = '='.repeat((4 - (b.length % 4)) % 4);
+    const base64 = (b.replace(/-/g,'+').replace(/_/g,'/') + pad);
+    const bin = atob(base64);
+    const a = new Uint8Array(bin.length);
+    for (let i=0;i<bin.length;i++) a[i] = bin.charCodeAt(i);
+    return a;
+  }
+  function guessBytes(s){
+    if(typeof s !== 'string') throw new Error('Expected string');
+    const t = s.trim();
+    if(/^[0-9a-fA-F]+$/.test(t)) return hexToBytes(t);
+    try { return b64uToBytes(t); } catch { /* fallthrough */ }
+    // else, treat as UTF-8 text
+    return te.encode(t);
+  }
+  async function sha256(bytes){
+    const buf = await crypto.subtle.digest('SHA-256', bytes);
+    return new Uint8Array(buf);
+  }
+  function toHex(bytes){
+    return Array.from(bytes).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+
+  // Canonical payload bytes: try base64/base64url, else UTF-8 string
+  function payloadBytes(payload){
+    try { return b64uToBytes(payload); } catch { return te.encode(payload); }
+  }
+
+  // Derive entry_hash = sha256(prev_hash || inputs_hash || outputs_hash)
+  async function deriveEntryHash(r){
+    const prev = guessBytes(r.prev_hash);
+    const ih = guessBytes(r.inputs_hash);
+    const oh = guessBytes(r.outputs_hash);
+    const concat = new Uint8Array(prev.length + ih.length + oh.length);
+    concat.set(prev,0); concat.set(ih,prev.length); concat.set(oh, prev.length+ih.length);
+    return toHex(await sha256(concat));
+  }
+
+  async function verifySigEd25519(pubkeyRaw, signatureRaw, message){
+    // Requires Ed25519 support in WebCrypto (modern Chromium/Firefox/Safari). Fallback: instruct user.
+    try {
+      const key = await crypto.subtle.importKey(
+        'raw', pubkeyRaw, { name: 'Ed25519', namedCurve: 'Ed25519' }, false, ['verify']
+      );
+      return await crypto.subtle.verify('Ed25519', key, signatureRaw, message);
+    } catch (e) {
+      throw new Error('Ed25519 not supported in this browser or bad key format: ' + e.message);
+    }
+  }
+
+  function setVerdict(ok, msgs){
+    const v = document.getElementById('verdict');
+    v.className = ok ? 'ok btn inline' : 'bad btn inline';
+    v.textContent = ok ? 'Verified' : 'Failed';
+    document.getElementById('details').textContent = msgs.join('\n');
+  }
+
+  document.getElementById('btnVerify').addEventListener('click', async () => {
+    const raw = document.getElementById('receipt').value;
+    try {
+      const r = JSON.parse(raw);
+      const msgs = [];
+
+      // 1) entry_hash check
+      const derived = await deriveEntryHash(r);
+      const entryOk = (r.entry_hash||'').replace(/^0x/,'').toLowerCase() === derived;
+      msgs.push(`entry_hash: ${entryOk ? 'OK' : 'MISMATCH'} (derived ${derived})`);
+
+      // 2) signature over payload
+      const payload = payloadBytes(r.payload);
+      const pk = guessBytes(r.ed25519_pubkey);
+      const sig = guessBytes(r.ed25519_sig);
+      let sigOk = false;
+      try { sigOk = await verifySigEd25519(pk, sig, payload); }
+      catch(e){ msgs.push('Signature check error: ' + e.message); }
+      msgs.push(`signature: ${sigOk ? 'OK' : 'FAIL'}`);
+
+      const finalOk = entryOk && sigOk;
+      setVerdict(finalOk, msgs);
+    } catch(e){
+      setVerdict(false, ['Parse error: ' + e.message]);
+    }
+  });
+
+  document.getElementById('btnExample').addEventListener('click', () => {
+    const example = {
+      inputs_hash: '9f3b…deadbeef',
+      outputs_hash: 'ab12…c0ffee',
+      prev_hash: '0011…aa55aa',
+      entry_hash: 'will-be-derived',
+      // The payload can be a UTF-8 string or base64; using clear text for demo
+      payload: '{"ts":"2025-11-08T10:00:00Z","actor":"demo@ycq","intent":"verify-demo"}',
+      ed25519_pubkey: 'BASE64URL_OR_HEX_PUBKEY',
+      ed25519_sig: 'BASE64URL_OR_HEX_SIGNATURE',
+      policy_id: 'safety.v1',
+      guardrail_action: 'none',
+      ledger_height: 12345,
+      _note: 'Example only — replace with a real receipt.'
+    };
+    document.getElementById('receipt').value = JSON.stringify(example, null, 2);
+    document.getElementById('verdict').className = 'muted';
+    document.getElementById('verdict').textContent = 'Example loaded — click Verify after replacing keys.';
+    document.getElementById('details').textContent = '—';
+  });
+</script>
+</body>
+</html>

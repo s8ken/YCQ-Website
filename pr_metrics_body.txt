@@ -1,0 +1,49 @@
+Implement Metrics Methodology Updates and Homepage Enhancements
+
+## Summary
+
+This PR implements the complete metrics methodology specification with all required KPIs, evaluation protocols, and publishing conventions. It also includes several homepage enhancements as specified in the prompt-ready fixes checklist.
+
+## What's Included
+
+### Metrics Methodology & Changelog
+- Created comprehensive `/metrics-methodology` page with all KPI definitions:
+  - FAR-A (False Apology Rate)
+  - FAR-H (Factual Assertion Failure Rate) 
+  - PFI (Protected Fairness Index)
+  - TIS (Trust Integrity Score)
+- Added complete evaluation protocol with sampling, claim mining, adjudication, and complexity normalization
+- Implemented statistical reporting standards with confidence intervals and disclosure requirements
+- Added `/changelog` page with version tracking (2025.11.08-r1)
+- Included JSON-LD structured data for SEO (TechArticle and SoftwareApplication)
+
+### Homepage Enhancements
+- Added "View methodology & assumptions" link in Testing section
+- Updated founder byline to "Stephen — Founder, YCQ Sonate"
+- Added footer "Ecosystem" strip with SYMBI Trust Protocol, Gammatria, and pilots
+- Added JSON-LD structured data to homepage
+
+### Prompt-Ready Fixes Implemented
+✅ Added "View methodology & assumptions" link → /metrics-methodology
+✅ Updated founder byline to "Stephen — Founder, YCQ Sonate"
+✅ Added footer "Ecosystem" strip with short explainers
+✅ Added JSON-LD structured data for SEO
+✅ Normalized wording for QA stats ("95% test coverage across 313+ files")
+
+## Technical Details
+
+- Files Changed: 6 files (2,617 insertions, 178 deletions)
+- Build Status: ✅ Successful (npm run build passes)
+- Preview: https://3000-93f6dde3-aaae-4b3e-ae57-a7d3bd733547.proxy.daytona.works
+
+## Verification
+
+- All pages render correctly
+- Navigation works properly
+- Mobile responsive
+- SEO metadata implemented
+- Build successful with no errors
+
+## Ready for Review
+
+This implementation fulfills all requirements from the metrics methodology specification and prompt-ready fixes checklist.
