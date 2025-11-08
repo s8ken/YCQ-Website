@@ -169,7 +169,7 @@ export default function TrustLedgerDemo() {
               className={`px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors ${
                 activeTab === tab.id
                   ? 'border-b-2 border-blue-600 text-blue-600'
-                  : 'text-stone-600 hover:text-stone-900'
+                  : 'text-stone-700 hover:text-stone-900'
               }`}
             >
               {tab.label}
@@ -181,7 +181,7 @@ export default function TrustLedgerDemo() {
       {/* Tab Content */}
       <div className="p-6">
         {error && (
-          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-900">
             ❌ {error}
           </div>
         )}
@@ -193,23 +193,23 @@ export default function TrustLedgerDemo() {
             {loading ? (
               <div className="text-center py-8">
                 <div className="inline-block w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                <p className="mt-2 text-stone-600">Loading analytics...</p>
+                <p className="mt-2 text-stone-700">Loading analytics...</p>
               </div>
             ) : analytics ? (
               <div className="space-y-4">
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="text-sm text-blue-600 font-medium">Total Declarations</div>
+                    <div className="text-sm text-blue-700 font-medium">Total Declarations</div>
                     <div className="text-3xl font-bold text-blue-900">{analytics.overview.total_declarations}</div>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="text-sm text-green-600 font-medium">Avg Compliance</div>
+                    <div className="text-sm text-green-700 font-medium">Avg Compliance</div>
                     <div className="text-3xl font-bold text-green-900">
                       {(analytics.score_statistics.avg_compliance * 100).toFixed(1)}%
                     </div>
                   </div>
                   <div className="bg-amber-50 p-4 rounded-lg">
-                    <div className="text-sm text-amber-600 font-medium">Trust Receipts</div>
+                    <div className="text-sm text-amber-700 font-medium">Trust Receipts</div>
                     <div className="text-3xl font-bold text-amber-900">{analytics.overview.total_receipts}</div>
                   </div>
                 </div>
@@ -218,14 +218,14 @@ export default function TrustLedgerDemo() {
                   <div className="space-y-2">
                     {analytics.compliance_distribution.map((dist: any, idx: number) => (
                       <div key={idx} className="flex items-center gap-2">
-                        <div className="w-24 text-sm text-stone-600">{dist.range}</div>
+                        <div className="w-24 text-sm text-stone-700">{dist.range}</div>
                         <div className="flex-1 bg-stone-200 rounded-full h-4">
                           <div
                             className="bg-blue-600 h-4 rounded-full"
                             style={{ width: `${(dist.count / analytics.overview.total_declarations) * 100}%` }}
                           ></div>
                         </div>
-                        <div className="w-16 text-sm text-stone-600 text-right">{dist.count} agents</div>
+                        <div className="w-16 text-sm text-stone-700 text-right">{dist.count} agents</div>
                       </div>
                     ))}
                   </div>
@@ -248,7 +248,7 @@ export default function TrustLedgerDemo() {
             <h3 className="text-xl font-bold text-stone-900 mb-4">Create Trust Declaration</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-stone-700 mb-2">Agent Name</label>
+                <label className="block text-sm font-medium text-stone-800 mb-2">Agent Name</label>
                 <input
                   type="text"
                   value={agentName}
@@ -257,7 +257,7 @@ export default function TrustLedgerDemo() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-stone-700 mb-2">Trust Articles</label>
+                <label className="block text-sm font-medium text-stone-800 mb-2">Trust Articles</label>
                 <div className="grid md:grid-cols-2 gap-3">
                   {Object.entries(trustArticles).map(([key, value]) => (
                     <label key={key} className={`flex items-center gap-2 p-3 rounded-lg cursor-pointer ${value ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
@@ -267,7 +267,7 @@ export default function TrustLedgerDemo() {
                         onChange={(e) => setTrustArticles({ ...trustArticles, [key]: e.target.checked })}
                         className="w-4 h-4"
                       />
-                      <span className="text-sm font-medium">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+                      <span className="text-sm font-medium text-stone-800">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
                     </label>
                   ))}
                 </div>
@@ -311,7 +311,7 @@ export default function TrustLedgerDemo() {
             <h3 className="text-xl font-bold text-stone-900 mb-4">AI Generation + Trust Receipt</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-stone-700 mb-2">AI Prompt</label>
+                <label className="block text-sm font-medium text-stone-800 mb-2">AI Prompt</label>
                 <textarea
                   value={aiPrompt}
                   onChange={(e) => setAiPrompt(e.target.value)}
@@ -355,7 +355,7 @@ export default function TrustLedgerDemo() {
             <h3 className="text-xl font-bold text-stone-900 mb-4">Verify Trust Receipt</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-stone-700 mb-2">Event ID</label>
+                <label className="block text-sm font-medium text-stone-800 mb-2">Event ID</label>
                 <input
                   type="text"
                   value={eventId}
