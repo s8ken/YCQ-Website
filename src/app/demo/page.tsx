@@ -21,10 +21,13 @@ export default function TechnicalDemo() {
                   Technology
                 </Link>
                 <Link href="/demo" className="text-stone-900 px-3 py-2 text-sm font-medium border-b-2 border-amber-600">
-                  Demo
+                  Technical Demo
                 </Link>
-                <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
-                  Live Demo
+                <Link href="/trust-demo" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
+                     Trust Ledger
+                   </Link>
+                   <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
+                  Full Platform
                 </Link>
               </div>
             </div>
