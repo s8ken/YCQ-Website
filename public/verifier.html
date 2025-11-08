@@ -22,6 +22,13 @@
 </head>
 <body>
   <h1>Trust Receipt Verifier</h1>
+  <div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:12px;margin:16px 0;border-radius:8px">
+    <p style="color:#92400e;font-weight:600;margin:0 0 8px 0">🚧 Demo Version</p>
+    <p style="color:#78350f;font-size:14px;margin:0">
+      This verifier demonstrates cryptographic verification capabilities. 
+      Production integration with live trust receipts in development.
+    </p>
+  </div>
   <p class="muted">Paste a receipt JSON below. We will: (1) recompute <em>entry_hash</em> from <em>prev_hash + inputs_hash + outputs_hash</em>, (2) verify the Ed25519 signature over the <em>payload</em>, and (3) show a concise verdict.</p>
 
   <div class="grid">

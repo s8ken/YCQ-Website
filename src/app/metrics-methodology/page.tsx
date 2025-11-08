@@ -45,6 +45,13 @@ export default function MetricsMethodology() {
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
               Defining YCQ Sonate's platform KPIs (FAR-A, FAR-H, PFI, TIS), evaluation protocol, and statistical reporting conventions. Version: 2025.11.08-r1
             </p>
+              <div className="mt-6 bg-amber-50 border-l-4 border-amber-500 p-4 rounded-lg max-w-3xl mx-auto">
+                <p className="text-amber-900 font-semibold mb-2">📋 Implementation Status</p>
+                <p className="text-amber-800 text-sm">
+                  Core trust scoring operational with 6-principle weighted algorithm (compliance_score, guilt_score). 
+                  Advanced metrics (FAR-A, FAR-H, PFI, TIS) methodology defined, implementation in progress.
+                </p>
+              </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="#kpi-definitions" className="text-blue-600 hover:text-blue-800 font-medium">
                 View KPIs →

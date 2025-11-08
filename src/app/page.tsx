@@ -898,7 +898,7 @@ if (!consent || !override) {
             {/* Development Stats */}
             <div className="grid md:grid-cols-4 gap-6 mb-16">
               <div className="bg-white rounded-lg shadow-md p-6 text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">18,247</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">18,247 ✅</div>
                 <p className="text-stone-700 font-semibold">Lines of Code</p>
                 <p className="text-stone-600 text-sm">Production-ready TypeScript, Python, React</p>
               </div>
@@ -913,7 +913,7 @@ if (!consent || !override) {
                 <p className="text-stone-600 text-sm">1 human founder + 5 AI co-contributors</p>
               </div>
               <div className="bg-white rounded-lg shadow-md p-6 text-center">
-                <div className="text-4xl font-bold text-amber-600 mb-2">95%</div>
+                <div className="text-4xl font-bold text-amber-600 mb-2">95% ✅</div>
                 <p className="text-stone-700 font-semibold">Test Coverage</p>
                 <p className="text-stone-600 text-sm">Comprehensive unit, integration, E2E tests</p>
               </div>
