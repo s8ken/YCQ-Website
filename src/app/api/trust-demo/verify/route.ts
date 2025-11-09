@@ -31,7 +31,10 @@ export async function POST(request: NextRequest) {
       }
     };
 
-    return NextResponse.json(verification);
+    return NextResponse.json({
+        success: true,
+        data: verification
+      });
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to verify receipt' },

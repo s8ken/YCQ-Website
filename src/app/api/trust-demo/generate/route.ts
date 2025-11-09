@@ -24,7 +24,10 @@ export async function POST(request: NextRequest) {
       }
     };
 
-    return NextResponse.json(aiResponse);
+    return NextResponse.json({
+        success: true,
+        data: aiResponse
+      });
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to generate response' },

@@ -23,7 +23,10 @@ export async function POST(request: NextRequest) {
       verificationStatus: 'pending'
     };
 
-    return NextResponse.json(declaration);
+    return NextResponse.json({
+        success: true,
+        data: declaration
+      });
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to create declaration' },
@@ -69,5 +72,8 @@ export async function GET(request: NextRequest) {
     }
   ];
 
-  return NextResponse.json(declarations);
+  return NextResponse.json({
+      success: true,
+      data: declarations
+    });
 }

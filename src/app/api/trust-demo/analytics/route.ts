@@ -29,7 +29,10 @@ export async function GET(request: NextRequest) {
     }
   };
 
-  return NextResponse.json(analytics);
+  return NextResponse.json({
+      success: true,
+      data: analytics
+    });
 }
 
 export async function POST(request: NextRequest) {
