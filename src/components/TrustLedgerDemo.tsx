@@ -345,7 +345,7 @@ export default function TrustLedgerDemo() {
               </button>
               {trustReceipt && (
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-amber-900 mb-2">🔐 Trust Receipt Generated</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">🔐 Trust Receipt Generated</h4>
                   <div className="space-y-1 text-sm">
                     <div><strong>Event ID:</strong> <code className="bg-amber-100 px-2 py-1 rounded text-gray-900">{trustReceipt.eventId}</code></div>
                     <div><strong>Timestamp:</strong> <span className="text-gray-900">{trustReceipt.timestamp ? new Date(trustReceipt.timestamp).toLocaleString() : 'N/A'}</span></div>
@@ -393,7 +393,7 @@ export default function TrustLedgerDemo() {
               </button>
               {aiResponse && (
                 <div className="bg-purple-50 border border-purple-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-purple-900 mb-2">🤖 AI Response</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">🤖 AI Response</h4>
                   <div className="text-sm text-black bg-white p-3 rounded border border-purple-200">
                     {aiResponse}
                   </div>
@@ -401,7 +401,7 @@ export default function TrustLedgerDemo() {
               )}
               {trustReceipt && (
                 <div className="bg-purple-50 border border-purple-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-purple-900 mb-2">🔐 Trust Receipt Generated</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">🔐 Trust Receipt Generated</h4>
                   <div className="space-y-1 text-sm">
                     <div><strong>Event ID:</strong> <code className="bg-purple-100 px-2 py-1 rounded text-gray-900">{trustReceipt.eventId}</code></div>
                     <div><strong>Timestamp:</strong> <span className="text-gray-900">{trustReceipt.timestamp ? new Date(trustReceipt.timestamp).toLocaleString() : 'N/A'}</span></div>
@@ -449,7 +449,7 @@ export default function TrustLedgerDemo() {
               </button>
               {verificationResult && (
                 <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-green-900 mb-2">✅ Verification Results</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">✅ Verification Results</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span>Overall Status:</span>
