@@ -228,7 +228,7 @@ export default function TrustLedgerDemo() {
                   <div className="bg-green-50 p-4 rounded-lg">
                     <div className="text-sm text-green-700 font-medium">Avg Compliance</div>
                     <div className="text-3xl font-bold text-green-900">
-                      {(analytics.complianceScore || 0) * 100.toFixed(1)}%
+                      {((analytics.complianceScore || 0) * 100).toFixed(1)}%
                     </div>
                   </div>
                   <div className="bg-amber-50 p-4 rounded-lg">
