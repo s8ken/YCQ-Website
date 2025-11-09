@@ -86,7 +86,7 @@ export default function TechnicalDemo() {
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-xl font-bold mb-4">What You'll Experience</h3>
+                <h3 className="text-xl font-bold mb-4">What You'apos;ll Experience</h3>
                 <ul className="space-y-2 text-blue-100 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-green-400 mt-0.5">✓</span>

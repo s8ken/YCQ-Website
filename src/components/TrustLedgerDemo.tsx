@@ -31,11 +31,11 @@ const DEMO_API_URL = '/api/trust-demo';
 export default function TrustLedgerDemo() {
   const [activeTab, setActiveTab] = useState<'analytics' | 'create' | 'generate' | 'verify'>('analytics');
   const [loading, setLoading] = useState(false);
-  const [analytics, setAnalytics] = useState<any>(null);
+  const [analytics, setAnalytics] = useState<Record<string, unknown> | null>(null);
   const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
   const [trustReceipt, setTrustReceipt] = useState<TrustReceipt | null>(null);
-  const [verificationResult, setVerificationResult] = useState<any>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [verificationResult, setVerificationResult] = useState<Record<string, unknown> | null>(null);
+  // const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
 
   // Form states
   const [agentName, setAgentName] = useState('Demo AI Agent');

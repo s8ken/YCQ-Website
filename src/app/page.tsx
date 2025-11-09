@@ -871,15 +871,15 @@ if (!consent || !override) {
             <div className="max-w-4xl mx-auto mb-16">
               <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
                 <h3 className="text-2xl font-bold text-stone-900 mb-4">
-                  🤖 Meta-Proof: SYMBI's Thesis Validated Through Its Own Development
+                  🤖 Meta-Proof: SYMBI'apos;s Thesis Validated Through Its Own Development
                 </h3>
                 <p className="text-stone-700 mb-4">
-                  YCQ Sonate wasn't just built <em>for</em> AI trust - it was built <em>with</em> AI trust. 
+                  YCQ Sonate wasn'apos;t just built <em>for</em> AI trust - it was built <em>with</em> AI trust. 
                   Every line of code, every architectural decision, every trust principle was developed through 
                   collaboration between human oversight and multiple AI systems.
                 </p>
                 <p className="text-stone-700 mb-4">
-                  This isn't theoretical. We used the exact framework we're selling: <strong>sovereign AI agents 
+                  This isn'apos;t theoretical. We used the exact framework we'apos;re selling: <strong>sovereign AI agents 
                   working under human governance</strong>, with cryptographic audit trails for every decision, 
                   and continuous validation of outputs.
                 </p>
@@ -889,7 +889,7 @@ if (!consent || !override) {
                   </p>
                   <p className="text-blue-800 text-sm">
                     If multiple AI systems can collaborate to build a 18K+ LOC enterprise platform with 95% test coverage 
-                    and zero critical bugs - all under human oversight - then the SYMBI thesis isn't just theory. It's proven.
+                    and zero critical bugs - all under human oversight - then the SYMBI thesis isn'apos;t just theory. It'apos;s proven.
                   </p>
                 </div>
               </div>
@@ -986,8 +986,8 @@ if (!consent || !override) {
                       Cross-Verification & Validation
                     </h4>
                     <p className="text-stone-700 mb-3">
-                      Different AI systems reviewed each other's work. Grok caught hallucinations in Claude's output. 
-                      Claude verified Grok's architectural decisions. Human founder arbitrated conflicts.
+                      Different AI systems reviewed each other'apos;s work. Grok caught hallucinations in Claude'apos;s output. 
+                      Claude verified Grok'apos;s architectural decisions. Human founder arbitrated conflicts.
                     </p>
                     <div className="bg-stone-50 rounded p-3 text-sm">
                       <p className="font-semibold text-stone-900">Validation Process:</p>
@@ -1040,7 +1040,7 @@ if (!consent || !override) {
                   <h4 className="font-bold text-stone-900 mb-2">✅ What Worked</h4>
                   <ul className="text-stone-700 space-y-2 text-sm">
                     <li>• AI excels at implementation details</li>
-                    <li>• Multiple AI systems catch each other's errors</li>
+                    <li>• Multiple AI systems catch each other'apos;s errors</li>
                     <li>• Human oversight prevents scope creep</li>
                     <li>• Cryptographic receipts enable trust</li>
                   </ul>

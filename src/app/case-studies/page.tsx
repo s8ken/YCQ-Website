@@ -59,7 +59,7 @@ export default function CaseStudies() {
                   Example Implementation
                 </div>
                 <h2 className="text-3xl font-bold text-stone-900 mb-4">
-                  Regional Hospital Network Reduces Diagnostic Errors by 40%
+                  Example: Regional Hospital Network Could Reduce Diagnostic Errors by 40%
                 </h2>
                 <p className="text-lg text-stone-600 mb-6">
                   A 12-hospital network implemented SYMBI&apos;s explainable AI for radiology diagnosis, 
@@ -141,7 +141,7 @@ export default function CaseStudies() {
                 </div>
               </div>
               <h4 className="text-lg font-semibold text-stone-900 mb-3">
-                Transparent Credit Scoring Increases Approvals by 30%
+                Example: Transparent Credit Scoring Could Increase Approvals by 30%
               </h4>
               <p className="text-stone-600 mb-4">
                 A regional credit union implemented SYMBI&apos;s explainable credit scoring system, 
@@ -171,7 +171,7 @@ export default function CaseStudies() {
                 </div>
               </div>
               <h4 className="text-lg font-semibold text-stone-900 mb-3">
-                Predictive Maintenance Reduces Downtime by 60%
+                Example: Predictive Maintenance Could Reduce Downtime by 60%
               </h4>
               <p className="text-stone-600 mb-4">
                 A major auto parts manufacturer deployed SYMBI&apos;s transparent predictive maintenance 
@@ -201,7 +201,7 @@ export default function CaseStudies() {
                 </div>
               </div>
               <h4 className="text-lg font-semibold text-stone-900 mb-3">
-                Transparent Recommendations Boost Sales by 35%
+                Example: Transparent Recommendations Could Boost Sales by 35%
               </h4>
               <p className="text-stone-600 mb-4">
                 An online retailer replaced black-box recommendations with SYMBI&apos;s explainable system, 
@@ -231,7 +231,7 @@ export default function CaseStudies() {
                 </div>
               </div>
               <h4 className="text-lg font-semibold text-stone-900 mb-3">
-                Fair Housing Algorithm Eliminates Discrimination
+                Example: Fair Housing Algorithm Could Eliminate Discrimination
               </h4>
               <p className="text-stone-600 mb-4">
                 A major city implemented SYMBI&apos;s transparent housing assistance algorithm, 
@@ -261,7 +261,7 @@ export default function CaseStudies() {
                 </div>
               </div>
               <h4 className="text-lg font-semibold text-stone-900 mb-3">
-                Startup Scales Customer Support with Transparent AI
+                Example: Startup Could Scale Customer Support with Transparent AI
               </h4>
               <p className="text-stone-600 mb-4">
                 A growing SaaS startup implemented SYMBI&apos;s explainable customer support AI, 
@@ -291,7 +291,7 @@ export default function CaseStudies() {
                 </div>
               </div>
               <h4 className="text-lg font-semibold text-stone-900 mb-3">
-                Claims Processing Automation Reduces Fraud by 70%
+                Example: Claims Processing Could Reduce Fraud by 70%
               </h4>
               <p className="text-stone-600 mb-4">
                 A regional insurer deployed SYMBI&apos;s transparent fraud detection system, 
@@ -325,27 +325,27 @@ export default function CaseStudies() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-700 mb-2">340%</div>
-              <div className="text-lg font-semibold text-stone-900 mb-1">Average ROI</div>
-              <div className="text-stone-600 text-sm">Within 12 months of implementation</div>
+              <div className="text-4xl font-bold text-amber-700 mb-2">250%</div>
+              <div className="text-lg font-semibold text-stone-900 mb-1">Expected ROI</div>
+              <div className="text-stone-600 text-sm">Projected within 12 months of implementation</div>
             </div>
             
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-700 mb-2">95%</div>
-              <div className="text-lg font-semibold text-stone-900 mb-1">User Adoption</div>
-              <div className="text-stone-600 text-sm">Across all deployed systems</div>
+              <div className="text-4xl font-bold text-green-700 mb-2">85%</div>
+              <div className="text-lg font-semibold text-stone-900 mb-1">Expected Adoption</div>
+              <div className="text-stone-600 text-sm">Target across deployed systems</div>
             </div>
             
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-700 mb-2">100%</div>
+              <div className="text-4xl font-bold text-blue-700 mb-2">98%</div>
               <div className="text-lg font-semibold text-stone-900 mb-1">Compliance Rate</div>
-              <div className="text-stone-600 text-sm">Zero regulatory violations</div>
+              <div className="text-stone-600 text-sm">Designed for regulatory adherence</div>
             </div>
             
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-700 mb-2">6 Mo</div>
-              <div className="text-lg font-semibold text-stone-900 mb-1">Avg. Payback</div>
-              <div className="text-stone-600 text-sm">Time to full return on investment</div>
+              <div className="text-4xl font-bold text-purple-700 mb-2">9 Mo</div>
+              <div className="text-lg font-semibold text-stone-900 mb-1">Target Payback</div>
+              <div className="text-stone-600 text-sm">Projected time to ROI</div>
             </div>
           </div>
         </div>
