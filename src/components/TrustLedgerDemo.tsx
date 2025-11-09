@@ -216,29 +216,29 @@ export default function TrustLedgerDemo() {
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <div className="text-sm text-blue-700 font-medium">Total Declarations</div>
-                    <div className="text-3xl font-bold text-blue-900">{analytics.overview.total_declarations}</div>
+                    <div className="text-3xl font-bold text-blue-900">{analytics.overview?.total_declarations}</div>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg">
                     <div className="text-sm text-green-700 font-medium">Avg Compliance</div>
                     <div className="text-3xl font-bold text-green-900">
-                      {(analytics.score_statistics.avg_compliance * 100).toFixed(1)}%
+                      {(analytics.score_statistics?.avg_compliance * 100).toFixed(1)}%
                     </div>
                   </div>
                   <div className="bg-amber-50 p-4 rounded-lg">
                     <div className="text-sm text-amber-700 font-medium">Trust Receipts</div>
-                    <div className="text-3xl font-bold text-amber-900">{analytics.overview.total_receipts}</div>
+                    <div className="text-3xl font-bold text-amber-900">{analytics.overview?.total_receipts}</div>
                   </div>
                 </div>
                 <div className="bg-stone-50 p-4 rounded-lg">
                   <h4 className="font-semibold text-stone-900 mb-2">Compliance Distribution</h4>
                   <div className="space-y-2">
-                    {analytics.compliance_distribution.map((dist: { range: string; count: number }, idx: number) => (
+                    {analytics.compliance_distribution?.map((dist: { range: string; count: number }, idx: number) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-24 text-sm text-stone-700">{dist.range}</div>
                         <div className="flex-1 bg-stone-200 rounded-full h-4">
                           <div
                             className="bg-blue-600 h-4 rounded-full"
-                            style={{ width: `${(dist.count / analytics.overview.total_declarations) * 100}%` }}
+                            style={{ width: `${(dist.count / analytics.overview?.total_declarations) * 100}%` }}
                           ></div>
                         </div>
                         <div className="w-16 text-sm text-stone-700 text-right">{dist.count} agents</div>
