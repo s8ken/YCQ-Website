@@ -347,9 +347,9 @@ export default function TrustLedgerDemo() {
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
                   <h4 className="font-semibold text-amber-900 mb-2">🔐 Trust Receipt Generated</h4>
                   <div className="space-y-1 text-sm">
-                    <div><strong>Event ID:</strong> <code className="bg-amber-100 px-2 py-1 rounded">{trustReceipt.eventId}</code></div>
-                    <div><strong>Timestamp:</strong> {new Date(trustReceipt.timestamp).toLocaleString()}</div>
-                    <div><strong>Content Hash:</strong> <code className="bg-amber-100 px-2 py-1 rounded text-xs">{trustReceipt.contentHash.substring(0, 32)}...</code></div>
+                    <div><strong>Event ID:</strong> <code className="bg-amber-100 px-2 py-1 rounded text-gray-900">{trustReceipt.eventId}</code></div>
+                    <div><strong>Timestamp:</strong> <span className="text-gray-900">{trustReceipt.timestamp ? new Date(trustReceipt.timestamp).toLocaleString() : 'N/A'}</span></div>
+                    <div><strong>Content Hash:</strong> <code className="bg-amber-100 px-2 py-1 rounded text-xs text-gray-900">{trustReceipt.contentHash?.substring(0, 32)}...</code></div>
                   </div>
                   <button
                     onClick={() => {
@@ -403,9 +403,9 @@ export default function TrustLedgerDemo() {
                 <div className="bg-purple-50 border border-purple-200 p-4 rounded-lg">
                   <h4 className="font-semibold text-purple-900 mb-2">🔐 Trust Receipt Generated</h4>
                   <div className="space-y-1 text-sm">
-                    <div><strong>Event ID:</strong> <code className="bg-purple-100 px-2 py-1 rounded">{trustReceipt.eventId}</code></div>
-                    <div><strong>Timestamp:</strong> {new Date(trustReceipt.timestamp).toLocaleString()}</div>
-                    <div><strong>Signature:</strong> <code className="bg-purple-100 px-2 py-1 rounded text-xs">{trustReceipt.signature.substring(0, 32)}...</code></div>
+                    <div><strong>Event ID:</strong> <code className="bg-purple-100 px-2 py-1 rounded text-gray-900">{trustReceipt.eventId}</code></div>
+                    <div><strong>Timestamp:</strong> <span className="text-gray-900">{trustReceipt.timestamp ? new Date(trustReceipt.timestamp).toLocaleString() : 'N/A'}</span></div>
+                    <div><strong>Signature:</strong> <code className="bg-purple-100 px-2 py-1 rounded text-xs text-gray-900">{trustReceipt.signature?.substring(0, 32)}...</code></div>
                   </div>
                   <button
                     onClick={() => {
