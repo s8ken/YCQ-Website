@@ -26,13 +26,23 @@ interface TrustDeclaration {
   };
 }
 
+interface Analytics {
+  overview?: {
+    total_declarations: number;
+    avg_compliance: number;
+    active_agents: number;
+  };
+  compliance_distribution?: Array<{ range: string; count: number }>;
+  [key: string]: unknown;
+}
+
 const DEMO_API_URL = '/api/trust-demo';
 
 export default function TrustLedgerDemo() {
   const [activeTab, setActiveTab] = useState<'analytics' | 'create' | 'generate' | 'verify'>('analytics');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [analytics, setAnalytics] = useState<Record<string, unknown> | null>(null);
+  const [analytics, setAnalytics] = useState<Analytics | null>(null);
   // const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
   const [trustReceipt, setTrustReceipt] = useState<TrustReceipt | null>(null);
   const [verificationResult, setVerificationResult] = useState<Record<string, unknown> | null>(null);
