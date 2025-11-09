@@ -453,15 +453,15 @@ export default function TrustLedgerDemo() {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span>Overall Status:</span>
-                      <span className="font-bold text-green-700">{verificationResult.summary.overallStatus}</span>
+                      <span className="font-bold text-gray-900">{verificationResult.summary.overallStatus}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Confidence:</span>
-                      <span className="font-bold text-green-700">{(verificationResult.summary.confidence * 100).toFixed(1)}%</span>
+                      <span className="font-bold text-gray-900">{(verificationResult.summary.confidence * 100).toFixed(1)}%</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Risk Level:</span>
-                      <span className="font-bold text-green-700">{verificationResult.summary.riskLevel}</span>
+                      <span className="font-bold text-gray-900">{verificationResult.summary.riskLevel}</span>
                     </div>
                     <div className="mt-3 border-t border-green-200 pt-3">
                       <div className="text-xs space-y-1">
