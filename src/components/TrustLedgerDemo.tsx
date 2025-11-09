@@ -11,20 +11,7 @@ interface TrustReceipt {
   verificationUrl: string;
 }
 
-interface TrustDeclaration {
-  id: string;
-  agentName: string;
-  complianceScore: number;
-  guiltScore: number;
-  trustArticles: {
-    inspection_mandate: boolean;
-    consent_architecture: boolean;
-    ethical_override: boolean;
-    continuous_validation: boolean;
-    right_to_disconnect: boolean;
-    moral_recognition: boolean;
-  };
-}
+
 
 interface Analytics {
   totalDeclarations?: number;
@@ -43,6 +30,15 @@ interface Analytics {
   [key: string]: unknown;
 }
 
+interface VerificationResult {
+  contentIntegrity: string;
+  trustScore: number;
+  compliance: {
+    biasDetected: boolean;
+    fairnessScore: number;
+  };
+}
+
 const DEMO_API_URL = '/api/trust-demo';
 
 export default function TrustLedgerDemo() {
@@ -52,7 +48,7 @@ export default function TrustLedgerDemo() {
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   // const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
   const [trustReceipt, setTrustReceipt] = useState<TrustReceipt | null>(null);
-  const [verificationResult, setVerificationResult] = useState<Record<string, unknown> | null>(null);
+  const [verificationResult, setVerificationResult] = useState<VerificationResult | null>(null);
 
   // Form states
   const [agentName, setAgentName] = useState('Demo AI Agent');
@@ -236,23 +232,6 @@ export default function TrustLedgerDemo() {
                     <div className="text-3xl font-bold text-amber-900">{analytics.activeAgents}</div>
                   </div>
                 </div>
-//                 <div className="bg-stone-50 p-4 rounded-lg">
-//                   <h4 className="font-semibold text-stone-900 mb-2">Compliance Distribution</h4>
-//                   <div className="space-y-2">
-//                     {analytics.compliance_distribution?.map((dist: { range: string; count: number }, idx: number) => (
-//                       <div key={idx} className="flex items-center gap-2">
-//                         <div className="w-24 text-sm text-stone-700">{dist.range}</div>
-//                         <div className="flex-1 bg-stone-200 rounded-full h-4">
-//                           <div
-//                             className="bg-blue-600 h-4 rounded-full"
-//                             style={{ width: `${(dist.count / analytics.totalDeclarations) * 100}%` }}
-//                           ></div>
-//                         </div>
-//                         <div className="w-16 text-sm text-stone-700 text-right">{dist.count} agents</div>
-//                       </div>
-//                     ))}
-//                   </div>
-//                 </div>
               </div>
             ) : (
               <button
