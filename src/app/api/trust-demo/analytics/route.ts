@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   // Mock analytics data for demo purposes
   const analytics = {
     totalDeclarations: 42,
@@ -35,6 +35,6 @@ export async function GET(request: NextRequest) {
     });
 }
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   return NextResponse.json({ success: true, message: 'Analytics data updated' });
 }

@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json'
       }
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       success: false,
       error: 'Failed to generate demo receipt'

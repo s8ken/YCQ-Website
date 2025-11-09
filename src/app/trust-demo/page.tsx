@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CONSOLE_URL, TRUST_DEMO_API } from "@/lib/site";
+import { CONSOLE_URL } from "@/lib/site";
 import TrustLedgerDemo from "@/components/TrustLedgerDemo";
 
 export default function TrustDemoPage() {

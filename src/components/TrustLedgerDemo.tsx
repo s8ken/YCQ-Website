@@ -32,7 +32,7 @@ export default function TrustLedgerDemo() {
   const [activeTab, setActiveTab] = useState<'analytics' | 'create' | 'generate' | 'verify'>('analytics');
   const [loading, setLoading] = useState(false);
   const [analytics, setAnalytics] = useState<Record<string, unknown> | null>(null);
-  const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
+  // const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
   const [trustReceipt, setTrustReceipt] = useState<TrustReceipt | null>(null);
   const [verificationResult, setVerificationResult] = useState<Record<string, unknown> | null>(null);
   // const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
@@ -61,7 +61,7 @@ export default function TrustLedgerDemo() {
       } else {
         setError('Failed to load analytics');
       }
-    } catch (err) {
+    } catch {
       setError('Network error loading analytics');
     } finally {
       setLoading(false);
@@ -88,7 +88,7 @@ export default function TrustLedgerDemo() {
       } else {
         setError('Failed to create trust declaration');
       }
-    } catch (err) {
+    } catch {
       setError('Network error creating declaration');
     } finally {
       setLoading(false);
@@ -115,7 +115,7 @@ export default function TrustLedgerDemo() {
       } else {
         setError('Failed to generate AI response');
       }
-    } catch (err) {
+    } catch {
       setError('Network error generating response');
     } finally {
       setLoading(false);
@@ -143,7 +143,7 @@ export default function TrustLedgerDemo() {
       } else {
         setError('Verification failed');
       }
-    } catch (err) {
+    } catch {
       setError('Network error verifying receipt');
     } finally {
       setLoading(false);
@@ -171,7 +171,7 @@ export default function TrustLedgerDemo() {
           ].map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
+              onClick={() => setActiveTab(tab.id as 'analytics' | 'create' | 'generate' | 'verify')}
               className={`px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors ${
                 activeTab === tab.id
                   ? 'border-b-2 border-blue-600 text-blue-600'
@@ -222,7 +222,7 @@ export default function TrustLedgerDemo() {
                 <div className="bg-stone-50 p-4 rounded-lg">
                   <h4 className="font-semibold text-stone-900 mb-2">Compliance Distribution</h4>
                   <div className="space-y-2">
-                    {analytics.compliance_distribution.map((dist: any, idx: number) => (
+                    {analytics.compliance_distribution.map((dist: { range: string; count: number }, idx: number) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-24 text-sm text-stone-700">{dist.range}</div>
                         <div className="flex-1 bg-stone-200 rounded-full h-4">
