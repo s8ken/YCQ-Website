@@ -11,8 +11,6 @@ interface TrustReceipt {
   verificationUrl: string;
 }
 
-
-
 interface Analytics {
   totalDeclarations?: number;
   complianceScore?: number;
@@ -31,12 +29,29 @@ interface Analytics {
 }
 
 interface VerificationResult {
-  contentIntegrity: string;
-  trustScore: number;
-  compliance: {
-    biasDetected: boolean;
-    fairnessScore: number;
+  eventId: string;
+  status: string;
+  timestamp: string;
+  checks: {
+    hashIntegrity: { status: string; message: string };
+    signatureValid: { status: string; message: string };
+    temporalOrder: { status: string; message: string };
   };
+  summary: {
+    overallStatus: string;
+    confidence: number;
+    riskLevel: string;
+  };
+}
+
+interface Declaration {
+  id: string;
+  timestamp: string;
+  agentName: string;
+  complianceScore: number;
+  guiltScore: number;
+  trustArticles: Record<string, boolean>;
+  status: string;
 }
 
 const DEMO_API_URL = '/api/trust-demo';
@@ -46,9 +61,10 @@ export default function TrustLedgerDemo() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
-  // const [declarations, setDeclarations] = useState<TrustDeclaration[]>([]);
+  const [declarations, setDeclarations] = useState<Declaration[]>([]);
   const [trustReceipt, setTrustReceipt] = useState<TrustReceipt | null>(null);
   const [verificationResult, setVerificationResult] = useState<VerificationResult | null>(null);
+  const [aiResponse, setAiResponse] = useState<string | null>(null);
 
   // Form states
   const [agentName, setAgentName] = useState('Demo AI Agent');
@@ -81,6 +97,18 @@ export default function TrustLedgerDemo() {
     }
   };
 
+  const loadDeclarations = async () => {
+    try {
+      const response = await fetch(`${DEMO_API_URL}/declarations`);
+      const data = await response.json();
+      if (data.success) {
+        setDeclarations(data.data);
+      }
+    } catch {
+      console.error('Failed to load declarations');
+    }
+  };
+
   const createTrustDeclaration = async () => {
     setLoading(true);
     setError(null);
@@ -97,7 +125,20 @@ export default function TrustLedgerDemo() {
       });
       const data = await response.json();
       if (data.success) {
-        setTrustReceipt(data.trustReceipt);
+        // Create a mock trust receipt for the declaration
+        const mockReceipt: TrustReceipt = {
+          eventId: `evt_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+          timestamp: new Date().toISOString(),
+          contentHash: Buffer.from(JSON.stringify(data.data)).toString('hex').substring(0, 16),
+          previousHash: 'prev_' + Math.random().toString(36).substr(2, 16),
+          signature: 'sig_' + Math.random().toString(36).substr(2, 32),
+          verificationUrl: '#'
+        };
+        setTrustReceipt(mockReceipt);
+        
+        // Reload declarations and analytics to update counts
+        await loadDeclarations();
+        await loadAnalytics();
       } else {
         setError('Failed to create trust declaration');
       }
@@ -124,7 +165,11 @@ export default function TrustLedgerDemo() {
       });
       const data = await response.json();
       if (data.success) {
+        setAiResponse(data.data.response);
         setTrustReceipt(data.data.trustReceipt);
+        
+        // Reload analytics to update counts
+        await loadAnalytics();
       } else {
         setError('Failed to generate AI response');
       }
@@ -152,7 +197,7 @@ export default function TrustLedgerDemo() {
       });
       const data = await response.json();
       if (data.success) {
-        setVerificationResult(data.verification);
+        setVerificationResult(data.data);
       } else {
         setError('Verification failed');
       }
@@ -166,6 +211,7 @@ export default function TrustLedgerDemo() {
   useEffect(() => {
     if (activeTab === 'analytics') {
       loadAnalytics();
+      loadDeclarations();
     }
   }, [activeTab]);
 
@@ -178,8 +224,8 @@ export default function TrustLedgerDemo() {
         <div className="flex overflow-x-auto">
           {[
             { id: 'analytics', label: '📊 Analytics', icon: '📊' },
-            { id: 'create', label: '✨ Create Declaration', icon: '✨' },
-            { id: 'generate', label: '🤖 AI + Receipt', icon: '🤖' },
+            { id: 'create', label: '🏗️ Create Agent Declaration', icon: '🏗️' },
+            { id: 'generate', label: '🤖 AI Generate + Receipt', icon: '🤖' },
             { id: 'verify', label: '🔍 Verify Receipt', icon: '🔍' },
           ].map((tab) => (
             <button
@@ -219,7 +265,7 @@ export default function TrustLedgerDemo() {
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <div className="text-sm text-blue-700 font-medium">Total Declarations</div>
-                    <div className="text-3xl font-bold text-blue-900">{analytics.totalDeclarations}</div>
+                    <div className="text-3xl font-bold text-blue-900">{analytics.totalDeclarations || 0}</div>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg">
                     <div className="text-sm text-green-700 font-medium">Avg Compliance</div>
@@ -228,8 +274,8 @@ export default function TrustLedgerDemo() {
                     </div>
                   </div>
                   <div className="bg-amber-50 p-4 rounded-lg">
-                    <div className="text-sm text-amber-700 font-medium">Trust Receipts</div>
-                    <div className="text-3xl font-bold text-amber-900">{analytics.activeAgents}</div>
+                    <div className="text-sm text-amber-700 font-medium">Active Agents</div>
+                    <div className="text-3xl font-bold text-amber-900">{analytics.activeAgents || 0}</div>
                   </div>
                 </div>
               </div>
@@ -247,7 +293,11 @@ export default function TrustLedgerDemo() {
         {/* Create Declaration Tab */}
         {activeTab === 'create' && (
           <div>
-            <h3 className="text-xl font-bold text-stone-900 mb-4">Create Trust Declaration</h3>
+            <h3 className="text-xl font-bold text-stone-900 mb-4">Create AI Agent Trust Declaration</h3>
+            <p className="text-sm text-stone-600 mb-6">
+              Define your AI agent and specify which trust articles it complies with. This creates a formal declaration 
+              that can be verified and tracked on the trust ledger.
+            </p>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-stone-800 mb-2">Agent Name</label>
@@ -259,7 +309,7 @@ export default function TrustLedgerDemo() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-stone-800 mb-2">Trust Articles</label>
+                <label className="block text-sm font-medium text-stone-800 mb-2">Trust Articles Compliance</label>
                 <div className="grid md:grid-cols-2 gap-3">
                   {Object.entries(trustArticles).map(([key, value]) => (
                     <label key={key} className={`flex items-center gap-2 p-3 rounded-lg cursor-pointer ${value ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
@@ -276,12 +326,12 @@ export default function TrustLedgerDemo() {
               </div>
               <div className="bg-blue-50 p-4 rounded-lg">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium text-blue-900">Compliance Score</span>
-                  <span className="text-2xl font-bold text-blue-900">{(complianceScore * 100).toFixed(0)}%</span>
+                  <span className="text-sm font-medium text-blue-800">Compliance Score</span>
+                  <span className="text-sm font-bold text-blue-900">{(complianceScore * 100).toFixed(1)}%</span>
                 </div>
-                <div className="w-full bg-blue-200 rounded-full h-3">
+                <div className="w-full bg-blue-200 rounded-full h-2">
                   <div
-                    className="bg-blue-600 h-3 rounded-full transition-all duration-300"
+                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                     style={{ width: `${complianceScore * 100}%` }}
                   ></div>
                 </div>
@@ -291,7 +341,7 @@ export default function TrustLedgerDemo() {
                 disabled={loading}
                 className="w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
               >
-                {loading ? 'Creating...' : 'Create Declaration + Trust Receipt'}
+                {loading ? 'Creating...' : 'Create Agent Declaration + Trust Receipt'}
               </button>
               {trustReceipt && (
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
@@ -301,6 +351,15 @@ export default function TrustLedgerDemo() {
                     <div><strong>Timestamp:</strong> {new Date(trustReceipt.timestamp).toLocaleString()}</div>
                     <div><strong>Content Hash:</strong> <code className="bg-amber-100 px-2 py-1 rounded text-xs">{trustReceipt.contentHash.substring(0, 32)}...</code></div>
                   </div>
+                  <button
+                    onClick={() => {
+                      setEventId(trustReceipt.eventId);
+                      setActiveTab('verify');
+                    }}
+                    className="mt-3 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition-colors text-sm"
+                  >
+                    Verify This Receipt
+                  </button>
                 </div>
               )}
             </div>
@@ -311,6 +370,10 @@ export default function TrustLedgerDemo() {
         {activeTab === 'generate' && (
           <div>
             <h3 className="text-xl font-bold text-stone-900 mb-4">AI Generation + Trust Receipt</h3>
+            <p className="text-sm text-stone-600 mb-6">
+              Generate an AI response with automatic trust receipt creation. The response is cryptographically 
+              signed and verifiable on the trust ledger.
+            </p>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-stone-800 mb-2">AI Prompt</label>
@@ -328,23 +391,31 @@ export default function TrustLedgerDemo() {
               >
                 {loading ? 'Generating...' : 'Generate AI Response + Trust Receipt'}
               </button>
+              {aiResponse && (
+                <div className="bg-purple-50 border border-purple-200 p-4 rounded-lg">
+                  <h4 className="font-semibold text-purple-900 mb-2">🤖 AI Response</h4>
+                  <div className="text-sm text-black bg-white p-3 rounded border border-purple-200">
+                    {aiResponse}
+                  </div>
+                </div>
+              )}
               {trustReceipt && (
                 <div className="bg-purple-50 border border-purple-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-purple-900 mb-2">🤖 AI Response Generated with Trust Receipt</h4>
+                  <h4 className="font-semibold text-purple-900 mb-2">🔐 Trust Receipt Generated</h4>
                   <div className="space-y-1 text-sm">
                     <div><strong>Event ID:</strong> <code className="bg-purple-100 px-2 py-1 rounded">{trustReceipt.eventId}</code></div>
                     <div><strong>Timestamp:</strong> {new Date(trustReceipt.timestamp).toLocaleString()}</div>
                     <div><strong>Signature:</strong> <code className="bg-purple-100 px-2 py-1 rounded text-xs">{trustReceipt.signature.substring(0, 32)}...</code></div>
-                    <button
-                      onClick={() => {
-                        setEventId(trustReceipt.eventId);
-                        setActiveTab('verify');
-                      }}
-                      className="mt-2 bg-purple-600 text-white px-4 py-2 rounded text-sm hover:bg-purple-700"
-                    >
-                      Verify This Receipt
-                    </button>
                   </div>
+                  <button
+                    onClick={() => {
+                      setEventId(trustReceipt.eventId);
+                      setActiveTab('verify');
+                    }}
+                    className="mt-3 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
+                  >
+                    Verify This Receipt
+                  </button>
                 </div>
               )}
             </div>
@@ -355,6 +426,9 @@ export default function TrustLedgerDemo() {
         {activeTab === 'verify' && (
           <div>
             <h3 className="text-xl font-bold text-stone-900 mb-4">Verify Trust Receipt</h3>
+            <p className="text-sm text-stone-600 mb-6">
+              Enter an Event ID to verify the authenticity and integrity of a trust receipt on the blockchain.
+            </p>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-stone-800 mb-2">Event ID</label>
@@ -378,20 +452,23 @@ export default function TrustLedgerDemo() {
                   <h4 className="font-semibold text-green-900 mb-2">✅ Verification Results</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span>Content Integrity:</span>
-                      <span className="font-bold text-green-700">{verificationResult.contentIntegrity}</span>
+                      <span>Overall Status:</span>
+                      <span className="font-bold text-green-700">{verificationResult.summary.overallStatus}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Trust Score:</span>
-                      <span className="font-bold text-green-700">{(verificationResult.trustScore * 100).toFixed(1)}%</span>
+                      <span>Confidence:</span>
+                      <span className="font-bold text-green-700">{(verificationResult.summary.confidence * 100).toFixed(1)}%</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Bias Detected:</span>
-                      <span className="font-bold text-green-700">{verificationResult.compliance.biasDetected ? 'Yes' : 'No'}</span>
+                      <span>Risk Level:</span>
+                      <span className="font-bold text-green-700">{verificationResult.summary.riskLevel}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>Fairness Score:</span>
-                      <span className="font-bold text-green-700">{(verificationResult.compliance.fairnessScore * 100).toFixed(1)}%</span>
+                    <div className="mt-3 border-t border-green-200 pt-3">
+                      <div className="text-xs space-y-1">
+                        <div>• {verificationResult.checks.hashIntegrity.message}</div>
+                        <div>• {verificationResult.checks.signatureValid.message}</div>
+                        <div>• {verificationResult.checks.temporalOrder.message}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
