@@ -9,7 +9,7 @@ export default function Changelog() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">YCQ Sonate</Link>
+              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
               <div className="ml-2 text-sm text-stone-600">Why Seek You</div>
             </div>
             <div className="hidden md:block">
@@ -43,7 +43,7 @@ export default function Changelog() {
               Changelog
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-2xl mx-auto">
-              Version history and methodology updates for YCQ Sonate metrics
+              Version history and methodology updates for Sonate metrics
             </p>
             <Link href="/metrics-methodology" className="text-blue-600 hover:text-blue-800 font-medium">
               ← Back to Metrics Methodology

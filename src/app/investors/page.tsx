@@ -9,7 +9,7 @@ export default function Investors() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">YCQ Sonate</Link>
+              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
               <div className="ml-2 text-sm text-stone-600">Why Seek You</div>
             </div>
             <div className="hidden md:block">
@@ -46,7 +46,7 @@ export default function Investors() {
               AI Trust Infrastructure Market Leader
             </h2>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              YCQ Sonate is positioned to capture significant market share in the rapidly expanding AI trust and compliance infrastructure market.
+              Sonate is positioned to capture significant market share in the rapidly expanding AI trust and compliance infrastructure market.
             </p>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function Investors() {
               </div>
               
               <div>
-                <h4 className="text-xl font-semibold text-stone-900 mb-4">YCQ Sonate Advantages</h4>
+                <h4 className="text-xl font-semibold text-stone-900 mb-4">Sonate Advantages</h4>
                 <ul className="space-y-3 text-stone-600">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
@@ -331,7 +331,7 @@ export default function Investors() {
             Join us in building the infrastructure that will govern the next generation of enterprise AI.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="mailto:stephen@yseeku.com?subject=Investment Discussion - YCQ Sonate" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors">
+            <Link href="mailto:stephen@yseeku.com?subject=Investment Discussion - Sonate" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors">
               Schedule Investment Discussion
             </Link>
             <Link href={CONSOLE_URL} target="_blank" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">

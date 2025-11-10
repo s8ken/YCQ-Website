@@ -8,7 +8,7 @@ export default function Governance() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">YCQ Sonate</Link>
+              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
               <div className="ml-2 text-sm text-stone-600">DAO Governance</div>
             </div>
             <div className="hidden md:block">
@@ -42,7 +42,7 @@ export default function Governance() {
               <h3 className="text-sm font-semibold text-amber-900 mb-1">IMPORTANT LEGAL NOTICE</h3>
               <p className="text-sm text-amber-800">
                 <strong>SYMBI governance tokens have no financial value, no expectation of profit, and grant no economic rights.</strong>
-                Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and YCQ Sonate Platform do not require tokens or DAO participation for use.
+                Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and Sonate Platform do not require tokens or DAO participation for use.
               </p>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function Governance() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-3">YCQ Sonate Platform</h3>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">Sonate Platform</h3>
               <p className="text-stone-600 mb-4">
                 Commercial SaaS built on trust protocol. Enterprise AI trust infrastructure with Ledger, Guardrails, Roundtable.
               </p>
@@ -362,7 +362,7 @@ export default function Governance() {
             <h4 className="font-semibold text-amber-900 mb-3">Mandatory Disclaimer (All DAO Pages)</h4>
             <p className="text-amber-800 text-sm">
               <strong>IMPORTANT:</strong> SYMBI governance tokens have no financial value, no expectation of profit, and grant no economic rights.
-              Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and YCQ Sonate Platform do not require
+              Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and Sonate Platform do not require
               tokens or DAO participation for use. This is not an investment opportunity. Participation in DAO governance is entirely optional.
             </p>
           </div>
@@ -392,7 +392,7 @@ export default function Governance() {
           <div className="border-t border-stone-700 pt-8 mt-12">
             <p className="text-sm text-stone-400 text-center max-w-3xl mx-auto">
               <strong>LEGAL DISCLAIMER:</strong> SYMBI governance tokens have no financial value, no expectation of profit, and grant no economic rights.
-              Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and YCQ Sonate Platform do not require tokens
+              Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and Sonate Platform do not require tokens
               or DAO participation for use. Participation is entirely optional and at your own discretion.
             </p>
           </div>

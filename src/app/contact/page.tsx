@@ -37,7 +37,7 @@ export default function Contact() {
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center">
                 <Link href="/" className="flex items-center">
-                  <div className="text-2xl font-bold text-stone-800">YCQ</div>
+                  <div className="text-2xl font-bold text-stone-800">YCQ Labs</div>
                   <div className="ml-2 text-sm text-stone-600">Y Seek U</div>
                 </Link>
               </div>
@@ -115,7 +115,7 @@ export default function Contact() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
-                <div className="text-2xl font-bold text-stone-800">YCQ</div>
+                <div className="text-2xl font-bold text-stone-800">YCQ Labs</div>
                 <div className="ml-2 text-sm text-stone-600">Y Seek U</div>
               </Link>
             </div>

@@ -9,7 +9,7 @@ export default function TechnicalDemo() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">YCQ Sonate</Link>
+              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
               <div className="ml-2 text-sm text-stone-600">Trust Infrastructure</div>
             </div>
             <div className="hidden md:block">
@@ -43,7 +43,7 @@ export default function TechnicalDemo() {
               Technical Demo: SYMBI Trust Protocol
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              Explore W3C-compliant DID resolution, verifiable credentials, and cryptographic audit trails that power YCQ Sonate
+              Explore W3C-compliant DID resolution, verifiable credentials, and SYMBI Trust Framework that powers Sonate
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function TechnicalDemo() {
                 🎯 Interactive Platform Demo
               </h2>
               <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-                Experience YCQ Sonate live with production-ready trust infrastructure — no signup required
+                Experience Sonate featuring SYMBI Trust Framework live with production-ready trust infrastructure — no signup required
               </p>
             </div>
 
@@ -475,7 +475,7 @@ const isValid = await verifyAuditChain(eventId)
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-stone-800 to-stone-700 rounded-lg p-8 text-center">
             <h2 className="text-2xl font-bold text-white mb-4">
-              Ready to Experience YCQ Sonate?
+              Ready to Experience Sonate?
             </h2>
             <p className="text-stone-300 mb-6 max-w-2xl mx-auto">
               Launch the interactive platform demo to experience production-ready trust infrastructure in action
@@ -484,7 +484,7 @@ const isValid = await verifyAuditChain(eventId)
               <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors">
                 Launch Interactive Demo →
               </Link>
-              <Link href="mailto:stephen@yseeku.com?subject=YCQ Technical Discussion" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">
+              <Link href="mailto:stephen@yseeku.com?subject=YCQ Labs Technical Discussion" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">
                 Schedule Technical Call
               </Link>
             </div>

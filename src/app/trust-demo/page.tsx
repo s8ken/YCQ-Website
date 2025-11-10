@@ -10,7 +10,7 @@ export default function TrustDemoPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">YCQ Sonate</Link>
+              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
               <div className="ml-2 text-sm text-stone-600">Trust Infrastructure</div>
             </div>
             <div className="hidden md:block">
@@ -254,7 +254,7 @@ export default function TrustDemoPage() {
       <footer className="bg-stone-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-stone-400">
-            © 2024 YCQ Sonate. Enterprise AI Trust Infrastructure.
+            © 2024 Sonate. Enterprise AI Trust Infrastructure.
           </p>
           <p className="text-stone-500 text-sm mt-2">
             Demo environment for evaluation purposes only

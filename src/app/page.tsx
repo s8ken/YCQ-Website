@@ -9,8 +9,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <div className="text-2xl font-bold text-stone-800">YCQ Sonate</div>
-              <div className="ml-2 text-sm text-stone-600">Why Seek You</div>
+              <div className="text-2xl font-bold text-stone-800">Sonate</div>
+              <div className="ml-2 text-sm text-stone-600">AI Trust Infrastructure</div>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
@@ -46,7 +46,7 @@ export default function Home() {
               W3C-compliant DID/VC infrastructure with cryptographic audit trails
             </h2>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              YCQ Sonate: Production-ready enterprise platform built on SYMBI Trust Protocol.
+              Sonate: Production-ready enterprise platform featuring SYMBI Trust Framework.
               4 DID methods, verifiable credentials, privacy-preserving revocation. 95% test coverage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -100,7 +100,7 @@ export default function Home() {
                 Built on SYMBI Trust Protocol
               </h2>
               <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-                The foundation of YCQ Sonate: A cryptographic trust infrastructure that turns AI ethics into enforceable code
+                The foundation of Sonate: A cryptographic trust infrastructure that turns AI ethics into enforceable code
               </p>
             </div>
 
@@ -473,7 +473,7 @@ if (!consent || !override) {
               Three-Tier Architecture
             </h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              Understanding the relationship between SYMBI Trust Protocol, YCQ Sonate Platform, and SYMBI DAO
+              Understanding the relationship between SYMBI Trust Protocol, Sonate Platform, and SYMBI DAO
             </p>
           </div>
 
@@ -502,7 +502,7 @@ if (!consent || !override) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-3">YCQ Sonate Platform</h3>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">Sonate Platform</h3>
               <p className="text-stone-600 mb-4">
                 <strong>Commercial SaaS product.</strong> Enterprise AI trust infrastructure built on SYMBI Trust Protocol.
               </p>
@@ -535,19 +535,19 @@ if (!consent || !override) {
 
           <div className="text-center mt-8">
             <p className="text-sm text-stone-600 bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-4xl mx-auto">
-              <strong>Important:</strong> SYMBI Trust Protocol and YCQ Sonate Platform require NO tokens or DAO participation.
+              <strong>Important:</strong> SYMBI Trust Protocol and Sonate Platform require NO tokens or DAO participation.
               The DAO is a separate governance layer for contributors who want to participate in protocol development decisions.
             </p>
           </div>
         </div>
       </section>
 
-      {/* YCQ Sonate Platform Section */}
+      {/* Sonate Platform Section */}
       <section className="py-20 bg-white scroll-mt-24" id="platform">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-stone-900 mb-4">
-              The YCQ Sonate Platform
+              The Sonate Platform
             </h2>
             <p className="text-xl text-stone-600 mb-6 max-w-3xl mx-auto">
               Enterprise AI trust infrastructure built on W3C-compliant protocol
@@ -833,7 +833,7 @@ if (!consent || !override) {
                 <p className="text-sm">No vendor keys on client. All provider keys server-side.</p>
               </div>
               <div>
-                <a href="/YCQ_Sonate_UAT_Report.md" download className="bg-amber-600 text-white px-6 py-3 rounded-md hover:bg-amber-700 transition-colors inline-block">
+                <a href="/YCQ Labs Labs_Sonate_UAT_Report.md" download className="bg-amber-600 text-white px-6 py-3 rounded-md hover:bg-amber-700 transition-colors inline-block">
                   Download UAT Report
                 </a>
                 <p className="text-stone-300 text-sm mt-2">Full technical documentation</p>
@@ -874,7 +874,7 @@ if (!consent || !override) {
                   🤖 Meta-Proof: SYMBI'apos;s Thesis Validated Through Its Own Development
                 </h3>
                 <p className="text-stone-700 mb-4">
-                  YCQ Sonate wasn'apos;t just built <em>for</em> AI trust - it was built <em>with</em> AI trust. 
+                  Sonate wasn'apos;t just built <em>for</em> AI trust - it was built <em>with</em> AI trust. 
                   Every line of code, every architectural decision, every trust principle was developed through 
                   collaboration between human oversight and multiple AI systems.
                 </p>
@@ -1385,7 +1385,7 @@ if (!consent || !override) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-stone-900 mb-4">
-              Experience YCQ Sonate Live
+              Experience Sonate Live
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
               See the platform in action. Complete with Sonate Ledger verification, Sonate Guardrails, 
@@ -1437,7 +1437,7 @@ if (!consent || !override) {
                 The result is a production-ready platform that solves real problems in the rapidly expanding AI trust and compliance market.&rdquo;
               </blockquote>
               <div className="text-stone-600">
-                <p className="font-semibold">Stephen — Founder, YCQ Sonate</p>
+                <p className="font-semibold">Stephen — Founder, Sonate</p>
               </div>
             </div>
           </div>
@@ -1453,11 +1453,11 @@ if (!consent || !override) {
           <div className="space-y-6">
             <div className="bg-stone-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-stone-900 mb-3">
-                Do I need DAO tokens to use SYMBI Trust Protocol or YCQ Sonate Platform?
+                Do I need DAO tokens to use SYMBI Trust Protocol or Sonate Platform?
               </h3>
               <p className="text-stone-600">
                 <strong>No.</strong> SYMBI Trust Protocol is open-source infrastructure available on GitHub (SYMBI Symphony).
-                YCQ Sonate Platform is a commercial SaaS product with standard enterprise pricing. Neither requires tokens or DAO participation.
+                Sonate Platform is a commercial SaaS product with standard enterprise pricing. Neither requires tokens or DAO participation.
                 The SYMBI DAO is a completely separate, optional governance layer for contributors who want to participate in protocol development decisions.
               </p>
             </div>
@@ -1492,7 +1492,7 @@ if (!consent || !override) {
               </h3>
               <p className="text-stone-600">
                 The EU AI Act requires transparency, auditability, and human oversight for high-risk AI systems.
-                YCQ Sonate provides cryptographic audit trails (tamper-evident ledger), verifiable credentials for AI agent capabilities,
+                Sonate provides cryptographic audit trails (tamper-evident ledger), verifiable credentials for AI agent capabilities,
                 privacy-preserving revocation (Status List 2021), and complete attribution (AI vs human decisions).
                 All logged immutably with W3C-compliant infrastructure that regulators can independently verify.
               </p>
@@ -1504,7 +1504,7 @@ if (!consent || !override) {
               </h3>
               <p className="text-stone-600">
                 <strong>Both.</strong> The SYMBI Trust Protocol (DID resolution, VC infrastructure, revocation) is open-source on GitHub.
-                YCQ Sonate Platform (enterprise features like Ledger, Guardrails, Roundtable, Capsules) is proprietary SaaS.
+                Sonate Platform (enterprise features like Ledger, Guardrails, Roundtable, Capsules) is proprietary SaaS.
                 This model ensures trust infrastructure transparency while providing commercial enterprise-grade tooling and support.
               </p>
             </div>
@@ -1518,7 +1518,7 @@ if (!consent || !override) {
           <div className="grid md:grid-cols-4 gap-8">
             {/* Company */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">YCQ Sonate</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Sonate</h3>
               <p className="text-stone-400 text-sm mb-4">
                 AI trust infrastructure for enterprise compliance and regulatory adherence.
               </p>
@@ -1617,7 +1617,7 @@ if (!consent || !override) {
           <div className="border-t border-stone-800 mt-8 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-stone-400 text-sm">
-                © 2025 YCQ Sonate. All rights reserved.
+                © 2025 Sonate. All rights reserved.
               </p>
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <span className="text-stone-500 text-xs">
@@ -1642,7 +1642,7 @@ if (!consent || !override) {
             Ready to Discuss Investment?
           </h2>
           <p className="text-xl text-stone-300 mb-8 max-w-2xl mx-auto">
-            YCQ Sonate represents a compelling opportunity in the AI trust and compliance infrastructure market.
+            Sonate represents a compelling opportunity in the AI trust and compliance infrastructure market.
             Let&apos;s discuss how we can scale this technology across enterprise AI operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1659,7 +1659,7 @@ if (!consent || !override) {
             <p className="text-sm text-stone-400 text-center max-w-3xl mx-auto">
               <strong>IMPORTANT:</strong> SYMBI governance tokens (if participating in the DAO) have no financial value,
               no expectation of profit, and grant no economic rights. Tokens are non-transferable and used solely for protocol governance voting.
-              SYMBI Trust Protocol and YCQ Sonate Platform do not require tokens or DAO participation for use.
+              SYMBI Trust Protocol and Sonate Platform do not require tokens or DAO participation for use.
             </p>
           </div>
         </div>

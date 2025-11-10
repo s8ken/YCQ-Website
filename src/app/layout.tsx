@@ -14,21 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "YCQ Sonate — AI Trust Infrastructure with Cryptographic Receipts",
-  description: "Enterprise AI trust platform built on SYMBI Trust Protocol. Cryptographic audit trails, automated compliance scoring, W3C-compliant DID/VC infrastructure. 6 trust principles mapped to EU AI Act &amp; GDPR. Try live demo.",
-  keywords: "AI trust, cryptographic receipts, compliance automation, EU AI Act, GDPR, trust ledger, verifiable credentials, DID, AI governance, ethical AI",
-  authors: [{ name: "YCQ Sonate" }],
+  title: "Sonate by YCQ Labs — AI Trust Infrastructure with SYMBI Trust Framework",
+  description: "Enterprise AI trust platform featuring SYMBI Trust Framework by YCQ Labs Labs. Cryptographic audit trails, automated compliance scoring, W3C-compliant DID/VC infrastructure. 6 trust principles mapped to EU AI Act &amp; GDPR. Try live demo.",
+  keywords: "AI trust, SYMBI trust framework, cryptographic receipts, compliance automation, EU AI Act, GDPR, trust ledger, verifiable credentials, DID, AI governance, ethical AI, YCQ Labs Labs",
+  authors: [{ name: "YCQ Labs Labs" }],
   openGraph: {
-    title: "YCQ Sonate — AI Trust Infrastructure",
+    title: "Sonate by YCQ Labs Labs — AI Trust Infrastructure",
     description: "Cryptographic trust receipts for AI. Automated compliance scoring. Built on SYMBI Trust Protocol with 6 fundamental trust principles.",
     url: "https://yseeku.com",
-    siteName: "YCQ Sonate",
+    siteName: "Sonate by YCQ Labs Labs",
     images: [
       {
         url: "https://yseeku.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "YCQ Sonate - AI Trust Infrastructure",
+        alt: "Sonate by YCQ Labs Labs - AI Trust Infrastructure",
       },
     ],
     locale: "en_US",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "YCQ Sonate — AI Trust Infrastructure",
+    title: "Sonate by YCQ Labs Labs — AI Trust Infrastructure",
     description: "Cryptographic trust receipts for AI. Try live demo at yseeku.com/trust-demo",
     images: ["https://yseeku.com/og-image.png"],
   },

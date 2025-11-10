@@ -9,7 +9,7 @@ export default function Technology() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">YCQ Sonate</Link>
+              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
               <div className="ml-2 text-sm text-stone-600">Why Seek You</div>
             </div>
             <div className="hidden md:block">
@@ -264,9 +264,9 @@ export default function Technology() {
             <div className="bg-stone-900 p-8 rounded-lg text-white">
               <h4 className="text-lg font-semibold mb-4">Quick Integration Example</h4>
               <pre className="text-sm text-green-400 overflow-x-auto">
-{`// Initialize YCQ Sonate client
-const ycq = new YCQSonate({
-  apiKey: process.env.YCQ_API_KEY,
+{`// Initialize Sonate client
+const ycq = new YCQ LabsSonate({
+  apiKey: process.env.YCQ Labs_API_KEY,
   endpoint: 'https://api.ycqsonate.com'
 });
 
@@ -461,10 +461,10 @@ console.log(verification.isValid); // true`}
             
             <div className="text-center mt-8">
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/YCQ_Sonate_UAT_Report.md" download className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors">
+                <a href="/YCQ Labs_Sonate_UAT_Report.md" download className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors">
                   📄 Download UAT Report
                 </a>
-                <a href="/YCQ_Sonate_API_Collection.json" download className="border border-stone-300 text-stone-700 px-6 py-3 rounded-md font-medium hover:bg-stone-50 transition-colors">
+                <a href="/YCQ Labs_Sonate_API_Collection.json" download className="border border-stone-300 text-stone-700 px-6 py-3 rounded-md font-medium hover:bg-stone-50 transition-colors">
                   🔧 Download Postman Collection
                 </a>
               </div>
@@ -507,7 +507,7 @@ console.log(verification.isValid); // true`}
       <section className="py-20 bg-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Build with YCQ Sonate?
+            Ready to Build with Sonate?
           </h2>
           <p className="text-xl text-stone-300 mb-8 max-w-2xl mx-auto">
             Comprehensive documentation, SDKs, and developer tools to get you started in minutes, not months.

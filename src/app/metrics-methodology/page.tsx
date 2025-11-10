@@ -9,7 +9,7 @@ export default function MetricsMethodology() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">YCQ Sonate</Link>
+              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
               <div className="ml-2 text-sm text-stone-600">Why Seek You</div>
             </div>
             <div className="hidden md:block">
@@ -43,7 +43,7 @@ export default function MetricsMethodology() {
               Metrics Methodology & Assumptions
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              Defining YCQ Sonate'apos;s platform KPIs (FAR-A, FAR-H, PFI, TIS), evaluation protocol, and statistical reporting conventions. Version: 2025.11.08-r1
+              Defining Sonate'apos;s platform KPIs (FAR-A, FAR-H, PFI, TIS), evaluation protocol, and statistical reporting conventions. Version: 2025.11.08-r1
             </p>
               <div className="mt-6 bg-amber-50 border-l-4 border-amber-500 p-4 rounded-lg max-w-3xl mx-auto">
                 <p className="text-amber-900 font-semibold mb-2">📋 Implementation Status</p>
@@ -70,7 +70,7 @@ export default function MetricsMethodology() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "TechArticle",
-              "headline": "YCQ Sonate Metrics Methodology & Assumptions",
+              "headline": "Sonate Metrics Methodology & Assumptions",
               "datePublished": "2025-11-08",
               "dateModified": "2025-11-08",
               "author": {
@@ -625,7 +625,7 @@ export default function MetricsMethodology() {
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "YCQ Sonate — AI Trust Infrastructure",
+  "name": "Sonate — AI Trust Infrastructure",
   "applicationCategory": "SecurityApplication",
   "operatingSystem": "Web",
   "url": "https://yseeku.com/",
@@ -647,7 +647,7 @@ export default function MetricsMethodology() {
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "YCQ Sonate Metrics Methodology & Assumptions",
+  "headline": "Sonate Metrics Methodology & Assumptions",
   "datePublished": "2025-11-08",
   "dateModified": "2025-11-08",
   "author": {
