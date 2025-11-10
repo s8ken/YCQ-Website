@@ -1610,6 +1610,11 @@ if (!consent || !override) {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link href="/sitemap" className="text-stone-400 hover:text-white text-sm">
+                    Site Map
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
