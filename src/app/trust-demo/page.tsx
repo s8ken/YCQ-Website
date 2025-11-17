@@ -1,8 +1,205 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
 import { CONSOLE_URL } from "@/lib/site";
 import TrustLedgerDemo from "@/components/TrustLedgerDemo";
+import EnhancedTrustReceipts from "@/components/EnhancedTrustReceipts";
+import { ArrowLeft, Shield, Zap, Database, Users, TrendingUp, CheckCircle, AlertCircle, Clock, Download, Share2, Filter, Search } from "lucide-react";
 
 export default function TrustDemoPage() {
+  const [showFullPlatform, setShowFullPlatform] = React.useState(false);
+
+  if (showFullPlatform) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        {/* Navigation */}
+        <nav className="bg-black/50 backdrop-blur-md border-b border-purple-500/20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex items-center space-x-4">
+                <button 
+                  onClick={() => setShowFullPlatform(false)}
+                  className="flex items-center space-x-2 text-purple-300 hover:text-purple-200"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                  <span>Back to Demo</span>
+                </button>
+                <div className="h-6 w-px bg-purple-500/30" />
+                <div className="flex items-center space-x-2">
+                  <Shield className="w-6 h-6 text-purple-400" />
+                  <span className="text-xl font-bold text-white">SYMBI Symphony</span>
+                </div>
+              </div>
+              <div className="hidden md:flex items-center space-x-6">
+                <span className="text-green-400 flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="text-sm">Platform Active</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        {/* Hero Section */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-flex items-center space-x-2 bg-purple-500/20 backdrop-blur-sm text-purple-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-purple-400/30">
+              <Zap className="w-4 h-4" />
+              <span>Enterprise Trust Infrastructure</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+              SYMBI Symphony
+              <span className="block text-purple-400">Platform</span>
+            </h1>
+            <p className="text-xl text-purple-200 mb-8 max-w-3xl mx-auto">
+              Complete enterprise-grade trust infrastructure with advanced cryptographic verification, 
+              multi-blockchain support, and comprehensive AI governance
+            </p>
+          </div>
+        </section>
+
+        {/* Platform Stats */}
+        <section className="py-16 bg-black/30 backdrop-blur-md">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-purple-400 mb-2">50K+</div>
+                <div className="text-purple-200">Trust Receipts</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-green-400 mb-2">99.9%</div>
+                <div className="text-purple-200">Uptime</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-blue-400 mb-2">3</div>
+                <div className="text-purple-200">Blockchains</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
+                <div className="text-purple-200">Monitoring</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Advanced Trust Receipts Section */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white mb-4">Advanced Trust Receipts</h2>
+              <p className="text-xl text-purple-200 max-w-3xl mx-auto">
+                Enterprise-grade cryptographic trust receipts with zero-knowledge proofs, 
+                multi-blockchain verification, and real-time compliance scoring
+              </p>
+            </div>
+
+            {/* Enhanced Trust Receipts Demo */}
+            <div className="bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-purple-500/20">
+              <EnhancedTrustReceipts />
+            </div>
+          </div>
+        </section>
+
+        {/* Platform Features */}
+        <section className="py-20 bg-black/20 backdrop-blur-md">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white mb-4">Enterprise Features</h2>
+              <p className="text-xl text-purple-200">Comprehensive trust infrastructure for enterprise deployment</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* AI Governance */}
+              <div className="bg-purple-900/20 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">AI Governance</h3>
+                </div>
+                <ul className="space-y-2 text-purple-200">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Automated compliance monitoring</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Policy enforcement engine</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Risk assessment scoring</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Audit trail generation</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Real-time Analytics */}
+              <div className="bg-blue-900/20 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Real-time Analytics</h3>
+                </div>
+                <ul className="space-y-2 text-blue-200">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Trust score tracking</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Behavioral analysis</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Performance metrics</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Predictive insights</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Multi-Blockchain */}
+              <div className="bg-yellow-900/20 backdrop-blur-sm rounded-xl p-6 border border-yellow-500/20">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center">
+                    <Database className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Multi-Blockchain</h3>
+                </div>
+                <ul className="space-y-2 text-yellow-200">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Ethereum integration</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Polygon support</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Solana compatibility</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span>Cross-chain verification</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -87,6 +284,25 @@ export default function TrustDemoPage() {
         </div>
       </section>
 
+      {/* Enhanced Trust Receipts Section - SYMBI Symphony Integration */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-blue-400/30">
+              <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+              SYMBI Symphony Integration
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Enhanced Trust Receipts
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Advanced cryptographic trust receipts with zero-knowledge proofs, multi-blockchain support, and enterprise-grade verification
+            </p>
+          </div>
+          <EnhancedTrustReceipts />
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="py-16 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +342,7 @@ export default function TrustDemoPage() {
         </div>
       </section>
 
-      {/* Trust Articles Section */}
+      {/* The 6 Trust Articles */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-stone-900 mb-4 text-center">
@@ -178,48 +394,7 @@ export default function TrustDemoPage() {
         </div>
       </section>
 
-      {/* Security & Privacy Section */}
-      <section className="py-16 bg-stone-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-stone-900 mb-12 text-center">
-            Security & Privacy
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-3xl mb-4">🔐</div>
-              <h3 className="text-xl font-bold text-stone-900 mb-2">Cryptographic Security</h3>
-              <ul className="text-stone-600 space-y-2 text-sm">
-                <li>✓ SHA-256 content hashing</li>
-                <li>✓ Digital signatures for authenticity</li>
-                <li>✓ Hash-chain immutability</li>
-                <li>✓ Event-based traceability</li>
-              </ul>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-3xl mb-4">🛡️</div>
-              <h3 className="text-xl font-bold text-stone-900 mb-2">Demo Protection</h3>
-              <ul className="text-stone-600 space-y-2 text-sm">
-                <li>✓ Rate limiting (50 req/15min)</li>
-                <li>✓ Input validation & sanitization</li>
-                <li>✓ Automatic data purging (24h)</li>
-                <li>✓ No real API keys stored</li>
-              </ul>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-3xl mb-4">🔒</div>
-              <h3 className="text-xl font-bold text-stone-900 mb-2">Privacy First</h3>
-              <ul className="text-stone-600 space-y-2 text-sm">
-                <li>✓ Demo-only environment</li>
-                <li>✓ No personal data collection</li>
-                <li>✓ Encrypted in transit (HTTPS)</li>
-                <li>✓ Session-based isolation</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
+      {/* CTA Section - Updated to show full platform */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -229,17 +404,15 @@ export default function TrustDemoPage() {
             Experience the full SYMBI Trust Platform with production-ready features
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href={CONSOLE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setShowFullPlatform(true)}
               className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-50 transition-all duration-300 shadow-xl"
             >
               Launch Full Platform
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
-            </Link>
+            </button>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white/10 transition-all duration-300"
