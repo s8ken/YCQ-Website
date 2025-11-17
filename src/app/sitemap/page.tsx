@@ -86,7 +86,7 @@ const sitemapData = {
   externalResources: [
     {
       title: 'Full Platform',
-      href: 'https://console.ycq-sonate.com',
+      href: 'https://symbi-website-main-git-clean-master-ycq.vercel.app/',
       description: 'Complete production platform',
       external: true
     },

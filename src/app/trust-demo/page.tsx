@@ -224,12 +224,14 @@ export default function TrustDemoPage() {
                 <Link href="/trust-demo" className="text-stone-900 px-3 py-2 text-sm font-medium border-b-2 border-amber-600">
                   Trust Ledger
                 </Link>
-                <button 
-                  onClick={() => setShowFullPlatform(true)}
+                <Link 
+                  href={CONSOLE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900"
                 >
                   Full Platform
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -407,15 +409,17 @@ export default function TrustDemoPage() {
             Experience the full SYMBI Trust Platform with production-ready features
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => setShowFullPlatform(true)}
+            <Link
+              href={CONSOLE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-50 transition-all duration-300 shadow-xl"
             >
               Launch Full Platform
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
-            </button>
+            </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white/10 transition-all duration-300"

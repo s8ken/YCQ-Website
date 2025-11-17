@@ -31,7 +31,7 @@ export default function Home() {
                 <Link href="/trust-demo" className="text-blue-600 hover:text-blue-800 px-3 py-2 text-sm font-medium">
                      Trust Demo
                    </Link>
-                   <Link href="/trust-demo" target="_blank" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
+                   <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
                      Full Platform
                    </Link>
               </div>
@@ -61,7 +61,7 @@ export default function Home() {
                  <Link href="/trust-demo#verify" className="bg-green-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-green-700 transition-colors text-center">
                    ✓ Verify Trust Receipt
                  </Link>
-                 <Link href="/trust-demo" target="_blank" className="border-2 border-stone-300 text-stone-700 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-50 transition-colors text-center">
+                 <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="border-2 border-stone-300 text-stone-700 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-50 transition-colors text-center">
                    Full Platform →
                  </Link>
                </div>
