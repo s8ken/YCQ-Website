@@ -229,7 +229,7 @@ export default function TrustDemoPage() {
                   className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900"
                 >
                   Full Platform
-                </Link>
+                </button>
               </div>
             </div>
           </div>
