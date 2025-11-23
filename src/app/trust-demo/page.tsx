@@ -347,6 +347,82 @@ export default function TrustDemoPage() {
         </div>
       </section>
 
+      {/* Enhanced Dashboard Features */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Enterprise Trust Dashboards
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive monitoring, analytics, and security visualization for enterprise deployment
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Trust Dashboard */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Trust Dashboard</h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Real-time 6-pillar compliance monitoring, agent declarations, and trust scoring with enterprise-grade visualization.
+              </p>
+              <Link
+                href="/trust-dashboard"
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
+                View Dashboard
+                <TrendingUp className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Security Monitor */}
+            <div className="bg-gradient-to-br from-red-50 to-orange-100 rounded-xl p-6 border border-red-200">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
+                  <AlertCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Security Monitor</h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Enterprise security monitoring with threat detection, rate limiting, key management, and system performance tracking.
+              </p>
+              <Link
+                href="/security-monitor"
+                className="inline-flex items-center gap-2 bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
+              >
+                Monitor Security
+                <AlertCircle className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Analytics */}
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                  <BarChart3 className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Analytics</h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Comprehensive analytics with trust distribution charts, compliance trends, agent performance metrics, and data exports.
+              </p>
+              <Link
+                href="/analytics"
+                className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              >
+                View Analytics
+                <BarChart3 className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The 6 Trust Articles */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
