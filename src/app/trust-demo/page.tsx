@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CONSOLE_URL } from "@/lib/site";
 import TrustLedgerDemo from "@/components/TrustLedgerDemo";
 import EnhancedTrustReceipts from "@/components/EnhancedTrustReceipts";
-import { ArrowLeft, Shield, Zap, Database, Users, TrendingUp, CheckCircle, AlertCircle, Clock, Download, Share2, Filter, Search } from "lucide-react";
+import { ArrowLeft, Shield, Zap, Database, Users, TrendingUp, CheckCircle, AlertCircle, Clock, Download, Share2, Filter, Search, BarChart3 } from "lucide-react";
 
 export default function TrustDemoPage() {
   const [showFullPlatform, setShowFullPlatform] = React.useState(false);
