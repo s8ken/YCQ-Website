@@ -461,10 +461,10 @@ console.log(verification.isValid); // true`}
             
             <div className="text-center mt-8">
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/YCQ Labs_Sonate_UAT_Report.md" download className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors">
+                <a href="/YCQ_Sonate_UAT_Report.md" download className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors">
                   📄 Download UAT Report
                 </a>
-                <a href="/YCQ Labs_Sonate_API_Collection.json" download className="border border-stone-300 text-stone-700 px-6 py-3 rounded-md font-medium hover:bg-stone-50 transition-colors">
+                <a href="/YCQ_Sonate_API_Collection.json" download className="border border-stone-300 text-stone-700 px-6 py-3 rounded-md font-medium hover:bg-stone-50 transition-colors">
                   🔧 Download Postman Collection
                 </a>
               </div>
