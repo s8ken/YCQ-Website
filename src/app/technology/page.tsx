@@ -71,8 +71,8 @@ export default function Technology() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-2">Sonate Ledger</h3>
-              <p className="text-stone-600 text-sm">Cryptographic audit trails with Ed25519 signatures and hash-chain verification</p>
+              <h3 className="text-xl font-bold text-stone-900 mb-2">Trust Receipts</h3>
+              <p className="text-stone-600 text-sm">Verifiable, cryptographic proofs of alignment signed with Ed25519 and chained for immutability.</p>
             </div>
 
             <div className="bg-green-50 p-6 rounded-lg text-center">
@@ -81,8 +81,8 @@ export default function Technology() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-2">Sonate Guardrails</h3>
-              <p className="text-stone-600 text-sm">Policy enforcement and multi-provider orchestration with unified API</p>
+              <h3 className="text-xl font-bold text-stone-900 mb-2">Policy Guardrails</h3>
+              <p className="text-stone-600 text-sm">Real-time intervention system that halts agent execution when resonance scores drop below safety thresholds.</p>
             </div>
 
             <div className="bg-purple-50 p-6 rounded-lg text-center">
@@ -91,8 +91,8 @@ export default function Technology() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-2">Sonate Roundtable</h3>
-              <p className="text-stone-600 text-sm">Fairness-aware QA, behavioral analysis, and trust scoring algorithms</p>
+              <h3 className="text-xl font-bold text-stone-900 mb-2">Resonance Engine</h3>
+              <p className="text-stone-600 text-sm">Hybrid 60/40 engine combining Python-based semantic analysis with TypeScript weighted validation.</p>
             </div>
 
             <div className="bg-amber-50 p-6 rounded-lg text-center">
@@ -101,8 +101,8 @@ export default function Technology() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 00-2 2v2a2 2 0 002 2m0 0h14m-14 0a2 2 0 002 2v2a2 2 0 01-2 2" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-2">Sonate Capsules</h3>
-              <p className="text-stone-600 text-sm">Context orchestration with semantic search and goal-driven optimization</p>
+              <h3 className="text-xl font-bold text-stone-900 mb-2">Alignment Lab</h3>
+              <p className="text-stone-600 text-sm">Developer sandbox for calculating Bedau Indices and stress-testing agent emergence patterns.</p>
             </div>
           </div>
         </div>

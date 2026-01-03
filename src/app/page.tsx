@@ -45,14 +45,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-stone-900 mb-4">
-              Trust Infrastructure for AI Agents
+              The Quantitative Layer for Agentic Alignment
             </h1>
-            <h2 className="text-2xl md:text-3xl text-amber-700 mb-6 font-semibold">
-              W3C-compliant DID/VC infrastructure with cryptographic audit trails
+            <h2 className="text-2xl md:text-3xl text-emerald-700 mb-6 font-semibold">
+              Verify AI intent with the Hybrid Resonance Engine and Cryptographic Trust Receipts
             </h2>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              Sonate: Production-ready enterprise platform featuring SYMBI Trust Framework.
-              4 DID methods, verifiable credentials, privacy-preserving revocation. 95% test coverage.
+              Sonate provides the mathematical proof of alignment required for high-risk AI. 
+              Move beyond "black box" logs to verifiable evidence of agent reality and intent.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                  <Link href="/trust-demo" className="bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-blue-700 transition-colors text-center">
@@ -72,25 +72,25 @@ export default function Home() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <span><strong>Sonate Ledger</strong> • Cryptographic audit trails</span>
+                <span><strong>Trust Receipts</strong> • Cryptographic proofs of alignment</span>
               </Link>
               <Link href="#sonate-guardrails" className="flex items-center space-x-2 text-green-600 hover:text-green-800 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
-                <span><strong>Sonate Guardrails</strong> • Policy enforcement</span>
+                <span><strong>Guardrails</strong> • Real-time policy intervention</span>
               </Link>
               <Link href="#sonate-roundtable" className="flex items-center space-x-2 text-purple-600 hover:text-purple-800 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
-                <span><strong>Sonate Roundtable</strong> • Fairness-aware QA</span>
+                <span><strong>Resonance Engine</strong> • Hybrid semantic validation</span>
               </Link>
               <Link href="#sonate-capsules" className="flex items-center space-x-2 text-amber-600 hover:text-amber-800 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 00-2 2v2a2 2 0 002 2m0 0h14m-14 0a2 2 0 002 2v2a2 2 0 01-2 2" />
                 </svg>
-                <span><strong>Sonate Capsules</strong> • Context orchestration</span>
+                <span><strong>Alignment Lab</strong> • Bedau Index & Stress-testing</span>
               </Link>
             </div>
           </div>
