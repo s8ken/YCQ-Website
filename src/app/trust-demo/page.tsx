@@ -278,6 +278,16 @@ export default function TrustDemoPage() {
             <p className="text-sm text-blue-200 mt-4">
               ⚠️ Demo Environment: Data purged every 24 hours • Rate limited for fair use
             </p>
+            <div className="mt-8">
+              <Link 
+                href="https://yseeku-platform-production.up.railway.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+              >
+                🚀 Launch Platform
+              </Link>
+            </div>
           </div>
         </div>
       </section>
