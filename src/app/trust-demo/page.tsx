@@ -263,15 +263,15 @@ export default function TrustDemoPage() {
             <h2 className="text-2xl font-bold mb-4">🎯 Demo Access - No Signup Required</h2>
             <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <p className="text-sm text-blue-200 mb-2 font-semibold">Email:</p>
+                <p className="text-sm text-blue-200 mb-2 font-semibold">User Name:</p>
                 <code className="block bg-black/40 text-green-300 px-4 py-2 rounded font-mono text-base border border-green-500/30">
-                  demo@symbi-trust.com
+                  admin
                 </code>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                 <p className="text-sm text-blue-200 mb-2 font-semibold">Password:</p>
                 <code className="block bg-black/40 text-green-300 px-4 py-2 rounded font-mono text-base border border-green-500/30">
-                  demo123
+                  SONATE_admin_2026!
                 </code>
               </div>
             </div>

@@ -71,15 +71,15 @@ export default function TechnicalDemo() {
                 <h3 className="text-xl font-bold mb-4">Demo Credentials</h3>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm text-blue-200 mb-2 font-semibold">Email:</p>
+                    <p className="text-sm text-blue-200 mb-2 font-semibold">User Name:</p>
                     <code className="block bg-black/40 text-green-300 px-4 py-3 rounded-lg font-mono text-base border border-green-500/30">
-                      demo@symbi-trust.com
+                      admin
                     </code>
                   </div>
                   <div>
                     <p className="text-sm text-blue-200 mb-2 font-semibold">Password:</p>
                     <code className="block bg-black/40 text-green-300 px-4 py-3 rounded-lg font-mono text-base border border-green-500/30">
-                      demo123
+                      SONATE_admin_2026!
                     </code>
                   </div>
                 </div>
