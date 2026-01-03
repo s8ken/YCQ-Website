@@ -1626,9 +1626,19 @@ if (!consent || !override) {
 
           <div className="border-t border-stone-800 mt-8 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-stone-400 text-sm">
-                © 2025 Sonate. All rights reserved.
-              </p>
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <p className="text-stone-400 text-sm">
+                  © 2025 Sonate. All rights reserved.
+                </p>
+                <div className="flex gap-4">
+                  <a href="https://gammatria.com" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm">
+                    gammatria.com
+                  </a>
+                  <a href="https://symbi.world" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm">
+                    symbi.world
+                  </a>
+                </div>
+              </div>
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <span className="text-stone-500 text-xs">
                   EU AI Act Compliant

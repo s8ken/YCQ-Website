@@ -519,12 +519,22 @@ export default function TrustDemoPage() {
       {/* Footer */}
       <footer className="bg-stone-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-stone-400">
-            © 2024 Sonate. Enterprise AI Trust Infrastructure.
-          </p>
-          <p className="text-stone-500 text-sm mt-2">
-            Demo environment for evaluation purposes only
-          </p>
+          <div className="flex flex-col items-center gap-4">
+            <p className="text-stone-400">
+              © 2025 Sonate. Enterprise AI Trust Infrastructure.
+            </p>
+            <div className="flex gap-6">
+              <a href="https://gammatria.com" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm transition-colors">
+                gammatria.com
+              </a>
+              <a href="https://symbi.world" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm transition-colors">
+                symbi.world
+              </a>
+            </div>
+            <p className="text-stone-500 text-sm">
+              Demo environment for evaluation purposes only
+            </p>
+          </div>
         </div>
       </footer>
     </div>
