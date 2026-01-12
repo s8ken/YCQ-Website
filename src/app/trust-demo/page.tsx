@@ -53,8 +53,8 @@ export default function TrustDemoPage() {
               <span className="block text-purple-400">Platform</span>
             </h1>
             <p className="text-xl text-purple-200 mb-8 max-w-3xl mx-auto">
-              Complete enterprise-grade trust infrastructure with advanced cryptographic verification, 
-              multi-blockchain support, and comprehensive AI governance
+              Complete enterprise-grade trust infrastructure with Ed25519 cryptographic verification,
+              hash-chained trust ledger, and comprehensive AI governance
             </p>
           </div>
         </section>
@@ -72,8 +72,8 @@ export default function TrustDemoPage() {
                 <div className="text-purple-200">Uptime</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">3</div>
-                <div className="text-purple-200">Blockchains</div>
+                <div className="text-4xl font-bold text-blue-400 mb-2">5+</div>
+                <div className="text-purple-200">LLM Providers</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
@@ -89,8 +89,8 @@ export default function TrustDemoPage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-4">Advanced Trust Receipts</h2>
               <p className="text-xl text-purple-200 max-w-3xl mx-auto">
-                Enterprise-grade cryptographic trust receipts with zero-knowledge proofs, 
-                multi-blockchain verification, and real-time compliance scoring
+                Enterprise-grade cryptographic trust receipts with Ed25519 signatures,
+                hash-chain verification, and real-time compliance scoring
               </p>
             </div>
 
@@ -311,7 +311,7 @@ export default function TrustDemoPage() {
               Enhanced Trust Receipts
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Advanced cryptographic trust receipts with zero-knowledge proofs, multi-blockchain support, and enterprise-grade verification
+              Advanced cryptographic trust receipts with Ed25519 signatures, hash-chain verification, and enterprise-grade validation
             </p>
           </div>
           <EnhancedTrustReceipts />

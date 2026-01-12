@@ -330,11 +330,11 @@ export default function Sitemap() {
           <h3 className="text-2xl font-bold mb-6 text-center">Platform Overview</h3>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-amber-400 mb-2">95%</div>
-              <div className="text-sm text-stone-300">Test Coverage</div>
+              <div className="text-3xl font-bold text-amber-400 mb-2">50K+</div>
+              <div className="text-sm text-stone-300">Lines of Code</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-400 mb-2">313+</div>
+              <div className="text-3xl font-bold text-green-400 mb-2">90+</div>
               <div className="text-sm text-stone-300">Test Files</div>
             </div>
             <div className="text-center">

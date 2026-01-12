@@ -427,7 +427,7 @@ export default function TrustLedgerDemo() {
           <div>
             <h3 className="text-xl font-bold text-stone-900 mb-4">Verify Trust Receipt</h3>
             <p className="text-sm text-stone-600 mb-6">
-              Enter an Event ID to verify the authenticity and integrity of a trust receipt on the blockchain.
+              Enter an Event ID to verify the authenticity and integrity of a trust receipt on the hash-chained ledger.
             </p>
             <div className="space-y-4">
               <div>

@@ -116,9 +116,9 @@ export default function Home() {
                   What is SYMBI Trust Protocol?
                 </h3>
                 <p className="text-stone-700 mb-4">
-                  SYMBI is our core innovation: a protocol that generates <strong>cryptographic trust receipts</strong> for every AI interaction. 
-                  Think of it as a "blockchain for AI trust" - every decision, every data access, every policy enforcement gets an immutable, 
-                  verifiable record.
+                  SYMBI is our core innovation: a protocol that generates <strong>cryptographic trust receipts</strong> for every AI interaction.
+                  Think of it as a <strong>hash-chained trust ledger</strong> - every decision, every data access, every policy enforcement gets an immutable,
+                  verifiable record with cryptographic proof.
                 </p>
                 <p className="text-stone-700 mb-4">
                   Unlike traditional audit logs that can be tampered with, SYMBI receipts use <strong>SHA-256 hashing</strong> and 
@@ -470,6 +470,219 @@ if (!consent || !override) {
           </div>
         </section>
 
+      {/* Enterprise AI Governance Section - NEW */}
+      <section className="py-20 bg-gradient-to-b from-stone-900 to-stone-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+              Advanced Governance Capabilities
+            </div>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Enterprise AI Governance
+            </h2>
+            <p className="text-xl text-stone-300 max-w-3xl mx-auto">
+              Beyond compliance scoring - autonomous oversight, agent enforcement, and human-in-the-loop controls for regulated industries
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* System Brain */}
+            <div className="bg-stone-800/50 backdrop-blur rounded-xl p-8 border border-stone-700">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="bg-purple-500/20 rounded-lg p-3">
+                  <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">System Brain</h3>
+                  <p className="text-stone-400">Autonomous AI Oversight</p>
+                </div>
+              </div>
+              <p className="text-stone-300 mb-6">
+                Our System Brain continuously monitors your AI agents, making real-time governance decisions. In <strong className="text-purple-300">advisory mode</strong>, it recommends actions. In <strong className="text-purple-300">enforced mode</strong>, it acts autonomously.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Autonomous thinking cycles that analyze system health
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Memory system for persistent learning
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Feedback loops that improve effectiveness over time
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Kernel constraints for safety boundaries
+                </li>
+              </ul>
+            </div>
+
+            {/* Agent Control */}
+            <div className="bg-stone-800/50 backdrop-blur rounded-xl p-8 border border-stone-700">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="bg-red-500/20 rounded-lg p-3">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Agent Control</h3>
+                  <p className="text-stone-400">Enforcement & Lifecycle Management</p>
+                </div>
+              </div>
+              <p className="text-stone-300 mb-6">
+                Full control over your AI agents with enterprise-grade enforcement capabilities. <strong className="text-red-300">Ban</strong>, <strong className="text-amber-300">restrict</strong>, or <strong className="text-purple-300">quarantine</strong> agents that drift from alignment.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Ban agents with severity levels and expiration
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Feature-level restrictions (API access, conversations)
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Quarantine mode for investigation while preserving state
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  External system integrations via webhooks
+                </li>
+              </ul>
+            </div>
+
+            {/* Human Override */}
+            <div className="bg-stone-800/50 backdrop-blur rounded-xl p-8 border border-stone-700">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="bg-blue-500/20 rounded-lg p-3">
+                  <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Human Override</h3>
+                  <p className="text-stone-400">Human-in-the-Loop Governance</p>
+                </div>
+              </div>
+              <p className="text-stone-300 mb-6">
+                For regulated industries that require human review, our override system provides queued approvals, decision history, and complete audit trails.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Pending approval queue for critical decisions
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Override reason tracking and justification
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Complete approver audit trail
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Integration with compliance workflows
+                </li>
+              </ul>
+            </div>
+
+            {/* Observability */}
+            <div className="bg-stone-800/50 backdrop-blur rounded-xl p-8 border border-stone-700">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="bg-green-500/20 rounded-lg p-3">
+                  <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Observability</h3>
+                  <p className="text-stone-400">Enterprise-Grade Monitoring</p>
+                </div>
+              </div>
+              <p className="text-stone-300 mb-6">
+                Real-time visibility into your AI governance with Prometheus-compatible metrics and comprehensive dashboards for enterprise operations.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Live KPI dashboards with real-time data
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Agent health monitoring and risk scoring
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  OpenTelemetry tracing integration
+                </li>
+                <li className="flex items-center gap-3 text-stone-300">
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Comprehensive compliance reporting
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Multi-tenancy callout */}
+          <div className="mt-12 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl p-8 border border-blue-500/30">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">Enterprise-Ready Multi-Tenancy</h3>
+                <p className="text-stone-300">
+                  Complete tenant isolation with scoped data access. Each organization operates in its own secure environment with per-tenant configuration and management dashboards.
+                </p>
+              </div>
+              <Link href="/enterprise" className="flex-shrink-0 bg-white text-stone-900 px-6 py-3 rounded-lg font-semibold hover:bg-stone-100 transition-colors">
+                Learn More →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Three-Tier Architecture Section */}
       <section className="py-16 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -491,11 +704,11 @@ if (!consent || !override) {
               </div>
               <h3 className="text-xl font-bold text-stone-900 mb-3">SYMBI Trust Protocol</h3>
               <p className="text-stone-600 mb-4">
-                <strong>Open-source foundation layer.</strong> W3C-compliant DID resolution (4 methods), verifiable credentials, Status List 2021 revocation.
+                <strong>Production-grade trust layer.</strong> Ed25519 cryptographic signing, hash-chained receipts, 6-principle constitutional framework.
               </p>
               <ul className="text-sm text-stone-600 space-y-2">
-                <li>• GitHub: SYMBI Symphony</li>
-                <li>• 95 tests passing</li>
+                <li>• Multi-LLM provider support</li>
+                <li>• 90+ test files</li>
                 <li>• Production-ready</li>
                 <li>• No tokens required</li>
               </ul>
@@ -903,9 +1116,9 @@ if (!consent || !override) {
             {/* Development Stats */}
             <div className="grid md:grid-cols-4 gap-6 mb-16">
               <div className="bg-white rounded-lg shadow-md p-6 text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">18,247 ✅</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">50K+</div>
                 <p className="text-stone-700 font-semibold">Lines of Code</p>
-                <p className="text-stone-600 text-sm">Production-ready TypeScript, Python, React</p>
+                <p className="text-stone-600 text-sm">Production TypeScript, React, Node.js</p>
               </div>
               <div className="bg-white rounded-lg shadow-md p-6 text-center">
                 <div className="text-4xl font-bold text-green-600 mb-2">7</div>
@@ -918,9 +1131,9 @@ if (!consent || !override) {
                 <p className="text-stone-600 text-sm">1 human founder + 5 AI co-contributors</p>
               </div>
               <div className="bg-white rounded-lg shadow-md p-6 text-center">
-                <div className="text-4xl font-bold text-amber-600 mb-2">95% ✅</div>
-                <p className="text-stone-700 font-semibold">Test Coverage</p>
-                <p className="text-stone-600 text-sm">Comprehensive unit, integration, E2E tests</p>
+                <div className="text-4xl font-bold text-amber-600 mb-2">90+</div>
+                <p className="text-stone-700 font-semibold">Test Files</p>
+                <p className="text-stone-600 text-sm">Unit, integration, and E2E tests</p>
               </div>
             </div>
 
@@ -1102,7 +1315,7 @@ if (!consent || !override) {
               Enterprise-Grade Quality Assurance
             </h2>
             <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-                95% test coverage across 313+ test files. Every component verified through comprehensive unit, integration, and end-to-end testing.
+                Comprehensive testing across 90+ test files. Every critical path verified through unit, integration, and end-to-end testing.
               </p>
               <div className="mt-6">
                 <Link href="/metrics-methodology" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
@@ -1117,19 +1330,19 @@ if (!consent || !override) {
           {/* Testing Metrics Grid */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             <div className="bg-white p-6 rounded-xl shadow-sm border-2 border-green-200 text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">95%</div>
-              <div className="text-sm font-semibold text-stone-900 mb-1">Test Coverage</div>
-              <div className="text-xs text-stone-600">Across critical paths</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm border-2 border-blue-200 text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">313+</div>
+              <div className="text-4xl font-bold text-green-600 mb-2">90+</div>
               <div className="text-sm font-semibold text-stone-900 mb-1">Test Files</div>
               <div className="text-xs text-stone-600">Unit & integration</div>
             </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm border-2 border-blue-200 text-center">
+              <div className="text-4xl font-bold text-blue-600 mb-2">19</div>
+              <div className="text-sm font-semibold text-stone-900 mb-1">API Routes</div>
+              <div className="text-xs text-stone-600">Full REST coverage</div>
+            </div>
             <div className="bg-white p-6 rounded-xl shadow-sm border-2 border-purple-200 text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">100%</div>
-              <div className="text-sm font-semibold text-stone-900 mb-1">API Coverage</div>
-              <div className="text-xs text-stone-600">All endpoints tested</div>
+              <div className="text-4xl font-bold text-purple-600 mb-2">14</div>
+              <div className="text-sm font-semibold text-stone-900 mb-1">Data Models</div>
+              <div className="text-xs text-stone-600">MongoDB schemas</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm border-2 border-amber-200 text-center">
               <div className="text-4xl font-bold text-amber-600 mb-2">E2E</div>
@@ -1481,13 +1694,12 @@ if (!consent || !override) {
 
             <div className="bg-stone-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-stone-900 mb-3">
-                What are the 4 DID methods SYMBI supports?
+                What LLM providers does Sonate support?
               </h3>
               <p className="text-stone-600">
-                SYMBI Trust Protocol supports <strong>did:web</strong> (enterprise-friendly, DNS-based),
-                <strong>did:key</strong> (lightweight, cryptographic), <strong>did:ethr</strong> (Ethereum-based),
-                and <strong>did:ion</strong> (Bitcoin-anchored, Microsoft&apos;s Sidetree implementation).
-                This multi-method approach ensures interoperability across different enterprise requirements and blockchain preferences.
+                Sonate integrates with <strong>OpenAI</strong> (GPT-4, GPT-3.5), <strong>Anthropic</strong> (Claude 3.5 Sonnet, Claude 3 Opus),
+                <strong>Together AI</strong> (open source models), <strong>Cohere</strong>, and <strong>Perplexity</strong>.
+                Users bring their own API keys, and the platform routes requests while applying trust scoring across all providers.
               </p>
             </div>
 
@@ -1508,8 +1720,8 @@ if (!consent || !override) {
                 Is SYMBI open-source or proprietary?
               </h3>
               <p className="text-stone-600">
-                <strong>Both.</strong> The SYMBI Trust Protocol (DID resolution, VC infrastructure, revocation) is open-source on GitHub.
-                Sonate Platform (enterprise features like Ledger, Guardrails, Roundtable, Capsules) is proprietary SaaS.
+                <strong>Both.</strong> The SYMBI Trust Protocol (6-principle framework, trust scoring, receipt generation) provides transparent governance infrastructure.
+                Sonate Platform (enterprise features like System Brain, Agent Control, Ledger, Guardrails) is proprietary SaaS.
                 This model ensures trust infrastructure transparency while providing commercial enterprise-grade tooling and support.
               </p>
             </div>

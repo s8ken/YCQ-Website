@@ -43,7 +43,7 @@ export default function TechnicalDemo() {
               Technical Demo: SYMBI Trust Protocol
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              Explore W3C-compliant DID resolution, verifiable credentials, and SYMBI Trust Framework that powers Sonate
+              Explore cryptographic trust receipts, Ed25519 signatures, and the SYMBI Trust Framework that powers Sonate
             </p>
           </div>
         </div>
