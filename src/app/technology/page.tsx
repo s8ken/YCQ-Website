@@ -394,7 +394,7 @@ console.log(verification.isValid); // true`}
                   <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
                   <div>
                     <span className="font-semibold text-stone-900">Automated Testing</span>
-                    <span className="text-stone-600 ml-2">- 95% test coverage with Jest integration</span>
+                    <span className="text-stone-600 ml-2">- Comprehensive test suite with Jest integration</span>
                   </div>
                 </div>
                 <div className="flex items-center">
@@ -489,8 +489,8 @@ console.log(verification.isValid); // true`}
                 <div className="text-sm text-stone-600">Lines of Code</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-green-600">95%</div>
-                <div className="text-sm text-stone-600">Test Coverage</div>
+                <div className="text-3xl font-bold text-green-600">59</div>
+                <div className="text-sm text-stone-600">Test Suites</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-purple-600">18+</div>

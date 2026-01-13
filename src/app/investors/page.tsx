@@ -267,8 +267,8 @@ export default function Investors() {
                   <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded font-medium">18+</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-stone-600">Test Coverage</span>
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded font-medium">95%</span>
+                  <span className="text-stone-600">Test Suites</span>
+                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded font-medium">59</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-stone-600">Security Grade</span>

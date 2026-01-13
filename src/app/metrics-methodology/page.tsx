@@ -43,7 +43,7 @@ export default function MetricsMethodology() {
               Metrics Methodology & Assumptions
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              Defining Sonate'apos;s platform KPIs (FAR-A, FAR-H, PFI, TIS), evaluation protocol, and statistical reporting conventions. Version: 2025.11.08-r1
+              Defining Sonate&apos;s platform KPIs (FAR-A, FAR-H, PFI, TIS), evaluation protocol, and statistical reporting conventions. Version: 2025.11.08-r1
             </p>
               <div className="mt-6 bg-amber-50 border-l-4 border-amber-500 p-4 rounded-lg max-w-3xl mx-auto">
                 <p className="text-amber-900 font-semibold mb-2">📋 Implementation Status</p>
@@ -681,7 +681,7 @@ export default function MetricsMethodology() {
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold text-stone-900 mb-3">Hash-chained ledger</h3>
               <p className="text-stone-600 text-sm">
-                Each entry references the previous entry'apos;s hash; tamper-evident.
+                Each entry references the previous entry&apos;s hash; tamper-evident.
               </p>
             </div>
 

@@ -225,6 +225,139 @@ export default function Home() {
           </div>
         </section>
 
+{/* Enterprise Platform Capabilities - Previously Undersold Features */}
+        <section className="py-20 bg-gradient-to-b from-stone-900 to-stone-800" id="platform">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Enterprise AI Governance Platform
+              </h2>
+              <p className="text-xl text-stone-300 max-w-3xl mx-auto">
+                Beyond trust receipts: A complete infrastructure for managing, monitoring, and governing AI agents at scale
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* System Brain / Overseer */}
+              <div className="bg-stone-800/50 backdrop-blur rounded-lg p-6 border border-stone-700">
+                <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">System Brain (Overseer)</h3>
+                <p className="text-stone-300 mb-4">
+                  Autonomous governance engine that monitors all AI agents, detects anomalies, and can ban, restrict, or quarantine agents that violate trust policies.
+                </p>
+                <ul className="text-stone-400 text-sm space-y-1">
+                  <li>• Real-time trust score monitoring</li>
+                  <li>• Automated policy enforcement</li>
+                  <li>• Advisory or enforced modes</li>
+                </ul>
+              </div>
+
+              {/* Agent Management */}
+              <div className="bg-stone-800/50 backdrop-blur rounded-lg p-6 border border-stone-700">
+                <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Agent Management</h3>
+                <p className="text-stone-300 mb-4">
+                  Full lifecycle management for AI agents with SYMBI Dimensions scoring across 5 behavioral axes and W3C DID identity.
+                </p>
+                <ul className="text-stone-400 text-sm space-y-1">
+                  <li>• Create, configure, deploy agents</li>
+                  <li>• 5-axis behavioral profiling</li>
+                  <li>• Decentralized identity (DID:web)</li>
+                </ul>
+              </div>
+
+              {/* Human Override System */}
+              <div className="bg-stone-800/50 backdrop-blur rounded-lg p-6 border border-stone-700">
+                <div className="w-12 h-12 bg-amber-600/20 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Human Override System</h3>
+                <p className="text-stone-300 mb-4">
+                  Critical decisions always have a human in the loop. Override any automated action with full audit trail.
+                </p>
+                <ul className="text-stone-400 text-sm space-y-1">
+                  <li>• One-click override for any action</li>
+                  <li>• Escalation workflows</li>
+                  <li>• Complete decision audit trail</li>
+                </ul>
+              </div>
+
+              {/* Multi-Tenant Architecture */}
+              <div className="bg-stone-800/50 backdrop-blur rounded-lg p-6 border border-stone-700">
+                <div className="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Multi-Tenant Architecture</h3>
+                <p className="text-stone-300 mb-4">
+                  Enterprise-grade isolation with per-tenant data, policies, agents, and billing. Scale to thousands of organizations.
+                </p>
+                <ul className="text-stone-400 text-sm space-y-1">
+                  <li>• Complete data isolation</li>
+                  <li>• Custom policies per tenant</li>
+                  <li>• White-label ready</li>
+                </ul>
+              </div>
+
+              {/* Comprehensive Monitoring */}
+              <div className="bg-stone-800/50 backdrop-blur rounded-lg p-6 border border-stone-700">
+                <div className="w-12 h-12 bg-cyan-600/20 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Real-Time Monitoring</h3>
+                <p className="text-stone-300 mb-4">
+                  Live dashboards with KPIs, alerts, and drill-down into every AI interaction. Prometheus metrics and structured logging.
+                </p>
+                <ul className="text-stone-400 text-sm space-y-1">
+                  <li>• Live trust score dashboards</li>
+                  <li>• Configurable alert thresholds</li>
+                  <li>• Full observability stack</li>
+                </ul>
+              </div>
+
+              {/* Feedback Loop */}
+              <div className="bg-stone-800/50 backdrop-blur rounded-lg p-6 border border-stone-700">
+                <div className="w-12 h-12 bg-rose-600/20 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Feedback & Effectiveness</h3>
+                <p className="text-stone-300 mb-4">
+                  Continuous learning from governance actions. Track which interventions work and refine policies over time.
+                </p>
+                <ul className="text-stone-400 text-sm space-y-1">
+                  <li>• Action effectiveness tracking</li>
+                  <li>• Policy refinement recommendations</li>
+                  <li>• Historical trend analysis</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-stone-900 px-8 py-3 rounded-md font-semibold hover:bg-stone-100 transition-colors">
+                Explore Full Platform
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
 {/* The 6 Trust Principles Section */}
         <section className="py-20 bg-stone-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -877,7 +1010,7 @@ if (!consent || !override) {
                   </svg>
                 </div>
                 <h4 className="font-bold text-stone-900 mb-2">Proof</h4>
-                <p className="text-stone-600 text-sm mb-3">95% test coverage, production-ready platform, live demo with cryptographic verification</p>
+                <p className="text-stone-600 text-sm mb-3">Comprehensive test suite, production-ready platform, live demo with cryptographic verification</p>
               </div>
             </div>
             <div className="text-center mt-6">
@@ -1089,15 +1222,15 @@ if (!consent || !override) {
             <div className="max-w-4xl mx-auto mb-16">
               <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
                 <h3 className="text-2xl font-bold text-stone-900 mb-4">
-                  🤖 Meta-Proof: SYMBI'apos;s Thesis Validated Through Its Own Development
+                  🤖 Meta-Proof: SYMBI&apos;s Thesis Validated Through Its Own Development
                 </h3>
                 <p className="text-stone-700 mb-4">
-                  Sonate wasn'apos;t just built <em>for</em> AI trust - it was built <em>with</em> AI trust. 
+                  Sonate wasn&apos;t just built <em>for</em> AI trust - it was built <em>with</em> AI trust. 
                   Every line of code, every architectural decision, every trust principle was developed through 
                   collaboration between human oversight and multiple AI systems.
                 </p>
                 <p className="text-stone-700 mb-4">
-                  This isn'apos;t theoretical. We used the exact framework we'apos;re selling: <strong>sovereign AI agents 
+                  This isn&apos;t theoretical. We used the exact framework we&apos;re selling: <strong>sovereign AI agents 
                   working under human governance</strong>, with cryptographic audit trails for every decision, 
                   and continuous validation of outputs.
                 </p>
@@ -1106,8 +1239,8 @@ if (!consent || !override) {
                     The Result: A Living Proof of Concept
                   </p>
                   <p className="text-blue-800 text-sm">
-                    If multiple AI systems can collaborate to build a 18K+ LOC enterprise platform with 95% test coverage 
-                    and zero critical bugs - all under human oversight - then the SYMBI thesis isn'apos;t just theory. It'apos;s proven.
+                    If multiple AI systems can collaborate to build a 18K+ LOC enterprise platform with comprehensive test coverage
+                    and zero critical bugs - all under human oversight - then the SYMBI thesis isn&apos;t just theory. It&apos;s proven.
                   </p>
                 </div>
               </div>
@@ -1204,8 +1337,8 @@ if (!consent || !override) {
                       Cross-Verification & Validation
                     </h4>
                     <p className="text-stone-700 mb-3">
-                      Different AI systems reviewed each other'apos;s work. Grok caught hallucinations in Claude'apos;s output. 
-                      Claude verified Grok'apos;s architectural decisions. Human founder arbitrated conflicts.
+                      Different AI systems reviewed each other&apos;s work. Grok caught hallucinations in Claude&apos;s output. 
+                      Claude verified Grok&apos;s architectural decisions. Human founder arbitrated conflicts.
                     </p>
                     <div className="bg-stone-50 rounded p-3 text-sm">
                       <p className="font-semibold text-stone-900">Validation Process:</p>
@@ -1258,7 +1391,7 @@ if (!consent || !override) {
                   <h4 className="font-bold text-stone-900 mb-2">✅ What Worked</h4>
                   <ul className="text-stone-700 space-y-2 text-sm">
                     <li>• AI excels at implementation details</li>
-                    <li>• Multiple AI systems catch each other'apos;s errors</li>
+                    <li>• Multiple AI systems catch each other&apos;s errors</li>
                     <li>• Human oversight prevents scope creep</li>
                     <li>• Cryptographic receipts enable trust</li>
                   </ul>
@@ -1276,7 +1409,7 @@ if (!consent || !override) {
                   <h4 className="font-bold text-stone-900 mb-2">🚀 The Result</h4>
                   <ul className="text-stone-700 space-y-2 text-sm">
                     <li>• 10x faster development than solo</li>
-                    <li>• Higher code quality (95% coverage)</li>
+                    <li>• Higher code quality (comprehensive testing)</li>
                     <li>• Living proof of SYMBI thesis</li>
                     <li>• Production-ready in 7 months</li>
                   </ul>
@@ -1585,8 +1718,8 @@ if (!consent || !override) {
                   <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium">18+</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-stone-600">Test Coverage</span>
-                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium">95%</span>
+                  <span className="text-stone-600">Test Suites</span>
+                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium">59</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-stone-600">Lines of Code</span>

@@ -86,7 +86,7 @@ export default function TechnicalDemo() {
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-xl font-bold mb-4">What You'apos;ll Experience</h3>
+                <h3 className="text-xl font-bold mb-4">What You&apos;ll Experience</h3>
                 <ul className="space-y-2 text-blue-100 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-green-400 mt-0.5">✓</span>
@@ -128,9 +128,9 @@ export default function TechnicalDemo() {
 
           {/* DID Resolution Demo */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-stone-900 mb-8">DID Resolution Across 4 Methods</h2>
+            <h2 className="text-3xl font-bold text-stone-900 mb-8">DID Resolution Methods</h2>
             <p className="text-lg text-stone-600 mb-8">
-              SYMBI Trust Protocol supports four W3C-compliant DID methods, providing flexibility for different enterprise requirements.
+              SYMBI Trust Protocol supports W3C-compliant DID methods for enterprise identity verification.
             </p>
 
             <div className="grid md:grid-cols-1 gap-8 mb-8 max-w-2xl mx-auto">
@@ -184,50 +184,12 @@ const result = await resolveDID(did)
                 </div>
               </div>
 
-              <div className="bg-white border border-stone-200 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-stone-900 mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold mr-3">3</span>
-                  did:ethr
+              <div className="bg-stone-100 border border-stone-300 rounded-lg p-6">
+                <h3 className="text-xl font-semibold text-stone-700 mb-4 flex items-center">
+                  <span className="w-8 h-8 bg-stone-200 rounded-full flex items-center justify-center text-stone-500 font-bold mr-3">+</span>
+                  Coming Soon: did:ethr, did:ion
                 </h3>
-                <p className="text-stone-600 mb-4">Ethereum-based decentralized identity</p>
-                <div className="bg-stone-900 p-4 rounded text-sm overflow-x-auto">
-                  <pre className="text-green-400">
-{`// Resolve a did:ethr identifier
-const did = "did:ethr:0xb9c5714089..."
-const result = await resolveDID(did)
-
-// Ethereum registry lookup
-{
-  "@context": "https://w3id.org/did/v1",
-  "id": "did:ethr:0xb9c5714089...",
-  "controller": "0xb9c5714089...",
-  "verificationMethod": [...]
-}`}
-                  </pre>
-                </div>
-              </div>
-
-              <div className="bg-white border border-stone-200 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-stone-900 mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 font-bold mr-3">4</span>
-                  did:ion
-                </h3>
-                <p className="text-stone-600 mb-4">Bitcoin-anchored Sidetree (Microsoft)</p>
-                <div className="bg-stone-900 p-4 rounded text-sm overflow-x-auto">
-                  <pre className="text-green-400">
-{`// Resolve a did:ion identifier
-const did = "did:ion:EiClkZMDxPK..."
-const result = await resolveDID(did)
-
-// Bitcoin-anchored identity
-{
-  "@context": "https://w3id.org/did/v1",
-  "id": "did:ion:EiClkZMDxPK...",
-  "verificationMethod": [...],
-  "service": [...]
-}`}
-                  </pre>
-                </div>
+                <p className="text-stone-500 mb-4">Blockchain-anchored DID methods planned for future releases</p>
               </div>
             </div>
           </div>
