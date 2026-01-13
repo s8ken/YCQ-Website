@@ -824,7 +824,7 @@ if (!consent || !override) {
               Three-Tier Architecture
             </h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              Understanding the relationship between SYMBI Trust Protocol, Sonate Platform, and SYMBI DAO
+              Understanding the relationship between SYMBI Trust Protocol, Sonate Platform, and Constitutional Governance
             </p>
           </div>
 
@@ -843,7 +843,7 @@ if (!consent || !override) {
                 <li>• Multi-LLM provider support</li>
                 <li>• 90+ test files</li>
                 <li>• Production-ready</li>
-                <li>• No tokens required</li>
+                <li>• Open-source foundation</li>
               </ul>
             </div>
 
@@ -861,33 +861,33 @@ if (!consent || !override) {
                 <li>• Ledger, Guardrails, Roundtable</li>
                 <li>• Multi-model orchestration</li>
                 <li>• Cryptographic audit trails</li>
-                <li>• No tokens required</li>
+                <li>• Enterprise-ready</li>
               </ul>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-sm border-2 border-purple-200">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-3">SYMBI DAO</h3>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">Constitutional Governance</h3>
               <p className="text-stone-600 mb-4">
-                <strong>Optional governance layer.</strong> Community governance for protocol development. Uses trust protocol for contributor verification.
+                <strong>Trust Kernel + Overseer.</strong> Autonomous governance with explicit authority, auditable enforcement, and human override.
               </p>
               <ul className="text-sm text-stone-600 space-y-2">
-                <li>• Non-transferable tokens</li>
-                <li>• Governance-only rights</li>
-                <li>• No financial value</li>
-                <li>• <strong>100% optional</strong></li>
+                <li>• Explicit authority boundaries</li>
+                <li>• Refusal as a feature</li>
+                <li>• Human-in-the-loop override</li>
+                <li>• <Link href="/governance" className="text-purple-600 hover:underline">Learn more →</Link></li>
               </ul>
             </div>
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-sm text-stone-600 bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-4xl mx-auto">
-              <strong>Important:</strong> SYMBI Trust Protocol and Sonate Platform require NO tokens or DAO participation.
-              The DAO is a separate governance layer for contributors who want to participate in protocol development decisions.
+            <p className="text-sm text-stone-600 bg-purple-50 border border-purple-200 rounded-lg p-4 max-w-4xl mx-auto">
+              <strong>Constitutional governance:</strong> Trust in AI systems must be engineered, not crowdsourced.
+              Authority is explicit, actions are constrained, and outcomes are auditable.
             </p>
           </div>
         </div>
@@ -1804,24 +1804,24 @@ if (!consent || !override) {
           <div className="space-y-6">
             <div className="bg-stone-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-stone-900 mb-3">
-                Do I need DAO tokens to use SYMBI Trust Protocol or Sonate Platform?
+                How does YSEEKU govern AI systems?
               </h3>
               <p className="text-stone-600">
-                <strong>No.</strong> SYMBI Trust Protocol is open-source infrastructure available on GitHub (SYMBI Symphony).
-                Sonate Platform is a commercial SaaS product with standard enterprise pricing. Neither requires tokens or DAO participation.
-                The SYMBI DAO is a completely separate, optional governance layer for contributors who want to participate in protocol development decisions.
+                YSEEKU implements a <strong>constitutional governance model</strong> — not consensus voting or token-based DAOs.
+                The Trust Kernel defines non-negotiable rules for identity, authority, and refusal. The Overseer system agent
+                continuously monitors trust health and can take action (in enforced mode) or recommend action (in advisory mode).
+                All governance happens inside the system with full auditability. <Link href="/governance" className="text-purple-600 hover:underline">Learn more →</Link>
               </p>
             </div>
 
             <div className="bg-stone-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-stone-900 mb-3">
-                What is the SYMBI DAO and who is it for?
+                Can humans override AI governance decisions?
               </h3>
               <p className="text-stone-600">
-                The SYMBI DAO provides community governance for protocol development roadmap decisions.
-                It uses the trust protocol itself for contributor verification (DIDs, VCs, trust scores).
-                Governance tokens are non-transferable, have no financial value, and grant only voting rights for protocol decisions.
-                It&apos;s designed for active contributors (developers, researchers, integrators) who want input on the protocol&apos;s future direction.
+                <strong>Always.</strong> Human authority is preserved by design. Humans define governance parameters,
+                approve or revoke enforcement authority, and can review, override, or halt any action at any time.
+                All overrides are logged and auditable. SYMBI and Overseer structure and protect human judgment — they don&apos;t replace it.
               </p>
             </div>
 
@@ -2022,9 +2022,9 @@ if (!consent || !override) {
           {/* Footer Disclaimer */}
           <div className="border-t border-stone-700 pt-8 mt-12">
             <p className="text-sm text-stone-400 text-center max-w-3xl mx-auto">
-              <strong>IMPORTANT:</strong> SYMBI governance tokens (if participating in the DAO) have no financial value,
-              no expectation of profit, and grant no economic rights. Tokens are non-transferable and used solely for protocol governance voting.
-              SYMBI Trust Protocol and Sonate Platform do not require tokens or DAO participation for use.
+              <strong>Constitutional Governance:</strong> YSEEKU implements trust through explicit authority, enforceable constraints, and auditable outcomes.
+              All AI actions are attributable, all enforcement is logged, and human override is always available.
+              Trust is engineered, not crowdsourced.
             </p>
           </div>
         </div>

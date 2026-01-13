@@ -9,7 +9,7 @@ export default function Governance() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
-              <div className="ml-2 text-sm text-stone-600">DAO Governance</div>
+              <div className="ml-2 text-sm text-stone-600">Constitutional Governance</div>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
@@ -31,339 +31,417 @@ export default function Governance() {
         </div>
       </nav>
 
-      {/* Legal Disclaimer Banner */}
-      <div className="bg-amber-50 border-b border-amber-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-start">
-            <svg className="w-6 h-6 text-amber-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z" />
-            </svg>
-            <div>
-              <h3 className="text-sm font-semibold text-amber-900 mb-1">IMPORTANT LEGAL NOTICE</h3>
-              <p className="text-sm text-amber-800">
-                <strong>SYMBI governance tokens have no financial value, no expectation of profit, and grant no economic rights.</strong>
-                Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and Sonate Platform do not require tokens or DAO participation for use.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-white to-stone-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
-              SYMBI DAO Governance
+              Governance at YSEEKU
             </h1>
+            <p className="text-2xl text-purple-700 font-semibold mb-6">
+              Constitutional Trust for Intelligent Systems
+            </p>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              Optional community governance for protocol development decisions. Uses SYMBI Trust Protocol for contributor verification.
+              YSEEKU is built on a simple premise: trust in AI systems must be engineered, not crowdsourced.
             </p>
             <div className="inline-flex items-center space-x-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              <span className="font-medium text-sm">100% Optional • No Tokens Required for Protocol/Platform Use</span>
+              <span className="font-medium text-sm">Authority is Explicit • Actions are Constrained • Refusals are Intentional • Outcomes are Auditable</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Three Pillars Model */}
+      {/* Core Philosophy */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-stone-900 mb-4">
-              Three Pillars: Protocol, Platform, DAO
-            </h2>
-            <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              Understanding how SYMBI DAO fits into the broader ecosystem
+          <div className="max-w-4xl mx-auto">
+            <p className="text-xl text-stone-700 leading-relaxed mb-8">
+              Instead of relying on ad-hoc rules, opaque automation, or consensus voting, YSEEKU SONATE implements a
+              <strong className="text-purple-700"> constitutional governance model</strong> for AI systems — one where
+              authority is explicit, actions are constrained, refusals are intentional, and outcomes are auditable.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-stone-50 p-8 rounded-lg">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-3">SYMBI Trust Protocol</h3>
-              <p className="text-stone-600 mb-4">
-                Open-source W3C-compliant DID/VC infrastructure. The foundation layer that everything else builds on.
-              </p>
-              <ul className="text-sm text-stone-600 space-y-2">
-                <li>✓ Production-ready (95 tests)</li>
-                <li>✓ Open-source on GitHub</li>
-                <li>✓ No tokens required</li>
-              </ul>
-            </div>
-
-            <div className="bg-stone-50 p-8 rounded-lg">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-3">Sonate Platform</h3>
-              <p className="text-stone-600 mb-4">
-                Commercial SaaS built on trust protocol. Enterprise AI trust infrastructure with Ledger, Guardrails, Roundtable.
-              </p>
-              <ul className="text-sm text-stone-600 space-y-2">
-                <li>✓ Enterprise pricing model</li>
-                <li>✓ Built on trust protocol</li>
-                <li>✓ No tokens required</li>
-              </ul>
-            </div>
-
-            <div className="bg-purple-50 p-8 rounded-lg border-2 border-purple-200">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-3">SYMBI DAO</h3>
-              <p className="text-stone-600 mb-4">
-                Optional community governance layer. For contributors who want to participate in protocol development decisions.
-              </p>
-              <ul className="text-sm text-stone-600 space-y-2">
-                <li>✓ 100% optional</li>
-                <li>✓ Governance-only tokens</li>
-                <li>✓ Non-transferable, no value</li>
-              </ul>
-            </div>
+            <p className="text-xl text-stone-700 leading-relaxed">
+              This governance layer is powered by the <strong>SYMBI Trust Framework</strong> and enforced by the
+              <strong> Overseer</strong> system agent.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* How DAO Uses Trust Protocol */}
+      {/* What We Mean by Governance */}
       <section className="py-16 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-stone-900 mb-4">
-              How SYMBI DAO Uses SYMBI Trust Protocol
+              What We Mean by &quot;Governance&quot;
             </h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              The DAO is built on top of the trust protocol it governs - proving the protocol works in production
+              At YSEEKU, governance is not a policy document or a promise. <strong>It is live system behavior.</strong>
             </p>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-            <h3 className="text-2xl font-bold text-stone-900 mb-6">Architecture: Contributor → DID → VC → Trust Score → Voting Weight</h3>
-
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
-                <div>
-                  <h4 className="font-semibold text-stone-900 mb-2">Contributor Identity (DID)</h4>
-                  <p className="text-stone-600">Each contributor receives a W3C-compliant DID (typically did:web or did:ethr). This serves as their verifiable identity in the DAO.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
-                <div>
-                  <h4 className="font-semibold text-stone-900 mb-2">Contribution Attestation (VC)</h4>
-                  <p className="text-stone-600">Contributions (code commits, documentation, code reviews, research) are attested via Verifiable Credentials. Each VC is cryptographically signed and proves contribution authenticity.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">3</div>
-                <div>
-                  <h4 className="font-semibold text-stone-900 mb-2">Trust Score Calculation</h4>
-                  <p className="text-stone-600">Trust scores are computed from verified contributions: code quality, peer reviews, documentation, community support. All calculations logged to cryptographic audit trail.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">4</div>
-                <div>
-                  <h4 className="font-semibold text-stone-900 mb-2">Governance Token Minting</h4>
-                  <p className="text-stone-600">Non-transferable governance tokens (ERC-721 soulbound) are minted to contributor DIDs. Tokens grant voting rights proportional to trust score. Tokens cannot be sold or transferred.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">5</div>
-                <div>
-                  <h4 className="font-semibold text-stone-900 mb-2">Proposal Voting</h4>
-                  <p className="text-stone-600">All votes are DID-authenticated and logged to audit trail. Smart contracts enforce voting rules. Constitution Nodes provide algorithmic oversight.</p>
-                </div>
-              </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
+              <h3 className="font-bold text-stone-900 mb-2">Who Can Act</h3>
+              <p className="text-stone-600">Every action is attributable to a named identity with explicit authority.</p>
             </div>
-          </div>
-
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-            <h4 className="font-semibold text-blue-900 mb-3">Why This Approach?</h4>
-            <p className="text-blue-800 mb-4">
-              By using SYMBI Trust Protocol for DAO governance, we demonstrate the protocol&apos;s production readiness while ensuring:
-            </p>
-            <ul className="text-blue-800 space-y-2 text-sm">
-              <li>✓ <strong>Cryptographic verification</strong> of all governance actions</li>
-              <li>✓ <strong>Immutable audit trail</strong> of proposals and votes</li>
-              <li>✓ <strong>Sybil resistance</strong> through contribution-based identity</li>
-              <li>✓ <strong>Transparency</strong> via publicly verifiable credentials</li>
-              <li>✓ <strong>Privacy</strong> via selective disclosure (only reveal what&apos;s necessary)</li>
-            </ul>
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+              <h3 className="font-bold text-stone-900 mb-2">Context Boundaries</h3>
+              <p className="text-stone-600">Actions may only occur within defined contexts and jurisdictions.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+              <h3 className="font-bold text-stone-900 mb-2">Permission Model</h3>
+              <p className="text-stone-600">Actions are explicitly permitted, constrained, or refused.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
+              <h3 className="font-bold text-stone-900 mb-2">Audit Trail</h3>
+              <p className="text-stone-600">Decisions are recorded, reviewed, and learned from.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-rose-500">
+              <h3 className="font-bold text-stone-900 mb-2">Human Override</h3>
+              <p className="text-stone-600">Humans can intervene or override at any point.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-cyan-500">
+              <h3 className="font-bold text-stone-900 mb-2">Inside the System</h3>
+              <p className="text-stone-600">Governance exists inside the system — not outside it.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Governance Token Details */}
+      {/* SYMBI Trust Framework */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-stone-900 mb-4">
-              SYMBI Governance Token (SGT)
+              The SYMBI Trust Framework
             </h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              Non-transferable, governance-only tokens with no financial value
+              At the core of YSEEKU SONATE is the SYMBI Trust Framework, a constitutional layer that governs all intelligent behavior in the platform.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-stone-50 p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-stone-900 mb-4">What SGT Is</h3>
-              <ul className="space-y-3 text-stone-600">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>Governance Rights:</strong> Vote on protocol development proposals</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>Earned via Contribution:</strong> Verified code, docs, research, peer review</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>Soulbound:</strong> Non-transferable ERC-721/1155 tokens tied to contributor DID</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>Revocable:</strong> Can be revoked for violations of Constitution Nodes</span>
-                </li>
-              </ul>
+          <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8 mb-8">
+            <h3 className="text-2xl font-bold text-stone-900 mb-6 text-center">Trust Kernel: Non-Negotiable Rules</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white p-6 rounded-lg">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-purple-600 font-bold">1</span>
+                  </div>
+                  <h4 className="font-bold text-stone-900">Identity & Authority</h4>
+                </div>
+                <p className="text-stone-600">Every action is attributable to a named identity and scoped to a tenant.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-blue-600 font-bold">2</span>
+                  </div>
+                  <h4 className="font-bold text-stone-900">Intent & Action Classification</h4>
+                </div>
+                <p className="text-stone-600">Actions are classified as observational, advisory, or executory before they occur.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-green-600 font-bold">3</span>
+                  </div>
+                  <h4 className="font-bold text-stone-900">Constraint & Refusal Logic</h4>
+                </div>
+                <p className="text-stone-600">Unsafe, unjustified, or out-of-scope actions are explicitly refused — and recorded.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-amber-600 font-bold">4</span>
+                  </div>
+                  <h4 className="font-bold text-stone-900">Memory & Continuity Ethics</h4>
+                </div>
+                <p className="text-stone-600">Memory is selective, tenant-scoped, and used to improve safety, not expand authority.</p>
+              </div>
             </div>
-
-            <div className="bg-red-50 p-8 rounded-lg border-2 border-red-200">
-              <h3 className="text-xl font-bold text-red-900 mb-4">What SGT Is NOT</h3>
-              <ul className="space-y-3 text-red-800">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-red-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span><strong>Not a Security:</strong> No profit expectation, no dividends, no revenue share</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-red-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span><strong>Not Transferable:</strong> Cannot be sold, traded, or transferred to others</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-red-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span><strong>No Financial Value:</strong> Zero market value, no price, no liquidity</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-red-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span><strong>Not Required:</strong> Protocol and platform work without DAO participation</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-stone-900 p-6 rounded-lg">
-            <h4 className="text-white text-lg font-semibold mb-4">Example Smart Contract (ERC-721 Soulbound)</h4>
-            <pre className="text-green-400 text-sm overflow-x-auto">
-{`contract SymbiGovernanceToken is ERC721, Ownable {
-    mapping(address => bool) public verifiedContributors;
-    mapping(address => uint256) public trustScore;
-    mapping(address => bool) public revoked;
-
-    // Prevent transfers (soulbound)
-    function _beforeTokenTransfer(
-        address from,
-        address to,
-        uint256 _tokenId
-    ) internal pure override {
-        require(
-            from == address(0) || to == address(0),
-            "Non-transferable token"
-        );
-    }
-
-    // Mint to verified contributor DID
-    function mintToContributor(
-        address contributorDID,
-        uint256 _trustScore
-    ) external onlyOwner {
-        require(verifiedContributors[contributorDID], "Not verified");
-        trustScore[contributorDID] = _trustScore;
-        _mint(contributorDID, _tokenId);
-    }
-
-    // Revoke for violations
-    function revokeToken(address contributorDID) external onlyOwner {
-        revoked[contributorDID] = true;
-    }
-}`}
-            </pre>
+            <p className="text-center text-stone-700 mt-6 font-medium">
+              These rules apply to all system agents, including SYMBI itself.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Legal & Compliance */}
-      <section className="py-16 bg-stone-50">
+      {/* Overseer Section */}
+      <section className="py-16 bg-stone-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-stone-900 mb-4">
-              Legal & Compliance
+            <h2 className="text-3xl font-bold mb-4">
+              Overseer: Governance in Action
             </h2>
-            <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              Australia-based foundation structure with governance-only token classification
+            <p className="text-lg text-stone-300 max-w-3xl mx-auto">
+              Overseer is YSEEKU&apos;s system governance agent. It operates continuously to maintain trust integrity.
             </p>
+          </div>
+
+          <div className="grid md:grid-cols-5 gap-4 mb-12">
+            <div className="bg-stone-800 p-4 rounded-lg text-center">
+              <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <h4 className="font-semibold mb-1">Monitor</h4>
+              <p className="text-stone-400 text-sm">Trust health & emergence signals</p>
+            </div>
+            <div className="bg-stone-800 p-4 rounded-lg text-center">
+              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <h4 className="font-semibold mb-1">Analyze</h4>
+              <p className="text-stone-400 text-sm">Context & risk state labeling</p>
+            </div>
+            <div className="bg-stone-800 p-4 rounded-lg text-center">
+              <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h4 className="font-semibold mb-1">Plan</h4>
+              <p className="text-stone-400 text-sm">Mitigation actions</p>
+            </div>
+            <div className="bg-stone-800 p-4 rounded-lg text-center">
+              <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 className="font-semibold mb-1">Execute</h4>
+              <p className="text-stone-400 text-sm">Under explicit authority</p>
+            </div>
+            <div className="bg-stone-800 p-4 rounded-lg text-center">
+              <div className="w-10 h-10 bg-rose-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </div>
+              <h4 className="font-semibold mb-1">Learn</h4>
+              <p className="text-stone-400 text-sm">Effectiveness & refusals</p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-stone-900 mb-4">Foundation Structure</h3>
-              <ul className="space-y-3 text-stone-600">
-                <li>• <strong>Jurisdiction:</strong> Australia (proposed)</li>
-                <li>• <strong>Entity Type:</strong> Non-profit foundation (ACNC registered)</li>
-                <li>• <strong>Governance Model:</strong> Constitution Nodes + Council + Community voting</li>
-                <li>• <strong>Legal Opinion:</strong> Governance-only token classification (not a security)</li>
+            <div className="bg-stone-800 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4 text-blue-400">Advisory Mode</h3>
+              <ul className="space-y-2 text-stone-300">
+                <li>• Observes and plans only</li>
+                <li>• Produces recommendations</li>
+                <li>• Never mutates system state</li>
               </ul>
             </div>
-
-            <div className="bg-white p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-stone-900 mb-4">Token Classification</h3>
-              <ul className="space-y-3 text-stone-600">
-                <li>• <strong>Not a Security:</strong> No profit expectation, no economic rights</li>
-                <li>• <strong>Non-Transferable:</strong> Cannot be sold or traded</li>
-                <li>• <strong>Earned via Contribution:</strong> Not purchasable</li>
-                <li>• <strong>Governance-Only:</strong> Voting rights for protocol decisions</li>
+            <div className="bg-stone-800 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4 text-amber-400">Enforced Mode</h3>
+              <ul className="space-y-2 text-stone-300">
+                <li>• Executes permitted actions under audit</li>
+                <li>• Requires explicit authority</li>
+                <li>• Produces traceable enforcement records</li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-8 bg-amber-50 border-2 border-amber-200 rounded-lg p-6">
-            <h4 className="font-semibold text-amber-900 mb-3">Mandatory Disclaimer (All DAO Pages)</h4>
-            <p className="text-amber-800 text-sm">
-              <strong>IMPORTANT:</strong> SYMBI governance tokens have no financial value, no expectation of profit, and grant no economic rights.
-              Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and Sonate Platform do not require
-              tokens or DAO participation for use. This is not an investment opportunity. Participation in DAO governance is entirely optional.
+          <p className="text-center text-stone-400 mt-8">
+            This separation preserves human sovereignty while enabling delegated oversight.
+          </p>
+        </div>
+      </section>
+
+      {/* Refusal Is a Feature */}
+      <section className="py-16 bg-red-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-stone-900 mb-4">
+              Refusal Is a Feature
+            </h2>
+            <p className="text-xl text-stone-700 mb-8">
+              In YSEEKU, a refusal is not an error.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6 text-left mb-8">
+              <div className="bg-white p-6 rounded-lg">
+                <h3 className="font-bold text-stone-900 mb-3">Refusals Occur When:</h3>
+                <ul className="space-y-2 text-stone-600">
+                  <li>• Actions lack proper authority</li>
+                  <li>• Justification is missing for high-impact enforcement</li>
+                  <li>• Tenant context is invalid</li>
+                  <li>• Trust Kernel constraints would be violated</li>
+                </ul>
+              </div>
+              <div className="bg-white p-6 rounded-lg">
+                <h3 className="font-bold text-stone-900 mb-3">Every Refusal:</h3>
+                <ul className="space-y-2 text-stone-600">
+                  <li>• Is explicitly recorded</li>
+                  <li>• Generates an audit trail</li>
+                  <li>• Can inform future recommendations</li>
+                  <li>• Preserves system trust</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-red-100 border-2 border-red-300 rounded-lg p-6">
+              <p className="text-xl font-bold text-red-900">
+                A system that cannot say &quot;no&quot; cannot be trusted.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Human Authority */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-stone-900 mb-4">
+              Human Authority & Override
+            </h2>
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto">
+              YSEEKU governance is human-centered by design.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-stone-50 p-6 rounded-lg text-center">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+              </div>
+              <p className="text-stone-700 font-medium">Humans define governance parameters</p>
+            </div>
+            <div className="bg-stone-50 p-6 rounded-lg text-center">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p className="text-stone-700 font-medium">Humans approve or revoke enforcement authority</p>
+            </div>
+            <div className="bg-stone-50 p-6 rounded-lg text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <p className="text-stone-700 font-medium">Humans can review, override, or halt actions</p>
+            </div>
+            <div className="bg-stone-50 p-6 rounded-lg text-center">
+              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <p className="text-stone-700 font-medium">All overrides are logged and auditable</p>
+            </div>
+          </div>
+
+          <p className="text-center text-lg text-stone-600 mt-8 max-w-3xl mx-auto">
+            SYMBI and Overseer do not replace human judgment — they structure and protect it.
+          </p>
+        </div>
+      </section>
+
+      {/* What This Is Not */}
+      <section className="py-16 bg-stone-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-stone-900 mb-4">
+              What This Is Not
+            </h2>
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto">
+              To be explicit, YSEEKU governance is not:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+            <div className="bg-white p-4 rounded-lg text-center border border-stone-200">
+              <svg className="w-8 h-8 text-red-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <p className="text-sm text-stone-700">Token-based voting</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center border border-stone-200">
+              <svg className="w-8 h-8 text-red-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <p className="text-sm text-stone-700">DAO-driven execution</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center border border-stone-200">
+              <svg className="w-8 h-8 text-red-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <p className="text-sm text-stone-700">Anonymous consensus</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center border border-stone-200">
+              <svg className="w-8 h-8 text-red-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <p className="text-sm text-stone-700">Self-authorizing AI</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center border border-stone-200">
+              <svg className="w-8 h-8 text-red-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <p className="text-sm text-stone-700">Black-box decisions</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center border border-stone-200">
+              <svg className="w-8 h-8 text-red-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <p className="text-sm text-stone-700">Diffuse accountability</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/governance/why-not-dao" className="text-purple-600 hover:text-purple-800 font-medium">
+              Read: Why YSEEKU Is Not a DAO →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Matters */}
+      <section className="py-16 bg-purple-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">
+              Why This Matters
+            </h2>
+            <p className="text-xl text-purple-200 mb-8">
+              As AI systems become more capable, the real risk is not intelligence — it is unbounded authority.
+            </p>
+
+            <div className="grid md:grid-cols-5 gap-4 mb-8">
+              <div className="bg-purple-800/50 p-4 rounded-lg">
+                <p className="font-medium">Power is constrained</p>
+              </div>
+              <div className="bg-purple-800/50 p-4 rounded-lg">
+                <p className="font-medium">Decisions are explainable</p>
+              </div>
+              <div className="bg-purple-800/50 p-4 rounded-lg">
+                <p className="font-medium">Actions are reversible</p>
+              </div>
+              <div className="bg-purple-800/50 p-4 rounded-lg">
+                <p className="font-medium">Failures are visible</p>
+              </div>
+              <div className="bg-purple-800/50 p-4 rounded-lg">
+                <p className="font-medium">Trust degrades safely</p>
+              </div>
+            </div>
+
+            <p className="text-lg text-purple-100">
+              This is how intelligent systems earn legitimacy in production environments.
             </p>
           </div>
         </div>
@@ -373,27 +451,26 @@ export default function Governance() {
       <section className="py-16 bg-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Interested in Contributing?
+            Learn More
           </h2>
           <p className="text-xl text-stone-300 mb-8 max-w-2xl mx-auto">
-            SYMBI DAO is for active contributors (developers, researchers, integrators) who want to participate in protocol governance.
-            If you&apos;re building with or extending SYMBI Trust Protocol, governance participation may be for you.
+            Explore how YSEEKU implements constitutional governance for AI systems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="https://github.com/s8ken/SYMBI-SYNERGY" target="_blank" rel="noopener noreferrer" className="bg-purple-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-purple-700 transition-colors">
-              View on GitHub
+            <Link href="/technology" className="bg-purple-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-purple-700 transition-colors">
+              Technology Details
             </Link>
-            <Link href="mailto:stephen@yseeku.com?subject=SYMBI DAO Contribution" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">
-              Contact About Contributing
+            <Link href="/governance/why-not-dao" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">
+              Why Not a DAO?
+            </Link>
+            <Link href="/demo" className="border border-stone-300 text-stone-300 px-8 py-3 rounded-md text-lg font-medium hover:bg-stone-700 transition-colors">
+              See Live Demo
             </Link>
           </div>
 
-          {/* Footer Disclaimer */}
           <div className="border-t border-stone-700 pt-8 mt-12">
-            <p className="text-sm text-stone-400 text-center max-w-3xl mx-auto">
-              <strong>LEGAL DISCLAIMER:</strong> SYMBI governance tokens have no financial value, no expectation of profit, and grant no economic rights.
-              Tokens are non-transferable and used solely for protocol governance voting. SYMBI Trust Protocol and Sonate Platform do not require tokens
-              or DAO participation for use. Participation is entirely optional and at your own discretion.
+            <p className="text-lg text-stone-300 font-medium">
+              YSEEKU is building AI systems that can be trusted — because they are governed.
             </p>
           </div>
         </div>
