@@ -22,8 +22,14 @@ export default function Home() {
                 <Link href="#platform" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
                   Platform
                 </Link>
+                <Link href="/benefits" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
+                  Benefits
+                </Link>
                 <Link href="/technology" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
                   Technology
+                </Link>
+                <Link href="/governance" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
+                  Governance
                 </Link>
                 <Link href="/investors" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
                   Investors
