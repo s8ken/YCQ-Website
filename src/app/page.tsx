@@ -103,12 +103,12 @@ export default function Home() {
         </div>
       </section>
 
-{/* SYMBI Trust Protocol Section */}
+{/* SONATE Trust Protocol Section */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-stone-900 mb-4">
-                Built on SYMBI Trust Protocol
+                Built on SONATE Trust Protocol
               </h2>
               <p className="text-xl text-stone-600 max-w-3xl mx-auto">
                 The foundation of Sonate: A cryptographic trust infrastructure that turns AI ethics into enforceable code
@@ -119,15 +119,15 @@ export default function Home() {
               {/* Left: Explanation */}
               <div>
                 <h3 className="text-2xl font-bold text-stone-900 mb-4">
-                  What is SYMBI Trust Protocol?
+                  What is SONATE Trust Protocol?
                 </h3>
                 <p className="text-stone-700 mb-4">
-                  SYMBI is our core innovation: a protocol that generates <strong>cryptographic trust receipts</strong> for every AI interaction.
+                  SONATE is our core innovation: a protocol that generates <strong>cryptographic trust receipts</strong> for every AI interaction.
                   Think of it as a <strong>hash-chained trust ledger</strong> - every decision, every data access, every policy enforcement gets an immutable,
                   verifiable record with cryptographic proof.
                 </p>
                 <p className="text-stone-700 mb-4">
-                  Unlike traditional audit logs that can be tampered with, SYMBI receipts use <strong>SHA-256 hashing</strong> and 
+                  Unlike traditional audit logs that can be tampered with, SONATE receipts use <strong>SHA-256 hashing</strong> and 
                   <strong>digital signatures</strong> to create mathematically provable trust chains. If anyone tries to alter a record, 
                   the hash breaks - making fraud immediately detectable.
                 </p>
@@ -271,7 +271,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Agent Management</h3>
                 <p className="text-stone-300 mb-4">
-                  Full lifecycle management for AI agents with SYMBI Dimensions scoring across 5 behavioral axes and W3C DID identity.
+                  Full lifecycle management for AI agents with SONATE Dimensions scoring across 5 behavioral axes and W3C DID identity.
                 </p>
                 <ul className="text-stone-400 text-sm space-y-1">
                   <li>• Create, configure, deploy agents</li>
@@ -830,7 +830,7 @@ if (!consent || !override) {
               Three-Tier Architecture
             </h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              Understanding the relationship between SYMBI Trust Protocol, Sonate Platform, and Constitutional Governance
+              Understanding the relationship between SONATE Trust Protocol, Sonate Platform, and Constitutional Governance
             </p>
           </div>
 
@@ -841,7 +841,7 @@ if (!consent || !override) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-stone-900 mb-3">SYMBI Trust Protocol</h3>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">SONATE Trust Protocol</h3>
               <p className="text-stone-600 mb-4">
                 <strong>Production-grade trust layer.</strong> Ed25519 cryptographic signing, hash-chained receipts, 6-principle constitutional framework.
               </p>
@@ -861,7 +861,7 @@ if (!consent || !override) {
               </div>
               <h3 className="text-xl font-bold text-stone-900 mb-3">Sonate Platform</h3>
               <p className="text-stone-600 mb-4">
-                <strong>Commercial SaaS product.</strong> Enterprise AI trust infrastructure built on SYMBI Trust Protocol.
+                <strong>Commercial SaaS product.</strong> Enterprise AI trust infrastructure built on SONATE Trust Protocol.
               </p>
               <ul className="text-sm text-stone-600 space-y-2">
                 <li>• Ledger, Guardrails, Roundtable</li>
@@ -910,7 +910,7 @@ if (!consent || !override) {
               Enterprise AI trust infrastructure built on W3C-compliant protocol
             </p>
             <p className="text-lg text-stone-700 max-w-4xl mx-auto">
-              Cryptographic audit trails, fairness-aware QA (AI vs human), and vendor-agnostic guardrails across all AI-powered business operations. Built on SYMBI Trust Protocol foundation.
+              Cryptographic audit trails, fairness-aware QA (AI vs human), and vendor-agnostic guardrails across all AI-powered business operations. Built on SONATE Trust Protocol foundation.
             </p>
           </div>
 
@@ -1228,7 +1228,7 @@ if (!consent || !override) {
             <div className="max-w-4xl mx-auto mb-16">
               <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
                 <h3 className="text-2xl font-bold text-stone-900 mb-4">
-                  🤖 Meta-Proof: SYMBI&apos;s Thesis Validated Through Its Own Development
+                  🤖 Meta-Proof: SONATE&apos;s Thesis Validated Through Its Own Development
                 </h3>
                 <p className="text-stone-700 mb-4">
                   Sonate wasn&apos;t just built <em>for</em> AI trust - it was built <em>with</em> AI trust. 
@@ -1246,7 +1246,7 @@ if (!consent || !override) {
                   </p>
                   <p className="text-blue-800 text-sm">
                     If multiple AI systems can collaborate to build a 18K+ LOC enterprise platform with comprehensive test coverage
-                    and zero critical bugs - all under human oversight - then the SYMBI thesis isn&apos;t just theory. It&apos;s proven.
+                    and zero critical bugs - all under human oversight - then the SONATE thesis isn&apos;t just theory. It&apos;s proven.
                   </p>
                 </div>
               </div>
@@ -1416,7 +1416,7 @@ if (!consent || !override) {
                   <ul className="text-stone-700 space-y-2 text-sm">
                     <li>• 10x faster development than solo</li>
                     <li>• Higher code quality (comprehensive testing)</li>
-                    <li>• Living proof of SYMBI thesis</li>
+                    <li>• Living proof of SONATE thesis</li>
                     <li>• Production-ready in 7 months</li>
                   </ul>
                 </div>
@@ -1827,7 +1827,7 @@ if (!consent || !override) {
               <p className="text-stone-600">
                 <strong>Always.</strong> Human authority is preserved by design. Humans define governance parameters,
                 approve or revoke enforcement authority, and can review, override, or halt any action at any time.
-                All overrides are logged and auditable. SYMBI and Overseer structure and protect human judgment — they don&apos;t replace it.
+                All overrides are logged and auditable. SONATE and Overseer structure and protect human judgment — they don&apos;t replace it.
               </p>
             </div>
 
@@ -1856,10 +1856,10 @@ if (!consent || !override) {
 
             <div className="bg-stone-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-stone-900 mb-3">
-                Is SYMBI open-source or proprietary?
+                Is SONATE open-source or proprietary?
               </h3>
               <p className="text-stone-600">
-                <strong>Both.</strong> The SYMBI Trust Protocol (6-principle framework, trust scoring, receipt generation) provides transparent governance infrastructure.
+                <strong>Both.</strong> The SONATE Trust Protocol (6-principle framework, trust scoring, receipt generation) provides transparent governance infrastructure.
                 Sonate Platform (enterprise features like System Brain, Agent Control, Ledger, Guardrails) is proprietary SaaS.
                 This model ensures trust infrastructure transparency while providing commercial enterprise-grade tooling and support.
               </p>
@@ -1984,9 +1984,6 @@ if (!consent || !override) {
                 <div className="flex gap-4">
                   <a href="https://gammatria.com" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm">
                     gammatria.com
-                  </a>
-                  <a href="https://symbi.world" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm">
-                    symbi.world
                   </a>
                 </div>
               </div>

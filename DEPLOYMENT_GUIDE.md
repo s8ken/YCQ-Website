@@ -24,7 +24,7 @@ This guide covers deploying the YCQ Website with the integrated Trust Ledger Dem
 
 1. **Create Railway Account**: https://railway.app
 2. **Create New Project**: Click "New Project" → "Deploy from GitHub repo"
-3. **Select Repository**: Choose `s8ken/SYMBI-SYNERGY`
+3. **Select Repository**: Choose `s8ken/SONATE-SYNERGY`
 4. **Configure Service**:
    - Root Directory: `/`
    - Start Command: `node trust-ledger-demo.js`
@@ -43,7 +43,7 @@ This guide covers deploying the YCQ Website with the integrated Trust Ledger Dem
 2. **Login**: `heroku login`
 3. **Create App**:
    ```bash
-   cd /path/to/SYMBI-SYNERGY
+   cd /path/to/SONATE-SYNERGY
    heroku create ycq-trust-ledger-api
    ```
 4. **Add Procfile**:
@@ -60,7 +60,7 @@ This guide covers deploying the YCQ Website with the integrated Trust Ledger Dem
 
 1. **Create Account**: https://www.digitalocean.com
 2. **Create App**: Apps → Create App → GitHub
-3. **Select Repository**: `s8ken/SYMBI-SYNERGY`
+3. **Select Repository**: `s8ken/SONATE-SYNERGY`
 4. **Configure**:
    - Type: Web Service
    - Run Command: `node trust-ledger-demo.js`
@@ -175,7 +175,7 @@ curl https://YOUR-BACKEND-URL/api/trust/analytics
 # Login
 curl -X POST https://YOUR-BACKEND-URL/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"demo@symbi-trust.com","password":"demo123"}'
+  -d '{"email":"demo@sonate-trust.com","password":"demo123"}'
 ```
 
 ### Test Frontend
@@ -269,7 +269,7 @@ NEXT_PUBLIC_API_URL=https://api.yseeku.com
 ## Support
 
 For deployment issues:
-- Backend: Check SYMBI-SYNERGY repository issues
+- Backend: Check SONATE-SYNERGY repository issues
 - Frontend: Check YCQ-Website repository issues
 - Vercel: https://vercel.com/support
 - Railway: https://railway.app/help

@@ -16,7 +16,7 @@ export default function SymbiPlatformPage() {
               <div className="h-6 w-px bg-purple-500/30" />
               <div className="flex items-center space-x-2">
                 <Shield className="w-6 h-6 text-purple-400" />
-                <span className="text-xl font-bold text-white">SYMBI Symphony</span>
+                <span className="text-xl font-bold text-white">SONATE Symphony</span>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-6">
@@ -37,7 +37,7 @@ export default function SymbiPlatformPage() {
             <span>Enterprise Trust Infrastructure</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            SYMBI Symphony
+            SONATE Symphony
             <span className="block text-purple-400">Platform</span>
           </h1>
           <p className="text-xl text-purple-200 mb-8 max-w-3xl mx-auto">
@@ -99,11 +99,11 @@ export default function SymbiPlatformPage() {
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-purple-300">Issuer:</span>
-                      <span className="text-white font-mono text-sm">did:symbi:org:techcorp</span>
+                      <span className="text-white font-mono text-sm">did:sonate:org:techcorp</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-purple-300">Recipient:</span>
-                      <span className="text-white font-mono text-sm">did:symbi:ai:assistant-001</span>
+                      <span className="text-white font-mono text-sm">did:sonate:ai:assistant-001</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-purple-300">Trust Score:</span>
@@ -366,7 +366,7 @@ export default function SymbiPlatformPage() {
             Ready to Deploy?
           </h2>
           <p className="text-xl text-purple-200 mb-8">
-            Experience the full power of SYMBI Symphony with enterprise-grade features
+            Experience the full power of SONATE Symphony with enterprise-grade features
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -388,7 +388,7 @@ export default function SymbiPlatformPage() {
       <footer className="bg-black/50 backdrop-blur-md border-t border-purple-500/20 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-purple-300">
-            © 2024 SYMBI Symphony. Enterprise Trust Infrastructure.
+            © 2024 SONATE Symphony. Enterprise Trust Infrastructure.
           </p>
           <p className="text-purple-400 text-sm mt-2">
             Powering the future of AI trust and governance

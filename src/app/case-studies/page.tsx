@@ -42,8 +42,8 @@ export default function CaseStudies() {
               <span className="block text-amber-700">Transparent AI</span>
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              These example implementations demonstrate how organizations across industries could 
-              implement SYMBI&apos;s transparent AI solutions to drive growth while mitigating risks.
+              These example implementations demonstrate how organizations across industries could
+              implement SONATE&apos;s transparent AI solutions to drive growth while mitigating risks.
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function CaseStudies() {
                   Example: Regional Hospital Network Could Reduce Diagnostic Errors by 40%
                 </h2>
                 <p className="text-lg text-stone-600 mb-6">
-                  A 12-hospital network implemented SYMBI&apos;s explainable AI for radiology diagnosis, 
+                  A 12-hospital network implemented SONATE&apos;s explainable AI for radiology diagnosis, 
                   achieving significant improvements in accuracy while maintaining full HIPAA compliance 
                   and providing clear audit trails for every decision.
                 </p>
@@ -121,7 +121,7 @@ export default function CaseStudies() {
               Success Stories Across Industries
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              These example scenarios show how SYMBI could deliver 
+              These example scenarios show how SONATE could deliver 
               measurable results while maintaining transparency and accountability.
             </p>
           </div>
@@ -144,7 +144,7 @@ export default function CaseStudies() {
                 Example: Transparent Credit Scoring Could Increase Approvals by 30%
               </h4>
               <p className="text-stone-600 mb-4">
-                A regional credit union implemented SYMBI&apos;s explainable credit scoring system, 
+                A regional credit union implemented SONATE&apos;s explainable credit scoring system, 
                 reducing bias while improving approval rates and member satisfaction.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -174,7 +174,7 @@ export default function CaseStudies() {
                 Example: Predictive Maintenance Could Reduce Downtime by 60%
               </h4>
               <p className="text-stone-600 mb-4">
-                A major auto parts manufacturer deployed SYMBI&apos;s transparent predictive maintenance 
+                A major auto parts manufacturer deployed SONATE&apos;s transparent predictive maintenance 
                 system, dramatically reducing unplanned downtime and maintenance costs.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -204,7 +204,7 @@ export default function CaseStudies() {
                 Example: Transparent Recommendations Could Boost Sales by 35%
               </h4>
               <p className="text-stone-600 mb-4">
-                An online retailer replaced black-box recommendations with SYMBI&apos;s explainable system, 
+                An online retailer replaced black-box recommendations with SONATE&apos;s explainable system, 
                 improving customer trust and conversion rates while maintaining privacy.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -234,7 +234,7 @@ export default function CaseStudies() {
                 Example: Fair Housing Algorithm Could Eliminate Discrimination
               </h4>
               <p className="text-stone-600 mb-4">
-                A major city implemented SYMBI&apos;s transparent housing assistance algorithm, 
+                A major city implemented SONATE&apos;s transparent housing assistance algorithm, 
                 ensuring fair distribution while maintaining complete accountability to citizens.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -264,7 +264,7 @@ export default function CaseStudies() {
                 Example: Startup Could Scale Customer Support with Transparent AI
               </h4>
               <p className="text-stone-600 mb-4">
-                A growing SaaS startup implemented SYMBI&apos;s explainable customer support AI, 
+                A growing SaaS startup implemented SONATE&apos;s explainable customer support AI, 
                 scaling from 100 to 10,000 customers while maintaining personalized service.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -294,7 +294,7 @@ export default function CaseStudies() {
                 Example: Claims Processing Could Reduce Fraud by 70%
               </h4>
               <p className="text-stone-600 mb-4">
-                A regional insurer deployed SYMBI&apos;s transparent fraud detection system, 
+                A regional insurer deployed SONATE&apos;s transparent fraud detection system, 
                 dramatically reducing fraudulent claims while speeding up legitimate payouts.
               </p>
               <div className="flex justify-between items-center text-sm mb-4">
@@ -318,7 +318,7 @@ export default function CaseStudies() {
               Measurable Impact Across All Implementations
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              SYMBI consistently delivers strong ROI while maintaining the highest 
+              SONATE consistently delivers strong ROI while maintaining the highest 
               standards of transparency and accountability.
             </p>
           </div>
@@ -358,7 +358,7 @@ export default function CaseStudies() {
             Ready to Join Our Success Stories?
           </h2>
           <p className="text-xl text-stone-300 mb-8 max-w-2xl mx-auto">
-            See how SYMBI can transform your organization with transparent, 
+            See how SONATE can transform your organization with transparent, 
             accountable AI that delivers measurable results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

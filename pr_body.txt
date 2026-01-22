@@ -4,7 +4,7 @@ This PR contains all critical website enhancements for Y Combinator application 
 
 PHASE 1: CRITICAL PATH
 - Updated hero CTAs to prioritize trust demo
-- Added SYMBI Trust Protocol section with cryptographic receipt example
+- Added SONATE Trust Protocol section with cryptographic receipt example
 - Added 6 Trust Principles section with weighted scoring
 - Added regulatory mapping (EU AI Act, GDPR, CCPA)
 - Added How We Built This section

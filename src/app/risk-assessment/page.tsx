@@ -198,7 +198,7 @@ export default function RiskAssessment() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-stone-900 mb-4">SYMBI Solutions</h3>
+                  <h3 className="text-xl font-semibold text-stone-900 mb-4">SONATE Solutions</h3>
                   <div className="space-y-3">
                     <div className="flex items-start">
                       <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>

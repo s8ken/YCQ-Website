@@ -82,7 +82,7 @@ Fixed Elements:
 
 **Frontend URL**: https://3000-93f6dde3-aaae-4b3e-ae57-a7d3bd733547.proxy.daytona.works/trust-demo
 
-**Demo Credentials**: demo@symbi-trust.com / demo123
+**Demo Credentials**: demo@sonate-trust.com / demo123
 
 ### Test All Contrast Fixed Elements:
 1. **Trust Article Titles** - Now bold black text

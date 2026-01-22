@@ -42,7 +42,7 @@ export default function Solutions() {
               <span className="block text-amber-700">Business Need</span>
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              SYMBI&apos;s transparent AI platform adapts to your industry&apos;s unique challenges, 
+              SONATE&apos;s transparent AI platform adapts to your industry&apos;s unique challenges,
               providing accountable solutions that drive results while mitigating risks.
             </p>
           </div>
@@ -203,7 +203,7 @@ export default function Solutions() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-stone-900 mb-4">
-              Core SYMBI Capabilities
+              Core SONATE Capabilities
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
               Every solution is built on our foundation of transparency, accountability, and sovereign AI principles.
@@ -269,7 +269,7 @@ export default function Solutions() {
             Ready to Transform Your Industry?
           </h2>
           <p className="text-xl text-stone-300 mb-8 max-w-2xl mx-auto">
-            Discover how SYMBI can address your specific industry challenges 
+            Discover how SONATE can address your specific industry challenges 
             with transparent, accountable AI solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

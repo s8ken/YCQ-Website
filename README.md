@@ -506,7 +506,7 @@ Licensed under Enterprise Commercial License. See [LICENSE](LICENSE) for terms.
 
 ### **Interactive Demo Features**
 
-The Trust Ledger Demo provides a live, interactive demonstration of SYMBI's cryptographic trust infrastructure:
+The Trust Ledger Demo provides a live, interactive demonstration of SONATE's cryptographic trust infrastructure:
 
 - **📊 Trust Analytics**: Real-time compliance metrics and trust scores
 - **✨ Create Declarations**: Build trust declarations with 6 fundamental articles
@@ -518,7 +518,7 @@ The Trust Ledger Demo provides a live, interactive demonstration of SYMBI's cryp
 **URL**: [https://www.ycq.com/trust-demo](https://www.ycq.com/trust-demo)
 
 **Demo Credentials**:
-- Email: `demo@symbi-trust.com`
+- Email: `demo@sonate-trust.com`
 - Password: `demo123`
 
 **Demo Limits**:

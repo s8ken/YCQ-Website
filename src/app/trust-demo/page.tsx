@@ -28,7 +28,7 @@ export default function TrustDemoPage() {
                 <div className="h-6 w-px bg-purple-500/30" />
                 <div className="flex items-center space-x-2">
                   <Shield className="w-6 h-6 text-purple-400" />
-                  <span className="text-xl font-bold text-white">SYMBI Symphony</span>
+                  <span className="text-xl font-bold text-white">SONATE Symphony</span>
                 </div>
               </div>
               <div className="hidden md:flex items-center space-x-6">
@@ -49,7 +49,7 @@ export default function TrustDemoPage() {
               <span>Enterprise Trust Infrastructure</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              SYMBI Symphony
+              SONATE Symphony
               <span className="block text-purple-400">Platform</span>
             </h1>
             <p className="text-xl text-purple-200 mb-8 max-w-3xl mx-auto">
@@ -299,13 +299,13 @@ export default function TrustDemoPage() {
         </div>
       </section>
 
-      {/* Enhanced Trust Receipts Section - SYMBI Symphony Integration */}
+      {/* Enhanced Trust Receipts Section - SONATE Symphony Integration */}
       <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-blue-400/30">
               <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-              SYMBI Symphony Integration
+              SONATE Symphony Integration
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Enhanced Trust Receipts
@@ -492,7 +492,7 @@ export default function TrustDemoPage() {
             Ready for Enterprise Deployment?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Experience the full SYMBI Trust Platform with production-ready features
+            Experience the full SONATE Trust Platform with production-ready features
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -526,9 +526,6 @@ export default function TrustDemoPage() {
             <div className="flex gap-6">
               <a href="https://gammatria.com" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm transition-colors">
                 gammatria.com
-              </a>
-              <a href="https://symbi.world" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm transition-colors">
-                symbi.world
               </a>
             </div>
             <p className="text-stone-500 text-sm">

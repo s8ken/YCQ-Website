@@ -13,7 +13,7 @@
 ```
 AI trust infrastructure with cryptographic receipts and automated compliance scoring.
 
-YCQ Sonate turns AI ethics into enforceable code through SYMBI Trust Protocol - a cryptographic framework that generates tamper-proof trust receipts for every AI interaction. Our 6-principle weighted algorithm (Consent Architecture 25%, Inspection Mandate 20%, Continuous Validation 20%, Ethical Override 15%, Right to Disconnect 10%, Moral Recognition 10%) maps directly to EU AI Act Articles 13, 14, 61 and GDPR compliance.
+YCQ Sonate turns AI ethics into enforceable code through SONATE Trust Protocol - a cryptographic framework that generates tamper-proof trust receipts for every AI interaction. Our 6-principle weighted algorithm (Consent Architecture 25%, Inspection Mandate 20%, Continuous Validation 20%, Ethical Override 15%, Right to Disconnect 10%, Moral Recognition 10%) maps directly to EU AI Act Articles 13, 14, 61 and GDPR compliance.
 
 Live demo: yseeku.com/trust-demo
 Full platform: yseeku.com
@@ -30,7 +30,7 @@ Core IP: Weighted compliance scoring algorithm with SHA-256 trust receipts and W
 **Add at the top:**
 
 ```
-✅ Website updated with full SYMBI Trust Protocol documentation (Nov 2024)
+✅ Website updated with full SONATE Trust Protocol documentation (Nov 2024)
 ✅ 6 trust principles with weighted scoring algorithm showcased as core IP
 ✅ Regulatory mapping to EU AI Act (Articles 13, 14, 61), GDPR, CCPA
 ✅ Live trust ledger demo with cryptographic receipt generation
@@ -49,7 +49,7 @@ Core IP: Weighted compliance scoring algorithm with SHA-256 trust receipts and W
 
 ```
 Live Trust Ledger Demo: https://yseeku.com/trust-demo
-Demo Credentials: demo@symbi-trust.com / demo123
+Demo Credentials: demo@sonate-trust.com / demo123
 
 What to try:
 1. Trust Analytics Dashboard - See real-time compliance scoring
@@ -207,9 +207,9 @@ We're building the infrastructure layer that makes trustworthy AI deployment pos
 ```
 We're not just building another AI tool - we're building the trust infrastructure that makes AI deployment safe, compliant, and verifiable.
 
-Try it yourself: yseeku.com/trust-demo (demo@symbi-trust.com / demo123)
+Try it yourself: yseeku.com/trust-demo (demo@sonate-trust.com / demo123)
 
-See the code: github.com/ninjatechie/SYMBI-SYNERGY (backend)
+See the code: github.com/ninjatechie/SONATE-SYNERGY (backend)
               github.com/ninjatechie/YCQ-Website (frontend)
 
 We're ready to scale this to enterprises facing 2026 EU AI Act compliance deadlines.

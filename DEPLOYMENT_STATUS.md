@@ -246,13 +246,13 @@ Concurrent Users: 100+
 
 ### Demo Credentials
 ```
-Email: demo@symbi-trust.com
+Email: demo@sonate-trust.com
 Password: demo123
 ```
 
 ### Repository Links
 - **Frontend**: https://github.com/s8ken/YCQ-Website
-- **Backend**: https://github.com/s8ken/SYMBI-SYNERGY
+- **Backend**: https://github.com/s8ken/SONATE-SYNERGY
 
 ### Hosting Platforms
 - **Vercel**: https://vercel.com (Frontend)

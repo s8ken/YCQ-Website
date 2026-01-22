@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sonate by YCQ Labs — AI Trust Infrastructure with SYMBI Trust Framework",
-  description: "Enterprise AI trust platform featuring SYMBI Trust Framework by YCQ Labs Labs. Cryptographic audit trails, automated compliance scoring, W3C-compliant DID/VC infrastructure. 6 trust principles mapped to EU AI Act &amp; GDPR. Try live demo.",
-  keywords: "AI trust, SYMBI trust framework, cryptographic receipts, compliance automation, EU AI Act, GDPR, trust ledger, verifiable credentials, DID, AI governance, ethical AI, YCQ Labs Labs",
+  title: "Sonate by YCQ Labs — AI Trust Infrastructure with SONATE Trust Framework",
+  description: "Enterprise AI trust platform featuring SONATE Trust Framework by YCQ Labs Labs. Cryptographic audit trails, automated compliance scoring, W3C-compliant DID/VC infrastructure. 6 trust principles mapped to EU AI Act &amp; GDPR. Try live demo.",
+  keywords: "AI trust, SONATE trust framework, cryptographic receipts, compliance automation, EU AI Act, GDPR, trust ledger, verifiable credentials, DID, AI governance, ethical AI, YCQ Labs Labs",
   authors: [{ name: "YCQ Labs Labs" }],
   openGraph: {
     title: "Sonate by YCQ Labs Labs — AI Trust Infrastructure",
-    description: "Cryptographic trust receipts for AI. Automated compliance scoring. Built on SYMBI Trust Protocol with 6 fundamental trust principles.",
+    description: "Cryptographic trust receipts for AI. Automated compliance scoring. Built on SONATE Trust Protocol with 6 fundamental trust principles.",
     url: "https://yseeku.com",
     siteName: "Sonate by YCQ Labs Labs",
     images: [

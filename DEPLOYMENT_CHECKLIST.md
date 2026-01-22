@@ -93,7 +93,7 @@ curl https://YOUR-BACKEND-URL/api/trust/analytics
 # Login
 curl -X POST https://YOUR-BACKEND-URL/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"demo@symbi-trust.com","password":"demo123"}'
+  -d '{"email":"demo@sonate-trust.com","password":"demo123"}'
 ```
 
 ### Deploy to Vercel

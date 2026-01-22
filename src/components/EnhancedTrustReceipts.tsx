@@ -238,7 +238,7 @@ export default function EnhancedTrustReceipts({ className = "" }: EnhancedTrustR
           <div className="flex items-center gap-3">
             <Shield className="w-8 h-8" />
             <div>
-              <h2 className="text-2xl font-bold">SYMBI Trust Receipts</h2>
+              <h2 className="text-2xl font-bold">SONATE Trust Receipts</h2>
               <p className="text-blue-100">Cryptographic trust verification system</p>
             </div>
           </div>

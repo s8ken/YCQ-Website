@@ -91,7 +91,7 @@ export default function Contact() {
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-amber-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    Tailored SYMBI implementation roadmap
+                    Tailored SONATE implementation roadmap
                   </li>
                 </ul>
               </div>
@@ -287,7 +287,7 @@ export default function Contact() {
             <div className="space-y-8">
               <div className="bg-stone-50 rounded-2xl p-8">
                 <h3 className="text-xl font-semibold text-stone-900 mb-4">
-                  Why Choose SYMBI?
+                  Why Choose SONATE?
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start">

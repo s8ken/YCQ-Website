@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Site Map - Sonate by YCQ Labs | Complete Website Navigation',
-  description: 'Complete sitemap of Sonate by YCQ Labs website. Find all pages, resources, and documentation for AI trust infrastructure, SYMBI Trust Framework, and enterprise solutions.',
-  keywords: 'sitemap, site map, navigation, AI trust, SYMBI, Sonate, YCQ Labs, enterprise solutions',
+  description: 'Complete sitemap of Sonate by YCQ Labs website. Find all pages, resources, and documentation for AI trust infrastructure, SONATE Trust Framework, and enterprise solutions.',
+  keywords: 'sitemap, site map, navigation, AI trust, SONATE, Sonate, YCQ Labs, enterprise solutions',
   openGraph: {
     title: 'Site Map - Sonate by YCQ Labs',
     description: 'Complete navigation overview of Sonate AI trust infrastructure platform',
@@ -17,7 +17,7 @@ const sitemapData = {
     {
       title: 'Home',
       href: '/',
-      description: 'AI Trust Infrastructure with SYMBI Trust Framework',
+      description: 'AI Trust Infrastructure with SONATE Trust Framework',
       priority: 'high'
     },
     {
@@ -29,7 +29,7 @@ const sitemapData = {
     {
       title: 'Technology',
       href: '/technology',
-      description: 'Technical architecture and SYMBI Trust Protocol details',
+      description: 'Technical architecture and SONATE Trust Protocol details',
       priority: 'high'
     },
     {

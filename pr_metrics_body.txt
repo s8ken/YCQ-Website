@@ -20,7 +20,7 @@ This PR implements the complete metrics methodology specification with all requi
 ### Homepage Enhancements
 - Added "View methodology & assumptions" link in Testing section
 - Updated founder byline to "Stephen — Founder, YCQ Sonate"
-- Added footer "Ecosystem" strip with SYMBI Trust Protocol, Gammatria, and pilots
+- Added footer "Ecosystem" strip with SONATE Trust Protocol, Gammatria, and pilots
 - Added JSON-LD structured data to homepage
 
 ### Prompt-Ready Fixes Implemented

@@ -44,7 +44,7 @@ export default function TrustDashboardPage() {
   const [declarations, setDeclarations] = useState<Declaration[]>([])
   const [selectedTimeframe, setSelectedTimeframe] = useState<'24h' | '7d' | '30d'>('7d')
 
-  // Demo data matching the SYMBI framework
+  // Demo data matching the SONATE framework
   const demoAnalytics: Analytics = {
     totalDeclarations: 156,
     complianceScore: 0.87,

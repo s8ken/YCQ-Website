@@ -91,7 +91,7 @@
 
 ### Demo Credentials (Public)
 ```
-Email: demo@symbi-trust.com
+Email: demo@sonate-trust.com
 Password: demo123
 ```
 

@@ -46,7 +46,7 @@ The Trust Ledger Demo is fully developed, tested, and ready for production deplo
 **Option A: Railway (Recommended)**
 1. Go to https://railway.app
 2. Create new project from GitHub
-3. Select `s8ken/SYMBI-SYNERGY` repository
+3. Select `s8ken/SONATE-SYNERGY` repository
 4. Set start command: `node trust-ledger-demo.js`
 5. Set port: `5001`
 6. Deploy and copy the Railway URL
@@ -146,7 +146,7 @@ The Trust Ledger Demo is fully developed, tested, and ready for production deplo
 
 ### Demo Credentials (Public)
 ```
-Email: demo@symbi-trust.com
+Email: demo@sonate-trust.com
 Password: demo123
 ```
 
@@ -203,7 +203,7 @@ Password: demo123
 
 ### Links
 - **Frontend PR**: https://github.com/s8ken/YCQ-Website/pull/7
-- **Backend Repo**: https://github.com/s8ken/SYMBI-SYNERGY
+- **Backend Repo**: https://github.com/s8ken/SONATE-SYNERGY
 - **Current API**: https://5001-93f6dde3-aaae-4b3e-ae57-a7d3bd733547.proxy.daytona.works/api
 
 ### Hosting Platforms

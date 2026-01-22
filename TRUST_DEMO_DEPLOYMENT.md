@@ -57,7 +57,7 @@ This guide covers deploying the Trust Ledger Demo integration to the YCQ Website
 
 1. **Prepare Backend Code**
    ```bash
-   cd SYMBI-SYNERGY
+   cd SONATE-SYNERGY
    
    # Ensure trust-ledger-demo.js is ready
    ls -la trust-ledger-demo.js
@@ -120,8 +120,8 @@ This guide covers deploying the Trust Ledger Demo integration to the YCQ Website
    ssh user@your-server.com
    
    # Clone repository
-   git clone https://github.com/s8ken/SYMBI-SYNERGY.git
-   cd SYMBI-SYNERGY
+   git clone https://github.com/s8ken/SONATE-SYNERGY.git
+   cd SONATE-SYNERGY
    
    # Install dependencies
    npm install
@@ -177,7 +177,7 @@ This guide covers deploying the Trust Ledger Demo integration to the YCQ Website
    # Create environment file
    cat > .env.local << EOF
    NEXT_PUBLIC_SITE_URL=https://www.ycq.com
-   NEXT_PUBLIC_CONSOLE_URL=https://symbi-synergy-pa9k82n5m-ycq.vercel.app
+   NEXT_PUBLIC_CONSOLE_URL=https://sonate-synergy-pa9k82n5m-ycq.vercel.app
    NEXT_PUBLIC_API_URL=https://api.ycq.com
    NEXT_PUBLIC_TRUST_DEMO_API=https://trust-demo.ycq.com/api
    EOF
@@ -274,7 +274,7 @@ curl https://trust-demo.ycq.com/api/health
 # Expected response:
 {
   "status": "healthy",
-  "service": "SYMBI Trust Ledger Demo",
+  "service": "SONATE Trust Ledger Demo",
   "timestamp": "2024-11-08T...",
   "receipts": 0,
   "declarations": 3
@@ -434,7 +434,7 @@ Error: Too many requests
 
 ```bash
 # Pull latest changes
-cd SYMBI-SYNERGY
+cd SONATE-SYNERGY
 git pull origin main
 
 # Restart server

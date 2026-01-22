@@ -40,10 +40,10 @@ export default function TechnicalDemo() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
-              Technical Demo: SYMBI Trust Protocol
+              Technical Demo: SONATE Trust Protocol
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              Explore cryptographic trust receipts, Ed25519 signatures, and the SYMBI Trust Framework that powers Sonate
+              Explore cryptographic trust receipts, Ed25519 signatures, and the SONATE Trust Framework that powers Sonate
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function TechnicalDemo() {
                 🎯 Interactive Platform Demo
               </h2>
               <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-                Experience Sonate featuring SYMBI Trust Framework live with production-ready trust infrastructure — no signup required
+                Experience Sonate featuring SONATE Trust Framework live with production-ready trust infrastructure — no signup required
               </p>
             </div>
 
@@ -130,7 +130,7 @@ export default function TechnicalDemo() {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-stone-900 mb-8">DID Resolution Methods</h2>
             <p className="text-lg text-stone-600 mb-8">
-              SYMBI Trust Protocol supports W3C-compliant DID methods for enterprise identity verification.
+              SONATE Trust Protocol supports W3C-compliant DID methods for enterprise identity verification.
             </p>
 
             <div className="grid md:grid-cols-1 gap-8 mb-8 max-w-2xl mx-auto">

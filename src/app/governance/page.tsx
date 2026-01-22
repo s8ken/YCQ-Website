@@ -64,7 +64,7 @@ export default function Governance() {
               authority is explicit, actions are constrained, refusals are intentional, and outcomes are auditable.
             </p>
             <p className="text-xl text-stone-700 leading-relaxed">
-              This governance layer is powered by the <strong>SYMBI Trust Framework</strong> and enforced by the
+              This governance layer is powered by the <strong>SONATE Trust Framework</strong> and enforced by the
               <strong> Overseer</strong> system agent.
             </p>
           </div>
@@ -112,15 +112,15 @@ export default function Governance() {
         </div>
       </section>
 
-      {/* SYMBI Trust Framework */}
+      {/* SONATE Trust Framework */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-stone-900 mb-4">
-              The SYMBI Trust Framework
+              The SONATE Trust Framework
             </h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              At the core of YSEEKU SONATE is the SYMBI Trust Framework, a constitutional layer that governs all intelligent behavior in the platform.
+              At the core of YSEEKU SONATE is the SONATE Trust Framework, a constitutional layer that governs all intelligent behavior in the platform.
             </p>
           </div>
 
@@ -165,7 +165,7 @@ export default function Governance() {
               </div>
             </div>
             <p className="text-center text-stone-700 mt-6 font-medium">
-              These rules apply to all system agents, including SYMBI itself.
+              These rules apply to all system agents, including SONATE itself.
             </p>
           </div>
         </div>
@@ -347,7 +347,7 @@ export default function Governance() {
           </div>
 
           <p className="text-center text-lg text-stone-600 mt-8 max-w-3xl mx-auto">
-            SYMBI and Overseer do not replace human judgment — they structure and protect it.
+            SONATE and Overseer do not replace human judgment — they structure and protect it.
           </p>
         </div>
       </section>

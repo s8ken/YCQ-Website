@@ -269,7 +269,7 @@ export default function WhyNotDAO() {
               </div>
             </div>
             <p className="text-stone-400 mt-6 text-center">
-              This model is implemented through the <strong className="text-white">SYMBI Trust Framework</strong> and enforced by the <strong className="text-white">Overseer</strong> system agent.
+              This model is implemented through the <strong className="text-white">SONATE Trust Framework</strong> and enforced by the <strong className="text-white">Overseer</strong> system agent.
             </p>
           </div>
 
