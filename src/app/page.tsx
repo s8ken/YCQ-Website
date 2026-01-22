@@ -1220,7 +1220,7 @@ if (!consent || !override) {
                 How We Built This
               </h2>
               <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-                A story of human-AI collaboration: 18,000+ lines of code, 7 months, 1 founder, 5 AI co-contributors
+                A story of human-AI collaboration: 80,000+ lines of code, 7 months, 1 founder, 5 AI co-contributors
               </p>
             </div>
 
@@ -1245,7 +1245,7 @@ if (!consent || !override) {
                     The Result: A Living Proof of Concept
                   </p>
                   <p className="text-blue-800 text-sm">
-                    If multiple AI systems can collaborate to build a 18K+ LOC enterprise platform with comprehensive test coverage
+                    If multiple AI systems can collaborate to build an 80K+ LOC enterprise platform with comprehensive test coverage
                     and zero critical bugs - all under human oversight - then the SONATE thesis isn&apos;t just theory. It&apos;s proven.
                   </p>
                 </div>
@@ -1255,7 +1255,7 @@ if (!consent || !override) {
             {/* Development Stats */}
             <div className="grid md:grid-cols-4 gap-6 mb-16">
               <div className="bg-white rounded-lg shadow-md p-6 text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">50K+</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">80K+</div>
                 <p className="text-stone-700 font-semibold">Lines of Code</p>
                 <p className="text-stone-600 text-sm">Production TypeScript, React, Node.js</p>
               </div>
@@ -1724,12 +1724,12 @@ if (!consent || !override) {
                   <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium">18+</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-stone-600">Test Suites</span>
-                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium">59</span>
+                  <span className="text-stone-600">Test Files</span>
+                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium">80+</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-stone-600">Lines of Code</span>
-                  <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm font-medium">18K+</span>
+                  <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm font-medium">80K+</span>
                 </div>
               </div>
             </div>

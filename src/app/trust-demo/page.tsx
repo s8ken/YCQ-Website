@@ -69,7 +69,7 @@ export default function TrustDemoPage() {
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-green-400 mb-2">99.9%</div>
-                <div className="text-purple-200">Uptime</div>
+                <div className="text-purple-200">Uptime Target</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-blue-400 mb-2">5+</div>

@@ -275,7 +275,7 @@ export default function BenefitsPage() {
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mr-2" />
-                  NLP + rule-based validation
+                  Semantic + rule-based validation
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mr-2" />

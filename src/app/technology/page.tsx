@@ -92,7 +92,7 @@ export default function Technology() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-stone-900 mb-2">Resonance Engine</h3>
-              <p className="text-stone-600 text-sm">Hybrid 60/40 engine combining Python-based semantic analysis with TypeScript weighted validation.</p>
+              <p className="text-stone-600 text-sm">TypeScript-based scoring engine combining word-overlap semantic analysis with weighted principle validation.</p>
             </div>
 
             <div className="bg-amber-50 p-6 rounded-lg text-center">
@@ -423,7 +423,7 @@ console.log(verification.isValid); // true`}
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="font-semibold">94.9% Pass Rate Across 59 Tests</span>
+                <span className="font-semibold">~80% Code Coverage Across 80+ Test Files</span>
               </div>
             </div>
             
@@ -485,12 +485,12 @@ console.log(verification.isValid); // true`}
             <h4 className="text-xl font-semibold text-stone-900 text-center mb-8">Technical Achievement Metrics</h4>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-blue-600">18,000+</div>
+                <div className="text-3xl font-bold text-blue-600">80K+</div>
                 <div className="text-sm text-stone-600">Lines of Code</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-green-600">59</div>
-                <div className="text-sm text-stone-600">Test Suites</div>
+                <div className="text-3xl font-bold text-green-600">80+</div>
+                <div className="text-sm text-stone-600">Test Files</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-purple-600">18+</div>
