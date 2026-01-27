@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import EnhancedTrustReceipts from "@/components/EnhancedTrustReceipts";
-import { ArrowLeft, Shield, Zap, Database, Users, TrendingUp, CheckCircle } from "lucide-react";
+import { ArrowLeft, Shield, Zap, Database, Users, TrendingUp, CheckCircle, Menu, X } from "lucide-react";
 import { CONSOLE_URL } from "@/lib/site";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -17,6 +19,7 @@ export default function Home() {
               <div className="text-2xl font-bold text-stone-800">Sonate</div>
               <div className="ml-2 text-sm text-stone-600">AI Trust Infrastructure</div>
             </div>
+            {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
                 <Link href="#platform" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
@@ -42,8 +45,46 @@ export default function Home() {
                    </Link>
               </div>
             </div>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-stone-700 hover:text-stone-900 p-2"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-stone-200">
+            <div className="px-4 py-4 space-y-2">
+              <Link href="#platform" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
+                Platform
+              </Link>
+              <Link href="/benefits" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
+                Benefits
+              </Link>
+              <Link href="/technology" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
+                Technology
+              </Link>
+              <Link href="/governance" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
+                Governance
+              </Link>
+              <Link href="/investors" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
+                Investors
+              </Link>
+              <Link href="/trust-demo" onClick={() => setMobileMenuOpen(false)} className="block text-blue-600 hover:text-blue-800 px-3 py-2 text-base font-medium">
+                Trust Demo
+              </Link>
+              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="block bg-stone-800 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-stone-900 text-center mt-4">
+                Full Platform
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -814,8 +855,8 @@ if (!consent || !override) {
                   Complete tenant isolation with scoped data access. Each organization operates in its own secure environment with per-tenant configuration and management dashboards.
                 </p>
               </div>
-              <Link href="/enterprise" className="flex-shrink-0 bg-white text-stone-900 px-6 py-3 rounded-lg font-semibold hover:bg-stone-100 transition-colors">
-                Learn More →
+              <Link href="/contact" className="flex-shrink-0 bg-white text-stone-900 px-6 py-3 rounded-lg font-semibold hover:bg-stone-100 transition-colors">
+                Contact Sales →
               </Link>
             </div>
           </div>

@@ -105,7 +105,7 @@ export default function TrustLedgerDemo() {
         setDeclarations(data.data);
       }
     } catch {
-      console.error('Failed to load declarations');
+      // Silently fail - declarations are optional demo data
     }
   };
 

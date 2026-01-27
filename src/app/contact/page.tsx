@@ -16,8 +16,20 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, this would send to your backend
-    console.log('Form submitted:', formData);
+
+    // Construct mailto link with form data
+    const subject = encodeURIComponent(`SONATE Inquiry from ${formData.name} at ${formData.company}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Company: ${formData.company}\n` +
+      `Role: ${formData.role}\n` +
+      `Use Case: ${formData.useCase}\n\n` +
+      `Message:\n${formData.message}`
+    );
+
+    // Open mailto link
+    window.location.href = `mailto:info@yseeku.com?subject=${subject}&body=${body}`;
     setIsSubmitted(true);
   };
 

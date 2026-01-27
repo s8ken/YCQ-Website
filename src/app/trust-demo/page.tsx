@@ -1,14 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { CONSOLE_URL } from "@/lib/site";
 import TrustLedgerDemo from "@/components/TrustLedgerDemo";
 import EnhancedTrustReceipts from "@/components/EnhancedTrustReceipts";
-import { ArrowLeft, Shield, Zap, Database, Users, TrendingUp, CheckCircle, AlertCircle, Clock, Download, Share2, Filter, Search, BarChart3 } from "lucide-react";
+import { ArrowLeft, Shield, Zap, Database, Users, TrendingUp, CheckCircle, AlertCircle, Clock, Download, Share2, Filter, Search, BarChart3, Menu, X } from "lucide-react";
 
 export default function TrustDemoPage() {
-  const [showFullPlatform, setShowFullPlatform] = React.useState(false);
+  const [showFullPlatform, setShowFullPlatform] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   if (showFullPlatform) {
     return (
@@ -210,6 +211,7 @@ export default function TrustDemoPage() {
               <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
               <div className="ml-2 text-sm text-stone-600">Trust Infrastructure</div>
             </div>
+            {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
                 <Link href="/#platform" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
@@ -224,7 +226,7 @@ export default function TrustDemoPage() {
                 <Link href="/trust-demo" className="text-stone-900 px-3 py-2 text-sm font-medium border-b-2 border-amber-600">
                   Trust Ledger
                 </Link>
-                <Link 
+                <Link
                   href={CONSOLE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -234,8 +236,40 @@ export default function TrustDemoPage() {
                 </Link>
               </div>
             </div>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-stone-700 hover:text-stone-900 p-2"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-stone-200">
+            <div className="px-4 py-4 space-y-2">
+              <Link href="/#platform" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
+                Platform
+              </Link>
+              <Link href="/technology" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
+                Technology
+              </Link>
+              <Link href="/demo" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
+                Technical Demo
+              </Link>
+              <Link href="/trust-demo" onClick={() => setMobileMenuOpen(false)} className="block text-amber-600 font-semibold px-3 py-2 text-base">
+                Trust Ledger
+              </Link>
+              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="block bg-stone-800 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-stone-900 text-center mt-4">
+                Full Platform
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}

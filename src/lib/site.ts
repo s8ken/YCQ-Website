@@ -1,5 +1,5 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.ycq.com";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://yseeku.com";
 export const CONSOLE_URL =
-  process.env.NEXT_PUBLIC_CONSOLE_URL || "https://www.yseeku.com/trust-demo";
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.ycq.com";
-export const TRUST_DEMO_API = process.env.NEXT_PUBLIC_TRUST_DEMO_API || "https://5001-93f6dde3-aaae-4b3e-ae57-a7d3bd733547.proxy.daytona.works/api";
+  process.env.NEXT_PUBLIC_CONSOLE_URL || "https://yseeku-platform-production.up.railway.app";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://yseeku-platform-production.up.railway.app/api";
+export const TRUST_DEMO_API = process.env.NEXT_PUBLIC_TRUST_DEMO_API || "https://yseeku-platform-production.up.railway.app/api";
