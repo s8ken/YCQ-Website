@@ -265,13 +265,13 @@ export default function TrustDemoPage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                 <p className="text-sm text-blue-200 mb-2 font-semibold">User Name:</p>
                 <code className="block bg-black/40 text-green-300 px-4 py-2 rounded font-mono text-base border border-green-500/30">
-                  admin
+                  demo@yseeku.com
                 </code>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                 <p className="text-sm text-blue-200 mb-2 font-semibold">Password:</p>
                 <code className="block bg-black/40 text-green-300 px-4 py-2 rounded font-mono text-base border border-green-500/30">
-                  SONATE_admin_2026!
+                  Demo123!
                 </code>
               </div>
             </div>
