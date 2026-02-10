@@ -1,87 +1,103 @@
 'use client';
 
 import { useState } from 'react';
+import { API_URL } from '@/lib/site';
 
-interface TrustReceipt {
-  eventId: string;
+interface SignedReceipt {
+  id: string;
+  version: string;
   timestamp: string;
-  contentHash: string;
-  previousHash: string;
-  signature: string;
-  verificationUrl: string;
+  session_id: string;
+  agent_did: string;
+  human_did: string;
+  interaction: {
+    prompt: string;
+    response: string;
+    model: string;
+  };
+  chain: {
+    previous_hash: string;
+    chain_hash: string;
+    chain_length: number;
+  };
+  signature: {
+    algorithm: string;
+    value: string;
+    key_version: string;
+    timestamp_signed: string;
+    public_key: string;
+  };
 }
 
 interface VerificationResult {
-  eventId: string;
-  status: string;
-  timestamp: string;
-  checks: {
-    hashIntegrity: { status: string; message: string };
-    signatureValid: { status: string; message: string };
-    temporalOrder: { status: string; message: string };
+  valid: boolean;
+  overallStatus: string;
+  checks: Record<string, { status: string; message: string }>;
+  receipt?: {
+    id: string;
+    timestamp: string;
+    session_id: string;
+    agent_did: string;
   };
-  summary: {
-    overallStatus: string;
-    confidence: number;
-    riskLevel: string;
-  };
+  publicKey?: string;
 }
 
-const DEMO_API_URL = '/api/trust-demo';
+// Use the real backend API
+const BACKEND_API = API_URL.replace('/api', '');
 
 export default function TrustLedgerDemo() {
   const [activeTab, setActiveTab] = useState<'generate' | 'verify'>('generate');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [trustReceipt, setTrustReceipt] = useState<TrustReceipt | null>(null);
+  const [receipt, setReceipt] = useState<SignedReceipt | null>(null);
   const [verificationResult, setVerificationResult] = useState<VerificationResult | null>(null);
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [aiPrompt, setAiPrompt] = useState('Explain why AI transparency is important for enterprise adoption.');
-  const [eventId, setEventId] = useState('');
+  const [receiptJson, setReceiptJson] = useState('');
 
   const generateWithTrustReceipt = async () => {
     setLoading(true);
     setError(null);
-    setTrustReceipt(null);
+    setReceipt(null);
     setAiResponse(null);
     try {
-      const response = await fetch(`${DEMO_API_URL}/generate`, {
+      const response = await fetch(`${BACKEND_API}/api/public-demo/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           prompt: aiPrompt,
-          provider: 'anthropic',
-          model: 'claude-3-5-sonnet',
-          includeReceipt: true,
+          model: 'demo-model',
         }),
       });
       const data = await response.json();
       if (data.success) {
         setAiResponse(data.data.response);
-        setTrustReceipt(data.data.trustReceipt);
+        setReceipt(data.data.receipt);
+        setReceiptJson(JSON.stringify(data.data.receipt, null, 2));
       } else {
-        setError(data.error || 'Failed to generate AI response');
+        setError(data.error || 'Failed to generate receipt');
       }
-    } catch {
-      setError('Network error generating response');
+    } catch (e) {
+      setError('Network error - ensure backend is running');
     } finally {
       setLoading(false);
     }
   };
 
   const verifyReceipt = async () => {
-    if (!eventId.trim()) {
-      setError('Please enter an event ID');
+    if (!receiptJson.trim()) {
+      setError('Please generate a receipt first or paste receipt JSON');
       return;
     }
     setLoading(true);
     setError(null);
     setVerificationResult(null);
     try {
-      const response = await fetch(`${DEMO_API_URL}/verify`, {
+      const receiptToVerify = JSON.parse(receiptJson);
+      const response = await fetch(`${BACKEND_API}/api/public-demo/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ eventId }),
+        body: JSON.stringify({ receipt: receiptToVerify }),
       });
       const data = await response.json();
       if (data.success) {
@@ -89,8 +105,12 @@ export default function TrustLedgerDemo() {
       } else {
         setError(data.error || 'Verification failed');
       }
-    } catch {
-      setError('Network error verifying receipt');
+    } catch (e) {
+      if (e instanceof SyntaxError) {
+        setError('Invalid JSON format');
+      } else {
+        setError('Network error verifying receipt');
+      }
     } finally {
       setLoading(false);
     }
@@ -165,39 +185,50 @@ export default function TrustLedgerDemo() {
           )}
 
           {/* Trust Receipt */}
-          {trustReceipt && (
+          {receipt && (
             <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-sm font-medium text-green-400">Trust Receipt Generated</span>
+                <span className="text-sm font-medium text-green-400">Ed25519 Signed Receipt</span>
               </div>
               <div className="space-y-2 font-mono text-xs">
                 <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
-                  <span className="text-white/40">Event ID:</span>
-                  <span className="text-white/80 break-all">{trustReceipt.eventId}</span>
+                  <span className="text-white/40">Receipt ID:</span>
+                  <span className="text-white/80 break-all">{receipt.id.substring(0, 32)}...</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                   <span className="text-white/40">Timestamp:</span>
-                  <span className="text-white/80">{trustReceipt.timestamp}</span>
+                  <span className="text-white/80">{receipt.timestamp}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
-                  <span className="text-white/40">Content Hash:</span>
-                  <span className="text-blue-400 break-all">{trustReceipt.contentHash}</span>
+                  <span className="text-white/40">Agent DID:</span>
+                  <span className="text-blue-400 break-all">{receipt.agent_did}</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                  <span className="text-white/40">Chain Hash:</span>
+                  <span className="text-blue-400 break-all">{receipt.chain.chain_hash.substring(0, 32)}...</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                   <span className="text-white/40">Signature:</span>
-                  <span className="text-purple-400 break-all">{trustReceipt.signature.substring(0, 32)}...</span>
+                  <span className="text-purple-400 break-all">{receipt.signature.value.substring(0, 32)}...</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                  <span className="text-white/40">Public Key:</span>
+                  <span className="text-green-400 break-all">{receipt.signature.public_key.substring(0, 16)}...</span>
                 </div>
               </div>
-              <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="mt-4 pt-4 border-t border-white/10 flex gap-4">
                 <button
-                  onClick={() => {
-                    setEventId(trustReceipt.eventId);
-                    setActiveTab('verify');
-                  }}
+                  onClick={() => setActiveTab('verify')}
                   className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   Verify this receipt →
+                </button>
+                <button
+                  onClick={() => navigator.clipboard.writeText(receiptJson)}
+                  className="text-sm text-white/40 hover:text-white/60 transition-colors"
+                >
+                  Copy JSON
                 </button>
               </div>
             </div>
@@ -209,19 +240,19 @@ export default function TrustLedgerDemo() {
       {activeTab === 'verify' && (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-white/70 mb-2">Event ID to Verify</label>
-            <input
-              type="text"
-              value={eventId}
-              onChange={(e) => setEventId(e.target.value)}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-white/30 font-mono text-sm"
-              placeholder="evt_..."
+            <label className="block text-sm font-medium text-white/70 mb-2">Receipt JSON</label>
+            <textarea
+              value={receiptJson}
+              onChange={(e) => setReceiptJson(e.target.value)}
+              rows={8}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-white/30 font-mono text-xs resize-none"
+              placeholder='{"id": "...", "signature": {...}, ...}'
             />
           </div>
           
           <button
             onClick={verifyReceipt}
-            disabled={loading || !eventId.trim()}
+            disabled={loading || !receiptJson.trim()}
             className="w-full bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
           >
             {loading ? (
@@ -230,25 +261,29 @@ export default function TrustLedgerDemo() {
                 Verifying...
               </span>
             ) : (
-              'Verify Receipt'
+              'Verify Receipt Signature'
             )}
           </button>
 
           {/* Verification Result */}
           {verificationResult && (
             <div className={`p-4 rounded-lg border ${
-              verificationResult.summary.overallStatus === 'VERIFIED' 
+              verificationResult.overallStatus === 'VERIFIED' 
                 ? 'bg-green-500/10 border-green-500/20' 
+                : verificationResult.overallStatus === 'PARTIAL'
+                ? 'bg-amber-500/10 border-amber-500/20'
                 : 'bg-red-500/10 border-red-500/20'
             }`}>
               <div className="flex items-center gap-2 mb-4">
                 <div className={`w-2 h-2 rounded-full ${
-                  verificationResult.summary.overallStatus === 'VERIFIED' ? 'bg-green-500' : 'bg-red-500'
+                  verificationResult.overallStatus === 'VERIFIED' ? 'bg-green-500' : 
+                  verificationResult.overallStatus === 'PARTIAL' ? 'bg-amber-500' : 'bg-red-500'
                 }`}></div>
                 <span className={`text-sm font-medium ${
-                  verificationResult.summary.overallStatus === 'VERIFIED' ? 'text-green-400' : 'text-red-400'
+                  verificationResult.overallStatus === 'VERIFIED' ? 'text-green-400' : 
+                  verificationResult.overallStatus === 'PARTIAL' ? 'text-amber-400' : 'text-red-400'
                 }`}>
-                  {verificationResult.summary.overallStatus}
+                  {verificationResult.overallStatus}
                 </span>
               </div>
               
@@ -256,10 +291,15 @@ export default function TrustLedgerDemo() {
                 <div className="text-xs text-white/40 uppercase tracking-wider">Verification Checks</div>
                 {Object.entries(verificationResult.checks).map(([key, check]) => (
                   <div key={key} className="flex items-center justify-between p-2 bg-white/5 rounded">
-                    <span className="text-sm text-white/70">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                    <span className={`text-xs px-2 py-1 rounded ${
+                    <div className="flex-1">
+                      <span className="text-sm text-white/70 capitalize">{key}</span>
+                      <div className="text-xs text-white/40">{check.message}</div>
+                    </div>
+                    <span className={`text-xs px-2 py-1 rounded ml-2 ${
                       check.status === 'PASS' 
                         ? 'bg-green-500/20 text-green-400' 
+                        : check.status === 'WARN'
+                        ? 'bg-amber-500/20 text-amber-400'
                         : 'bg-red-500/20 text-red-400'
                     }`}>
                       {check.status}
@@ -268,10 +308,14 @@ export default function TrustLedgerDemo() {
                 ))}
               </div>
 
-              <div className="mt-4 pt-4 border-t border-white/10 flex justify-between text-sm">
-                <span className="text-white/40">Confidence</span>
-                <span className="text-white/80">{(verificationResult.summary.confidence * 100).toFixed(1)}%</span>
-              </div>
+              {verificationResult.publicKey && (
+                <div className="mt-4 pt-4 border-t border-white/10">
+                  <div className="text-xs text-white/40 mb-1">Verified with Public Key</div>
+                  <div className="text-xs font-mono text-green-400 break-all">
+                    {verificationResult.publicKey.substring(0, 32)}...
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

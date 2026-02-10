@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import { API_URL } from "@/lib/site";
 
+const BACKEND_API = API_URL.replace('/api', '');
+
 interface ReceiptToVerify {
   id?: string;
   self_hash?: string;
@@ -60,7 +62,7 @@ export default function VerifyPage() {
   const fetchPublicKey = async () => {
     setPublicKeyLoading(true);
     try {
-      const response = await fetch(`${API_URL}/trust/signing-key`);
+      const response = await fetch(`${BACKEND_API}/api/public-demo/public-key`);
       const data = await response.json();
       if (data.success && data.data?.publicKey) {
         setPublicKey(data.data.publicKey);
@@ -139,16 +141,12 @@ export default function VerifyPage() {
         });
       }
 
-      // 4. Verify against backend (if we have the receipt hash)
-      const receiptHash = parsed.id || parsed.self_hash;
-      if (receiptHash && hasSignature) {
+      // 4. Verify against backend (if we have signature)
+      if (hasSignature) {
         try {
-          const verifyResponse = await fetch(`${API_URL}/trust/receipts/${receiptHash}/verify`, {
+          const verifyResponse = await fetch(`${BACKEND_API}/api/public-demo/verify`, {
             method: 'POST',
-            headers: { 
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer demo' // Use demo auth for public verification
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ receipt: parsed }),
           });
           
@@ -158,22 +156,25 @@ export default function VerifyPage() {
             newChecks.push({
               name: 'Cryptographic Signature',
               status: 'pass',
-              message: 'Signature verified against public key'
+              message: 'Ed25519 signature verified against public key'
             });
 
-            if (verifyData.data.foundInDatabase) {
+            // Add individual check results from backend
+            if (verifyData.data.checks?.chain?.status === 'PASS') {
               newChecks.push({
-                name: 'Database Record',
+                name: 'Chain Integrity',
                 status: 'pass',
-                message: 'Receipt found in audit ledger'
-              });
-            } else {
-              newChecks.push({
-                name: 'Database Record',
-                status: 'warn',
-                message: 'Receipt not found in ledger (may be from different instance)'
+                message: verifyData.data.checks.chain.message
               });
             }
+          } else if (verifyData.success && !verifyData.data?.valid) {
+            // Check failed but we got a response
+            const sigCheck = verifyData.data?.checks?.signature;
+            newChecks.push({
+              name: 'Cryptographic Signature',
+              status: sigCheck?.status === 'PASS' ? 'pass' : 'fail',
+              message: sigCheck?.message || 'Signature verification failed'
+            });
           } else {
             newChecks.push({
               name: 'Cryptographic Signature',
