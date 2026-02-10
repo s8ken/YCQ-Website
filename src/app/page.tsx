@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Shield, Zap, Brain, BarChart3, Lock, GitBranch } from "lucide-react";
