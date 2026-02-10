@@ -15,17 +15,19 @@ import { CONSOLE_URL } from "@/lib/site";
 export default function RoadmapPage() {
   const milestones = [
     {
-      phase: "Phase 1: Foundation",
+      phase: "Phase 1: Cryptographic Foundation",
       status: "complete",
       date: "Delivered",
-      description: "Core trust infrastructure for AI systems.",
+      description: "Production-ready cryptographic trust infrastructure.",
       items: [
-        { title: "Trust Receipt Generation", status: "complete", desc: "Cryptographic proof for every interaction" },
-        { title: "6-Principle Policy Evaluation", status: "complete", desc: "Constitutional AI scoring framework" },
-        { title: "Real-time Dashboard", status: "complete", desc: "Live monitoring of trust scores and alerts" },
-        { title: "Multi-Agent Support", status: "complete", desc: "Manage multiple AI agents per tenant" },
-        { title: "Audit Export (CSV/JSON)", status: "complete", desc: "Complete audit trail export" },
-        { title: "JWT Authentication", status: "complete", desc: "Secure API access" },
+        { title: "Ed25519 Digital Signatures", status: "complete", desc: "Real signatures, not just hashing - independently verifiable" },
+        { title: "Hash-Chained Receipts", status: "complete", desc: "Each receipt links to previous - tamper-evident audit trail" },
+        { title: "W3C DID Implementation", status: "complete", desc: "did:web method with /.well-known/did.json resolution" },
+        { title: "Public Key Endpoint", status: "complete", desc: "/.well-known/sonate-pubkey for independent verification" },
+        { title: "6-Principle Policy Engine", status: "complete", desc: "Constitutional AI scoring in <50ms" },
+        { title: "Independent Verification Page", status: "complete", desc: "Verify any receipt at /verify without account" },
+        { title: "Multi-Agent DIDs", status: "complete", desc: "Each agent gets own DID with platform as controller" },
+        { title: "Domain Linkage Proofs", status: "complete", desc: "/.well-known/did-configuration.json for DID verification" },
       ]
     },
     {
@@ -35,22 +37,22 @@ export default function RoadmapPage() {
       description: "Advanced features for enterprise deployments.",
       items: [
         { title: "Multi-Provider API Gateway", status: "in-progress", desc: "Single API for OpenAI, Anthropic, local models" },
+        { title: "Key Rotation", status: "planned", desc: "Versioned key rotation with backward compatibility" },
         { title: "Role-Based Access Control", status: "planned", desc: "Granular permissions for teams" },
-        { title: "Compliance Report Generation", status: "planned", desc: "Automated regulatory reports" },
         { title: "Custom Policy Rules", status: "planned", desc: "Define your own evaluation criteria" },
         { title: "SSO Integration", status: "planned", desc: "Enterprise identity providers" },
       ]
     },
     {
-      phase: "Phase 3: Decentralized Trust",
+      phase: "Phase 3: Portable Trust",
       status: "planned",
       date: "2026-2027",
-      description: "Portable, externally verifiable trust receipts.",
+      description: "Take your trust receipts anywhere.",
       items: [
-        { title: "W3C Verifiable Credentials", status: "planned", desc: "Industry-standard credential format" },
-        { title: "Decentralized Identifiers (DID)", status: "planned", desc: "Self-sovereign identity for agents" },
-        { title: "Public Verification Service", status: "planned", desc: "Anyone can verify receipts without our backend" },
-        { title: "Hash Anchoring", status: "planned", desc: "Optional blockchain timestamping" },
+        { title: "W3C Verifiable Credentials", status: "planned", desc: "Wrap receipts in VC format for interoperability" },
+        { title: "Client-Side Verification", status: "planned", desc: "Verify receipts in browser without backend calls" },
+        { title: "Cross-Platform Trust", status: "planned", desc: "Import/export trust scores between systems" },
+        { title: "Optional Anchoring", status: "planned", desc: "Timestamp proofs on public ledgers" },
       ]
     }
   ];

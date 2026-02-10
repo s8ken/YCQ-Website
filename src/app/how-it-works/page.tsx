@@ -34,26 +34,26 @@ export default function HowItWorksPage() {
     {
       icon: Scale,
       title: "3. Trust Evaluation",
-      description: "The response is evaluated against 6 constitutional principles in real-time.",
+      description: "The response is evaluated against 6 constitutional principles in under 50ms.",
       detail: "Each principle is scored and weighted to produce an overall trust score (0-100)."
     },
     {
       icon: Fingerprint,
-      title: "4. Receipt Generation",
-      description: "A cryptographic trust receipt is generated with a SHA-256 hash of the interaction.",
-      detail: "The receipt includes timestamp, trust score, principle breakdown, and policy status."
+      title: "4. Ed25519 Signing",
+      description: "Receipt content is canonicalized and signed with Ed25519 digital signature.",
+      detail: "SHA-256 content hash + Ed25519 signature = cryptographic proof of exact content."
     },
     {
       icon: Database,
-      title: "5. Storage & Audit",
-      description: "Receipts are stored for audit purposes. You can export them as CSV or JSON anytime.",
-      detail: "Complete audit trail for compliance reviews and regulatory needs."
+      title: "5. Hash Chain Storage",
+      description: "Each receipt links to the previous via chain_hash. Tamper-evident by design.",
+      detail: "Modify any receipt and the chain breaks - detectable instantly."
     },
     {
       icon: Bell,
-      title: "6. Alerts (If Needed)",
-      description: "If the trust score falls below your configured threshold, alerts are triggered.",
-      detail: "Real-time notifications for policy violations or concerning patterns."
+      title: "6. Independent Verification",
+      description: "Anyone can verify receipts using our public key at /.well-known/sonate-pubkey.",
+      detail: "No trust required - cryptographic verification is mathematical."
     },
   ];
 

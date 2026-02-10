@@ -20,38 +20,38 @@ export default function HomePage() {
   const coreFeatures = [
     {
       icon: Fingerprint,
-      title: "Trust Receipts",
-      description: "Cryptographic proof for every AI interaction. SHA-256 hashed, timestamped, and verifiable.",
+      title: "Ed25519 Signed Receipts",
+      description: "Every interaction signed with Ed25519 digital signatures. Hash-chained for tamper-evident audit trails. Independently verifiable.",
       status: "Live"
     },
     {
       icon: Layers,
-      title: "Policy Evaluation",
-      description: "Real-time evaluation against 6 constitutional principles. Every response scored 0-100.",
+      title: "W3C DID Integration",
+      description: "Decentralized Identifiers for platform and agents. Standard did:web method with public key resolution at /.well-known/did.json.",
       status: "Live"
     },
     {
       icon: Activity,
-      title: "Live Monitoring",
-      description: "Real-time dashboard showing trust scores, alerts, and agent activity across your organization.",
+      title: "Real-time Policy Scoring",
+      description: "Every AI response evaluated against 6 constitutional principles in under 50ms. Scores from 0-100 with detailed breakdowns.",
       status: "Live"
     },
     {
       icon: AlertTriangle,
       title: "Violation Alerts",
-      description: "Automatic alerts when AI responses fall below trust thresholds or violate policies.",
+      description: "Automatic alerts when AI responses fall below trust thresholds. WebSocket real-time notifications.",
       status: "Live"
     },
     {
       icon: FileText,
-      title: "Audit Export",
-      description: "Export complete audit trails as CSV or JSON for compliance reviews and regulatory needs.",
+      title: "Compliance Export",
+      description: "Export signed receipts as JSON for regulatory audits. Full chain verification included. EU AI Act aligned.",
       status: "Live"
     },
     {
       icon: Brain,
-      title: "Multi-Agent Support",
-      description: "Manage multiple AI agents with individual trust scores, policies, and monitoring.",
+      title: "Multi-Agent DIDs",
+      description: "Each AI agent gets its own DID with trust metadata. Platform acts as controller with full audit lineage.",
       status: "Live"
     },
   ];
@@ -121,7 +121,7 @@ export default function HomePage() {
             </h1>
             
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Cryptographic proof that your AI systems behave as expected. Real-time policy evaluation, verifiable compliance, and complete audit trails.
+              Ed25519 signed receipts for every AI interaction. W3C DIDs for identity. Hash-chained audit trails. Independently verifiable - no trust required.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -151,20 +151,24 @@ export default function HomePage() {
                   </div>
                   <div className="space-y-2 text-left">
                     <div className="flex justify-between">
-                      <span className="text-white/40">Hash:</span>
-                      <span className="text-blue-400">sha256:9f86d08...c3e7c8</span>
+                      <span className="text-white/40">ID (SHA-256):</span>
+                      <span className="text-blue-400">f860961876968f2c...</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-white/40">Signature:</span>
+                      <span className="text-purple-400">Ed25519:f33ee6d928...</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-white/40">Agent DID:</span>
+                      <span className="text-blue-400">did:web:yseeku.com:agents:...</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-white/40">Chain Hash:</span>
+                      <span className="text-green-400">715799d2fb16c4b6...</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-white/40">Trust Score:</span>
-                      <span className="text-green-400">94/100</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-white/40">Policy Status:</span>
-                      <span className="text-green-400">PASS</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-white/40">Timestamp:</span>
-                      <span className="text-white/60">2026-02-10T14:32:18Z</span>
+                      <span className="text-green-400">94/100 PASS</span>
                     </div>
                   </div>
                 </div>
@@ -177,9 +181,9 @@ export default function HomePage() {
         <section className="py-20 px-6 border-t border-white/5">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">What SONATE Does</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Cryptographic Trust Infrastructure</h2>
               <p className="text-white/60 max-w-2xl mx-auto">
-                A trust layer for AI systems that generates cryptographic proof of behavior and evaluates every interaction against constitutional principles.
+                Real cryptography, not just hashing. Ed25519 signatures, W3C Decentralized Identifiers, and hash-chained receipts you can verify independently.
               </p>
             </div>
 
