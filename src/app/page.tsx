@@ -297,6 +297,100 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Open Source & Licensing */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                Open Verification, Protected Core
+              </h2>
+              <p className="text-white/60 max-w-2xl mx-auto">
+                We believe in transparency for trust verification while protecting the innovation that makes it possible.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Open Source SDK */}
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/5 border border-green-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-green-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold">Verification SDK</h3>
+                    <span className="text-xs text-green-400 font-medium">MIT License</span>
+                  </div>
+                </div>
+                <p className="text-sm text-white/60 mb-4">
+                  Independently verify trust receipts in your own applications. Full Ed25519 signature verification, chain hash validation, and TypeScript support.
+                </p>
+                <ul className="text-sm text-white/50 space-y-2 mb-6">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-400" />
+                    Node.js &amp; browser support
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-400" />
+                    Zero dependencies
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-400" />
+                    Full TypeScript definitions
+                  </li>
+                </ul>
+                <Link 
+                  href="https://github.com/s8ken/sonate-verify-sdk" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-green-400 hover:text-green-300 transition-colors"
+                >
+                  View on GitHub <ExternalLink className="w-3 h-3" />
+                </Link>
+              </div>
+
+              {/* Proprietary Platform */}
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-blue-500/5 border border-purple-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold">Core Platform</h3>
+                    <span className="text-xs text-purple-400 font-medium">Proprietary</span>
+                  </div>
+                </div>
+                <p className="text-sm text-white/60 mb-4">
+                  The policy engine, trust scoring algorithms, and receipt generation are proprietary. Source available for transparency, commercial licensing available.
+                </p>
+                <ul className="text-sm text-white/50 space-y-2 mb-6">
+                  <li className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-purple-400" />
+                    Policy engine &amp; scoring
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-purple-400" />
+                    Receipt generation &amp; signing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-purple-400" />
+                    Enterprise dashboard
+                  </li>
+                </ul>
+                <Link 
+                  href="mailto:licensing@yseeku.com"
+                  className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                >
+                  Enterprise Licensing <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </div>
+
+            <p className="text-center text-sm text-white/40 mt-8">
+              Why this model? Anyone can verify receipts independently (trust), but the core technology remains protected (business sustainability).
+            </p>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 px-6 border-t border-white/5">
           <div className="max-w-4xl mx-auto text-center">
