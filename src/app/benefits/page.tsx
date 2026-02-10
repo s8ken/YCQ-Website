@@ -20,44 +20,7 @@ import {
 
 export default function BenefitsPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
-              <div className="ml-2 text-sm text-stone-600">AI Trust Infrastructure</div>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <Link href="/#platform" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Platform
-                </Link>
-                <Link href="/benefits" className="text-blue-600 hover:text-blue-800 px-3 py-2 text-sm font-medium font-semibold">
-                  Benefits
-                </Link>
-                <Link href="/technology" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Technology
-                </Link>
-                <Link href="/governance" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Governance
-                </Link>
-                <Link href="/investors" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Investors
-                </Link>
-                <Link href="/trust-demo" className="text-blue-600 hover:text-blue-800 px-3 py-2 text-sm font-medium">
-                  Trust Demo
-                </Link>
-                <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
-                  Full Platform
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <div className="bg-white">
       {/* Hero Section - Sovereign Identity */}
       <section className="bg-gradient-to-b from-stone-900 to-stone-800 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -318,7 +281,7 @@ export default function BenefitsPage() {
               </Link>
             </div>
             <div className="bg-stone-900 rounded-xl p-6 text-stone-100 font-mono text-sm">
-              <div className="text-amber-400 mb-2">// Refusal Receipt</div>
+              <div className="text-amber-400 mb-2">Refusal Receipt</div>
               <pre className="text-stone-300 overflow-x-auto">{`{
   "action": "REFUSED",
   "request": "Delete all user data",
@@ -547,30 +510,6 @@ export default function BenefitsPage() {
           </p>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-stone-900 border-t border-stone-800 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <div className="text-xl font-bold text-white">Sonate</div>
-              <div className="text-stone-500 text-sm">AI Trust Infrastructure by YCQ Labs</div>
-            </div>
-            <div className="flex space-x-8 text-stone-400 text-sm">
-              <Link href="/governance" className="hover:text-white">Governance</Link>
-              <Link href="/technology" className="hover:text-white">Technology</Link>
-              <Link href="/investors" className="hover:text-white">Investors</Link>
-              <Link href="/contact" className="hover:text-white">Contact</Link>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-stone-800 text-center text-stone-500 text-sm">
-            <p>
-              Sonate operates under a constitutional governance model with human oversight.
-              Trust is engineered, not crowdsourced.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

@@ -170,7 +170,7 @@ export default function TrustDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -187,7 +187,12 @@ export default function TrustDashboardPage() {
             <div className="flex items-center gap-4">
               <select
                 value={selectedTimeframe}
-                onChange={(e) => setSelectedTimeframe(e.target.value as any)}
+                onChange={(e) => {
+                  const value = e.target.value
+                  if (value === '24h' || value === '7d' || value === '30d') {
+                    setSelectedTimeframe(value)
+                  }
+                }}
                 className="px-4 py-2 border border-white/20 rounded-lg bg-white/10 text-white backdrop-blur-sm focus:ring-2 focus:ring-white/50"
               >
                 <option value="24h">Last 24 Hours</option>

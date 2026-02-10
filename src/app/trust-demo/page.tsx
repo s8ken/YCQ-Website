@@ -35,7 +35,7 @@ export default function TrustDemoPage() {
               <div className="hidden md:flex items-center space-x-6">
                 <span className="text-green-400 flex items-center space-x-1">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm">Platform Active</span>
+                  <span className="text-sm">Demo Active</span>
                 </span>
               </div>
             </div>
@@ -47,15 +47,14 @@ export default function TrustDemoPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center space-x-2 bg-purple-500/20 backdrop-blur-sm text-purple-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-purple-400/30">
               <Zap className="w-4 h-4" />
-              <span>Enterprise Trust Infrastructure</span>
+              <span>Trust Receipt Demo</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               SONATE Symphony
               <span className="block text-purple-400">Platform</span>
             </h1>
             <p className="text-xl text-purple-200 mb-8 max-w-3xl mx-auto">
-              Complete enterprise-grade trust infrastructure with Ed25519 cryptographic verification,
-              hash-chained trust ledger, and comprehensive AI governance
+              Demo UI showing receipt generation, hash-chained structures, and signature verification concepts.
             </p>
           </div>
         </section>
@@ -65,20 +64,20 @@ export default function TrustDemoPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">50K+</div>
-                <div className="text-purple-200">Trust Receipts</div>
+                <div className="text-4xl font-bold text-purple-400 mb-2">Demo</div>
+                <div className="text-purple-200">Receipts</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-2">99.9%</div>
-                <div className="text-purple-200">Uptime Target</div>
+                <div className="text-4xl font-bold text-green-400 mb-2">Ed25519</div>
+                <div className="text-purple-200">Signatures</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">5+</div>
-                <div className="text-purple-200">LLM Providers</div>
+                <div className="text-4xl font-bold text-blue-400 mb-2">SHA-256</div>
+                <div className="text-purple-200">Hashing</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
-                <div className="text-purple-200">Monitoring</div>
+                <div className="text-4xl font-bold text-yellow-400 mb-2">Live</div>
+                <div className="text-purple-200">Verification UI</div>
               </div>
             </div>
           </div>
@@ -88,10 +87,9 @@ export default function TrustDemoPage() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-4">Advanced Trust Receipts</h2>
+              <h2 className="text-4xl font-bold text-white mb-4">Trust Receipts (Demo)</h2>
               <p className="text-xl text-purple-200 max-w-3xl mx-auto">
-                Enterprise-grade cryptographic trust receipts with Ed25519 signatures,
-                hash-chain verification, and real-time compliance scoring
+                Cryptographic receipt concepts with signatures, hash-chain verification, and basic scoring.
               </p>
             </div>
 
@@ -202,76 +200,7 @@ export default function TrustDemoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-stone-800">Sonate</Link>
-              <div className="ml-2 text-sm text-stone-600">Trust Infrastructure</div>
-            </div>
-            {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <Link href="/#platform" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Platform
-                </Link>
-                <Link href="/technology" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Technology
-                </Link>
-                <Link href="/demo" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Technical Demo
-                </Link>
-                <Link href="/trust-demo" className="text-stone-900 px-3 py-2 text-sm font-medium border-b-2 border-amber-600">
-                  Trust Ledger
-                </Link>
-                <Link
-                  href={CONSOLE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900"
-                >
-                  Full Platform
-                </Link>
-              </div>
-            </div>
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-stone-700 hover:text-stone-900 p-2"
-                aria-label="Toggle menu"
-              >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-stone-200">
-            <div className="px-4 py-4 space-y-2">
-              <Link href="/#platform" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
-                Platform
-              </Link>
-              <Link href="/technology" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
-                Technology
-              </Link>
-              <Link href="/demo" onClick={() => setMobileMenuOpen(false)} className="block text-stone-700 hover:text-stone-900 px-3 py-2 text-base font-medium">
-                Technical Demo
-              </Link>
-              <Link href="/trust-demo" onClick={() => setMobileMenuOpen(false)} className="block text-amber-600 font-semibold px-3 py-2 text-base">
-                Trust Ledger
-              </Link>
-              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="block bg-stone-800 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-stone-900 text-center mt-4">
-                Full Platform
-              </Link>
-            </div>
-          </div>
-        )}
-      </nav>
-
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-white to-stone-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -549,25 +478,6 @@ export default function TrustDemoPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-stone-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex flex-col items-center gap-4">
-            <p className="text-stone-400">
-              © 2025 Sonate. Enterprise AI Trust Infrastructure.
-            </p>
-            <div className="flex gap-6">
-              <a href="https://gammatria.com" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white text-sm transition-colors">
-                gammatria.com
-              </a>
-            </div>
-            <p className="text-stone-500 text-sm">
-              Demo environment for evaluation purposes only
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

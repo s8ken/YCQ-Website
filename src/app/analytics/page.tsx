@@ -111,8 +111,11 @@ export default function AnalyticsPage() {
     return 'text-red-600'
   }
 
-  const SimpleBarChart = ({ data, dataKey, color = 'blue' }: { data: any[], dataKey: string, color?: string }) => {
-    const maxValue = Math.max(...data.map(d => d[dataKey]))
+  type BarDatum = { date?: string; week?: string } & Record<string, number | string | undefined>
+
+  const SimpleBarChart = ({ data, dataKey, color = 'blue' }: { data: BarDatum[]; dataKey: string; color?: string }) => {
+    const values = data.map((d) => (typeof d[dataKey] === 'number' ? d[dataKey] : 0))
+    const maxValue = Math.max(...values, 1)
     
     return (
       <div className="flex items-end justify-between h-32 gap-2">
@@ -122,8 +125,8 @@ export default function AnalyticsPage() {
               <div
                 className={`w-full bg-${color}-500 rounded-t transition-all duration-300 hover:opacity-80`}
                 style={{
-                  height: `${(item[dataKey] / maxValue) * 100}%`,
-                  backgroundColor: color === 'green' ? '#10b981' : color === 'blue' ? '#3b82f6' : '#6b7280'
+                  height: `${((typeof item[dataKey] === 'number' ? item[dataKey] : 0) / maxValue) * 100}%`,
+                  backgroundColor: color === 'green' ? '#10b981' : color === 'blue' ? '#3b82f6' : '#6b7280',
                 }}
               />
               <span className="text-xs text-gray-500 mt-1 text-center">
@@ -209,7 +212,12 @@ export default function AnalyticsPage() {
             <div className="flex items-center gap-4">
               <select
                 value={timeframe}
-                onChange={(e) => setTimeframe(e.target.value as any)}
+                onChange={(e) => {
+                  const value = e.target.value
+                  if (value === '24h' || value === '7d' || value === '30d' || value === '90d') {
+                    setTimeframe(value)
+                  }
+                }}
                 className="px-4 py-2 border border-white/20 rounded-lg bg-white/10 text-white backdrop-blur-sm focus:ring-2 focus:ring-white/50"
               >
                 <option value="24h">Last 24 Hours</option>

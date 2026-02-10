@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import type { ComponentType } from 'react';
 
 export const metadata: Metadata = {
   title: 'Site Map - Sonate by YCQ Labs | Complete Website Navigation',
@@ -156,10 +157,26 @@ const APIIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const SitemapSection = ({ title, items, icon: Icon, color }: { 
-  title: string; 
-  items: any[]; 
-  icon: any; 
+type SitemapItem = {
+  title: string;
+  href: string;
+  description: string;
+  priority?: string;
+  type?: string;
+  external?: boolean;
+};
+
+type SitemapIconComponent = ComponentType<{ className?: string }>;
+
+const SitemapSection = ({
+  title,
+  items,
+  icon: Icon,
+  color,
+}: {
+  title: string;
+  items: SitemapItem[];
+  icon: SitemapIconComponent;
   color: string;
 }) => (
   <div className={`bg-white rounded-lg shadow-sm border-2 ${color} p-6`}>
@@ -212,40 +229,7 @@ const SitemapSection = ({ title, items, icon: Icon, color }: {
 
 export default function Sitemap() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-stone-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <div className="text-2xl font-bold text-stone-800">Sonate</div>
-                <div className="ml-2 text-sm text-stone-600">AI Trust Infrastructure</div>
-              </Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <Link href="/" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Home
-                </Link>
-                <Link href="/solutions" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Solutions
-                </Link>
-                <Link href="/technology" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Technology
-                </Link>
-                <Link href="/trust-demo" className="text-blue-600 hover:text-blue-800 px-3 py-2 text-sm font-medium">
-                  Trust Demo
-                </Link>
-                <Link href="/contact" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Contact
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <div className="bg-gradient-to-b from-stone-50 to-white">
       {/* Header */}
       <div className="bg-gradient-to-b from-blue-50 to-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -359,46 +343,6 @@ export default function Sitemap() {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-stone-900 text-stone-300 py-12 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h4 className="font-semibold text-white mb-4">Sonate</h4>
-              <p className="text-sm">AI trust infrastructure for enterprise compliance and regulatory adherence.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/trust-demo" className="hover:text-white">Trust Demo</Link></li>
-                <li><Link href="/technology" className="hover:text-white">Technology</Link></li>
-                <li><Link href="/case-studies" className="hover:text-white">Case Studies</Link></li>
-                <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/metrics-methodology" className="hover:text-white">Metrics</Link></li>
-                <li><Link href="/governance" className="hover:text-white">Governance</Link></li>
-                <li><Link href="/risk-assessment" className="hover:text-white">Risk Assessment</Link></li>
-                <li><Link href="/changelog" className="hover:text-white">Changelog</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="mailto:stephen@yseeku.com" className="hover:text-white">stephen@yseeku.com</a></li>
-                <li><a href="https://github.com/s8ken" target="_blank" rel="noopener noreferrer" className="hover:text-white">GitHub</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-stone-800 mt-8 pt-8 text-center text-sm">
-            <p>&copy; 2025 Sonate. All rights reserved. | EU AI Act Compliant | GDPR Aligned</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

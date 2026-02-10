@@ -287,10 +287,10 @@ export default function EnhancedTrustReceipts({ className = "" }: EnhancedTrustR
       <div className="p-6 border-b border-gray-200">
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           <div className="flex flex-wrap gap-2">
-            {['all', 'active', 'expired', 'revoked'].map((status) => (
+            {(['all', 'active', 'expired', 'revoked'] as const).map((status) => (
               <button
                 key={status}
-                onClick={() => setFilter(status as any)}
+                onClick={() => setFilter(status)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   filter === status
                     ? 'bg-blue-600 text-white'
@@ -304,7 +304,12 @@ export default function EnhancedTrustReceipts({ className = "" }: EnhancedTrustR
           <div className="flex gap-2">
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => {
+                const value = e.target.value
+                if (value === 'date' || value === 'score' || value === 'level') {
+                  setSortBy(value)
+                }
+              }}
               className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
             >
               <option value="date">Sort by Date</option>

@@ -2,37 +2,7 @@ import Link from "next/link";
 
 export default function CaseStudies() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <div className="text-2xl font-bold text-stone-800">YCQ Labs</div>
-                <div className="ml-2 text-sm text-stone-600">Y Seek U</div>
-              </Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <Link href="/solutions" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Solutions
-                </Link>
-                <Link href="/case-studies" className="text-stone-900 border-b-2 border-amber-600 px-3 py-2 text-sm font-medium">
-                  Case Studies
-                </Link>
-                <Link href="/risk-assessment" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Risk Assessment
-                </Link>
-                <Link href="/contact" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-white to-stone-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

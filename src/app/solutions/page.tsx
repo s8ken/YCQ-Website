@@ -2,48 +2,18 @@ import Link from "next/link";
 
 export default function Solutions() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <div className="text-2xl font-bold text-stone-800">YCQ Labs</div>
-                <div className="ml-2 text-sm text-stone-600">Y Seek U</div>
-              </Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <Link href="/solutions" className="text-stone-900 border-b-2 border-amber-600 px-3 py-2 text-sm font-medium">
-                  Solutions
-                </Link>
-                <Link href="/case-studies" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Case Studies
-                </Link>
-                <Link href="/risk-assessment" className="text-stone-700 hover:text-stone-900 px-3 py-2 text-sm font-medium">
-                  Risk Assessment
-                </Link>
-                <Link href="/contact" className="bg-stone-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stone-900">
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-white to-stone-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
-              AI Solutions for Every
-              <span className="block text-amber-700">Business Need</span>
+              AI Trust Infrastructure
+              <span className="block text-amber-700">by Domain</span>
             </h1>
             <p className="text-xl text-stone-600 mb-8 max-w-3xl mx-auto">
-              SONATE&apos;s transparent AI platform adapts to your industry&apos;s unique challenges,
-              providing accountable solutions that drive results while mitigating risks.
+              SONATE provides a consistent way to evaluate, record, and verify AI behavior using trust scoring and
+              cryptographic receipts. These pages describe how the approach can apply across industries.
             </p>
           </div>
         </div>
@@ -57,8 +27,7 @@ export default function Solutions() {
               Industry-Specific Solutions
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              Tailored AI implementations that address the unique regulatory, 
-              operational, and strategic challenges of your industry.
+              Examples of where auditability and verifiable evidence can reduce operational and compliance risk.
             </p>
           </div>
           
@@ -72,13 +41,12 @@ export default function Solutions() {
               </div>
               <h3 className="text-xl font-semibold text-stone-900 mb-4">Healthcare & Life Sciences</h3>
               <p className="text-stone-600 mb-6">
-                HIPAA-compliant AI solutions for patient care, drug discovery, and clinical decision support with full audit trails.
+                High-stakes workflows where auditability and verifiable evidence matter.
               </p>
               <ul className="space-y-2 text-sm text-stone-600 mb-6">
-                <li>• Diagnostic assistance with explainable AI</li>
-                <li>• Patient data privacy protection</li>
-                <li>• Clinical trial optimization</li>
-                <li>• Regulatory compliance monitoring</li>
+                <li>• Receipt-based evidence for outputs and actions</li>
+                <li>• Policy-driven trust scoring and monitoring signals</li>
+                <li>• Verification flows for audits and review</li>
               </ul>
               <Link href="/solutions/healthcare" className="text-amber-700 font-medium hover:text-amber-800">
                 Learn More →
@@ -94,13 +62,12 @@ export default function Solutions() {
               </div>
               <h3 className="text-xl font-semibold text-stone-900 mb-4">Financial Services</h3>
               <p className="text-stone-600 mb-6">
-                Transparent AI for risk assessment, fraud detection, and algorithmic trading with regulatory compliance built-in.
+                Governance signals and audit-ready evidence for sensitive decision systems.
               </p>
               <ul className="space-y-2 text-sm text-stone-600 mb-6">
-                <li>• Explainable credit scoring</li>
-                <li>• Real-time fraud detection</li>
-                <li>• Regulatory reporting automation</li>
-                <li>• Algorithmic bias monitoring</li>
+                <li>• Trust scoring primitives and monitoring dimensions</li>
+                <li>• Tamper-evident receipt approach (hashing + signatures)</li>
+                <li>• Evidence trails for investigations and reporting</li>
               </ul>
               <Link href="/solutions/financial" className="text-amber-700 font-medium hover:text-amber-800">
                 Learn More →
@@ -116,13 +83,12 @@ export default function Solutions() {
               </div>
               <h3 className="text-xl font-semibold text-stone-900 mb-4">Manufacturing & Supply Chain</h3>
               <p className="text-stone-600 mb-6">
-                Optimize operations with transparent AI for predictive maintenance, quality control, and supply chain management.
+                Operational AI with clearer accountability and reviewability.
               </p>
               <ul className="space-y-2 text-sm text-stone-600 mb-6">
-                <li>• Predictive maintenance scheduling</li>
-                <li>• Quality control automation</li>
-                <li>• Supply chain optimization</li>
-                <li>• Safety incident prevention</li>
+                <li>• Structured evidence for outputs and downstream actions</li>
+                <li>• Real-time monitoring signals for drift and anomalies</li>
+                <li>• Separation of production monitoring vs research experiments</li>
               </ul>
               <Link href="/solutions/manufacturing" className="text-amber-700 font-medium hover:text-amber-800">
                 Learn More →
@@ -138,13 +104,12 @@ export default function Solutions() {
               </div>
               <h3 className="text-xl font-semibold text-stone-900 mb-4">Retail & E-commerce</h3>
               <p className="text-stone-600 mb-6">
-                Personalize customer experiences while maintaining privacy with transparent recommendation systems and pricing algorithms.
+                Customer-facing AI that benefits from verifiable decision evidence.
               </p>
               <ul className="space-y-2 text-sm text-stone-600 mb-6">
-                <li>• Transparent recommendation engines</li>
-                <li>• Dynamic pricing optimization</li>
-                <li>• Inventory demand forecasting</li>
-                <li>• Customer behavior analytics</li>
+                <li>• Receipts to support QA and dispute resolution</li>
+                <li>• Policy-driven evaluation and monitoring signals</li>
+                <li>• Foundations for consistent evaluation across models</li>
               </ul>
               <Link href="/solutions/retail" className="text-amber-700 font-medium hover:text-amber-800">
                 Learn More →
@@ -160,13 +125,12 @@ export default function Solutions() {
               </div>
               <h3 className="text-xl font-semibold text-stone-900 mb-4">Government & Public Sector</h3>
               <p className="text-stone-600 mb-6">
-                Ensure fairness and accountability in public services with transparent AI for citizen services and policy analysis.
+                Accountable AI systems with auditability as a first-class output.
               </p>
               <ul className="space-y-2 text-sm text-stone-600 mb-6">
-                <li>• Fair algorithmic decision-making</li>
-                <li>• Public service optimization</li>
-                <li>• Policy impact analysis</li>
-                <li>• Citizen privacy protection</li>
+                <li>• Receipt approach for integrity and non-repudiation goals</li>
+                <li>• Framework-based scoring to support review and oversight</li>
+                <li>• Clear boundary separation across core/detect/lab/orchestrate</li>
               </ul>
               <Link href="/solutions/government" className="text-amber-700 font-medium hover:text-amber-800">
                 Learn More →
@@ -182,13 +146,12 @@ export default function Solutions() {
               </div>
               <h3 className="text-xl font-semibold text-stone-900 mb-4">Small & Medium Business</h3>
               <p className="text-stone-600 mb-6">
-                Accessible AI solutions that grow with your business, providing enterprise-grade transparency at SMB scale.
+                A practical path to adopt AI with governance fundamentals in place.
               </p>
               <ul className="space-y-2 text-sm text-stone-600 mb-6">
-                <li>• Scalable AI implementation</li>
-                <li>• Cost-effective automation</li>
-                <li>• Customer insights & analytics</li>
-                <li>• Competitive advantage tools</li>
+                <li>• Start with a receipt-based evidence trail</li>
+                <li>• Adopt monitoring signals without custom governance work</li>
+                <li>• Scale toward orchestration and identity as needed</li>
               </ul>
               <Link href="/solutions/smb" className="text-amber-700 font-medium hover:text-amber-800">
                 Learn More →
@@ -206,7 +169,7 @@ export default function Solutions() {
               Core SONATE Capabilities
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              Every solution is built on our foundation of transparency, accountability, and sovereign AI principles.
+              Built around auditability, verification, and governance signals — with repo progress as the source of truth.
             </p>
           </div>
           
@@ -219,7 +182,7 @@ export default function Solutions() {
               </div>
               <h3 className="text-lg font-semibold text-stone-900 mb-2">Explainable AI</h3>
               <p className="text-stone-600 text-sm">
-                Every decision comes with clear explanations and reasoning paths.
+                Designed to support explainability via structured scoring and verifiable evidence.
               </p>
             </div>
             
@@ -231,7 +194,7 @@ export default function Solutions() {
               </div>
               <h3 className="text-lg font-semibold text-stone-900 mb-2">Data Sovereignty</h3>
               <p className="text-stone-600 text-sm">
-                Your data stays under your control with on-premises deployment options.
+                Architecture targets cloud-native and hybrid deployment patterns.
               </p>
             </div>
             
@@ -243,7 +206,7 @@ export default function Solutions() {
               </div>
               <h3 className="text-lg font-semibold text-stone-900 mb-2">Audit Trails</h3>
               <p className="text-stone-600 text-sm">
-                Complete logging and monitoring of all AI decisions and processes.
+                Receipt-first evidence trails (demo flow live; production integration in progress).
               </p>
             </div>
             
@@ -255,7 +218,7 @@ export default function Solutions() {
               </div>
               <h3 className="text-lg font-semibold text-stone-900 mb-2">Bias Detection</h3>
               <p className="text-stone-600 text-sm">
-                Continuous monitoring and mitigation of algorithmic bias and discrimination.
+                Monitoring signals for drift and alignment; evaluation and validation are active areas of work.
               </p>
             </div>
           </div>
@@ -266,11 +229,10 @@ export default function Solutions() {
       <section className="py-20 bg-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Transform Your Industry?
+            Want to Explore Fit?
           </h2>
           <p className="text-xl text-stone-300 mb-8 max-w-2xl mx-auto">
-            Discover how SONATE can address your specific industry challenges 
-            with transparent, accountable AI solutions.
+            Share your use case and we&apos;ll map it to what the platform can do today — and what&apos;s next on the roadmap.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-amber-700 transition-colors">
