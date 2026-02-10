@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 interface TrustReceipt {
   eventId: string;
@@ -9,23 +9,6 @@ interface TrustReceipt {
   previousHash: string;
   signature: string;
   verificationUrl: string;
-}
-
-interface Analytics {
-  totalDeclarations?: number;
-  complianceScore?: number;
-  activeAgents?: number;
-  riskLevel?: string;
-  violations?: {
-    critical: number;
-    major: number;
-    minor: number;
-  };
-  trustArticles?: Record<string, { compliance: number; violations: number }>;
-  trends?: {
-    daily: Array<{ date: string; declarations: number; compliance: number }>;
-  };
-  [key: string]: unknown;
 }
 
 interface VerificationResult {
@@ -44,114 +27,23 @@ interface VerificationResult {
   };
 }
 
-interface Declaration {
-  id: string;
-  timestamp: string;
-  agentName: string;
-  complianceScore: number;
-  guiltScore: number;
-  trustArticles: Record<string, boolean>;
-  status: string;
-}
-
 const DEMO_API_URL = '/api/trust-demo';
 
 export default function TrustLedgerDemo() {
-  const [activeTab, setActiveTab] = useState<'analytics' | 'create' | 'generate' | 'verify'>('analytics');
+  const [activeTab, setActiveTab] = useState<'generate' | 'verify'>('generate');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [analytics, setAnalytics] = useState<Analytics | null>(null);
-  const [declarations, setDeclarations] = useState<Declaration[]>([]);
   const [trustReceipt, setTrustReceipt] = useState<TrustReceipt | null>(null);
   const [verificationResult, setVerificationResult] = useState<VerificationResult | null>(null);
   const [aiResponse, setAiResponse] = useState<string | null>(null);
-
-  // Form states
-  const [agentName, setAgentName] = useState('Demo AI Agent');
-  const [trustArticles, setTrustArticles] = useState({
-    inspection_mandate: true,
-    consent_architecture: true,
-    ethical_override: true,
-    continuous_validation: true,
-    right_to_disconnect: true,
-    moral_recognition: true,
-  });
-  const [aiPrompt, setAiPrompt] = useState('Explain the importance of AI compliance in enterprise environments');
+  const [aiPrompt, setAiPrompt] = useState('Explain why AI transparency is important for enterprise adoption.');
   const [eventId, setEventId] = useState('');
-
-  const loadAnalytics = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(`${DEMO_API_URL}/analytics`);
-      const data = await response.json();
-      if (data.success) {
-        setAnalytics(data.data);
-      } else {
-        setError('Failed to load analytics');
-      }
-    } catch {
-      setError('Network error loading analytics');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const loadDeclarations = async () => {
-    try {
-      const response = await fetch(`${DEMO_API_URL}/declarations`);
-      const data = await response.json();
-      if (data.success) {
-        setDeclarations(data.data);
-      }
-    } catch {
-      // Silently fail - declarations are optional demo data
-    }
-  };
-
-  const createTrustDeclaration = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(`${DEMO_API_URL}/declarations`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          agentId: `agent-${Date.now()}`,
-          agentName,
-          trustArticles,
-          notes: 'Demo trust declaration from YCQ Labs website',
-        }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        // Create a mock trust receipt for the declaration
-        const mockReceipt: TrustReceipt = {
-          eventId: `evt_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-          timestamp: new Date().toISOString(),
-          contentHash: Buffer.from(JSON.stringify(data.data)).toString('hex').substring(0, 16),
-          previousHash: 'prev_' + Math.random().toString(36).substr(2, 16),
-          signature: 'sig_' + Math.random().toString(36).substr(2, 32),
-          verificationUrl: '#'
-        };
-        setTrustReceipt(mockReceipt);
-        
-        // Reload declarations and analytics to update counts
-        await loadDeclarations();
-        await loadAnalytics();
-      } else {
-        setError('Failed to create trust declaration');
-      }
-    } catch {
-      setError('Network error creating declaration');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const generateWithTrustReceipt = async () => {
     setLoading(true);
     setError(null);
+    setTrustReceipt(null);
+    setAiResponse(null);
     try {
       const response = await fetch(`${DEMO_API_URL}/generate`, {
         method: 'POST',
@@ -167,11 +59,8 @@ export default function TrustLedgerDemo() {
       if (data.success) {
         setAiResponse(data.data.response);
         setTrustReceipt(data.data.trustReceipt);
-        
-        // Reload analytics to update counts
-        await loadAnalytics();
       } else {
-        setError('Failed to generate AI response');
+        setError(data.error || 'Failed to generate AI response');
       }
     } catch {
       setError('Network error generating response');
@@ -181,25 +70,24 @@ export default function TrustLedgerDemo() {
   };
 
   const verifyReceipt = async () => {
-    if (!eventId) {
-      setError('Please enter an Event ID');
+    if (!eventId.trim()) {
+      setError('Please enter an event ID');
       return;
     }
     setLoading(true);
     setError(null);
+    setVerificationResult(null);
     try {
       const response = await fetch(`${DEMO_API_URL}/verify`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ eventId }),
       });
       const data = await response.json();
       if (data.success) {
         setVerificationResult(data.data);
       } else {
-        setError('Verification failed');
+        setError(data.error || 'Verification failed');
       }
     } catch {
       setError('Network error verifying receipt');
@@ -208,33 +96,22 @@ export default function TrustLedgerDemo() {
     }
   };
 
-  useEffect(() => {
-    if (activeTab === 'analytics') {
-      loadAnalytics();
-      loadDeclarations();
-    }
-  }, [activeTab]);
-
-  const complianceScore = Object.values(trustArticles).filter(Boolean).length / 6;
-
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+    <div className="rounded-xl overflow-hidden">
       {/* Tab Navigation */}
-      <div className="border-b border-stone-200">
-        <div className="flex overflow-x-auto">
+      <div className="border-b border-white/10 mb-6">
+        <div className="flex gap-1">
           {[
-            { id: 'analytics', label: '📊 Analytics', icon: '📊' },
-            { id: 'create', label: '🏗️ Create Agent Declaration', icon: '🏗️' },
-            { id: 'generate', label: '🤖 AI Generate + Receipt', icon: '🤖' },
-            { id: 'verify', label: '🔍 Verify Receipt', icon: '🔍' },
+            { id: 'generate', label: 'Generate + Receipt' },
+            { id: 'verify', label: 'Verify Receipt' },
           ].map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id as 'analytics' | 'create' | 'generate' | 'verify')}
-              className={`px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors ${
+              onClick={() => setActiveTab(tab.id as 'generate' | 'verify')}
+              className={`px-6 py-3 text-sm font-medium transition-colors rounded-t-lg ${
                 activeTab === tab.id
-                  ? 'border-b-2 border-blue-600 text-blue-600'
-                  : 'text-stone-700 hover:text-stone-900'
+                  ? 'bg-white/10 text-white border-b-2 border-blue-500'
+                  : 'text-white/60 hover:text-white hover:bg-white/5'
               }`}
             >
               {tab.label}
@@ -243,240 +120,162 @@ export default function TrustLedgerDemo() {
         </div>
       </div>
 
-      {/* Tab Content */}
-      <div className="p-6">
-        {error && (
-          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-900">
-            ❌ {error}
-          </div>
-        )}
+      {/* Error Display */}
+      {error && (
+        <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400">
+          {error}
+        </div>
+      )}
 
-        {/* Analytics Tab */}
-        {activeTab === 'analytics' && (
+      {/* Generate Tab */}
+      {activeTab === 'generate' && (
+        <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-stone-900 mb-4">Trust Analytics Dashboard</h3>
+            <label className="block text-sm font-medium text-white/70 mb-2">Your Message</label>
+            <textarea
+              value={aiPrompt}
+              onChange={(e) => setAiPrompt(e.target.value)}
+              rows={3}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-white/30 resize-none"
+              placeholder="Enter a message for the AI..."
+            />
+          </div>
+          
+          <button
+            onClick={generateWithTrustReceipt}
+            disabled={loading || !aiPrompt.trim()}
+            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+          >
             {loading ? (
-              <div className="text-center py-8">
-                <div className="inline-block w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                <p className="mt-2 text-stone-700">Loading analytics...</p>
-              </div>
-            ) : analytics ? (
-              <div className="space-y-4">
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="text-sm text-blue-700 font-medium">Total Declarations</div>
-                    <div className="text-3xl font-bold text-blue-900">{analytics.totalDeclarations || 0}</div>
-                  </div>
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="text-sm text-green-700 font-medium">Avg Compliance</div>
-                    <div className="text-3xl font-bold text-green-900">
-                      {((analytics.complianceScore || 0) * 100).toFixed(1)}%
-                    </div>
-                  </div>
-                  <div className="bg-amber-50 p-4 rounded-lg">
-                    <div className="text-sm text-amber-700 font-medium">Active Agents</div>
-                    <div className="text-3xl font-bold text-amber-900">{analytics.activeAgents || 0}</div>
-                  </div>
-                </div>
-              </div>
+              <span className="flex items-center justify-center gap-2">
+                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                Generating...
+              </span>
             ) : (
-              <button
-                onClick={loadAnalytics}
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Load Analytics
-              </button>
+              'Send Message & Generate Receipt'
             )}
-          </div>
-        )}
+          </button>
 
-        {/* Create Declaration Tab */}
-        {activeTab === 'create' && (
-          <div>
-            <h3 className="text-xl font-bold text-stone-900 mb-4">Create AI Agent Trust Declaration</h3>
-            <p className="text-sm text-stone-600 mb-6">
-              Define your AI agent and specify which trust articles it complies with. This creates a formal declaration 
-              that can be verified and tracked on the trust ledger.
-            </p>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-stone-800 mb-2">Agent Name</label>
-                <input
-                  type="text"
-                  value={agentName}
-                  onChange={(e) => setAgentName(e.target.value)}
-                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-stone-800 mb-2">Trust Articles Compliance</label>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {Object.entries(trustArticles).map(([key, value]) => (
-                    <label key={key} className={`flex items-center gap-2 p-3 rounded-lg cursor-pointer ${value ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
-                      <input
-                        type="checkbox"
-                        checked={value}
-                        onChange={(e) => setTrustArticles({ ...trustArticles, [key]: e.target.checked })}
-                        className="w-4 h-4"
-                      />
-                      <span className="text-sm font-bold text-gray-900">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium text-blue-800">Compliance Score</span>
-                  <span className="text-sm font-bold text-blue-900">{(complianceScore * 100).toFixed(1)}%</span>
-                </div>
-                <div className="w-full bg-blue-200 rounded-full h-2">
-                  <div
-                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${complianceScore * 100}%` }}
-                  ></div>
-                </div>
-              </div>
-              <button
-                onClick={createTrustDeclaration}
-                disabled={loading}
-                className="w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
-              >
-                {loading ? 'Creating...' : 'Create Agent Declaration + Trust Receipt'}
-              </button>
-              {trustReceipt && (
-                <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">🔐 Trust Receipt Generated</h4>
-                  <div className="space-y-1 text-sm">
-                    <div><strong>Event ID:</strong> <code className="bg-amber-100 px-2 py-1 rounded text-gray-900">{trustReceipt.eventId}</code></div>
-                    <div><strong>Timestamp:</strong> <span className="text-gray-900">{trustReceipt.timestamp ? new Date(trustReceipt.timestamp).toLocaleString() : 'N/A'}</span></div>
-                    <div><strong>Content Hash:</strong> <code className="bg-amber-100 px-2 py-1 rounded text-xs text-gray-900">{trustReceipt.contentHash?.substring(0, 32)}...</code></div>
-                  </div>
-                  <button
-                    onClick={() => {
-                      setEventId(trustReceipt.eventId);
-                      setActiveTab('verify');
-                    }}
-                    className="mt-3 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition-colors text-sm"
-                  >
-                    Verify This Receipt
-                  </button>
-                </div>
-              )}
+          {/* AI Response */}
+          {aiResponse && (
+            <div className="p-4 bg-white/5 border border-white/10 rounded-lg">
+              <div className="text-xs text-white/40 mb-2 uppercase tracking-wider">AI Response</div>
+              <p className="text-white/80 text-sm leading-relaxed">{aiResponse}</p>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Generate AI Tab */}
-        {activeTab === 'generate' && (
-          <div>
-            <h3 className="text-xl font-bold text-stone-900 mb-4">AI Generation + Trust Receipt</h3>
-            <p className="text-sm text-stone-600 mb-6">
-              Generate an AI response with automatic trust receipt creation. The response is cryptographically 
-              signed and verifiable on the trust ledger.
-            </p>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-stone-800 mb-2">AI Prompt</label>
-                <textarea
-                  value={aiPrompt}
-                  onChange={(e) => setAiPrompt(e.target.value)}
-                  rows={4}
-                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
-                />
+          {/* Trust Receipt */}
+          {trustReceipt && (
+            <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-sm font-medium text-green-400">Trust Receipt Generated</span>
               </div>
-              <button
-                onClick={generateWithTrustReceipt}
-                disabled={loading}
-                className="w-full bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
-              >
-                {loading ? 'Generating...' : 'Generate AI Response + Trust Receipt'}
-              </button>
-              {aiResponse && (
-                <div className="bg-purple-50 border border-purple-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">🤖 AI Response</h4>
-                  <div className="text-sm text-black bg-white p-3 rounded border border-purple-200">
-                    {aiResponse}
-                  </div>
+              <div className="space-y-2 font-mono text-xs">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                  <span className="text-white/40">Event ID:</span>
+                  <span className="text-white/80 break-all">{trustReceipt.eventId}</span>
                 </div>
-              )}
-              {trustReceipt && (
-                <div className="bg-purple-50 border border-purple-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">🔐 Trust Receipt Generated</h4>
-                  <div className="space-y-1 text-sm">
-                    <div><strong>Event ID:</strong> <code className="bg-purple-100 px-2 py-1 rounded text-gray-900">{trustReceipt.eventId}</code></div>
-                    <div><strong>Timestamp:</strong> <span className="text-gray-900">{trustReceipt.timestamp ? new Date(trustReceipt.timestamp).toLocaleString() : 'N/A'}</span></div>
-                    <div><strong>Signature:</strong> <code className="bg-purple-100 px-2 py-1 rounded text-xs text-gray-900">{trustReceipt.signature?.substring(0, 32)}...</code></div>
-                  </div>
-                  <button
-                    onClick={() => {
-                      setEventId(trustReceipt.eventId);
-                      setActiveTab('verify');
-                    }}
-                    className="mt-3 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
-                  >
-                    Verify This Receipt
-                  </button>
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                  <span className="text-white/40">Timestamp:</span>
+                  <span className="text-white/80">{trustReceipt.timestamp}</span>
                 </div>
-              )}
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                  <span className="text-white/40">Content Hash:</span>
+                  <span className="text-blue-400 break-all">{trustReceipt.contentHash}</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                  <span className="text-white/40">Signature:</span>
+                  <span className="text-purple-400 break-all">{trustReceipt.signature.substring(0, 32)}...</span>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <button
+                  onClick={() => {
+                    setEventId(trustReceipt.eventId);
+                    setActiveTab('verify');
+                  }}
+                  className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  Verify this receipt →
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+      )}
 
-        {/* Verify Tab */}
-        {activeTab === 'verify' && (
+      {/* Verify Tab */}
+      {activeTab === 'verify' && (
+        <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-stone-900 mb-4">Verify Trust Receipt</h3>
-            <p className="text-sm text-stone-600 mb-6">
-              Enter an Event ID to verify the authenticity and integrity of a trust receipt on the hash-chained ledger.
-            </p>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-stone-800 mb-2">Event ID</label>
-                <input
-                  type="text"
-                  value={eventId}
-                  onChange={(e) => setEventId(e.target.value)}
-                  placeholder="evt_xxx"
-                  className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
-                />
-              </div>
-              <button
-                onClick={verifyReceipt}
-                disabled={loading || !eventId}
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
-              >
-                {loading ? 'Verifying...' : 'Verify Trust Receipt'}
-              </button>
-              {verificationResult && (
-                <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">✅ Verification Results</h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>Overall Status:</span>
-                      <span className="font-bold text-gray-900">{verificationResult.summary.overallStatus}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Confidence:</span>
-                      <span className="font-bold text-gray-900">{(verificationResult.summary.confidence * 100).toFixed(1)}%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Risk Level:</span>
-                      <span className="font-bold text-gray-900">{verificationResult.summary.riskLevel}</span>
-                    </div>
-                    <div className="mt-3 border-t border-green-200 pt-3">
-                      <div className="text-xs space-y-1">
-                        <div>• {verificationResult.checks.hashIntegrity.message}</div>
-                        <div>• {verificationResult.checks.signatureValid.message}</div>
-                        <div>• {verificationResult.checks.temporalOrder.message}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+            <label className="block text-sm font-medium text-white/70 mb-2">Event ID to Verify</label>
+            <input
+              type="text"
+              value={eventId}
+              onChange={(e) => setEventId(e.target.value)}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-white/30 font-mono text-sm"
+              placeholder="evt_..."
+            />
           </div>
-        )}
-      </div>
+          
+          <button
+            onClick={verifyReceipt}
+            disabled={loading || !eventId.trim()}
+            className="w-full bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+          >
+            {loading ? (
+              <span className="flex items-center justify-center gap-2">
+                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                Verifying...
+              </span>
+            ) : (
+              'Verify Receipt'
+            )}
+          </button>
+
+          {/* Verification Result */}
+          {verificationResult && (
+            <div className={`p-4 rounded-lg border ${
+              verificationResult.summary.overallStatus === 'VERIFIED' 
+                ? 'bg-green-500/10 border-green-500/20' 
+                : 'bg-red-500/10 border-red-500/20'
+            }`}>
+              <div className="flex items-center gap-2 mb-4">
+                <div className={`w-2 h-2 rounded-full ${
+                  verificationResult.summary.overallStatus === 'VERIFIED' ? 'bg-green-500' : 'bg-red-500'
+                }`}></div>
+                <span className={`text-sm font-medium ${
+                  verificationResult.summary.overallStatus === 'VERIFIED' ? 'text-green-400' : 'text-red-400'
+                }`}>
+                  {verificationResult.summary.overallStatus}
+                </span>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="text-xs text-white/40 uppercase tracking-wider">Verification Checks</div>
+                {Object.entries(verificationResult.checks).map(([key, check]) => (
+                  <div key={key} className="flex items-center justify-between p-2 bg-white/5 rounded">
+                    <span className="text-sm text-white/70">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
+                    <span className={`text-xs px-2 py-1 rounded ${
+                      check.status === 'PASS' 
+                        ? 'bg-green-500/20 text-green-400' 
+                        : 'bg-red-500/20 text-red-400'
+                    }`}>
+                      {check.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 pt-4 border-t border-white/10 flex justify-between text-sm">
+                <span className="text-white/40">Confidence</span>
+                <span className="text-white/80">{(verificationResult.summary.confidence * 100).toFixed(1)}%</span>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

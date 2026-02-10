@@ -10,9 +10,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const baseStyles = "font-medium rounded-lg transition-colors focus:outline-none";
     
     const variantStyles = {
-      default: "bg-blue-600 text-white hover:bg-blue-700",
-      outline: "border border-gray-300 text-gray-900 hover:bg-gray-50",
-      ghost: "text-blue-600 hover:bg-blue-50",
+      default: "bg-blue-600 text-white hover:bg-blue-700 shadow-[0_0_20px_rgba(59,130,246,0.4)]",
+      outline: "border border-white/20 text-white hover:bg-white/10",
+      ghost: "text-white hover:bg-white/5",
     };
     
     const sizeStyles = {

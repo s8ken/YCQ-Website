@@ -1,376 +1,340 @@
 "use client";
 
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { 
+  Shield, 
+  Fingerprint,
+  Activity,
+  FileText,
+  AlertTriangle,
+  CheckCircle2, 
+  ArrowRight, 
+  ExternalLink,
+  Brain,
+  Layers
+} from "lucide-react";
 import Link from "next/link";
-import { ChevronRight, Shield, Zap, Brain, BarChart3, Lock, GitBranch } from "lucide-react";
 import { CONSOLE_URL } from "@/lib/site";
 
-function Index() {
-        const [activeFeature, setActiveFeature] = useState(0);
+export default function HomePage() {
+  const coreFeatures = [
+    {
+      icon: Fingerprint,
+      title: "Trust Receipts",
+      description: "Cryptographic proof for every AI interaction. SHA-256 hashed, timestamped, and verifiable.",
+      status: "Live"
+    },
+    {
+      icon: Layers,
+      title: "Policy Evaluation",
+      description: "Real-time evaluation against 6 constitutional principles. Every response scored 0-100.",
+      status: "Live"
+    },
+    {
+      icon: Activity,
+      title: "Live Monitoring",
+      description: "Real-time dashboard showing trust scores, alerts, and agent activity across your organization.",
+      status: "Live"
+    },
+    {
+      icon: AlertTriangle,
+      title: "Violation Alerts",
+      description: "Automatic alerts when AI responses fall below trust thresholds or violate policies.",
+      status: "Live"
+    },
+    {
+      icon: FileText,
+      title: "Audit Export",
+      description: "Export complete audit trails as CSV or JSON for compliance reviews and regulatory needs.",
+      status: "Live"
+    },
+    {
+      icon: Brain,
+      title: "Multi-Agent Support",
+      description: "Manage multiple AI agents with individual trust scores, policies, and monitoring.",
+      status: "Live"
+    },
+  ];
 
-        const features = [
-                {
-                        icon: Shield,
-						title: "SONATE Trust Framework",
-						description:
-							"A measurable trust model (6 principles → weighted scoring) that turns governance from prose into repeatable evaluation.",
-                },
-                {
-                        icon: Brain,
-						title: "Real-time Detection",
-						description:
-							"Production monitoring via @sonate/detect: multi-dimension scoring, alerts, and drift signals derived from the core framework.",
-                },
-                {
-                        icon: Zap,
-						title: "Cryptographic Trust Receipts",
-						description:
-							"Receipts designed for verifiable audit trails (SHA-256 hashing + Ed25519 signatures) and quick verification workflows.",
-                },
-                {
-                        icon: BarChart3,
-						title: "Research Validation",
-						description:
-							"A separate research lane via @sonate/lab for experiments and evaluation, kept distinct from production monitoring.",
-                },
-                {
-                        icon: Lock,
-						title: "Orchestration Layer",
-						description:
-							"Infrastructure tooling via @sonate/orchestrate: identities, access controls, and operational workflows for agent systems.",
-                },
-                {
-                        icon: GitBranch,
-						title: "Open Source Progress",
-						description:
-							"Progress is tracked transparently in the public TypeScript monorepo (packages + apps), and this site provides a live demo for the receipt flow.",
-                },
-        ];
+  const trustPrinciples = [
+    { name: "Consent Architecture", weight: "25%", description: "Explicit user consent for AI interactions" },
+    { name: "Inspection Mandate", weight: "20%", description: "All AI decisions must be auditable" },
+    { name: "Continuous Validation", weight: "20%", description: "Ongoing behavior monitoring" },
+    { name: "Ethical Override", weight: "15%", description: "Humans can always override AI" },
+    { name: "Right to Disconnect", weight: "10%", description: "Users can opt out anytime" },
+    { name: "Moral Recognition", weight: "10%", description: "Respect for human agency" },
+  ];
 
-		const tiers = [
-                {
-						name: "What's Live (Site)",
-						status: "Available",
-                        features: [
-								"Trust receipt demo UI",
-								"Generate + verify flow",
-								"Technology overview",
-								"Security + governance pages",
-								"Sitemap of routes",
-                        ],
-                        color: "from-blue-500 to-blue-600",
-                },
-                {
-						name: "Implemented (Repo)",
-						status: "Active",
-                        features: [
-								"@sonate/core trust scoring",
-								"Receipt hashing + signing primitives",
-								"@sonate/detect monitoring",
-								"@sonate/lab evaluation harness",
-								"@sonate/orchestrate scaffolding",
-                        ],
-                        color: "from-purple-500 to-purple-600",
-                },
-                {
-						name: "In Progress",
-						status: "Iterating",
-                        features: [
-								"Tightening demo-to-repo parity",
-								"Hardening API surface",
-								"Documentation surfacing",
-								"Operational dashboards",
-								"Enterprise integration paths",
-                        ],
-                        color: "from-green-500 to-green-600",
-                },
-                {
-						name: "Roadmap",
-						status: "Planned",
-                        features: [
-								"Richer verification UX",
-								"Wider provider integrations",
-								"Formal docs + specs",
-								"Multi-tenant deployment",
-								"Compliance tooling",
-                        ],
-                        color: "from-orange-500 to-orange-600",
-                },
-        ];
+  return (
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-blue-500/30">
+      {/* Background Effects */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-900/20 blur-[120px] rounded-full" />
+      </div>
 
-        const ActiveIcon = features[activeFeature].icon;
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 border-b border-white/5 bg-black/50 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <Shield className="w-5 h-5 text-white" strokeWidth={2.5} />
+            </div>
+            <span className="text-xl font-heading font-bold tracking-tight">SONATE</span>
+          </Link>
+          
+          <div className="hidden md:flex items-center gap-8">
+            <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
+            <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
+            <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
+          </div>
 
-        return (
-                <div className="bg-white">
-                        {/* Hero Section */}
-                        <section className="relative overflow-hidden py-20 sm:py-32">
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50" />
-                                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                                        <div className="grid lg:grid-cols-2 gap-12 items-center">
-                                                <div>
-                                                        <div className="inline-block mb-4 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
-                                                                <span className="text-sm text-blue-700">Constitutional AI Governance</span>
-                                                        </div>
-										<h1 className="text-5xl sm:text-6xl font-black mb-6 leading-tight text-stone-900">
-												Enterprise AI You Can{" "}
-                                                                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-														Trust
-                                                                </span>
-                                                        </h1>
-                                                        <p className="text-xl text-stone-600 mb-8 leading-relaxed">
-												SONATE (Yseeku Platform) is an open TypeScript monorepo for constitutional AI governance: trust scoring,
-												cryptographic receipts, production detection, and orchestration scaffolding.
-                                                        </p>
-                                                        <div className="flex flex-col sm:flex-row gap-4">
-												<Link
-													href="/trust-demo"
-													className="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none px-6 py-3 text-lg bg-blue-600 text-white hover:bg-blue-700 gap-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
-												>
-													Try Trust Demo <ChevronRight className="w-4 h-4" />
-												</Link>
-												<Link
-													href="/technology"
-													className="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none px-6 py-3 text-lg border border-stone-300 text-stone-700 hover:bg-stone-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stone-500"
-												>
-													View Technical Overview
-												</Link>
-                                                        </div>
-                                                        <div className="mt-12 grid grid-cols-3 gap-8 pt-8 border-t border-stone-200">
-                                                                <div>
-														<div className="text-3xl font-bold text-blue-600">4</div>
-														<p className="text-sm text-stone-500">Core Packages</p>
-                                                                </div>
-                                                                <div>
-														<div className="text-3xl font-bold text-purple-600">OSS</div>
-														<p className="text-sm text-stone-500">Public Repo</p>
-                                                                </div>
-                                                                <div>
-														<div className="text-3xl font-bold text-green-600">Live</div>
-														<p className="text-sm text-stone-500">Demo Flow</p>
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                                <div className="relative">
-                                                        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl blur-3xl" />
-                                                        <div className="relative bg-white rounded-2xl border border-stone-200 p-8 shadow-xl">
-                                                                <div className="space-y-4">
-													{[
-															"Trust receipt demo: generate + verify",
-															"Technical overview aligned to repo modules",
-															"Public progress tracked on GitHub",
-															"Link to live platform console",
-													].map((item, i) => (
-                                                                                <div key={i} className="flex items-center gap-3 text-stone-700">
-                                                                                        <div className="w-2 h-2 bg-green-500 rounded-full" />
-                                                                                        {item}
-                                                                                </div>
-                                                                        ))}
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </section>
+          <div className="flex items-center gap-4">
+            <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" className="hidden sm:flex gap-2" size="sm">
+                Open Platform <ExternalLink className="w-3 h-3" />
+              </Button>
+            </Link>
+            <Link href="/trust-demo">
+              <Button size="sm">Try Demo</Button>
+            </Link>
+          </div>
+        </div>
+      </nav>
 
-                        {/* Features Section */}
-                        <section id="features" className="py-20 sm:py-32 bg-stone-50 border-t border-stone-200">
-                                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                        <div className="text-center mb-16">
-                                                <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-stone-900">
-                                                        Comprehensive Agent Governance
-                                                </h2>
-                                                <p className="text-xl text-stone-600 max-w-2xl mx-auto">
-                                                        Everything you need to manage, monitor, and enforce policies across autonomous agent systems
-                                                </p>
-                                        </div>
+      <main className="relative z-10">
+        {/* Hero Section */}
+        <section className="pt-24 pb-20 px-6">
+          <div className="max-w-7xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-xs font-medium text-white/80 uppercase tracking-widest">Platform Live</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-[1.1] tracking-tight">
+              Trust Receipts for <br />
+              <span className="gradient-text">Every AI Interaction</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed">
+              Cryptographic proof that your AI systems behave as expected. Real-time policy evaluation, verifiable compliance, and complete audit trails.
+            </p>
 
-                                        <div className="grid lg:grid-cols-2 gap-12">
-                                                {/* Feature Cards */}
-                                                <div className="grid grid-cols-1 gap-6">
-                                                        {features.map((feature, i) => {
-                                                                const Icon = feature.icon;
-                                                                return (
-                                                                        <button
-                                                                                key={i}
-                                                                                onClick={() => setActiveFeature(i)}
-                                                                                className={`text-left p-6 rounded-xl border transition-all ${
-                                                                                        activeFeature === i
-                                                                                                ? "bg-white border-blue-500 shadow-md"
-                                                                                                : "bg-white border-stone-200 hover:border-blue-300"
-                                                                                }`}
-                                                                        >
-                                                                                <div className="flex items-start gap-4">
-                                                                                        <Icon className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                                                                                        <div>
-                                                                                                <h3 className="font-bold text-lg mb-2 text-stone-900">{feature.title}</h3>
-                                                                                                <p className="text-stone-600 text-sm">{feature.description}</p>
-                                                                                        </div>
-                                                                                </div>
-                                                                        </button>
-                                                                );
-                                                        })}
-                                                </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+              <Link href="/trust-demo">
+                <Button size="lg" className="w-full sm:w-auto gap-2">
+                  Try Trust Demo <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
+              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2">
+                  Open Platform <ExternalLink className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
 
-                                                {/* Feature Highlight */}
-                                                <div className="relative">
-                                                        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl blur-2xl" />
-                                                        <div className="relative bg-white rounded-2xl border border-stone-200 p-8 h-full flex flex-col justify-between shadow-lg">
-                                                                <div>
-                                                                        <div className="p-4 bg-blue-50 rounded-lg w-fit mb-6">
-                                                                                <ActiveIcon className="w-8 h-8 text-blue-600" />
-                                                                        </div>
-                                                                        <h3 className="text-2xl font-bold mb-3 text-stone-900">{features[activeFeature].title}</h3>
-                                                                        <p className="text-stone-600 mb-6 leading-relaxed">
-                                                                                {features[activeFeature].description}
-                                                                        </p>
-                                                                </div>
-													<Link
-														href="/technology"
-														className="w-full inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none px-4 py-2 text-base bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
-													>
-													Read the Technical Overview <ChevronRight className="w-4 h-4 ml-2" />
-												</Link>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </section>
-
-                        {/* Development Status Section */}
-                        <section id="status" className="py-20 sm:py-32 border-t border-stone-200">
-                                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                        <div className="text-center mb-16">
-												<h2 className="text-4xl sm:text-5xl font-bold mb-4 text-stone-900">Project Status</h2>
-													<p className="text-xl text-stone-600 max-w-2xl mx-auto">
-															An honest snapshot of what&apos;s live on this site vs what&apos;s implemented in the repo
-													</p>
-                                        </div>
-
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                                {tiers.map((tier, i) => (
-                                                        <div
-                                                                key={i}
-                                                                className="bg-white rounded-xl border border-stone-200 p-6 hover:border-stone-300 hover:shadow-md transition"
-                                                        >
-                                                                <div className="flex items-start justify-between mb-4">
-                                                                        <h3 className="font-bold text-lg pr-2 text-stone-900">{tier.name}</h3>
-                                                                        <span
-                                                                                className={`text-xs font-bold whitespace-nowrap bg-gradient-to-r ${tier.color} bg-clip-text text-transparent`}
-                                                                        >
-                                                                                {tier.status}
-                                                                        </span>
-                                                                </div>
-                                                                <ul className="space-y-2">
-                                                                        {tier.features.map((feature, j) => (
-                                                                                <li key={j} className="text-sm text-stone-600 flex items-center gap-2">
-                                                                                        <div className="w-1.5 h-1.5 rounded-full bg-stone-400" />
-                                                                                        {feature}
-                                                                                </li>
-                                                                        ))}
-                                                                </ul>
-                                                        </div>
-                                                ))}
-                                        </div>
-
-												<div className="mt-16 bg-stone-50 rounded-xl border border-stone-200 p-8">
-														<div className="mb-4 flex items-center justify-between">
-																<h3 className="font-bold text-lg text-stone-900">Quick Links</h3>
-																<span className="text-2xl font-bold text-blue-600">Now</span>
-														</div>
-														<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-																<Link
-																	href="/trust-demo"
-																	className="bg-white border border-stone-200 rounded-lg px-4 py-3 hover:border-stone-300 hover:shadow-sm transition"
-																>
-																	<p className="font-bold text-stone-900">Try the Demo</p>
-																	<p className="text-xs text-stone-500 mt-1">Trust ledger + receipt verification</p>
-																</Link>
-																<Link
-																	href="/technology"
-																	className="bg-white border border-stone-200 rounded-lg px-4 py-3 hover:border-stone-300 hover:shadow-sm transition"
-																>
-																	<p className="font-bold text-stone-900">Technology</p>
-																	<p className="text-xs text-stone-500 mt-1">Architecture + technical details</p>
-																</Link>
-																<Link
-																	href="/sitemap"
-																	className="bg-white border border-stone-200 rounded-lg px-4 py-3 hover:border-stone-300 hover:shadow-sm transition"
-																>
-																	<p className="font-bold text-stone-900">Sitemap</p>
-																	<p className="text-xs text-stone-500 mt-1">All pages + API routes</p>
-																</Link>
-																<a
-																	href="https://github.com/s8ken/yseeku-platform"
-																	target="_blank"
-																	rel="noopener noreferrer"
-																	className="bg-white border border-stone-200 rounded-lg px-4 py-3 hover:border-stone-300 hover:shadow-sm transition"
-																>
-																	<p className="font-bold text-stone-900">GitHub Repo</p>
-																	<p className="text-xs text-stone-500 mt-1">Track real progress + code</p>
-																</a>
-														</div>
-												</div>
-                                </div>
-                        </section>
-
-                        {/* Tech Stack Section */}
-                        <section className="py-20 sm:py-32 border-t border-stone-200 bg-stone-50">
-                                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                        <h2 className="text-4xl font-bold mb-12 text-stone-900">Built With</h2>
-                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                                                {[
-															{ name: "TypeScript", status: "Monorepo" },
-															{ name: "React", status: "Dashboard UI" },
-															{ name: "Express", status: "Backend API" },
-															{ name: "SHA-256", status: "Content hashing" },
-															{ name: "Ed25519", status: "Receipt signing" },
-															{ name: "W3C DID/VC", status: "Identity model" },
-                                                        { name: "Tailwind CSS", status: "Styling" },
-															{ name: "Docker", status: "Deployment" },
-															{ name: "Redis", status: "Rate limiting" },
-															{ name: "Kubernetes", status: "Scale targets" },
-                                                ].map((tech, i) => (
-                                                        <div
-                                                                key={i}
-                                                                className="bg-white rounded-xl border border-stone-200 p-4 text-center hover:border-stone-300 hover:shadow-sm transition"
-                                                        >
-                                                                <p className="font-bold text-stone-900">{tech.name}</p>
-                                                                <p className="text-xs text-stone-500 mt-1">{tech.status}</p>
-                                                        </div>
-                                                ))}
-                                        </div>
-                                </div>
-                        </section>
-
-                        {/* CTA Section */}
-                        <section className="py-20 sm:py-32 border-t border-stone-200">
-                                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-										<h2 className="text-4xl sm:text-5xl font-bold mb-6 text-stone-900">See What&apos;s Built Today</h2>
-										<p className="text-xl text-stone-600 mb-8">
-												Use the demo to understand the trust receipt flow, then follow the repo to track what&apos;s implemented and what&apos;s next.
-										</p>
-                                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-												<a
-													href={CONSOLE_URL}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none px-6 py-3 text-lg bg-blue-600 text-white hover:bg-blue-700 gap-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
-												>
-													Open Platform Console <ChevronRight className="w-4 h-4" />
-												</a>
-												<a
-													href="https://github.com/s8ken/yseeku-platform"
-													target="_blank"
-													rel="noopener noreferrer"
-													className="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none px-6 py-3 text-lg border border-stone-300 text-stone-700 hover:bg-stone-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stone-500"
-												>
-													View on GitHub
-												</a>
-                                        </div>
-                                </div>
-                        </section>
+            {/* Trust Receipt Preview */}
+            <div className="relative max-w-4xl mx-auto">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-600 to-green-500 rounded-2xl blur-xl opacity-20" />
+              <div className="relative glass-card p-6">
+                <div className="bg-black/40 rounded-xl border border-white/5 p-6 font-mono text-sm">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                    <div className="flex items-center gap-2">
+                      <Fingerprint className="w-4 h-4 text-blue-400" />
+                      <span className="text-white/80 font-bold">Trust Receipt</span>
+                    </div>
+                    <span className="text-green-400 text-xs">VERIFIED</span>
+                  </div>
+                  <div className="space-y-2 text-left">
+                    <div className="flex justify-between">
+                      <span className="text-white/40">Hash:</span>
+                      <span className="text-blue-400">sha256:9f86d08...c3e7c8</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-white/40">Trust Score:</span>
+                      <span className="text-green-400">94/100</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-white/40">Policy Status:</span>
+                      <span className="text-green-400">PASS</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-white/40">Timestamp:</span>
+                      <span className="text-white/60">2026-02-10T14:32:18Z</span>
+                    </div>
+                  </div>
                 </div>
-        );
-}
+              </div>
+            </div>
+          </div>
+        </section>
 
-export default Index;
+        {/* What It Does Section */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">What SONATE Does</h2>
+              <p className="text-white/60 max-w-2xl mx-auto">
+                A trust layer for AI systems that generates cryptographic proof of behavior and evaluates every interaction against constitutional principles.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {coreFeatures.map((feature, i) => (
+                <div key={i} className="glass-card p-6 hover:border-white/20 transition-colors">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <span className="text-xs px-2 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">
+                      {feature.status}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-heading font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-sm text-white/50">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Trust Protocol Section */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
+                  The SONATE Trust Protocol
+                </h2>
+                <p className="text-white/60 mb-8">
+                  Every AI response is evaluated against 6 constitutional principles. The weighted scores combine into a single trust score (0-100) that determines policy compliance.
+                </p>
+                <div className="space-y-3">
+                  {trustPrinciples.map((principle, i) => (
+                    <div key={i} className="flex items-center gap-4 p-3 rounded-lg bg-white/5 border border-white/5">
+                      <div className="w-12 text-right">
+                        <span className="text-sm font-mono text-blue-400">{principle.weight}</span>
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-medium">{principle.name}</div>
+                        <div className="text-xs text-white/40">{principle.description}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="glass-card p-6">
+                <div className="text-center mb-6">
+                  <div className="text-6xl font-heading font-bold gradient-text mb-2">94</div>
+                  <div className="text-white/40 text-sm">Trust Score</div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-white/60">Consent Architecture</span>
+                    <span className="text-green-400">96%</span>
+                  </div>
+                  <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-green-500 rounded-full" style={{ width: '96%' }} />
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-white/60">Inspection Mandate</span>
+                    <span className="text-green-400">92%</span>
+                  </div>
+                  <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-green-500 rounded-full" style={{ width: '92%' }} />
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-white/60">Ethical Override</span>
+                    <span className="text-green-400">95%</span>
+                  </div>
+                  <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-green-500 rounded-full" style={{ width: '95%' }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Preview */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">How It Works</h2>
+            <p className="text-white/60 max-w-2xl mx-auto mb-12">
+              SONATE sits between your application and AI providers, evaluating every interaction in real-time.
+            </p>
+
+            <div className="grid md:grid-cols-4 gap-6 mb-12">
+              {[
+                { step: "1", title: "User Sends Message", desc: "Request goes through SONATE" },
+                { step: "2", title: "AI Generates Response", desc: "Response captured for evaluation" },
+                { step: "3", title: "Trust Evaluation", desc: "6 principles scored in real-time" },
+                { step: "4", title: "Receipt Generated", desc: "Cryptographic proof stored" },
+              ].map((item, i) => (
+                <div key={i} className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-lg font-bold">{item.step}</span>
+                  </div>
+                  <h3 className="font-heading font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-white/50">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <Link href="/how-it-works">
+              <Button variant="outline" className="gap-2">
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
+              See It In Action
+            </h2>
+            <p className="text-white/60 mb-8 max-w-xl mx-auto">
+              Try the interactive demo to see trust receipts generated in real-time. No account required.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/trust-demo">
+                <Button size="lg" className="gap-2">
+                  Try Trust Demo <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
+              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="gap-2">
+                  Full Platform <ExternalLink className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-12 px-6 border-t border-white/5">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-gradient-to-tr from-blue-500 to-purple-600 rounded flex items-center justify-center">
+                <Shield className="w-4 h-4 text-white" />
+              </div>
+              <span className="font-heading font-bold">SONATE</span>
+              <span className="text-white/40 text-sm">by YCQ Labs</span>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-white/40">
+              <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
+              <Link href="/trust-demo" className="hover:text-white transition-colors">Trust Demo</Link>
+              <Link href="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
+              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Platform</Link>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}

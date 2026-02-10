@@ -1,36 +1,36 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Sonate by YCQ Labs — AI Trust Infrastructure with SONATE Trust Framework",
-  description: "Enterprise AI trust platform featuring SONATE Trust Framework by YCQ Labs. Cryptographic audit trails, automated compliance scoring, W3C-compliant DID/VC infrastructure. 6 trust principles mapped to EU AI Act & GDPR. Try live demo.",
-  keywords: "AI trust, SONATE trust framework, cryptographic receipts, compliance automation, EU AI Act, GDPR, trust ledger, verifiable credentials, DID, AI governance, ethical AI, YCQ Labs",
+  title: "SONATE | AI Trust Infrastructure",
+  description: "Cryptographic trust receipts and real-time policy evaluation for AI systems. Built on the SONATE Trust Protocol.",
+  keywords: "AI trust, SONATE, cryptographic receipts, trust protocol, AI governance, policy evaluation, trust receipts, AI compliance",
   authors: [{ name: "YCQ Labs" }],
   openGraph: {
-    title: "Sonate by YCQ Labs — AI Trust Infrastructure",
-    description: "Cryptographic trust receipts for AI. Automated compliance scoring. Built on SONATE Trust Protocol with 6 fundamental trust principles.",
+    title: "SONATE — AI Trust Infrastructure",
+    description: "Cryptographic trust receipts for every AI interaction. Real-time policy evaluation. Verifiable compliance.",
     url: "https://yseeku.com",
-    siteName: "Sonate by YCQ Labs",
+    siteName: "SONATE by YCQ Labs",
     images: [
       {
         url: "https://yseeku.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Sonate by YCQ Labs - AI Trust Infrastructure",
+        alt: "SONATE - AI Trust Infrastructure",
       },
     ],
     locale: "en_US",
@@ -38,20 +38,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sonate by YCQ Labs — AI Trust Infrastructure",
-    description: "Cryptographic trust receipts for AI. Try live demo at yseeku.com/trust-demo",
+    title: "SONATE — AI Trust Infrastructure",
+    description: "Cryptographic trust receipts for AI. Try the live demo.",
     images: ["https://yseeku.com/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
 };
 
@@ -63,13 +56,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${fraunces.variable} ${inter.variable} font-sans antialiased bg-black text-white`}
       >
-        <SiteHeader />
-        <main className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        {children}
         <Analytics />
       </body>
     </html>
