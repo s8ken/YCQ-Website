@@ -116,8 +116,8 @@ export default function HowItWorksPage() {
           
           <div className="hidden md:flex items-center gap-8">
             <Link href="/how-it-works" className="text-sm font-medium text-white transition-colors">How It Works</Link>
+            <Link href="/developers" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Developers</Link>
             <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Try Demo</Link>
-            <Link href="/verify" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Verify</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
           </div>
 
