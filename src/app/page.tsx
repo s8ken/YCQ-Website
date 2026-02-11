@@ -11,10 +11,14 @@ import {
   ArrowRight, 
   ExternalLink,
   Brain,
-  Layers
+  Layers,
+  Radar,
+  BadgeCheck,
+  History,
+  Mail
 } from "lucide-react";
 import Link from "next/link";
-import { CONSOLE_URL } from "@/lib/site";
+import { CONSOLE_URL, DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 
 export default function HomePage() {
   const coreFeatures = [
@@ -25,9 +29,21 @@ export default function HomePage() {
       status: "Live"
     },
     {
-      icon: Layers,
-      title: "W3C DID Integration",
-      description: "Decentralized Identifiers for platform and agents. Standard did:web method with public key resolution at /.well-known/did.json.",
+      icon: Radar,
+      title: "Identity Coherence Radar",
+      description: "Spider chart showing 6-dimension agent fingerprint. Detects when AI 'changes personality' mid-conversation with shift alerts.",
+      status: "Live"
+    },
+    {
+      icon: BadgeCheck,
+      title: "Trust Passport Widget",
+      description: "Embeddable badge showing real-time trust status - like the SSL green padlock, but for AI. Drop into any website.",
+      status: "Live"
+    },
+    {
+      icon: History,
+      title: "Tactical Replay",
+      description: "Time-travel debugger for AI conversations. Scrub through interactions, see trust scores evolve, replay identity shifts.",
       status: "Live"
     },
     {
@@ -37,21 +53,9 @@ export default function HomePage() {
       status: "Live"
     },
     {
-      icon: AlertTriangle,
-      title: "Violation Alerts",
-      description: "Automatic alerts when AI responses fall below trust thresholds. WebSocket real-time notifications.",
-      status: "Live"
-    },
-    {
-      icon: FileText,
-      title: "Compliance Export",
-      description: "Export signed receipts as JSON for regulatory audits. Full chain verification included. EU AI Act aligned.",
-      status: "Live"
-    },
-    {
-      icon: Brain,
-      title: "Multi-Agent DIDs",
-      description: "Each AI agent gets its own DID with trust metadata. Platform acts as controller with full audit lineage.",
+      icon: Layers,
+      title: "W3C DID Integration",
+      description: "Decentralized Identifiers for platform and agents. Standard did:web method with public key resolution.",
       status: "Live"
     },
   ];
@@ -85,19 +89,19 @@ export default function HomePage() {
           
           <div className="hidden md:flex items-center gap-8">
             <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
-            <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Try Demo</Link>
             <Link href="/verify" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Verify</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" className="hidden sm:flex gap-2" size="sm">
-                Open Platform <ExternalLink className="w-3 h-3" />
+                Try Demo <ExternalLink className="w-3 h-3" />
               </Button>
             </Link>
-            <Link href="/trust-demo">
-              <Button size="sm">Try Demo</Button>
+            <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
+              <Button size="sm">Request Pilot</Button>
             </Link>
           </div>
         </div>
@@ -125,14 +129,14 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <Link href="/trust-demo">
+              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
                 <Button size="lg" className="w-full sm:w-auto gap-2">
-                  Try Trust Demo <ArrowRight className="w-4 h-4" />
+                  Request Pilot <Mail className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2">
-                  Open Platform <ExternalLink className="w-4 h-4" />
+                  Try Demo <ExternalLink className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
@@ -395,20 +399,20 @@ export default function HomePage() {
         <section className="py-20 px-6 border-t border-white/5">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-              See It In Action
+              Ready for Your Pilot?
             </h2>
             <p className="text-white/60 mb-8 max-w-xl mx-auto">
-              Try the interactive demo to see trust receipts generated in real-time. No account required.
+              We're working with select enterprises on $50K-150K pilots. See trust receipts in action, then let's talk about your AI compliance needs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/trust-demo">
+              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
                 <Button size="lg" className="gap-2">
-                  Try Trust Demo <ArrowRight className="w-4 h-4" />
+                  Request Pilot <Mail className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="gap-2">
-                  Full Platform <ExternalLink className="w-4 h-4" />
+                  Try Demo First <ExternalLink className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
@@ -427,9 +431,9 @@ export default function HomePage() {
             </div>
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
-              <Link href="/trust-demo" className="hover:text-white transition-colors">Trust Demo</Link>
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Try Demo</Link>
               <Link href="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
-              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Platform</Link>
+              <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
         </footer>

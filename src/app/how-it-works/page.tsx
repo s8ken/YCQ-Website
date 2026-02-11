@@ -15,7 +15,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import Link from "next/link";
-import { CONSOLE_URL } from "@/lib/site";
+import { DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 
 export default function HowItWorksPage() {
   const steps = [
@@ -116,14 +116,14 @@ export default function HowItWorksPage() {
           
           <div className="hidden md:flex items-center gap-8">
             <Link href="/how-it-works" className="text-sm font-medium text-white transition-colors">How It Works</Link>
-            <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Try Demo</Link>
             <Link href="/verify" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Verify</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/trust-demo">
-              <Button size="sm">Try Demo</Button>
+            <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
+              <Button size="sm">Request Pilot</Button>
             </Link>
           </div>
         </div>
@@ -225,14 +225,14 @@ export default function HowItWorksPage() {
               Try the interactive demo to see trust receipts generated in real-time.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/trust-demo">
+              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
                 <Button size="lg" className="gap-2">
-                  Try Trust Demo <ArrowRight className="w-4 h-4" />
+                  Request Pilot <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="gap-2">
-                  Full Platform <ExternalLink className="w-4 h-4" />
+                  Try Demo <ExternalLink className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
@@ -251,8 +251,9 @@ export default function HowItWorksPage() {
             </div>
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <Link href="/trust-demo" className="hover:text-white transition-colors">Trust Demo</Link>
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Try Demo</Link>
               <Link href="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
+              <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
         </footer>

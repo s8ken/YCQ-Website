@@ -10,7 +10,7 @@ import {
   ExternalLink
 } from "lucide-react";
 import Link from "next/link";
-import { CONSOLE_URL } from "@/lib/site";
+import { DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 
 export default function RoadmapPage() {
   const milestones = [
@@ -31,14 +31,29 @@ export default function RoadmapPage() {
       ]
     },
     {
+      phase: "Phase 1.5: SSL for AI",
+      status: "complete",
+      date: "Delivered",
+      description: "Visual trust indicators - making AI trust as visible as SSL certificates.",
+      items: [
+        { title: "Identity Coherence Radar", status: "complete", desc: "Spider chart showing 6-dimension agent fingerprint with shift detection" },
+        { title: "Trust Passport Widget", status: "complete", desc: "Embeddable badge showing real-time trust status - like the green padlock" },
+        { title: "Tactical Replay", status: "complete", desc: "Time-travel debugger for AI conversations with trust score timeline" },
+        { title: "Alerts Persistence", status: "complete", desc: "Trust violations stored and queryable with full context" },
+        { title: "Session Grouping", status: "complete", desc: "Receipts grouped by conversation for audit trails" },
+        { title: "Guest Demo Mode", status: "complete", desc: "Try the platform without creating an account" },
+      ]
+    },
+    {
       phase: "Phase 2: Enterprise",
       status: "in-progress",
       date: "Q2 2026",
       description: "Advanced features for enterprise deployments.",
       items: [
-        { title: "Multi-Provider API Gateway", status: "in-progress", desc: "Single API for OpenAI, Anthropic, local models" },
-        { title: "Key Rotation", status: "planned", desc: "Versioned key rotation with backward compatibility" },
-        { title: "Role-Based Access Control", status: "planned", desc: "Granular permissions for teams" },
+        { title: "Multi-Provider API Gateway", status: "complete", desc: "Single API for OpenAI, Anthropic, local models" },
+        { title: "Role-Based Access Control", status: "complete", desc: "Granular permissions for teams" },
+        { title: "Webhook Integrations", status: "complete", desc: "Real-time alerts to Slack, PagerDuty, custom endpoints" },
+        { title: "Key Rotation", status: "in-progress", desc: "Versioned key rotation with backward compatibility" },
         { title: "Custom Policy Rules", status: "planned", desc: "Define your own evaluation criteria" },
         { title: "SSO Integration", status: "planned", desc: "Enterprise identity providers" },
       ]
@@ -99,14 +114,14 @@ export default function RoadmapPage() {
           
           <div className="hidden md:flex items-center gap-8">
             <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
-            <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Try Demo</Link>
             <Link href="/verify" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Verify</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white transition-colors">Roadmap</Link>
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/trust-demo">
-              <Button size="sm">Try Demo</Button>
+            <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
+              <Button size="sm">Request Pilot</Button>
             </Link>
           </div>
         </div>
@@ -180,17 +195,17 @@ export default function RoadmapPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl font-heading font-bold mb-6">Try What's Live Today</h2>
             <p className="text-white/60 mb-8">
-              Phase 1 is complete and deployed. See trust receipts in action.
+              Phases 1 and 1.5 are complete and deployed. See trust receipts, identity radar, and tactical replay in action.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/trust-demo">
+              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
                 <Button size="lg" className="gap-2">
-                  Try Trust Demo <ArrowRight className="w-4 h-4" />
+                  Request Pilot <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="gap-2">
-                  Full Platform <ExternalLink className="w-4 h-4" />
+                  Try Demo <ExternalLink className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
@@ -210,7 +225,8 @@ export default function RoadmapPage() {
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
-              <Link href="/trust-demo" className="hover:text-white transition-colors">Trust Demo</Link>
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Try Demo</Link>
+              <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
         </footer>

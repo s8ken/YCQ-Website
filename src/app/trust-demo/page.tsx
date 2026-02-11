@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { CONSOLE_URL } from "@/lib/site";
+import { DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 import TrustLedgerDemo from "@/components/TrustLedgerDemo";
 import { 
   Shield, 
@@ -40,10 +40,13 @@ export default function TrustDemoPage() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="sm" className="gap-2">
-                Full Platform <ExternalLink className="w-3 h-3" />
+                Full Platform Demo <ExternalLink className="w-3 h-3" />
               </Button>
+            </Link>
+            <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
+              <Button size="sm">Request Pilot</Button>
             </Link>
           </div>
         </div>
@@ -126,14 +129,14 @@ export default function TrustDemoPage() {
               The full platform includes real-time dashboards, multi-agent management, audit export, and more.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href={CONSOLE_URL} target="_blank" rel="noopener noreferrer">
+              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
                 <Button size="lg" className="gap-2">
-                  Open Full Platform <ExternalLink className="w-4 h-4" />
+                  Request Pilot
                 </Button>
               </Link>
-              <Link href="/how-it-works">
-                <Button size="lg" variant="outline">
-                  Learn How It Works
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="gap-2">
+                  Full Platform Demo <ExternalLink className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
@@ -154,6 +157,7 @@ export default function TrustDemoPage() {
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
               <Link href="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
+              <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
         </footer>
