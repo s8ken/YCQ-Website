@@ -60,14 +60,14 @@ export default function RoadmapPage() {
     },
     {
       phase: "Phase 3: Portable Trust",
-      status: "planned",
-      date: "2026-2027",
-      description: "Take your trust receipts anywhere.",
+      status: "complete",
+      date: "Delivered",
+      description: "Take your trust receipts anywhere - decentralized verification.",
       items: [
-        { title: "W3C Verifiable Credentials", status: "planned", desc: "Wrap receipts in VC format for interoperability" },
-        { title: "Client-Side Verification", status: "planned", desc: "Verify receipts in browser without backend calls" },
-        { title: "Cross-Platform Trust", status: "planned", desc: "Import/export trust scores between systems" },
-        { title: "Optional Anchoring", status: "planned", desc: "Timestamp proofs on public ledgers" },
+        { title: "W3C Verifiable Credentials", status: "complete", desc: "Receipts wrapped in VC format with Ed25519Signature2020 proofs" },
+        { title: "Client-Side Verification SDK", status: "complete", desc: "@sonate/verify-sdk - verify receipts in browser without backend calls" },
+        { title: "Cross-Platform Trust Export", status: "complete", desc: "Export trust summaries with signed attestations" },
+        { title: "Trust Badges", status: "complete", desc: "Portable trust badges with verification URLs" },
       ]
     }
   ];
@@ -195,7 +195,7 @@ export default function RoadmapPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl font-heading font-bold mb-6">Try What's Live Today</h2>
             <p className="text-white/60 mb-8">
-              Phases 1 and 1.5 are complete and deployed. See trust receipts, identity radar, and tactical replay in action.
+              Phases 1-3 are complete. Trust receipts, identity radar, W3C credentials, and portable trust - all live.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
