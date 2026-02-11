@@ -46,16 +46,16 @@ export default function RoadmapPage() {
     },
     {
       phase: "Phase 2: Enterprise",
-      status: "in-progress",
-      date: "Q2 2026",
+      status: "complete",
+      date: "Delivered",
       description: "Advanced features for enterprise deployments.",
       items: [
         { title: "Multi-Provider API Gateway", status: "complete", desc: "Single API for OpenAI, Anthropic, local models" },
         { title: "Role-Based Access Control", status: "complete", desc: "Granular permissions for teams" },
         { title: "Webhook Integrations", status: "complete", desc: "Real-time alerts to Slack, PagerDuty, custom endpoints" },
-        { title: "Key Rotation", status: "in-progress", desc: "Versioned key rotation with backward compatibility" },
-        { title: "Custom Policy Rules", status: "planned", desc: "Define your own evaluation criteria" },
-        { title: "SSO Integration", status: "planned", desc: "Enterprise identity providers" },
+        { title: "Key Rotation", status: "complete", desc: "Versioned key management with backward compatibility" },
+        { title: "Custom Policy Rules", status: "complete", desc: "Tenant-specific rules with conditions and actions" },
+        { title: "SSO Integration", status: "complete", desc: "Generic OIDC with Google, Microsoft, Okta support" },
       ]
     },
     {
