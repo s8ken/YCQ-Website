@@ -7,7 +7,8 @@ import {
   Circle,
   Clock,
   ArrowRight,
-  ExternalLink
+  ExternalLink,
+  Zap
 } from "lucide-react";
 import Link from "next/link";
 import { DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
@@ -19,6 +20,7 @@ export default function RoadmapPage() {
       status: "complete",
       date: "Delivered",
       description: "Production-ready cryptographic trust infrastructure.",
+      enables: "Independently verifiable AI decision evidence.",
       items: [
         { title: "Ed25519 Digital Signatures", status: "complete", desc: "Real signatures, not just hashing - independently verifiable" },
         { title: "Hash-Chained Receipts", status: "complete", desc: "Each receipt links to previous - tamper-evident audit trail" },
@@ -35,6 +37,7 @@ export default function RoadmapPage() {
       status: "complete",
       date: "Delivered",
       description: "Visual trust indicators - making AI trust as visible as SSL certificates.",
+      enables: "Real-time trust visibility for end users and operators.",
       items: [
         { title: "Identity Coherence Radar", status: "complete", desc: "Spider chart showing 6-dimension agent fingerprint with shift detection" },
         { title: "Trust Passport Widget", status: "complete", desc: "Embeddable badge showing real-time trust status - like the green padlock" },
@@ -49,6 +52,7 @@ export default function RoadmapPage() {
       status: "complete",
       date: "Delivered",
       description: "Advanced features for enterprise deployments.",
+      enables: "Enterprise-scale AI governance with policy enforcement and auditability.",
       items: [
         { title: "Multi-Provider API Gateway", status: "complete", desc: "Single API for OpenAI, Anthropic, local models" },
         { title: "Role-Based Access Control", status: "complete", desc: "Granular permissions for teams" },
@@ -63,6 +67,7 @@ export default function RoadmapPage() {
       status: "complete",
       date: "Delivered",
       description: "Take your trust receipts anywhere - decentralized verification.",
+      enables: "Cross-platform portability of AI trust artifacts.",
       items: [
         { title: "W3C Verifiable Credentials", status: "complete", desc: "Receipts wrapped in VC format with Ed25519Signature2020 proofs" },
         { title: "Client-Side Verification SDK", status: "complete", desc: "@sonate/verify-sdk - verify receipts in browser without backend calls" },
@@ -167,6 +172,21 @@ export default function RoadmapPage() {
                     </div>
                   ))}
                 </div>
+
+                {/* What This Enables */}
+                {milestone.enables && (
+                  <div className="mt-6 pt-6 border-t border-white/10">
+                    <div className="flex items-center gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 flex items-center justify-center shrink-0">
+                        <Zap className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-blue-400 uppercase tracking-wider mb-1">What This Enables</div>
+                        <div className="text-base font-medium text-white">{milestone.enables}</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -182,7 +202,7 @@ export default function RoadmapPage() {
                   <h3 className="font-heading font-semibold mb-2">About This Roadmap</h3>
                   <p className="text-sm text-white/60">
                     This roadmap reflects our current plans and priorities. "Planned" items are committed directions but timelines may shift. 
-                    We don't announce features until we're confident we can deliver them. Phase 1 is live and usable today.
+                    We don't announce features until we're confident we can deliver them. All phases are now live and usable.
                   </p>
                 </div>
               </div>
