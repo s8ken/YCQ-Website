@@ -30,14 +30,14 @@ export default function HomePage() {
     },
     {
       icon: Radar,
-      title: "Identity Coherence Radar",
-      description: "Spider chart showing 6-dimension agent fingerprint. Detects when AI 'changes personality' mid-conversation with shift alerts.",
+      title: "Behavioral Drift Detection",
+      description: "Detects significant shifts in reasoning patterns, output volatility, or policy alignment across sessions.",
       status: "Live"
     },
     {
       icon: BadgeCheck,
-      title: "Trust Passport Widget",
-      description: "Embeddable badge showing real-time trust status - like the SSL green padlock, but for AI. Drop into any website.",
+      title: "Embeddable Trust Status Badge",
+      description: "Real-time AI trust state, embeddable like an SSL status indicator.",
       status: "Live"
     },
     {
@@ -49,7 +49,7 @@ export default function HomePage() {
     {
       icon: Activity,
       title: "Real-time Policy Scoring",
-      description: "Every AI response evaluated against 6 constitutional principles in under 50ms. Scores from 0-100 with detailed breakdowns.",
+      description: "Each response scored against six enforceable governance constraints. Adds <50ms overhead per interaction. Scores from 0–100 with detailed breakdowns.",
       status: "Live"
     },
     {
@@ -91,6 +91,7 @@ export default function HomePage() {
             <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
             <Link href="/developers" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Developers</Link>
             <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
+            <Link href="/investors" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Investors</Link>
             <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Full Demo</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
           </div>
@@ -126,7 +127,7 @@ export default function HomePage() {
             </h1>
             
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Ed25519 signed receipts for every AI interaction. W3C DIDs for identity. Hash-chained audit trails. Independently verifiable - no trust required.
+              Ed25519 signed receipts for every AI interaction. W3C DIDs for identity. Hash-chained audit trails. Independently verifiable — no vendor trust required.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -220,7 +221,7 @@ export default function HomePage() {
                   The SONATE Trust Protocol
                 </h2>
                 <p className="text-white/60 mb-8">
-                  Every AI response is evaluated against 6 constitutional principles. The weighted scores combine into a single trust score (0-100) that determines policy compliance.
+                  Each response scored against six enforceable governance constraints. Adds <50ms overhead per interaction. The weighted scores combine into a single trust score (0–100) that determines policy compliance.
                 </p>
                 <div className="space-y-3">
                   {trustPrinciples.map((principle, i) => (
@@ -432,6 +433,7 @@ export default function HomePage() {
             </div>
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
+              <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
               <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Full Demo</Link>
               <Link href="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
               <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>

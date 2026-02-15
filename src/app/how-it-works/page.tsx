@@ -33,8 +33,8 @@ export default function HowItWorksPage() {
     },
     {
       icon: Scale,
-      title: "3. Trust Evaluation",
-      description: "The response is evaluated against 6 constitutional principles in under 50ms.",
+      title: "3. Policy-as-Code Evaluation",
+      description: "Each response scored against six enforceable governance constraints. Adds <50ms overhead per interaction.",
       detail: "Each principle is scored and weighted to produce an overall trust score (0-100)."
     },
     {
@@ -118,11 +118,17 @@ export default function HowItWorksPage() {
             <Link href="/how-it-works" className="text-sm font-medium text-white transition-colors">How It Works</Link>
             <Link href="/developers" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Developers</Link>
             <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
+            <Link href="/investors" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Investors</Link>
             <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Full Demo</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
           </div>
 
           <div className="flex items-center gap-4">
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" className="hidden sm:flex gap-2" size="sm">
+                Full Demo <ExternalLink className="w-3 h-3" />
+              </Button>
+            </Link>
             <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
               <Button size="sm">Request Pilot</Button>
             </Link>
@@ -169,9 +175,9 @@ export default function HowItWorksPage() {
         <section className="py-16 px-6 border-t border-white/5">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-2xl font-heading font-bold mb-4">The 6 Constitutional Principles</h2>
+            <h2 className="text-2xl font-heading font-bold mb-4">Policy-as-Code Evaluation</h2>
               <p className="text-white/60 max-w-2xl mx-auto">
-                Every AI response is scored against these principles. The weighted scores combine into a single trust score.
+              Each response scored against six enforceable governance constraints. The weighted scores combine into a single trust score.
               </p>
             </div>
 
@@ -253,6 +259,7 @@ export default function HowItWorksPage() {
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Full Demo</Link>
+              <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
               <Link href="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
               <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
             </div>

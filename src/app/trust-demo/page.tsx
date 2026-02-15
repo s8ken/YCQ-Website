@@ -36,13 +36,14 @@ export default function TrustDemoPage() {
             <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
             <Link href="/developers" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Developers</Link>
             <Link href="/trust-demo" className="text-sm font-medium text-white transition-colors">Trust Demo</Link>
+            <Link href="/investors" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Investors</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
           </div>
 
           <div className="flex items-center gap-4">
             <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="sm" className="gap-2">
-                Full Platform Demo <ExternalLink className="w-3 h-3" />
+                Full Demo <ExternalLink className="w-3 h-3" />
               </Button>
             </Link>
             <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
@@ -68,7 +69,7 @@ export default function TrustDemoPage() {
               Trust Receipt Demo
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto mb-8">
-              Send a message and watch a trust receipt generate in real-time. Each interaction is evaluated against 6 constitutional principles.
+              Send a message and watch a trust receipt generate in real-time. Each interaction is evaluated using Policy-as-Code: six enforceable governance constraints.
             </p>
           </div>
         </section>
@@ -104,7 +105,7 @@ export default function TrustDemoPage() {
                 </div>
                 <h3 className="font-heading font-semibold mb-2">Trust Evaluated</h3>
                 <p className="text-sm text-white/50">
-                  The AI response was scored against 6 constitutional principles. The weighted average produced the trust score you see.
+                  The AI response was scored against six enforceable governance constraints. The weighted average produced the trust score you see.
                 </p>
               </div>
               

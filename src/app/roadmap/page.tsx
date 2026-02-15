@@ -26,40 +26,53 @@ export default function RoadmapPage() {
         { title: "Hash-Chained Receipts", status: "complete", desc: "Each receipt links to previous - tamper-evident audit trail" },
         { title: "W3C DID Implementation", status: "complete", desc: "did:web method with /.well-known/did.json resolution" },
         { title: "Public Key Endpoint", status: "complete", desc: "/.well-known/sonate-pubkey for independent verification" },
-        { title: "6-Principle Policy Engine", status: "complete", desc: "Constitutional AI scoring in <50ms" },
+        { title: "6-Constraint Policy Engine", status: "complete", desc: "Real-time governance scoring (<50ms)" },
         { title: "Independent Verification Page", status: "complete", desc: "Verify any receipt at /verify without account" },
         { title: "Multi-Agent DIDs", status: "complete", desc: "Each agent gets own DID with platform as controller" },
         { title: "Domain Linkage Proofs", status: "complete", desc: "/.well-known/did-configuration.json for DID verification" },
       ]
     },
     {
-      phase: "Phase 1.5: SSL for AI",
+      phase: "Phase 1.5: Visibility & Drift Detection",
       status: "complete",
       date: "Delivered",
       description: "Visual trust indicators - making AI trust as visible as SSL certificates.",
       enables: "Real-time trust visibility for end users and operators.",
       items: [
-        { title: "Identity Coherence Radar", status: "complete", desc: "Spider chart showing 6-dimension agent fingerprint with shift detection" },
-        { title: "Trust Passport Widget", status: "complete", desc: "Embeddable badge showing real-time trust status - like the green padlock" },
+        { title: "Behavioral Drift Detection", status: "complete", desc: "Detects significant shifts in reasoning patterns, output volatility, or policy alignment across sessions" },
+        { title: "Trust Status Badge", status: "complete", desc: "Real-time AI trust state, embeddable like an SSL status indicator" },
         { title: "Tactical Replay", status: "complete", desc: "Time-travel debugger for AI conversations with trust score timeline" },
-        { title: "Alerts Persistence", status: "complete", desc: "Trust violations stored and queryable with full context" },
+        { title: "Violation Persistence", status: "complete", desc: "Trust violations stored and queryable with full context" },
         { title: "Session Grouping", status: "complete", desc: "Receipts grouped by conversation for audit trails" },
         { title: "Guest Demo Mode", status: "complete", desc: "Try the platform without creating an account" },
       ]
     },
     {
-      phase: "Phase 2: Enterprise",
+      phase: "Phase 2: Enterprise Hardening",
       status: "complete",
       date: "Delivered",
       description: "Advanced features for enterprise deployments.",
       enables: "Enterprise-scale AI governance with policy enforcement and auditability.",
       items: [
-        { title: "Multi-Provider API Gateway", status: "complete", desc: "Single API for OpenAI, Anthropic, local models" },
-        { title: "Role-Based Access Control", status: "complete", desc: "Granular permissions for teams" },
-        { title: "Webhook Integrations", status: "complete", desc: "Real-time alerts to Slack, PagerDuty, custom endpoints" },
+        { title: "Unified Model Gateway (Provider-Agnostic Execution)", status: "complete", desc: "Single API for OpenAI, Anthropic, local models" },
+        { title: "Role-Based Access Control (RBAC)", status: "complete", desc: "Granular permissions for teams" },
+        { title: "Webhooks", status: "complete", desc: "Real-time alerts to Slack, PagerDuty, custom endpoints" },
         { title: "Key Rotation", status: "complete", desc: "Versioned key management with backward compatibility" },
         { title: "Custom Policy Rules", status: "complete", desc: "Tenant-specific rules with conditions and actions" },
         { title: "SSO Integration", status: "complete", desc: "Generic OIDC with Google, Microsoft, Okta support" },
+      ]
+    },
+    {
+      phase: "Phase 2.5: Data Governance Controls (Planned)",
+      status: "planned",
+      date: "Planned",
+      description: "Enterprise data controls for compliance and privacy.",
+      enables: "Configurable data handling, retention, and export policies.",
+      items: [
+        { title: "Configurable Payload Hashing", status: "planned", desc: "Sensitive fields can be stored as hashes only" },
+        { title: "Retention Policies", status: "planned", desc: "Configurable retention windows per tenant" },
+        { title: "Tenant Isolation", status: "planned", desc: "Strict data isolation boundaries" },
+        { title: "Export Controls", status: "planned", desc: "Governed export flows for audits" },
       ]
     },
     {
@@ -73,6 +86,7 @@ export default function RoadmapPage() {
         { title: "Client-Side Verification SDK", status: "complete", desc: "@sonate/verify-sdk - verify receipts in browser without backend calls" },
         { title: "Cross-Platform Trust Export", status: "complete", desc: "Export trust summaries with signed attestations" },
         { title: "Trust Badges", status: "complete", desc: "Portable trust badges with verification URLs" },
+        { title: "Optional External Timestamp Anchoring", status: "complete", desc: "Independent timestamp proofs for high-assurance environments" },
       ]
     }
   ];
@@ -120,6 +134,8 @@ export default function RoadmapPage() {
           <div className="hidden md:flex items-center gap-8">
             <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
             <Link href="/developers" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Developers</Link>
+            <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
+            <Link href="/investors" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Investors</Link>
             <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Full Demo</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white transition-colors">Roadmap</Link>
           </div>
@@ -127,6 +143,11 @@ export default function RoadmapPage() {
           <div className="flex items-center gap-4">
             <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
               <Button size="sm">Request Pilot</Button>
+            </Link>
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="sm" className="gap-2">
+                Full Demo <ExternalLink className="w-3 h-3" />
+              </Button>
             </Link>
           </div>
         </div>
@@ -145,6 +166,27 @@ export default function RoadmapPage() {
           </div>
         </section>
 
+        {/* What We Are Not Building */}
+        <section className="py-16 px-6 border-t border-white/5">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-heading font-bold mb-6">What We Are Not Building</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="glass-card p-6">
+                <ul className="text-sm text-white/60 space-y-2">
+                  <li>Not building a foundation model</li>
+                  <li>Not building a chatbot</li>
+                  <li>Not replacing model providers</li>
+                  <li>Not an AI wrapper</li>
+                </ul>
+              </div>
+              <div className="glass-card p-6">
+                <p className="text-sm text-white/60">
+                  We are a trust infrastructure layer: policy enforcement, verifiable receipts, observability, and independent verification.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Milestones */}
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto space-y-12">
@@ -245,6 +287,7 @@ export default function RoadmapPage() {
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
+              <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
               <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Full Demo</Link>
               <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
             </div>

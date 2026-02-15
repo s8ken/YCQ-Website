@@ -141,10 +141,16 @@ if (result.valid) {
             <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Full Demo</Link>
             <Link href="/developers" className="text-sm font-medium text-white transition-colors">Developers</Link>
             <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
+            <Link href="/investors" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Investors</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
           </div>
 
           <div className="flex items-center gap-4">
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" className="hidden sm:flex gap-2" size="sm">
+                Full Demo <ExternalLink className="w-3 h-3" />
+              </Button>
+            </Link>
             <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
               <Button size="sm">Request Pilot</Button>
             </Link>
@@ -162,10 +168,10 @@ if (result.valid) {
             </div>
             
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-              Technical Documentation
+              AI Non-Repudiation Infrastructure for Production Systems
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mb-8">
-              Everything you need to integrate SONATE trust receipts into your application. Verify AI interactions with cryptographic proof.
+              Integrate cryptographic trust receipts, clarify trust boundaries, and verify independently with an SDK-first experience.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -299,6 +305,56 @@ if (result.valid) {
           </div>
         </section>
 
+        {/* Trust Model */}
+        <section className="py-12 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
+              <Key className="w-6 h-6 text-blue-400" />
+              Trust Model
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="glass-card p-6">
+                <div className="text-sm text-white/80 mb-2">Platform Boundary</div>
+                <ul className="text-sm text-white/60 space-y-2">
+                  <li>SONATE signs receipts with a platform-controlled Ed25519 key</li>
+                  <li>Public key resolvable via <code className="text-blue-400">/.well-known/sonate-pubkey</code> and DID document</li>
+                </ul>
+              </div>
+              <div className="glass-card p-6">
+                <div className="text-sm text-white/80 mb-2">Verification Boundary</div>
+                <ul className="text-sm text-white/60 space-y-2">
+                  <li>SDK performs signature verification, hash canonicalization, and chain validation</li>
+                  <li>No API calls to SONATE required for verification</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Performance */}
+        <section className="py-12 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
+              <Activity className="w-6 h-6 text-green-400" />
+              Performance
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="glass-card p-6 text-sm text-white/60">
+                <div className="text-white/80 mb-1">Evaluation Latency</div>
+                Adds &lt;50ms overhead per interaction
+              </div>
+              <div className="glass-card p-6 text-sm text-white/60">
+                <div className="text-white/80 mb-1">Verification Independence</div>
+                No network call required for verification
+              </div>
+              <div className="glass-card p-6 text-sm text-white/60">
+                <div className="text-white/80 mb-1">Ed25519 Verification</div>
+                &lt;1ms typical on Node 18+
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Security Architecture */}
         <section className="py-12 px-6 border-t border-white/5">
           <div className="max-w-5xl mx-auto">
@@ -353,6 +409,10 @@ if (result.valid) {
                     <CheckCircle2 className="w-4 h-4 text-green-400" />
                     Chain verification in SDK
                   </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-400" />
+                    Scope: per session by default; configurable per agent or tenant
+                  </li>
                 </ul>
               </div>
 
@@ -386,7 +446,7 @@ if (result.valid) {
                   <h3 className="font-heading font-semibold">Trust Scoring</h3>
                 </div>
                 <p className="text-sm text-white/60 mb-4">
-                  6 constitutional principles evaluated in under 50ms. Weighted scores combine into a single trust score (0-100).
+                  Policy-as-Code evaluation: six enforceable governance constraints with <50ms added overhead per interaction. Weighted scores combine into a single trust score (0–100).
                 </p>
                 <ul className="text-sm text-white/50 space-y-2">
                   <li className="flex items-center gap-2">
@@ -445,6 +505,34 @@ if (result.valid) {
                 <div className="text-white/80">Ed25519 signature (hex)</div>
               </div>
             </div>
+
+            <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10 text-xs text-white/60">
+              Payload storage is configurable. Sensitive fields can be stored as hashes only. Verification requires hashes; full payload is optional.
+            </div>
+          </div>
+        </section>
+
+        {/* Deployment Model */}
+        <section className="py-12 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
+              <Shield className="w-6 h-6 text-blue-400" />
+              Deployment Model
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="glass-card p-6 text-sm text-white/60">
+                <div className="text-white/80 mb-1">Proxy Mode</div>
+                SONATE sits inline between your app and AI providers
+              </div>
+              <div className="glass-card p-6 text-sm text-white/60">
+                <div className="text-white/80 mb-1">SDK-only Verification</div>
+                Client/server-side verification without calling SONATE
+              </div>
+              <div className="glass-card p-6 text-sm text-white/60">
+                <div className="text-white/80 mb-1">Hosting</div>
+                SaaS today; self-hosting options under consideration
+              </div>
+            </div>
           </div>
         </section>
 
@@ -484,6 +572,7 @@ if (result.valid) {
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
+            <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
               <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Full Demo</Link>
               <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
             </div>
