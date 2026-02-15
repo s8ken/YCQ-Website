@@ -9,6 +9,7 @@ import {
   ExternalLink,
   Code,
   Key,
+  Activity,
   Link as LinkIcon,
   FileJson,
   Copy,
