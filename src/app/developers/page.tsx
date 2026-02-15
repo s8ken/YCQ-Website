@@ -138,8 +138,9 @@ if (result.valid) {
           
           <div className="hidden md:flex items-center gap-8">
             <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
-            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Try Demo</Link>
+            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Full Demo</Link>
             <Link href="/developers" className="text-sm font-medium text-white transition-colors">Developers</Link>
+            <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
             <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
           </div>
 
@@ -483,7 +484,7 @@ if (result.valid) {
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
-              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Try Demo</Link>
+              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Full Demo</Link>
               <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
