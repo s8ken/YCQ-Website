@@ -446,7 +446,7 @@ if (result.valid) {
                   <h3 className="font-heading font-semibold">Trust Scoring</h3>
                 </div>
                 <p className="text-sm text-white/60 mb-4">
-                  Policy-as-Code evaluation: six enforceable governance constraints with <50ms added overhead per interaction. Weighted scores combine into a single trust score (0–100).
+                  Policy-as-Code evaluation: six enforceable governance constraints with &lt;50ms added overhead per interaction. Weighted scores combine into a single trust score (0–100).
                 </p>
                 <ul className="text-sm text-white/50 space-y-2">
                   <li className="flex items-center gap-2">

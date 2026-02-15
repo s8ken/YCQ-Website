@@ -221,7 +221,7 @@ export default function HomePage() {
                   The SONATE Trust Protocol
                 </h2>
                 <p className="text-white/60 mb-8">
-                  Each response scored against six enforceable governance constraints. Adds <50ms overhead per interaction. The weighted scores combine into a single trust score (0–100) that determines policy compliance.
+                  Each response scored against six enforceable governance constraints. Adds &lt;50ms overhead per interaction. The weighted scores combine into a single trust score (0–100) that determines policy compliance.
                 </p>
                 <div className="space-y-3">
                   {trustPrinciples.map((principle, i) => (
