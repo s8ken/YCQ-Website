@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { API_URL } from '@/lib/site';
 
 interface SignedReceipt {
@@ -54,6 +54,19 @@ export default function TrustLedgerDemo() {
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [aiPrompt, setAiPrompt] = useState('Explain why AI transparency is important for enterprise adoption.');
   const [receiptJson, setReceiptJson] = useState('');
+  const [publicKey, setPublicKey] = useState<string | null>(null);
+  const [copiedKey, setCopiedKey] = useState(false);
+
+  useEffect(() => {
+    fetch(`${BACKEND_API}/api/public-demo/public-key`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.data?.publicKey) {
+          setPublicKey(data.data.publicKey);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const generateWithTrustReceipt = async () => {
     setLoading(true);
@@ -239,6 +252,28 @@ export default function TrustLedgerDemo() {
       {/* Verify Tab */}
       {activeTab === 'verify' && (
         <div className="space-y-6">
+          {/* Public Key Display */}
+          {publicKey && (
+            <div className="p-3 bg-white/5 border border-white/10 rounded-lg flex items-center justify-between">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="text-xs text-white/40 shrink-0">Ed25519 Public Key</span>
+                <span className="text-xs font-mono text-white/60 truncate">
+                  {publicKey.substring(0, 16)}...{publicKey.substring(publicKey.length - 16)}
+                </span>
+              </div>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(publicKey);
+                  setCopiedKey(true);
+                  setTimeout(() => setCopiedKey(false), 2000);
+                }}
+                className="text-xs text-white/40 hover:text-white shrink-0 ml-2"
+              >
+                {copiedKey ? '✓ Copied' : 'Copy'}
+              </button>
+            </div>
+          )}
+
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">Receipt JSON</label>
             <textarea
