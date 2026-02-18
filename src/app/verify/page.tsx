@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { 
-  Shield, 
+import {
+  Shield,
   CheckCircle2,
   XCircle,
   AlertCircle,
@@ -13,7 +13,9 @@ import {
   Clock,
   Link as LinkIcon,
   Copy,
-  ExternalLink
+  ExternalLink,
+  Code,
+  ArrowRight
 } from "lucide-react";
 import { API_URL, DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 
@@ -525,6 +527,35 @@ export default function VerifyPage() {
                 <h3 className="font-heading font-semibold mb-2">Verify</h3>
                 <p className="text-sm text-white/50">Click verify to check the signature against our public key and validate integrity.</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-16 px-6 border-t border-white/5">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
+              <Code className="w-3 h-3 text-blue-400" />
+              <span className="text-xs font-medium text-blue-400 uppercase tracking-widest">Developer SDK</span>
+            </div>
+            <h2 className="text-2xl font-heading font-bold mb-3">Integrate This in Your App</h2>
+            <p className="text-white/60 mb-4 max-w-xl mx-auto">
+              Generate and verify trust receipts programmatically with a single npm package.
+            </p>
+            <pre className="inline-block bg-white/5 rounded-lg border border-white/10 px-6 py-3 font-mono text-sm text-white/80 mb-8">
+              npm install @sonate/trust-receipts
+            </pre>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/developers">
+                <Button size="lg" className="gap-2">
+                  <Code className="w-4 h-4" /> Full SDK Docs
+                </Button>
+              </Link>
+              <Link href="/trust-demo">
+                <Button size="lg" variant="outline" className="gap-2">
+                  Try the Demo <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
