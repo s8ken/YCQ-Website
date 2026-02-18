@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SiteNav } from "@/components/SiteNav";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body
         className={`${fraunces.variable} ${inter.variable} font-sans antialiased bg-black text-white`}
       >
+        <SiteNav />
         {children}
         <Analytics />
       </body>

@@ -13,7 +13,6 @@ import {
   Clock,
   Link as LinkIcon,
   Copy,
-  ExternalLink,
   Code,
   ArrowRight
 } from "lucide-react";
@@ -294,38 +293,6 @@ export default function VerifyPage() {
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-900/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-900/20 blur-[120px] rounded-full" />
       </div>
-
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-white/5 bg-black/50 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Shield className="w-5 h-5 text-white" strokeWidth={2.5} />
-            </div>
-            <span className="text-xl font-heading font-bold tracking-tight">SONATE</span>
-          </Link>
-          
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
-            <Link href="/developers" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Developers</Link>
-            <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
-            <Link href="/investors" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Investors</Link>
-            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Full Demo</Link>
-            <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" className="hidden sm:flex gap-2" size="sm">
-                Full Demo <ExternalLink className="w-3 h-3" />
-              </Button>
-            </Link>
-            <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
-              <Button size="sm">Request Pilot</Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
 
       <main className="relative z-10">
         {/* Hero */}

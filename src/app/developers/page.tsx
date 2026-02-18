@@ -1,585 +1,505 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { DEMO_URL, CONTACT_EMAIL, API_URL } from "@/lib/site";
-import { 
-  Shield, 
-  ExternalLink,
+import {
+  Shield,
   Code,
-  Key,
-  Activity,
-  Link as LinkIcon,
-  FileJson,
   Copy,
   CheckCircle2,
+  ArrowRight,
+  ExternalLink,
+  Key,
+  FileCode,
   Terminal,
+  Clock,
   Lock,
-  Fingerprint,
-  GitBranch
+  AlertCircle,
 } from "lucide-react";
+import { API_URL, CONTACT_EMAIL } from "@/lib/site";
 
-export default function DevelopersPage() {
-  const [copiedSection, setCopiedSection] = useState<string | null>(null);
+const installGenerate = "npm install @yseeku/trust-receipts";
+const installVerify = "npm install @yseeku/verify-sdk";
 
-  const copyToClipboard = (text: string, section: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedSection(section);
-    setTimeout(() => setCopiedSection(null), 2000);
-  };
+const generateExample = `import { TrustReceipts } from "@yseeku/trust-receipts";
+import OpenAI from "openai";
 
-  const sampleReceipt = `{
-  "self_hash": "f860961876968f2c4a7b3d...",
-  "timestamp": 1707667200000,
-  "session_id": "sess_abc123",
-  "agent_id": "agent_xyz789",
-  "interaction": {
-    "prompt": "What is the capital of France?",
-    "response": "The capital of France is Paris."
-  },
-  "ciq_metrics": {
-    "clarity": 0.95,
-    "integrity": 0.92,
-    "quality": 0.94
-  },
-  "trust_score": 94,
-  "chain": {
-    "previous_hash": "715799d2fb16c4b6...",
-    "chain_hash": "a3b8c9d0e1f2..."
-  },
-  "signature": {
-    "algorithm": "Ed25519",
-    "value": "f33ee6d928a1b2c3d4e5f6..."
-  },
-  "issuer": "did:web:yseeku.com",
-  "subject": "did:web:yseeku.com:agents:xyz789"
-}`;
+const receipts = new TrustReceipts({
+  privateKey: process.env.SONATE_PRIVATE_KEY,
+  // optional: includeContent: true  → include raw prompt/response
+});
 
-  const verifyCode = `import { verify } from '@sonate/verify-sdk';
+const client = new OpenAI();
 
-// Fetch the receipt from your backend or SONATE API
-const receipt = await fetch('/api/trust/receipts/abc123').then(r => r.json());
+const { response, receipt } = await receipts.wrap(
+  () => client.chat.completions.create({
+    model: "gpt-4o",
+    messages: [{ role: "user", content: "Hello" }],
+  }),
+  { sessionId: "user-abc123" }
+);
 
-// Verify cryptographic signature and chain integrity
-const result = await verify(receipt);
+console.log(receipt);     // signed trust receipt
+console.log(response);    // original AI response`;
+
+const verifyExample = `import { verify, fetchPublicKey } from "@yseeku/verify-sdk";
+
+// Fetch public key automatically (recommended)
+const publicKey = await fetchPublicKey();
+
+const receipt = /* paste receipt JSON here */;
+
+const result = await verify(receipt, publicKey);
 
 if (result.valid) {
-  console.log('Trust score:', result.trustScore);
-  console.log('Chain intact:', result.chainValid);
+  console.log("All checks passed");
+  console.log("Trust score:", result.trustScore);
 } else {
-  console.error('Verification failed:', result.errors);
+  console.error("Verification failed:", result.errors);
 }`;
 
-  const curlGenerate = `curl -X POST ${API_URL}/public-demo/generate \\
+const curlGenerate = `curl -X POST ${API_URL}/public-demo/generate \\
   -H "Content-Type: application/json" \\
   -d '{
-    "prompt": "What is the capital of France?",
-    "response": "The capital of France is Paris."
+    "prompt": "Explain quantum computing simply"
   }'`;
 
-  const curlVerify = `curl -X POST ${API_URL}/public-demo/verify \\
+const curlVerify = `curl -X POST ${API_URL}/public-demo/verify \\
   -H "Content-Type: application/json" \\
-  -d '{"receipt": <your_receipt_json>}'`;
+  -d '{
+    "receipt": { ...your receipt JSON... }
+  }'`;
 
-  const curlPublicKey = `curl ${API_URL}/public-demo/public-key`;
+export default function DevelopersPage() {
+  const [copied, setCopied] = useState<string | null>(null);
+  const [publicKey, setPublicKey] = useState<string | null>(null);
+  const [publicKeyLoading, setPublicKeyLoading] = useState(true);
+  const [publicKeyError, setPublicKeyError] = useState<string | null>(null);
 
-  const endpoints = [
-    {
-      method: "POST",
-      path: "/api/public-demo/generate",
-      description: "Generate a signed trust receipt for an AI interaction",
-      auth: "None (rate limited)",
-      request: "{ prompt, response }",
-      response: "{ receipt, verification }"
-    },
-    {
-      method: "POST",
-      path: "/api/public-demo/verify",
-      description: "Verify a trust receipt's signature and chain integrity",
-      auth: "None",
-      request: "{ receipt }",
-      response: "{ valid, checks[], trustScore }"
-    },
-    {
-      method: "GET",
-      path: "/api/public-demo/public-key",
-      description: "Get the Ed25519 public key for independent verification",
-      auth: "None",
-      request: "-",
-      response: "{ publicKey, algorithm, keyId }"
-    },
-    {
-      method: "GET",
-      path: "/.well-known/did.json",
-      description: "W3C DID Document for platform identity",
-      auth: "None",
-      request: "-",
-      response: "DID Document (JSON-LD)"
-    }
-  ];
+  useEffect(() => {
+    const fetchKey = async () => {
+      try {
+        const res = await fetch(`${API_URL}/public-demo/public-key`);
+        const data = await res.json();
+        if (data.success && data.data?.publicKey) {
+          setPublicKey(data.data.publicKey);
+        } else {
+          setPublicKeyError("Failed to load public key");
+        }
+      } catch (err) {
+        setPublicKeyError("Network error");
+      } finally {
+        setPublicKeyLoading(false);
+      }
+    };
+    fetchKey();
+  }, []);
+
+  const copyToClipboard = (text: string, id: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(id);
+    setTimeout(() => setCopied(null), 2000);
+  };
+
+  const truncatedKey = publicKey
+    ? `${publicKey.substring(0, 12)}...${publicKey.substring(publicKey.length - 12)}`
+    : "";
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-blue-500/30">
       {/* Background Effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] right-[-5%] w-[40%] h-[40%] bg-green-900/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[10%] left-[-5%] w-[40%] h-[40%] bg-blue-900/10 blur-[120px] rounded-full" />
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-purple-900/5 to-black" />
       </div>
 
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-white/5 bg-black/50 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Shield className="w-5 h-5 text-white" strokeWidth={2.5} />
+      <div className="relative">
+        {/* Hero with Live Public Key */}
+        <section className="pt-24 pb-16 px-6">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
+                </span>
+                <span className="text-sm font-medium text-green-400 uppercase tracking-wide">Open SDK + API</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
+                <Shield className="w-4 h-4 text-blue-400" />
+                <span className="text-sm font-medium text-blue-400 uppercase tracking-wide">SSL for AI</span>
+              </div>
             </div>
-            <span className="text-xl font-heading font-bold tracking-tight">SONATE</span>
-          </Link>
-          
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/how-it-works" className="text-sm font-medium text-white/60 hover:text-white transition-colors">How It Works</Link>
-            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Full Demo</Link>
-            <Link href="/developers" className="text-sm font-medium text-white transition-colors">Developers</Link>
-            <Link href="/trust-demo" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Trust Demo</Link>
-            <Link href="/investors" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Investors</Link>
-            <Link href="/roadmap" className="text-sm font-medium text-white/60 hover:text-white transition-colors">Roadmap</Link>
-          </div>
 
-          <div className="flex items-center gap-4">
-            <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" className="hidden sm:flex gap-2" size="sm">
-                Full Demo <ExternalLink className="w-3 h-3" />
-              </Button>
-            </Link>
-            <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
-              <Button size="sm">Request Pilot</Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      <main className="relative z-10">
-        {/* Hero */}
-        <section className="pt-20 pb-12 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 mb-6">
-              <Code className="w-4 h-4 text-green-400" />
-              <span className="text-xs font-medium text-green-400 uppercase tracking-widest">For Developers</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-              AI Non-Repudiation Infrastructure for Production Systems
+            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
+              SONATE Developer Hub
             </h1>
-            <p className="text-lg text-white/60 max-w-2xl mb-8">
-              Integrate cryptographic trust receipts, clarify trust boundaries, and verify independently with an SDK-first experience.
+            <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto mb-8">
+              Integrate cryptographic trust receipts into any AI workflow — generate signed proofs, verify independently, and enforce governance with zero vendor lock-in.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link href="https://github.com/s8ken/sonate-verify-sdk" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="gap-2">
-                  <GitBranch className="w-4 h-4" />
-                  View SDK on GitHub
+            {/* Live Public Key Display */}
+            <div className="max-w-2xl mx-auto mb-10 p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <Key className="w-5 h-5 text-blue-400" />
+                  <div className="text-left">
+                    <div className="text-sm font-medium text-white/80">Current Ed25519 Public Key</div>
+                    {publicKeyLoading ? (
+                      <div className="text-xs text-white/50 animate-pulse">Loading key...</div>
+                    ) : publicKeyError ? (
+                      <div className="text-xs text-red-400 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" /> {publicKeyError}
+                      </div>
+                    ) : (
+                      <div className="text-xs font-mono text-white/70 break-all">
+                        {truncatedKey}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {!publicKeyLoading && !publicKeyError && publicKey && (
+                  <button
+                    onClick={() => copyToClipboard(publicKey, 'hero-pubkey')}
+                    className="text-xs text-white/60 hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-md border border-white/20 hover:border-white/40 transition-colors"
+                  >
+                    {copied === 'hero-pubkey' ? (
+                      <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
+                    ) : (
+                      <Copy className="w-3.5 h-3.5" />
+                    )}
+                    {copied === 'hero-pubkey' ? 'Copied' : 'Copy Full Key'}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="#quickstart">
+                <Button size="lg" className="gap-2 bg-blue-600 hover:bg-blue-700">
+                  <Code className="w-5 h-5" /> Start Building
                 </Button>
               </Link>
-              <Link href="/verify">
-                <Button variant="outline" className="gap-2">
-                  <Fingerprint className="w-4 h-4" />
-                  Try Verification
+              <Link href="https://www.npmjs.com/package/@yseeku/trust-receipts" target="_blank">
+                <Button size="lg" variant="outline" className="gap-2">
+                  SDK on npm <ExternalLink className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
           </div>
         </section>
 
-        {/* Quick Start */}
-        <section className="py-12 px-6 border-t border-white/5">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-              <Terminal className="w-6 h-6 text-green-400" />
-              Quick Start
+        {/* Quickstart – SDK Focus */}
+        <section id="quickstart" className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16">
+              Add Verifiable Trust in Minutes
             </h2>
-            
-            <div className="space-y-6">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-white/60">Install the SDK (MIT License)</span>
-                  <button 
-                    onClick={() => copyToClipboard('npm install @sonate/verify-sdk', 'install')}
-                    className="text-xs text-white/40 hover:text-white flex items-center gap-1"
-                  >
-                    {copiedSection === 'install' ? <CheckCircle2 className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                    {copiedSection === 'install' ? 'Copied' : 'Copy'}
-                  </button>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Generate */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20">
+                    <FileCode className="w-6 h-6 text-green-400" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-semibold">Generate Receipts</h3>
                 </div>
-                <div className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm">
-                  <span className="text-green-400">npm</span> install @sonate/verify-sdk
+
+                <p className="text-white/70">
+                  Wrap any async AI call — get a signed, verifiable receipt automatically.
+                </p>
+
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-white/60">Install</span>
+                      <button
+                        onClick={() => copyToClipboard(installGenerate, 'gen-install')}
+                        className="text-xs text-white/40 hover:text-white flex items-center gap-1"
+                      >
+                        {copied === 'gen-install' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                        {copied === 'gen-install' ? 'Copied' : 'Copy'}
+                      </button>
+                    </div>
+                    <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm overflow-x-auto">
+                      <code>{installGenerate}</code>
+                    </pre>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-white/60">OpenAI Example</span>
+                      <button
+                        onClick={() => copyToClipboard(generateExample, 'gen-example')}
+                        className="text-xs text-white/40 hover:text-white flex items-center gap-1"
+                      >
+                        {copied === 'gen-example' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                        {copied === 'gen-example' ? 'Copied' : 'Copy'}
+                      </button>
+                    </div>
+                    <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm overflow-x-auto whitespace-pre-wrap">
+                      <code>{generateExample}</code>
+                    </pre>
+                  </div>
+                </div>
+
+                <div className="text-sm text-white/50">
+                  Full docs → <Link href="https://github.com/s8ken/yseeku-platform/tree/main/packages/trust-receipts" className="text-blue-400 hover:underline">GitHub README</Link>
                 </div>
               </div>
 
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-white/60">Verify a receipt (5 lines)</span>
-                  <button 
-                    onClick={() => copyToClipboard(verifyCode, 'verify')}
-                    className="text-xs text-white/40 hover:text-white flex items-center gap-1"
-                  >
-                    {copiedSection === 'verify' ? <CheckCircle2 className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                    {copiedSection === 'verify' ? 'Copied' : 'Copy'}
-                  </button>
+              {/* Verify */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
+                    <Shield className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-semibold">Verify Receipts</h3>
                 </div>
-                <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm overflow-x-auto">
-                  <code className="text-white/80">{verifyCode}</code>
-                </pre>
+
+                <p className="text-white/70">
+                  Independently validate any receipt — zero backend calls required.
+                </p>
+
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-white/60">Install</span>
+                      <button
+                        onClick={() => copyToClipboard(installVerify, 'ver-install')}
+                        className="text-xs text-white/40 hover:text-white flex items-center gap-1"
+                      >
+                        {copied === 'ver-install' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                        {copied === 'ver-install' ? 'Copied' : 'Copy'}
+                      </button>
+                    </div>
+                    <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm overflow-x-auto">
+                      <code>{installVerify}</code>
+                    </pre>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-white/60">Usage</span>
+                      <button
+                        onClick={() => copyToClipboard(verifyExample, 'ver-example')}
+                        className="text-xs text-white/40 hover:text-white flex items-center gap-1"
+                      >
+                        {copied === 'ver-example' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                        {copied === 'ver-example' ? 'Copied' : 'Copy'}
+                      </button>
+                    </div>
+                    <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm overflow-x-auto whitespace-pre-wrap">
+                      <code>{verifyExample}</code>
+                    </pre>
+                  </div>
+                </div>
+
+                <div className="text-sm text-white/50">
+                  Full docs → <Link href="https://github.com/s8ken/yseeku-platform/tree/main/packages/verify-sdk" className="text-blue-400 hover:underline">GitHub README</Link>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* API Endpoints */}
-        <section className="py-12 px-6 border-t border-white/5">
+        <section className="py-20 px-6 border-t border-white/5">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-              <LinkIcon className="w-6 h-6 text-blue-400" />
-              API Endpoints
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12">
+              Public Demo API
             </h2>
-            
-            <p className="text-white/60 mb-6">
-              Base URL: <code className="text-blue-400 bg-white/5 px-2 py-1 rounded">{API_URL.replace('/api', '')}</code>
+            <p className="text-center text-white/70 mb-12 max-w-3xl mx-auto">
+              Test SONATE trust receipts without installing anything. These endpoints power the interactive demo.
             </p>
 
-            <div className="space-y-4">
-              {endpoints.map((endpoint, i) => (
-                <div key={i} className="glass-card p-4">
-                  <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <span className={`text-xs font-mono px-2 py-1 rounded ${
-                      endpoint.method === 'GET' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'
-                    }`}>
-                      {endpoint.method}
-                    </span>
-                    <code className="text-sm text-white/80">{endpoint.path}</code>
-                    <span className="text-xs text-white/40">Auth: {endpoint.auth}</span>
-                  </div>
-                  <p className="text-sm text-white/60 mb-2">{endpoint.description}</p>
-                  <div className="flex gap-4 text-xs text-white/40">
-                    <span>Request: <code className="text-white/60">{endpoint.request}</code></span>
-                    <span>Response: <code className="text-white/60">{endpoint.response}</code></span>
-                  </div>
+            <div className="space-y-12">
+              {/* Generate */}
+              <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <Terminal className="w-6 h-6 text-green-400" />
+                  <h3 className="text-xl font-semibold">POST /public-demo/generate</h3>
                 </div>
-              ))}
-            </div>
-
-            {/* cURL Examples */}
-            <div className="mt-8 space-y-4">
-              <h3 className="text-lg font-heading font-semibold">cURL Examples</h3>
-              
-              <div>
+                <p className="text-white/70 mb-4">
+                  Generate a trust receipt for any prompt. Returns the AI response + signed receipt.
+                </p>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-white/60">Generate a receipt</span>
-                  <button 
+                  <span className="text-sm text-white/60">cURL Example</span>
+                  <button
                     onClick={() => copyToClipboard(curlGenerate, 'curl-gen')}
                     className="text-xs text-white/40 hover:text-white flex items-center gap-1"
                   >
-                    {copiedSection === 'curl-gen' ? <CheckCircle2 className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                    {copied === 'curl-gen' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                    {copied === 'curl-gen' ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-xs overflow-x-auto">
-                  <code className="text-white/80">{curlGenerate}</code>
+                <pre className="bg-black/50 rounded-lg p-4 font-mono text-sm overflow-x-auto border border-white/10">
+                  <code>{curlGenerate}</code>
                 </pre>
               </div>
 
-              <div>
+              {/* Verify */}
+              <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <Shield className="w-6 h-6 text-purple-400" />
+                  <h3 className="text-xl font-semibold">POST /public-demo/verify</h3>
+                </div>
+                <p className="text-white/70 mb-4">
+                  Verify any trust receipt independently. Returns validation details.
+                </p>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-white/60">Get public key</span>
-                  <button 
-                    onClick={() => copyToClipboard(curlPublicKey, 'curl-key')}
+                  <span className="text-sm text-white/60">cURL Example</span>
+                  <button
+                    onClick={() => copyToClipboard(curlVerify, 'curl-ver')}
                     className="text-xs text-white/40 hover:text-white flex items-center gap-1"
                   >
-                    {copiedSection === 'curl-key' ? <CheckCircle2 className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                    {copied === 'curl-ver' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                    {copied === 'curl-ver' ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-xs overflow-x-auto">
-                  <code className="text-white/80">{curlPublicKey}</code>
+                <pre className="bg-black/50 rounded-lg p-4 font-mono text-sm overflow-x-auto border border-white/10">
+                  <code>{curlVerify}</code>
                 </pre>
+              </div>
+
+              {/* Public Key */}
+              <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <Key className="w-6 h-6 text-blue-400" />
+                  <h3 className="text-xl font-semibold">GET /public-demo/public-key</h3>
+                </div>
+                <p className="text-white/70">
+                  Retrieve the current Ed25519 public key used for signing receipts.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Trust Model */}
-        <section className="py-12 px-6 border-t border-white/5">
+        <section className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-              <Key className="w-6 h-6 text-blue-400" />
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12">
               Trust Model
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="glass-card p-6">
-                <div className="text-sm text-white/80 mb-2">Platform Boundary</div>
-                <ul className="text-sm text-white/60 space-y-2">
-                  <li>SONATE signs receipts with a platform-controlled Ed25519 key</li>
-                  <li>Public key resolvable via <code className="text-blue-400">/.well-known/sonate-pubkey</code> and DID document</li>
-                </ul>
-              </div>
-              <div className="glass-card p-6">
-                <div className="text-sm text-white/80 mb-2">Verification Boundary</div>
-                <ul className="text-sm text-white/60 space-y-2">
-                  <li>SDK performs signature verification, hash canonicalization, and chain validation</li>
-                  <li>No API calls to SONATE required for verification</li>
-                </ul>
-              </div>
+            <div className="prose prose-invert max-w-none space-y-6">
+              <p>
+                Every receipt is signed with <strong>Ed25519</strong> — fast, secure, and widely audited. The signature covers a deterministic hash of the entire receipt (RFC 8785 canonical JSON + SHA-256).
+              </p>
+              <p>
+                Receipts are <strong>hash-chained</strong>: each new receipt includes the previous receipt's hash, creating an immutable audit trail without needing a blockchain.
+              </p>
+              <p>
+                Identity uses <strong>W3C Decentralized Identifiers (DIDs)</strong> — agent_did and human_did are resolvable via did:web, allowing anyone to fetch the current public key.
+              </p>
+              <p>
+                Verification requires <strong>zero API calls</strong> — just the public key and the receipt JSON.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Performance */}
-        <section className="py-12 px-6 border-t border-white/5">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-              <Activity className="w-6 h-6 text-green-400" />
-              Performance
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="glass-card p-6 text-sm text-white/60">
-                <div className="text-white/80 mb-1">Evaluation Latency</div>
-                Adds &lt;50ms overhead per interaction
-              </div>
-              <div className="glass-card p-6 text-sm text-white/60">
-                <div className="text-white/80 mb-1">Verification Independence</div>
-                No network call required for verification
-              </div>
-              <div className="glass-card p-6 text-sm text-white/60">
-                <div className="text-white/80 mb-1">Ed25519 Verification</div>
-                &lt;1ms typical on Node 18+
-              </div>
+        {/* Performance & Security */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
+                <Clock className="w-6 h-6 text-green-400" /> Performance
+              </h3>
+              <ul className="space-y-4 text-white/80">
+                <li>Receipt generation: <strong>&lt; 50 ms</strong> overhead</li>
+                <li>Local verification: <strong>&lt; 1 ms</strong></li>
+                <li>Hash chaining: constant-time append</li>
+                <li>Ed25519 signing/verification: ~10-20 us</li>
+              </ul>
             </div>
-          </div>
-        </section>
 
-        {/* Security Architecture */}
-        <section className="py-12 px-6 border-t border-white/5">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-              <Lock className="w-6 h-6 text-purple-400" />
-              Security Architecture
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="glass-card p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Key className="w-5 h-5 text-blue-400" />
-                  <h3 className="font-heading font-semibold">Ed25519 Signatures</h3>
-                </div>
-                <p className="text-sm text-white/60 mb-4">
-                  Every receipt is signed with Ed25519, the same algorithm used by SSH, Signal, and Tor. Fast, secure, and independently verifiable.
-                </p>
-                <ul className="text-sm text-white/50 space-y-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    256-bit security level
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Deterministic signatures
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Public key at /.well-known/sonate-pubkey
-                  </li>
-                </ul>
-              </div>
-
-              <div className="glass-card p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <LinkIcon className="w-5 h-5 text-green-400" />
-                  <h3 className="font-heading font-semibold">Hash Chains</h3>
-                </div>
-                <p className="text-sm text-white/60 mb-4">
-                  Each receipt links to the previous via SHA-256 chain hash. Modify any receipt and the chain breaks - detectable instantly.
-                </p>
-                <ul className="text-sm text-white/50 space-y-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Tamper-evident by design
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Full audit trail
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Chain verification in SDK
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Scope: per session by default; configurable per agent or tenant
-                  </li>
-                </ul>
-              </div>
-
-              <div className="glass-card p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Fingerprint className="w-5 h-5 text-amber-400" />
-                  <h3 className="font-heading font-semibold">W3C DIDs</h3>
-                </div>
-                <p className="text-sm text-white/60 mb-4">
-                  Decentralized Identifiers for platform and agents. Standard did:web method with public key resolution.
-                </p>
-                <ul className="text-sm text-white/50 space-y-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Platform DID: did:web:yseeku.com
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Agent DIDs with controller
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    /.well-known/did.json resolution
-                  </li>
-                </ul>
-              </div>
-
-              <div className="glass-card p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Shield className="w-5 h-5 text-red-400" />
-                  <h3 className="font-heading font-semibold">Trust Scoring</h3>
-                </div>
-                <p className="text-sm text-white/60 mb-4">
-                  Policy-as-Code evaluation: six enforceable governance constraints with &lt;50ms added overhead per interaction. Weighted scores combine into a single trust score (0–100).
-                </p>
-                <ul className="text-sm text-white/50 space-y-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    CIQ metrics (Clarity, Integrity, Quality)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Real-time evaluation
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    Configurable thresholds
-                  </li>
-                </ul>
-              </div>
+            <div>
+              <h3 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
+                <Lock className="w-6 h-6 text-purple-400" /> Security Architecture
+              </h3>
+              <ul className="space-y-4 text-white/80">
+                <li><strong>Ed25519</strong> signatures — 256-bit security</li>
+                <li><strong>SHA-256</strong> + RFC 8785 canonicalization — deterministic, collision-resistant</li>
+                <li>Hash chaining prevents re-ordering or insertion attacks</li>
+                <li>Policy-as-Code evaluated at generation time</li>
+                <li>No central server required for verification</li>
+              </ul>
             </div>
           </div>
         </section>
 
         {/* Sample Receipt */}
-        <section className="py-12 px-6 border-t border-white/5">
+        <section className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-              <FileJson className="w-6 h-6 text-amber-400" />
-              Sample Trust Receipt
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12">
+              Sample Trust Receipt (Privacy Mode)
             </h2>
-
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-white/60">Full receipt structure</span>
-                <button 
-                  onClick={() => copyToClipboard(sampleReceipt, 'receipt')}
-                  className="text-xs text-white/40 hover:text-white flex items-center gap-1"
-                >
-                  {copiedSection === 'receipt' ? <CheckCircle2 className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                  {copiedSection === 'receipt' ? 'Copied' : 'Copy'}
-                </button>
-              </div>
-              <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-xs overflow-x-auto">
-                <code className="text-white/80">{sampleReceipt}</code>
-              </pre>
-            </div>
-
-            <div className="mt-6 grid md:grid-cols-3 gap-4 text-sm">
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                <div className="text-white/40 mb-1">self_hash</div>
-                <div className="text-white/80">SHA-256 of receipt content</div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                <div className="text-white/40 mb-1">chain.chain_hash</div>
-                <div className="text-white/80">Links to previous receipt</div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                <div className="text-white/40 mb-1">signature.value</div>
-                <div className="text-white/80">Ed25519 signature (hex)</div>
-              </div>
-            </div>
-
-            <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10 text-xs text-white/60">
-              Payload storage is configurable. Sensitive fields can be stored as hashes only. Verification requires hashes; full payload is optional.
-            </div>
-          </div>
-        </section>
-
-        {/* Deployment Model */}
-        <section className="py-12 px-6 border-t border-white/5">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-              <Shield className="w-6 h-6 text-blue-400" />
-              Deployment Model
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="glass-card p-6 text-sm text-white/60">
-                <div className="text-white/80 mb-1">Proxy Mode</div>
-                SONATE sits inline between your app and AI providers
-              </div>
-              <div className="glass-card p-6 text-sm text-white/60">
-                <div className="text-white/80 mb-1">SDK-only Verification</div>
-                Client/server-side verification without calling SONATE
-              </div>
-              <div className="glass-card p-6 text-sm text-white/60">
-                <div className="text-white/80 mb-1">Hosting</div>
-                SaaS today; self-hosting options under consideration
-              </div>
-            </div>
+            <pre className="bg-black/60 rounded-xl p-6 font-mono text-sm overflow-x-auto border border-white/10">
+              <code>{`{
+  "version": "2.0.0",
+  "timestamp": "2026-02-18T08:00:00.000Z",
+  "session_id": "demo-...",
+  "agent_did": "did:web:yseeku.com:agents:demo-agent",
+  "human_did": "did:web:yseeku.com:users:demo",
+  "policy_version": "1.0.0",
+  "mode": "constitutional",
+  "interaction": {
+    "prompt_hash": "a1b2c3d4e5f6...",
+    "response_hash": "7890abcdef12...",
+    "model": "gpt-4o"
+  },
+  "telemetry": {
+    "resonance_score": 0.92,
+    "coherence_score": 0.95,
+    "truth_debt": 0.08
+  },
+  "chain": {
+    "previous_hash": "GENESIS",
+    "chain_hash": "...",
+    "chain_length": 1
+  },
+  "id": "8ef4860b...",
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "3991dea2...",
+    "public_key": "741f8d7f..."
+  }
+}`}</code>
+            </pre>
+            <p className="text-center text-white/60 mt-6">
+              Raw prompt/response omitted by default — only hashes are stored for privacy.
+            </p>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-16 px-6 border-t border-white/5">
+        <section className="py-20 px-6 border-t border-white/5">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-heading font-bold mb-6">Ready to Integrate?</h2>
-            <p className="text-white/60 mb-8">
-              Get started with the SDK or talk to us about enterprise integration.
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
+              Ready to Build with SONATE?
+            </h2>
+            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+              Use the open SDK for instant integration, test via the public API, or contact us for enterprise pilots, custom policies, and dashboard access.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="https://github.com/s8ken/sonate-verify-sdk" target="_blank" rel="noopener noreferrer">
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="https://github.com/s8ken/yseeku-platform" target="_blank">
                 <Button size="lg" variant="outline" className="gap-2">
-                  <GitBranch className="w-4 h-4" />
-                  View SDK
+                  View Source <ExternalLink className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Integration`}>
-                <Button size="lg" className="gap-2">
-                  Contact for Integration <ExternalLink className="w-4 h-4" />
+              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE%20Developer%20-%20Pilot%20Interest`}>
+                <Button size="lg" className="gap-2 bg-blue-600 hover:bg-blue-700">
+                  Get in Touch <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="py-12 px-6 border-t border-white/5">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-gradient-to-tr from-blue-500 to-purple-600 rounded flex items-center justify-center">
-                <Shield className="w-4 h-4 text-white" />
-              </div>
-              <span className="font-heading font-bold">SONATE</span>
-              <span className="text-white/40 text-sm">by YCQ Labs</span>
-            </div>
-            <div className="flex items-center gap-6 text-sm text-white/40">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
-            <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
-              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Full Demo</Link>
-              <Link href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">Contact</Link>
-            </div>
-          </div>
-        </footer>
-      </main>
+      </div>
     </div>
   );
 }

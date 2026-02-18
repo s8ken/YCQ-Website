@@ -11,8 +11,10 @@ interface SignedReceipt {
   agent_did: string;
   human_did: string;
   interaction: {
-    prompt: string;
-    response: string;
+    prompt?: string;
+    response?: string;
+    prompt_hash?: string;
+    response_hash?: string;
     model: string;
   };
   chain: {
@@ -221,6 +223,18 @@ export default function TrustLedgerDemo() {
                   <span className="text-white/40">Chain Hash:</span>
                   <span className="text-blue-400 break-all">{receipt.chain.chain_hash.substring(0, 32)}...</span>
                 </div>
+                {receipt.interaction.prompt_hash && (
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                    <span className="text-white/40">Prompt Hash:</span>
+                    <span className="text-amber-400 break-all">{receipt.interaction.prompt_hash.substring(0, 32)}...</span>
+                  </div>
+                )}
+                {receipt.interaction.response_hash && (
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                    <span className="text-white/40">Response Hash:</span>
+                    <span className="text-amber-400 break-all">{receipt.interaction.response_hash.substring(0, 32)}...</span>
+                  </div>
+                )}
                 <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                   <span className="text-white/40">Signature:</span>
                   <span className="text-purple-400 break-all">{receipt.signature.value.substring(0, 32)}...</span>
