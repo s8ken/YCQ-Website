@@ -1,0 +1,28 @@
+# CODEOWNERS file for YCQ-Website
+# This file specifies who should be automatically requested for review
+# when a pull request modifies files in this repository.
+#
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+#
+# These owners will be the default owners for everything in the repo.
+# Unless a later match takes precedence, @s8ken will be requested for
+# review when someone opens a pull request.
+
+# Default owners for all files
+* @s8ken
+
+# Documentation files
+*.md @s8ken
+/README.md @s8ken
+
+# Source code
+/src/** @s8ken
+
+# Configuration files
+package.json @s8ken
+tsconfig.json @s8ken
+next.config.ts @s8ken
+
+# CI/CD workflows
+/.github/** @s8ken

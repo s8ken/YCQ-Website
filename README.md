@@ -471,6 +471,13 @@ Licensed under Enterprise Commercial License. See [LICENSE](LICENSE) for terms.
 
 ## 🤝 Contributing
 
+We welcome contributions from the community! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on:
+
+- Setting up your development environment
+- Making changes and submitting pull requests
+- Code review process and requirements
+- Code style guidelines
+
 ### **Content Contributions**
 - Case study submissions
 - Documentation improvements
@@ -482,6 +489,11 @@ Licensed under Enterprise Commercial License. See [LICENSE](LICENSE) for terms.
 - Accessibility improvements
 - Mobile experience enhancements
 - Integration examples
+
+### **Review Process**
+- Pull requests automatically request review from maintainers via CODEOWNERS
+- All PRs require approval from a reviewer with write access before merging
+- Follow the PR template for standardized submissions
 
 ## 📞 Business Contact
 
