@@ -83,7 +83,7 @@ export default function RoadmapPage() {
       enables: "Cross-platform portability of AI trust artifacts.",
       items: [
         { title: "W3C Verifiable Credentials", status: "complete", desc: "Receipts wrapped in VC format with Ed25519Signature2020 proofs" },
-        { title: "Client-Side Verification SDK", status: "complete", desc: "@sonate/verify-sdk - verify receipts in browser without backend calls" },
+        { title: "Client-Side Verification SDK", status: "complete", desc: "@yseeku/verify-sdk - verify receipts in browser without backend calls" },
         { title: "Cross-Platform Trust Export", status: "complete", desc: "Export trust summaries with signed attestations" },
         { title: "Trust Badges", status: "complete", desc: "Portable trust badges with verification URLs" },
         { title: "Optional External Timestamp Anchoring", status: "complete", desc: "Independent timestamp proofs for high-assurance environments" },

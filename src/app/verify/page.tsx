@@ -510,7 +510,7 @@ export default function VerifyPage() {
               Generate and verify trust receipts programmatically with a single npm package.
             </p>
             <pre className="inline-block bg-white/5 rounded-lg border border-white/10 px-6 py-3 font-mono text-sm text-white/80 mb-8">
-              npm install @sonate/trust-receipts
+              npm install @yseeku/trust-receipts
             </pre>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/developers">

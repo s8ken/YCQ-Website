@@ -16,9 +16,9 @@ import {
   Key
 } from "lucide-react";
 
-const installCommand = "npm install @sonate/trust-receipts";
+const installCommand = "npm install @yseeku/trust-receipts";
 
-const wrapExample = `import { wrap } from "@sonate/trust-receipts";
+const wrapExample = `import { wrap } from "@yseeku/trust-receipts";
 import OpenAI from "openai";
 
 const client = wrap(new OpenAI(), {
