@@ -26,6 +26,8 @@ interface ReceiptToVerify {
   self_hash?: string;
   timestamp?: string;
   session_id?: string;
+  version?: string;
+  agent_did?: string;
   signature?: string | { value: string; algorithm: string };
   chain?: { chain_hash?: string; previous_hash?: string };
   interaction?: {
