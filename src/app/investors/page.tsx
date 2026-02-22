@@ -29,8 +29,11 @@ export default function InvestorsPage() {
             <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
               AI Non-Repudiation Infrastructure
             </h1>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              SONATE provides cryptographically verifiable audit trails for every AI interaction.
+            <p className="text-lg text-white/60 max-w-3xl mx-auto mb-2">
+              As AI systems move into regulated and high-stakes environments, enterprises require more than monitoring — they require evidence.
+            </p>
+            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+              SONATE is building the execution evidence layer for AI systems.
             </p>
           </div>
         </section>
@@ -116,39 +119,57 @@ export default function InvestorsPage() {
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
             <div className="glass-card p-6">
               <h2 className="text-xl font-heading font-bold mb-3">Why Now</h2>
-              <ul className="text-sm text-white/60 space-y-2">
-                <li>Regulatory Pressure: EU AI Act, NIST frameworks, sector regulators require auditability</li>
-                <li>Enterprise Deployment: LLMs in support, healthcare, finance, internal ops</li>
-                <li>Rise of Autonomous Workflows: continuity, drift, liability risk</li>
-              </ul>
-              <div className="text-xs text-white/40 mt-3">As TLS became mandatory for secure web traffic, verifiable execution records will become mandatory for autonomous AI systems.</div>
+              <div className="space-y-3 text-sm text-white/60">
+                <div>
+                  <div className="text-white/80 font-semibold mb-1">1. Regulatory Acceleration</div>
+                  <p>EU AI Act, NIST AI RMF, and sector regulators increasingly require traceability and auditability.</p>
+                </div>
+                <div>
+                  <div className="text-white/80 font-semibold mb-1">2. Enterprise AI Deployment</div>
+                  <p>AI is now embedded in customer support, healthcare triage, finance, internal automation, and decision support.</p>
+                </div>
+                <div>
+                  <div className="text-white/80 font-semibold mb-1">3. Autonomous Workflows</div>
+                  <p>Agentic systems introduce continuity, drift, and liability risk — increasing demand for verifiable execution logs.</p>
+                </div>
+              </div>
+              <div className="text-xs text-white/40 mt-4 pt-4 border-t border-white/10">As TLS became mandatory for secure web traffic, AI systems will require verifiable execution records.</div>
             </div>
             <div className="glass-card p-6">
               <h2 className="text-xl font-heading font-bold mb-3">Market Opportunity</h2>
-              <div className="text-sm text-white/60">Enterprise AI governance and compliance infrastructure is a multi-billion-dollar emerging category.</div>
-              <div className="mt-3 text-sm text-white/80">Primary</div>
-              <ul className="text-sm text-white/60 space-y-2 mt-1">
-                <li>Regulated enterprise AI deployments</li>
-                <li>AI risk and compliance teams</li>
-                <li>Legal defensibility and audit tooling</li>
-              </ul>
-              <div className="mt-3 text-sm text-white/80">Secondary</div>
-              <ul className="text-sm text-white/60 space-y-2 mt-1">
-                <li>Agent runtime infrastructure</li>
-                <li>Cross-platform trust portability</li>
-                <li>Interoperable verification standards</li>
-              </ul>
+              <div className="text-sm text-white/60 mb-4">Enterprise AI governance and compliance infrastructure represents a <strong className="text-white">multi-billion-dollar emerging category</strong>.</div>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-sm text-white/80 font-semibold mb-1">Primary Buyers</div>
+                  <ul className="text-sm text-white/60 space-y-1">
+                    <li>• AI governance teams at regulated enterprises</li>
+                    <li>• Risk and compliance officers deploying LLM systems</li>
+                    <li>• Legal and audit teams requiring defensibility</li>
+                  </ul>
+                </div>
+                <div>
+                  <div className="text-sm text-white/80 font-semibold mb-1">Secondary Expansion</div>
+                  <ul className="text-sm text-white/60 space-y-1">
+                    <li>• Agent runtime infrastructure providers</li>
+                    <li>• Cross-platform trust portability</li>
+                    <li>• Interoperable AI audit standards</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-xs text-white/40 mt-4 pt-4 border-t border-white/10">SONATE is positioned as the execution evidence layer in this stack.</div>
             </div>
             <div className="glass-card p-6">
               <h2 className="text-xl font-heading font-bold mb-3">Business Model</h2>
-              <ul className="text-sm text-white/60 space-y-2">
-                <li>Enterprise SaaS</li>
-                <li>Usage-based receipt generation</li>
-                <li>Enterprise licensing</li>
-                <li>Governance integrations</li>
-                <li>Advanced compliance features</li>
-              </ul>
-              <div className="text-xs text-white/40 mt-3">Currently piloting with select enterprise prospects.</div>
+              <div className="mb-4">
+                <div className="text-sm text-white/80 font-semibold mb-2">Enterprise SaaS</div>
+                <ul className="text-sm text-white/60 space-y-2">
+                  <li>Usage-based receipt generation</li>
+                  <li>Enterprise licensing (per-agent, per-tenant)</li>
+                  <li>Governance integration partnerships</li>
+                  <li>Advanced compliance features</li>
+                </ul>
+              </div>
+              <div className="text-xs text-white/40 pt-4 border-t border-white/10">Infrastructure live and production-ready. Enterprise pilots in discussion. Revenue coming Q2 2026.</div>
             </div>
           </div>
         </section>
@@ -157,25 +178,43 @@ export default function InvestorsPage() {
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
             <div className="glass-card p-6">
               <h2 className="text-2xl font-heading font-bold mb-4">Defensibility</h2>
-              <ul className="text-sm text-white/60 space-y-2">
-                <li>Integrated receipt + policy + identity stack</li>
-                <li>Open-spec / closed-core architecture</li>
-                <li>Cryptographic trust boundaries</li>
-                <li>Embedded into execution path</li>
-              </ul>
-              <div className="text-xs text-white/40 mt-3">As receipts accumulate and integrations deepen, switching costs increase. The category rewards early standardization.</div>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-sm text-white/80 font-semibold mb-1">First-Mover in AI Non-Repudiation</div>
+                  <p className="text-sm text-white/60">No incumbent has this integration depth. AWS/Azure can't build this without cannibalizing their own vendor lock-in.</p>
+                </div>
+                <div>
+                  <div className="text-sm text-white/80 font-semibold mb-1">Integrated Stack</div>
+                  <p className="text-sm text-white/60">Receipt + policy + identity + verification in one architecture. Competitors would need to rebuild or acquire multiple components.</p>
+                </div>
+                <div>
+                  <div className="text-sm text-white/80 font-semibold mb-1">Switching Costs Increase with Scale</div>
+                  <p className="text-sm text-white/60">As receipts accumulate and integrations deepen, customers depend on historical audit trails. Exiting SONATE means losing verifiable evidence.</p>
+                </div>
+                <div>
+                  <div className="text-sm text-white/80 font-semibold mb-1">Category Rewards Early Standardization</div>
+                  <p className="text-sm text-white/60">The company that owns the execution evidence layer owns the audit trail layer for the entire AI industry.</p>
+                </div>
+              </div>
             </div>
             <div className="glass-card p-6">
               <h2 className="text-2xl font-heading font-bold mb-4">Product Status</h2>
-              <ul className="text-sm text-white/60 space-y-2">
-                <li>Ed25519 digital signatures (production)</li>
-                <li>Hash-chained receipts (production)</li>
-                <li>Public verification endpoints</li>
-                <li>W3C DID resolution</li>
-                <li>Independent verification SDK (MIT)</li>
-                <li>Enterprise features in progress</li>
-              </ul>
-              <div className="text-xs text-white/40 mt-3">Phase 1 is live and usable today.</div>
+              <div className="space-y-2">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="text-sm text-white/80 font-semibold">Phase 1: Complete (Live)</div>
+                    <div className="text-xs text-white/60">Ed25519 signatures, hash chaining, verification SDKs, public API endpoints</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="text-sm text-white/80 font-semibold">Phase 2: In Progress</div>
+                    <div className="text-xs text-white/60">Enterprise dashboard, policy engine v2, compliance integrations</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -183,9 +222,12 @@ export default function InvestorsPage() {
         <section className="py-12 px-6 border-t border-white/5">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
             <div className="glass-card p-6">
-              <h2 className="text-2xl font-heading font-bold mb-4">Founder</h2>
-              <div className="text-sm text-white/60">
-                Built and shipped production cryptographic infrastructure as a solo founder over 10 months. Live platform, SDK, and public verification endpoints available. Focused on building a foundational trust layer for enterprise AI systems.
+              <h2 className="text-2xl font-heading font-bold mb-4">Founder &amp; Team</h2>
+              <div className="text-sm text-white/60 space-y-3">
+                <p><strong className="text-white">Solo founder</strong> — built and shipped production cryptographic infrastructure in 10 months.</p>
+                <p>Live platform with public SDKs, verification endpoints, and RFC-style specification deployed.</p>
+                <p>Focused on building foundational trust layer for enterprise AI systems.</p>
+                <p><strong className="text-white">Available for fundraising discussions.</strong> Experience spans crypto, compliance systems, and infrastructure.</p>
               </div>
             </div>
             <div className="glass-card p-6">
