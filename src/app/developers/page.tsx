@@ -135,7 +135,7 @@ export default function DevelopersPage() {
               SONATE Developer Hub
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto mb-8">
-              Integrate cryptographic trust receipts into any AI workflow — generate signed proofs, verify independently, and enforce governance with zero vendor lock-in.
+              Generate signed trust receipts from any AI call. Verify independently. Zero backend required.
             </p>
 
             {/* Live Public Key Display */}
@@ -193,9 +193,14 @@ export default function DevelopersPage() {
         {/* Quickstart – SDK Focus */}
         <section id="quickstart" className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16">
-              Add Verifiable Trust in Minutes
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                Add Verifiable Trust in Minutes
+              </h2>
+              <p className="text-lg text-white/70 max-w-2xl mx-auto">
+                The <code className="font-mono bg-white/10 px-2 py-1 rounded">receipts.wrap()</code> pattern is your core integration. One line. Works everywhere.
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-12">
               {/* Generate */}
@@ -401,79 +406,22 @@ export default function DevelopersPage() {
           </div>
         </section>
 
-        {/* Performance & Security */}
-        <section className="py-20 px-6 border-t border-white/5">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-                <Clock className="w-6 h-6 text-green-400" /> Performance
-              </h3>
-              <ul className="space-y-4 text-white/80">
-                <li>Receipt generation: <strong>&lt; 50 ms</strong> overhead</li>
-                <li>Local verification: <strong>&lt; 1 ms</strong></li>
-                <li>Hash chaining: constant-time append</li>
-                <li>Ed25519 signing/verification: ~10-20 us</li>
-              </ul>
+        {/* Performance & Security - Minimal */}
+        <section className="py-12 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex-1">
+              <h3 className="text-lg font-heading font-semibold mb-2">Production Guarantees</h3>
+              <p className="text-sm text-white/70">Receipt generation &lt;50ms • Verification &lt;1ms • Ed25519 256-bit security • SHA-256 hashing • Zero backend required for verification</p>
             </div>
-
-            <div>
-              <h3 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-                <Lock className="w-6 h-6 text-purple-400" /> Security Architecture
-              </h3>
-              <ul className="space-y-4 text-white/80">
-                <li><strong>Ed25519</strong> signatures — 256-bit security</li>
-                <li><strong>SHA-256</strong> + RFC 8785 canonicalization — deterministic, collision-resistant</li>
-                <li>Hash chaining prevents re-ordering or insertion attacks</li>
-                <li>Policy-as-Code evaluated at generation time</li>
-                <li>No central server required for verification</li>
-              </ul>
-            </div>
+            <Link href="https://github.com/s8ken/yseeku-platform/blob/main/docs/TRUST_RECEIPT_SPECIFICATION_v1.md" target="_blank" className="whitespace-nowrap">
+              <Button variant="outline" size="sm" className="gap-1">
+                Full Spec <ExternalLink className="w-3 h-3" />
+              </Button>
+            </Link>
           </div>
         </section>
 
-        {/* Sample Receipt */}
-        <section className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12">
-              Sample Trust Receipt (Privacy Mode)
-            </h2>
-            <pre className="bg-black/60 rounded-xl p-6 font-mono text-sm overflow-x-auto border border-white/10">
-              <code>{`{
-  "version": "2.0.0",
-  "timestamp": "2026-02-18T08:00:00.000Z",
-  "session_id": "demo-...",
-  "agent_did": "did:web:yseeku.com:agents:demo-agent",
-  "human_did": "did:web:yseeku.com:users:demo",
-  "policy_version": "1.0.0",
-  "mode": "constitutional",
-  "interaction": {
-    "prompt_hash": "a1b2c3d4e5f6...",
-    "response_hash": "7890abcdef12...",
-    "model": "gpt-4o"
-  },
-  "telemetry": {
-    "resonance_score": 0.92,
-    "coherence_score": 0.95,
-    "truth_debt": 0.08
-  },
-  "chain": {
-    "previous_hash": "GENESIS",
-    "chain_hash": "...",
-    "chain_length": 1
-  },
-  "id": "8ef4860b...",
-  "signature": {
-    "algorithm": "Ed25519",
-    "value": "3991dea2...",
-    "public_key": "741f8d7f..."
-  }
-}`}</code>
-            </pre>
-            <p className="text-center text-white/60 mt-6">
-              Raw prompt/response omitted by default — only hashes are stored for privacy.
-            </p>
-          </div>
-        </section>
+
 
         {/* CTA */}
         <section className="py-20 px-6 border-t border-white/5">
