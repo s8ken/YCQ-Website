@@ -345,7 +345,7 @@ export default function ArchiveValidationPage() {
 
             <div className="grid md:grid-cols-3 gap-6 mt-8">
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                <Icon className="w-8 h-8 text-cyan-400 mb-3" />
+                <TrendingUp className="w-8 h-8 text-cyan-400 mb-3" />
                 <h3 className="font-semibold mb-2">Drift Patterns</h3>
                 <p className="text-gray-400 text-sm">
                   Correctly identifies when AI reasoning or behavior changes unexpectedly
