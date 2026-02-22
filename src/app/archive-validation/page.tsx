@@ -272,6 +272,12 @@ export default function ArchiveValidationPage() {
               370 conversations contained patterns matching modern secret-handling risk rules.
             </p>
 
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-6 mb-8">
+              <p className="text-amber-200 text-sm leading-relaxed">
+                <strong>Context:</strong> Early prototyping conversations included manual credential sharing during development. Overseer correctly flags these as high-risk patterns under current governance policies. This reflects early-stage necessity, not architectural flaws—modern SONATE prevents such patterns entirely.
+              </p>
+            </div>
+
             <div className="bg-gradient-to-br from-red-500/5 to-transparent border border-red-500/20 rounded-lg p-8 mb-8">
               <h3 className="text-xl font-semibold mb-4 text-red-400">What We Found</h3>
               <p className="text-gray-300 mb-4">
