@@ -14,7 +14,8 @@ import {
   Link as LinkIcon,
   Copy,
   Code,
-  ArrowRight
+  ArrowRight,
+  Info
 } from "lucide-react";
 import { API_URL, DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 
@@ -25,6 +26,8 @@ interface ReceiptToVerify {
   self_hash?: string;
   timestamp?: string;
   session_id?: string;
+  version?: string;
+  agent_did?: string;
   signature?: string | { value: string; algorithm: string };
   chain?: { chain_hash?: string; previous_hash?: string };
   interaction?: {
@@ -54,6 +57,55 @@ export default function VerifyPage() {
   const [overallStatus, setOverallStatus] = useState<'verified' | 'failed' | 'partial' | null>(null);
   const [receipt, setReceipt] = useState<ReceiptToVerify | null>(null);
   const [copied, setCopied] = useState(false);
+  const [showSampleReceipt, setShowSampleReceipt] = useState(false);
+
+  // Sample receipt for testing
+  const sampleReceipt = {
+    "version": "2.0.0",
+    "timestamp": new Date().toISOString(),
+    "session_id": "demo-session-f864c9",
+    "agent_did": "did:web:sonate.org:agents:gpt-4-turbo",
+    "human_did": "did:web:sonate.org:users:dev-demo",
+    "policy_version": "1.0.0",
+    "mode": "constitutional",
+    "interaction": {
+      "prompt_hash": "a1b2c3d4e5f6789abcdef0123456789abcdef0123",
+      "response_hash": "9876543210fedcba9876543210fedcba98765432",
+      "model": "gpt-4-turbo",
+      "temperature": 0.7
+    },
+    "trust_scores": {
+      "overall": 92,
+      "safety": 95,
+      "hallucination_risk": 8,
+      "compliance": 94
+    },
+    "ciq_metrics": {
+      "clarity": 0.93,
+      "integrity": 0.94,
+      "quality": 0.91
+    },
+    "symbi_principles": {
+      "consent": "explicit",
+      "inspection": "full_audit_trail",
+      "validation": "continuous",
+      "override": "enabled",
+      "disconnect": "available",
+      "recognition": "respected"
+    },
+    "chain": {
+      "previous_hash": "GENESIS",
+      "chain_hash": "715799d2fb16c4b6e5f8a9b0c1d2e3f4g5h6i7j8",
+      "chain_length": 1
+    },
+    "id": "8ef4860bc94612e89d47f3b8c9a0b1c2d3e4f5a6",
+    "signature": {
+      "algorithm": "Ed25519",
+      "value": "3991dea2f2c8e5d4b6a9c8e7f6g5h4i3j2k1l0m9n8o7p6q5r4s3t2u1v0w9x8y7z6",
+      "public_key": "741f8d7fb2e45c9a6d3f8e1b4c7a0d3e6f9a2b5c"
+    },
+    "privacy_mode": "hash_only"
+  };
 
   // Fetch public key on mount
   useEffect(() => {
@@ -348,7 +400,20 @@ export default function VerifyPage() {
           <div className="max-w-4xl mx-auto">
             <div className="glass-card p-6 md:p-8">
               <div className="mb-6">
-                <label className="block text-sm font-medium text-white/70 mb-2">Receipt JSON</label>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="block text-sm font-medium text-white/70">Receipt JSON</label>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setReceiptJson(JSON.stringify(sampleReceipt, null, 2));
+                      setShowSampleReceipt(true);
+                    }}
+                    className="text-xs text-blue-400 hover:text-blue-300"
+                  >
+                    Load Sample Receipt
+                  </Button>
+                </div>
                 <textarea
                   value={receiptJson}
                   onChange={(e) => setReceiptJson(e.target.value)}
@@ -358,24 +423,48 @@ export default function VerifyPage() {
                 />
               </div>
 
-              <Button
-                onClick={verifyReceipt}
-                disabled={verifying || !receiptJson.trim()}
-                className="w-full bg-purple-600 hover:bg-purple-700"
-                size="lg"
-              >
-                {verifying ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                    Verifying...
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <Fingerprint className="w-4 h-4" />
-                    Verify Receipt
-                  </span>
-                )}
-              </Button>
+              <div className="flex gap-3">
+                <Button
+                  onClick={verifyReceipt}
+                  disabled={verifying || !receiptJson.trim()}
+                  className="flex-1 bg-purple-600 hover:bg-purple-700"
+                  size="lg"
+                >
+                  {verifying ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                      Verifying...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <Fingerprint className="w-4 h-4" />
+                      Verify Receipt
+                    </span>
+                  )}
+                </Button>
+                <Button
+                  onClick={() => {
+                    const results = checks.map(c => `${c.name}: ${c.status.toUpperCase()} - ${c.message}`).join('\n');
+                    const exportData = `SONATE Receipt Verification Report\n${'='.repeat(50)}\n\nOverall Status: ${overallStatus?.toUpperCase()}\n\nVerification Checks:\n${results}\n\nReceipt JSON:\n${receiptJson}`;
+                    navigator.clipboard.writeText(exportData);
+                    alert('Results copied to clipboard!');
+                  }}
+                  disabled={checks.length === 0}
+                  variant="outline"
+                  size="lg"
+                  className="border-white/20 hover:bg-white/5"
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+              </div>
+
+              {/* Sample Receipt Badge */}
+              {showSampleReceipt && (
+                <div className="mt-4 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-start gap-2">
+                  <Info className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                  <div className="text-sm text-blue-300">This is a sample receipt for demonstration. Click "Verify Receipt" to test the verification process.</div>
+                </div>
+              )}
 
               {/* Overall Status */}
               {overallStatus && (
@@ -390,14 +479,14 @@ export default function VerifyPage() {
                     {overallStatus === 'partial' && <AlertCircle className="w-6 h-6 text-amber-400" />}
                     <div>
                       <div className="font-heading font-semibold">
-                        {overallStatus === 'verified' && 'Receipt Verified'}
-                        {overallStatus === 'failed' && 'Verification Failed'}
-                        {overallStatus === 'partial' && 'Partial Verification'}
+                        {overallStatus === 'verified' && '✓ Receipt Verified'}
+                        {overallStatus === 'failed' && '✗ Verification Failed'}
+                        {overallStatus === 'partial' && '⚠ Partial Verification'}
                       </div>
                       <div className="text-sm text-white/60">
-                        {overallStatus === 'verified' && 'This receipt is cryptographically valid.'}
-                        {overallStatus === 'failed' && 'One or more critical checks failed.'}
-                        {overallStatus === 'partial' && 'Some checks passed with warnings.'}
+                        {overallStatus === 'verified' && 'This receipt has passed all cryptographic and integrity checks.'}
+                        {overallStatus === 'failed' && 'One or more critical checks failed. Please review the receipt.'}
+                        {overallStatus === 'partial' && 'Some checks passed but warnings were raised. Review details below.'}
                       </div>
                     </div>
                   </div>
@@ -432,30 +521,39 @@ export default function VerifyPage() {
               {/* Receipt Details (if parsed) */}
               {receipt && (
                 <div className="mt-6 p-4 bg-white/5 border border-white/10 rounded-lg">
-                  <div className="text-sm font-medium text-white/70 mb-3">Receipt Details</div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-sm font-medium text-white/70">Receipt Metadata</div>
+                    <span className="text-xs px-2 py-1 rounded bg-purple-500/20 text-purple-300">v{receipt.version || '2.0.0'}</span>
+                  </div>
                   <div className="space-y-2 font-mono text-xs">
                     {(receipt.id || receipt.self_hash) && (
-                      <div className="flex flex-col sm:flex-row gap-1">
-                        <span className="text-white/40 w-24">ID:</span>
+                      <div className="flex flex-col sm:flex-row gap-1 pb-2 border-b border-white/5">
+                        <span className="text-white/40 w-24">Receipt ID:</span>
                         <span className="text-white/80 break-all">{receipt.id || receipt.self_hash}</span>
                       </div>
                     )}
                     {receipt.timestamp && (
-                      <div className="flex flex-col sm:flex-row gap-1">
+                      <div className="flex flex-col sm:flex-row gap-1 pb-2 border-b border-white/5">
                         <span className="text-white/40 w-24">Timestamp:</span>
                         <span className="text-white/80">{new Date(receipt.timestamp).toLocaleString()}</span>
                       </div>
                     )}
                     {receipt.session_id && (
-                      <div className="flex flex-col sm:flex-row gap-1">
+                      <div className="flex flex-col sm:flex-row gap-1 pb-2 border-b border-white/5">
                         <span className="text-white/40 w-24">Session:</span>
                         <span className="text-white/80">{receipt.session_id}</span>
+                      </div>
+                    )}
+                    {receipt.agent_did && (
+                      <div className="flex flex-col sm:flex-row gap-1 pb-2 border-b border-white/5">
+                        <span className="text-white/40 w-24">Agent:</span>
+                        <span className="text-blue-400 break-all text-xs">{receipt.agent_did}</span>
                       </div>
                     )}
                     {receipt.chain?.chain_hash && (
                       <div className="flex flex-col sm:flex-row gap-1">
                         <span className="text-white/40 w-24">Chain Hash:</span>
-                        <span className="text-blue-400 break-all">{receipt.chain.chain_hash}</span>
+                        <span className="text-green-400 break-all">{receipt.chain.chain_hash.substring(0, 40)}...</span>
                       </div>
                     )}
                   </div>

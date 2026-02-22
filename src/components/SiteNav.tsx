@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Developers", href: "/developers" },
   { label: "Trust Demo", href: "/trust-demo" },
+  { label: "Compliance Demo", href: "/compliance-demo" },
   { label: "Investors", href: "/investors" },
   { label: "Full Demo", href: DEMO_URL, external: true },
   { label: "Roadmap", href: "/roadmap" },
