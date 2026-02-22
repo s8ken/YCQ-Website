@@ -76,20 +76,25 @@ export default function RoadmapPage() {
       ]
     },
     {
-      phase: "Phase 3: Portable Trust",
-      status: "complete",
-      date: "Delivered",
-      description: "Take your trust receipts anywhere - decentralized verification.",
-      enables: "Cross-platform portability of AI trust artifacts.",
+      phase: "Phase 4: Adaptive Governance Systems (Planned)",
+      status: "planned",
+      date: "Planned",
+      description: "Moving from static enforcement to longitudinal intelligence.",
+      enables: "Continuous governance across AI workflows with proactive risk detection.",
       items: [
-        { title: "W3C Verifiable Credentials", status: "complete", desc: "Receipts wrapped in VC format with Ed25519Signature2020 proofs" },
-        { title: "Client-Side Verification SDK", status: "complete", desc: "@yseeku/verify-sdk - verify receipts in browser without backend calls" },
-        { title: "Cross-Platform Trust Export", status: "complete", desc: "Export trust summaries with signed attestations" },
-        { title: "Trust Badges", status: "complete", desc: "Portable trust badges with verification URLs" },
-        { title: "Optional External Timestamp Anchoring", status: "complete", desc: "Independent timestamp proofs for high-assurance environments" },
+        { title: "Longitudinal Behavior Analysis", status: "planned", desc: "Detect structural shifts in model outputs, reasoning patterns, volatility, and policy alignment across time windows" },
+        { title: "Emergent Workflow Risk Detection", status: "planned", desc: "Identify risk patterns that do not appear in single interactions but emerge across chained agent actions" },
+        { title: "Policy Drift Monitoring", status: "planned", desc: "Detect gradual degradation in safety, compliance, or trust metrics before thresholds are violated" },
+        { title: "Adaptive Remediation Engine", status: "planned", desc: "Recommend or automatically apply mitigations (re-prompting, constraint tightening, human escalation)" },
+        { title: "Governance Simulation Mode", status: "planned", desc: "Replay historical sessions under new policy versions to evaluate impact before deployment" },
+        { title: "Autonomous Advisory Mode", status: "planned", desc: "System-generated risk summaries and governance insights for operators and compliance teams" },
       ]
     }
   ];
+
+  const getNoteText = () => {
+    return "As AI systems become agentic and persistent, governance must extend beyond single interactions. Phase 4 introduces adaptive oversight across sessions, workflows, and model behavior over time.";
+  };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -164,6 +169,9 @@ export default function RoadmapPage() {
                   <div>
                     <h2 className="text-2xl font-heading font-bold">{milestone.phase}</h2>
                     <p className="text-white/50 text-sm mt-1">{milestone.description}</p>
+                    {milestone.phase.includes("Phase 4") && (
+                      <p className="text-white/40 text-xs mt-3 italic">{getNoteText()}</p>
+                    )}
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-sm text-white/40">{milestone.date}</span>
@@ -211,8 +219,8 @@ export default function RoadmapPage() {
                 <div>
                   <h3 className="font-heading font-semibold mb-2">About This Roadmap</h3>
                   <p className="text-sm text-white/60">
-                    This roadmap reflects our current plans and priorities. "Planned" items are committed directions but timelines may shift. 
-                    We don't announce features until we're confident we can deliver them. All phases are now live and usable.
+                    "Delivered" phases are production-ready and live. "Planned" phases represent committed directions - timelines may shift based on market demand and customer feedback. 
+                    We don't announce features until confident we can deliver them with enterprise quality.
                   </p>
                 </div>
               </div>
@@ -223,9 +231,9 @@ export default function RoadmapPage() {
         {/* CTA */}
         <section className="py-16 px-6 border-t border-white/5">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-heading font-bold mb-6">Try What's Live Today</h2>
+            <h2 className="text-2xl font-heading font-bold mb-6">Production Infrastructure Live Today</h2>
             <p className="text-white/60 mb-8">
-              Phases 1-3 are complete. Trust receipts, identity radar, W3C credentials, and portable trust - all live.
+              Core platform complete. Phases 1–3 deployed and production-ready. Expansion phases (Phase 4+) underway.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
