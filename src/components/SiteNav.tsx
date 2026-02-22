@@ -9,6 +9,7 @@ import { DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "/how-it-works" },
+  { label: "Archive Validation", href: "/archive-validation" },
   { label: "Developers", href: "/developers" },
   { label: "Trust Demo", href: "/trust-demo" },
   { label: "Compliance Demo", href: "/compliance-demo" },
