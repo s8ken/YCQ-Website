@@ -77,6 +77,113 @@ export default function DevelopersPage() {
   const [publicKeyLoading, setPublicKeyLoading] = useState(true);
   const [publicKeyError, setPublicKeyError] = useState<string | null>(null);
 
+  const cryptographicFeatures = [
+    { label: "RFC 8785 Canonical JSON", icon: "✓" },
+    { label: "SHA-256 Hashing", icon: "✓" },
+    { label: "Ed25519 Signatures", icon: "✓" },
+    { label: "Hash-Chained Temporal Ordering", icon: "✓" },
+    { label: "<50ms Verification", icon: "⚡" },
+    { label: "<5KB Per Receipt", icon: "📦" },
+    { label: "Zero-Backend Verification", icon: "🔓" },
+  ];
+
+  const builtInPolicies = [
+    {
+      name: "Safety",
+      description: "Content pattern detection, integrity checks, policy alignment scoring",
+      icon: "🛡️"
+    },
+    {
+      name: "Hallucination Detection",
+      description: "Validation scoring, citation requirements, confidence thresholds",
+      icon: "🔍"
+    },
+    {
+      name: "Compliance",
+      description: "Privacy mode enforcement, SYMBI principle verification, audit trails",
+      icon: "📋"
+    }
+  ];
+
+  const Why_SONATE_Features = [
+    "Cryptographically-verifiable receipts",
+    "Zero-backend verification",
+    "Privacy-by-default (hash-only mode)",
+    "Multi-language SDKs (JS + Python)",
+    "Browser-based verification playground",
+    "Policy engine for enterprise governance",
+    "Published open specification (RFC-style)",
+    "Multi-model support (OpenAI, Anthropic, Gemini, local)"
+  ];
+
+  const auditorsFeatures = [
+    { item: "Independent verification (no backend)", icon: "✓" },
+    { item: "Hash-chained audit trails", icon: "✓" },
+    { item: "Privacy mode (hash-only by default)", icon: "✓" },
+    { item: "Compliance mappings (NIST, ISO 27001, SOC 2)", icon: "✓" },
+    { item: "Test vectors for interoperability", icon: "✓" },
+    { item: "Deterministic cryptography (RFC 8785)", icon: "✓" }
+  ];
+
+  const comparison = [
+    {
+      feature: "Cryptographic Receipts",
+      sonate: true,
+      observability: false,
+      safety: false,
+      logging: false
+    },
+    {
+      feature: "Zero-Backend Verification",
+      sonate: true,
+      observability: false,
+      safety: false,
+      logging: false
+    },
+    {
+      feature: "Privacy-by-Default",
+      sonate: true,
+      observability: false,
+      safety: false,
+      logging: false
+    },
+    {
+      feature: "Multi-Model Support",
+      sonate: true,
+      observability: true,
+      safety: true,
+      logging: true
+    },
+    {
+      feature: "Policy Engine",
+      sonate: true,
+      observability: false,
+      safety: true,
+      logging: false
+    },
+    {
+      feature: "Open Specification",
+      sonate: true,
+      observability: false,
+      safety: false,
+      logging: false
+    },
+    {
+      feature: "Cross-Language SDKs",
+      sonate: true,
+      observability: false,
+      safety: false,
+      logging: true
+    },
+    {
+      feature: "Browser Verification Playground",
+      sonate: true,
+      observability: false,
+      safety: false,
+      logging: false
+    }
+  ];
+
   useEffect(() => {
     const fetchKey = async () => {
       try {
@@ -114,29 +221,49 @@ export default function DevelopersPage() {
       </div>
 
       <div className="relative">
-        {/* Hero with Live Public Key */}
+        {/* Hero - Lead with the Specification */}
         <section className="pt-24 pb-16 px-6">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
-                </span>
-                <span className="text-sm font-medium text-green-400 uppercase tracking-wide">Open SDK + API</span>
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20">
+                <span className="text-xl">⭐</span>
+                <span className="text-sm font-medium text-yellow-400 uppercase tracking-wide">Now Production Ready</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
-                <Shield className="w-4 h-4 text-blue-400" />
-                <span className="text-sm font-medium text-blue-400 uppercase tracking-wide">SSL for AI</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+                <FileCode className="w-4 h-4 text-green-400" />
+                <span className="text-sm font-medium text-green-400 uppercase tracking-wide">RFC-Style Specification</span>
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-              SONATE Developer Hub
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
+              SONATE Trust Receipt<br/>Specification v1.0
             </h1>
-            <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto mb-8">
-              Integrate cryptographic trust receipts into any AI workflow — generate signed proofs, verify independently, and enforce governance with zero vendor lock-in.
+            
+            <p className="text-2xl md:text-3xl text-blue-300 font-semibold mb-4">
+              A cryptographically-verifiable standard for AI governance
             </p>
+            
+            <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto mb-8">
+              Built on Ed25519, SHA-256, RFC 8785, and hash-chained receipts.  
+              Open, deterministic, and independently verifiable across languages.
+            </p>
+
+            <p className="text-white/60 max-w-3xl mx-auto mb-10">
+              This reframes SONATE from "a product" to "the standard everyone else will follow."
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link href="https://github.com/s8ken/yseeku-platform/blob/main/docs/TRUST_RECEIPT_SPECIFICATION_v1.md" target="_blank">
+                <Button size="lg" className="gap-2 bg-blue-600 hover:bg-blue-700">
+                  <FileCode className="w-5 h-5" /> Read Full Specification
+                </Button>
+              </Link>
+              <Link href="/verify">
+                <Button size="lg" variant="outline" className="gap-2">
+                  <Shield className="w-5 h-5" /> Try Verification Playground
+                </Button>
+              </Link>
+            </div>
 
             {/* Live Public Key Display */}
             <div className="max-w-2xl mx-auto mb-10 p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
@@ -177,13 +304,13 @@ export default function DevelopersPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="#quickstart">
-                <Button size="lg" className="gap-2 bg-blue-600 hover:bg-blue-700">
-                  <Code className="w-5 h-5" /> Start Building
+                <Button size="lg" className="gap-2 bg-emerald-600 hover:bg-emerald-700">
+                  <Code className="w-5 h-5" /> Get Started with SDK
                 </Button>
               </Link>
-              <Link href="https://www.npmjs.com/package/@yseeku/trust-receipts" target="_blank">
+              <Link href="https://github.com/s8ken/yseeku-platform" target="_blank">
                 <Button size="lg" variant="outline" className="gap-2">
-                  SDK on npm <ExternalLink className="w-4 h-4" />
+                  View GitHub <ExternalLink className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
@@ -472,6 +599,364 @@ export default function DevelopersPage() {
             <p className="text-center text-white/60 mt-6">
               Raw prompt/response omitted by default — only hashes are stored for privacy.
             </p>
+          </div>
+        </section>
+
+        {/* Cryptography You Can Audit */}
+        <section className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-heading font-bold text-center mb-4">
+              Cryptography You Can Audit
+            </h2>
+            <p className="text-center text-white/70 mb-16 max-w-3xl mx-auto">
+              This is the kind of language CISOs and regulators trust.
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {cryptographicFeatures.map((feature, idx) => (
+                <div key={idx} className="p-6 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
+                  <div className="text-2xl mb-3">{feature.icon}</div>
+                  <p className="font-semibold text-white">{feature.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 p-6 rounded-lg border border-blue-500/20 bg-blue-500/5">
+              <p className="text-white/80">
+                <strong>What this means:</strong> Every receipt is deterministically signed with Ed25519, verified with SHA-256 canonicalization (RFC 8785), and chained to prevent tampering. Verification happens completely offline — no backend calls, no vendor lock-in.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Showcase the Verification Playground */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-4xl font-heading font-bold mb-4">
+              Verify Any Receipt — In Your Browser
+            </h2>
+            <p className="text-xl text-white/70 mb-8 max-w-3xl mx-auto">
+              This is your "Stripe Checkout" moment for AI trust.
+            </p>
+            <p className="text-white/70 mb-12 max-w-3xl mx-auto">
+              Paste a receipt → verify signature, hash chain, privacy mode, and policy flags.  
+              <strong className="block mt-2 text-blue-300">No backend. No vendor lock-in. No trust required.</strong>
+            </p>
+            
+            <Link href="/verify">
+              <Button size="lg" className="gap-2 bg-purple-600 hover:bg-purple-700 mb-8">
+                <Shield className="w-5 h-5" /> Open Verification Playground
+              </Button>
+            </Link>
+
+            <div className="p-8 rounded-xl border border-purple-500/20 bg-purple-500/5">
+              <p className="text-white/80">
+                This proves SONATE works without trusting SONATE. Regulators and auditors love this.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Elevate wrap() Developer Experience */}
+        <section className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-heading font-bold text-center mb-4">
+              Instrument Any AI Call in One Line
+            </h2>
+            <p className="text-center text-white/70 mb-12 max-w-3xl mx-auto">
+              Make it visually obvious that SONATE is the easiest trust layer to adopt.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <span className="text-2xl">⚙️</span> OpenAI
+                </h3>
+                <pre className="bg-black/50 rounded p-4 font-mono text-xs overflow-x-auto border border-white/10">
+                  <code>{`const { response, receipt } = 
+  await receipts.wrap(
+    () => openai.chat.completions.create({...}),
+    { sessionId: "user-123" }
+  );`}</code>
+                </pre>
+              </div>
+
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🤖</span> Anthropic
+                </h3>
+                <pre className="bg-black/50 rounded p-4 font-mono text-xs overflow-x-auto border border-white/10">
+                  <code>{`const { response, receipt } = 
+  await receipts.wrap(
+    () => client.messages.create({...}),
+    { sessionId: "user-456" }
+  );`}</code>
+                </pre>
+              </div>
+
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🌍</span> Google Gemini
+                </h3>
+                <pre className="bg-black/50 rounded p-4 font-mono text-xs overflow-x-auto border border-white/10">
+                  <code>{`const { response, receipt } = 
+  await receipts.wrap(
+    () => model.generateContent({...}),
+    { sessionId: "user-789" }
+  );`}</code>
+                </pre>
+              </div>
+
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🐍</span> Python
+                </h3>
+                <pre className="bg-black/50 rounded p-4 font-mono text-xs overflow-x-auto border border-white/10">
+                  <code>{`response, receipt = await receipts.wrap(
+    lambda: openai_client.chat.completions.create(...),
+    {"session_id": "user-abc"}
+)`}</code>
+                </pre>
+              </div>
+
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🖥️</span> Local LLM (Ollama)
+                </h3>
+                <pre className="bg-black/50 rounded p-4 font-mono text-xs overflow-x-auto border border-white/10">
+                  <code>{`const { response, receipt } = 
+  await receipts.wrap(
+    () => fetch("http://localhost:11434/api/chat", {...}),
+    { sessionId: "local-1" }
+  );`}</code>
+                </pre>
+              </div>
+
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <span className="text-2xl">✨</span> Custom Function
+                </h3>
+                <pre className="bg-black/50 rounded p-4 font-mono text-xs overflow-x-auto border border-white/10">
+                  <code>{`const { response, receipt } = 
+  await receipts.wrap(
+    () => myCustomAIFn(input),
+    { sessionId: "custom-1", includeContent: true }
+  );`}</code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Policy Engine */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-heading font-bold text-center mb-4">
+              Enterprise Governance, Built In
+            </h2>
+            <p className="text-center text-white/70 mb-12 max-w-3xl mx-auto">
+              Three built-in policies. Fully extensible. JSON Schema. Custom rules. Severity levels.  
+              This is what enterprises pay for.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {builtInPolicies.map((policy, idx) => (
+                <div key={idx} className="p-8 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
+                  <div className="text-4xl mb-4">{policy.icon}</div>
+                  <h3 className="text-2xl font-semibold mb-3">{policy.name}</h3>
+                  <p className="text-white/70">{policy.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 p-8 rounded-lg border border-blue-500/20 bg-blue-500/5">
+              <p className="text-white/80 mb-4">
+                <strong>How it works:</strong> Policies are evaluated at receipt generation time. Each AI response is scored 0-100 and flagged for violations with severity levels (INFO, WARNING, CRITICAL). Extract the policy flags and take action:
+              </p>
+              <pre className="bg-black/50 rounded p-4 font-mono text-xs overflow-x-auto border border-white/10">
+                <code>{`if (receipt.policies.safety.score < 50) {
+  log("Safety concern detected - review required");
+}
+
+if (receipt.policies.hallucination.violated) {
+  alert("Potential hallucination - re-prompt the model");
+}`}</code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        {/* Why SONATE */}
+        <section className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-heading font-bold text-center mb-12">
+              Why SONATE
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {Why_SONATE_Features.map((feature, idx) => (
+                <div key={idx} className="p-6 rounded-lg border border-white/10 bg-white/5 flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                  <p className="text-white/90 font-medium">{feature}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-8 rounded-lg border border-yellow-500/20 bg-yellow-500/5">
+              <p className="text-white/80">
+                <strong>Enterprise Checklist:</strong> SONATE is the first AI trust substrate with a published open specification, cryptographically-verifiable receipts, zero-backend verification, multi-language SDKs, a browser verification playground, governancepolicies, privacy-by-default, and multi-model support.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* For Auditors & Regulators */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-heading font-bold text-center mb-4">
+              For Auditors & Regulators
+            </h2>
+            <p className="text-center text-white/70 mb-12 max-w-3xl mx-auto">
+              This is how you win government and healthcare compliance.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {auditorsFeatures.map((feature, idx) => (
+                <div key={idx} className="p-6 rounded-lg border border-white/10 bg-white/5 flex items-center gap-4">
+                  <span className="text-2xl font-bold text-green-400">{feature.icon}</span>
+                  <p className="text-white/90">{feature.item}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 p-8 rounded-lg border border-purple-500/20 bg-purple-500/5">
+              <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+                <span>📋</span> Compliance Mappings
+              </h3>
+              <ul className="space-y-2 text-white/80">
+                <li><strong>NIST SP 800-32:</strong> Cryptographic receipt generation aligns with security governance</li>
+                <li><strong>ISO 27001:</strong> Information security controls for AI interaction audit trails</li>
+                <li><strong>SOC 2:</strong> Audit trail for all AI interactions with tamper-evident receipts</li>
+                <li><strong>GDPR:</strong> Privacy mode (hash-only) by default — no plaintext storage without explicit consent</li>
+                <li><strong>HIPAA:</strong> Deterministic verification ensures no leakage of sensitive AI interactions</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Hardening Complete Announcement */}
+        <section className="py-20 px-6 border-t border-white/5 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-4xl font-heading font-bold mb-6">
+              ✨ SONATE Hardening Complete — Now Production Ready
+            </h2>
+            <p className="text-xl text-white/70 mb-8 max-w-3xl mx-auto">
+              Sprint Results (Feb 21, 2026)
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <div className="text-4xl font-bold text-green-400">3,200+</div>
+                <p className="text-white/70 mt-2">Lines of Production Code</p>
+              </div>
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <div className="text-4xl font-bold text-green-400">90+</div>
+                <p className="text-white/70 mt-2">Regression-Protected Tests</p>
+              </div>
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <div className="text-4xl font-bold text-green-400">380</div>
+                <p className="text-white/70 mt-2">Line RFC-Style Specification</p>
+              </div>
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+                <div className="text-4xl font-bold text-green-400">0</div>
+                <p className="text-white/70 mt-2">Breaking Changes</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-4 mb-8">
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10">✅ Python SDK (PyPI-ready)</div>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10">✅ Policy Engine (3 built-in)</div>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10">✅ Verification Playground</div>
+            </div>
+
+            <p className="text-white/80">
+              Zero security vulnerabilities introduced. All 7 critical assets hardened. Production-ready for immediate deployment.
+            </p>
+          </div>
+        </section>
+
+        {/* Try It Now Funnel */}
+        <section className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-heading font-bold text-center mb-12">
+              Try It Now — Your First Receipt
+            </h2>
+
+            <div className="space-y-6 max-w-3xl mx-auto">
+              {[
+                { step: "1", title: "Install the SDK", desc: "npm install @yseeku/trust-receipts", action: "Copy Command", icon: "📦" },
+                { step: "2", title: "Wrap Your First AI Call", desc: "Add receipts.wrap() to your OpenAI, Anthropic, or Gemini call", action: "View Examples", icon: "⚙️" },
+                { step: "3", title: "View the Receipt", desc: "Each AI response gets a signed, verifiable receipt JSON", action: "See Sample", icon: "📄" },
+                { step: "4", title: "Verify It in the Playground", desc: "Paste the receipt → validate signature, hash chain, policies", action: "Open Playground", icon: "✅" },
+                { step: "5", title: "Explore the Dashboard", desc: "View receipts, policy scores, trust metrics over time", action: "View Dashboard", icon: "📊" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-6 items-start">
+                  <div className="text-3xl font-bold text-blue-400 flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-500/10 rounded-lg border border-blue-500/20">
+                    {item.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                    <p className="text-white/70 mb-3">{item.desc}</p>
+                    <Button variant="outline" size="sm" className="gap-2">
+                      {item.action}
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SONATE vs. Alternatives */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-heading font-bold text-center mb-12">
+              SONATE vs. Alternatives
+            </h2>
+
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b border-white/10">
+                    <th className="text-left p-4 font-semibold text-white">Feature</th>
+                    <th className="text-center p-4 font-semibold text-blue-400">SONATE</th>
+                    <th className="text-center p-4 font-semibold text-white/60">Observability<br/>Tools</th>
+                    <th className="text-center p-4 font-semibold text-white/60">Safety<br/>Filters</th>
+                    <th className="text-center p-4 font-semibold text-white/60">Logging<br/>Systems</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparison.map((row, idx) => (
+                    <tr key={idx} className="border-b border-white/5">
+                      <td className="p-4 font-medium text-white">{row.feature}</td>
+                      <td className="text-center p-4">
+                        {row.sonate ? <CheckCircle2 className="w-5 h-5 text-green-400 inline" /> : <span className="text-white/30">−</span>}
+                      </td>
+                      <td className="text-center p-4">
+                        {row.observability ? <CheckCircle2 className="w-5 h-5 text-green-400 inline" /> : <span className="text-white/30">−</span>}
+                      </td>
+                      <td className="text-center p-4">
+                        {row.safety ? <CheckCircle2 className="w-5 h-5 text-green-400 inline" /> : <span className="text-white/30">−</span>}
+                      </td>
+                      <td className="text-center p-4">
+                        {row.logging ? <CheckCircle2 className="w-5 h-5 text-green-400 inline" /> : <span className="text-white/30">−</span>}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
 

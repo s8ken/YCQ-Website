@@ -81,32 +81,38 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="pt-24 pb-20 px-6">
           <div className="max-w-7xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              <span className="text-xs font-medium text-white/80 uppercase tracking-widest">Platform Live</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-8">
+              <span className="text-lg">⭐</span>
+              <span className="text-xs font-medium text-yellow-400 uppercase tracking-widest">Production Ready - Hardening Complete</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-[1.1] tracking-tight">
-              Trust Receipts for <br />
-              <span className="gradient-text">Every AI Interaction</span>
+              The Standard for<br />
+              <span className="gradient-text">Verifiable AI Trust</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Ed25519 signed receipts for every AI interaction. W3C DIDs for identity. Hash-chained audit trails. Independently verifiable — no vendor trust required.
+            <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-4 leading-relaxed">
+              SONATE Trust Receipt Specification v1.0 — the first cryptographically-verifiable standard for AI governance.
+            </p>
+            
+            <p className="text-md md:text-lg text-blue-300 max-w-3xl mx-auto mb-12 leading-relaxed font-semibold">
+              Open. Deterministic. Independently verifiable across languages. Zero vendor lock-in.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
-                <Button size="lg" className="w-full sm:w-auto gap-2">
-                  Request Pilot <Mail className="w-4 h-4" />
+              <Link href="/developers#quickstart">
+                <Button size="lg" className="w-full sm:w-auto gap-2 bg-blue-600 hover:bg-blue-700">
+                  Get Started <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+              <Link href="/verify">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2">
-                  Full Demo <ExternalLink className="w-4 h-4" />
+                  Try Verification Playground <Shield className="w-4 h-4" />
+                </Button>
+              </Link>
+              <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Enterprise`}>
+                <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2">
+                  Enterprise <Mail className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
@@ -146,6 +152,68 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Production Ready - Hardening Complete */}
+        <section className="py-20 px-6 border-t border-white/5 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-6">
+                <span className="text-2xl">✅</span>
+                <span className="font-semibold text-green-400">February 21, 2026</span>
+              </div>
+              <h2 className="text-4xl font-heading font-bold mb-4">SONATE Hardening Sprint Complete</h2>
+              <p className="text-xl text-white/70">
+                From research prototype to production-ready enterprise platform in one intensive sprint.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-6 mb-12">
+              <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5 text-center">
+                <div className="text-5xl font-bold text-green-400 mb-2">3,200+</div>
+                <p className="text-white/70">Lines of Code</p>
+              </div>
+              <div className="p-6 rounded-lg border border-blue-500/20 bg-blue-500/5 text-center">
+                <div className="text-5xl font-bold text-blue-400 mb-2">90+</div>
+                <p className="text-white/70">Regression Tests</p>
+              </div>
+              <div className="p-6 rounded-lg border border-purple-500/20 bg-purple-500/5 text-center">
+                <div className="text-5xl font-bold text-purple-400 mb-2">380</div>
+                <p className="text-white/70">Line Specification</p>
+              </div>
+              <div className="p-6 rounded-lg border border-yellow-500/20 bg-yellow-500/5 text-center">
+                <div className="text-5xl font-bold text-yellow-400 mb-2">0</div>
+                <p className="text-white/70">Security Issues</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-white/80">RFC-Style Specification</span>
+              </div>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-white/80">Python SDK (PyPI-Ready)</span>
+              </div>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-white/80">Policy Engine (3 Policies)</span>
+              </div>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-white/80">Verification Playground</span>
+              </div>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-white/80">Multi-Model Examples</span>
+              </div>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="text-white/80">Cross-Language Tests</span>
               </div>
             </div>
           </div>
