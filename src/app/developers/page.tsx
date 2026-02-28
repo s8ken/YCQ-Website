@@ -21,6 +21,7 @@ import { API_URL, CONTACT_EMAIL } from "@/lib/site";
 
 const installGenerate = "npm install @yseeku/trust-receipts";
 const installVerify = "npm install @yseeku/verify-sdk";
+const installPython = "pip install sonate-trust-receipts";
 
 const generateExample = `import { TrustReceipts } from "@yseeku/trust-receipts";
 import OpenAI from "openai";
@@ -58,6 +59,21 @@ if (result.valid) {
 } else {
   console.error("Verification failed:", result.errors);
 }`;
+
+const verifyExamplePython = `from sonate_trust_receipts import verify_receipt
+
+receipt = {
+    "id": "rec_9f3a2b1c8d...",
+    "contentHash": "...",
+    "signature": "...",
+    "publicKey": "...",
+    # ... full receipt JSON
+}
+
+result = verify_receipt(receipt)
+print(result.valid)          # True
+print(result.trustScore)     # 72.0
+print(result.chainValid)     # True`;
 
 const curlGenerate = `curl -X POST ${API_URL}/public-demo/generate \\
   -H "Content-Type: application/json" \\
@@ -320,8 +336,99 @@ export default function DevelopersPage() {
         {/* Quickstart – SDK Focus */}
         <section id="quickstart" className="py-20 px-6 border-t border-white/5 bg-white/[0.03]">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16">
-              Add Verifiable Trust in Minutes
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-8">
+              Install the Verification SDKs
+            </h2>
+            
+            <p className="text-xl text-white/70 text-center mb-16 max-w-3xl mx-auto">
+              Verify any SONATE Trust Receipt in your own code — no account, no API key, no vendor dependency.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
+              {/* JavaScript / TypeScript */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                    <Code className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-semibold">JavaScript / TypeScript</h3>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-white/60">Install</span>
+                    <button
+                      onClick={() => copyToClipboard(installGenerate, 'js-install')}
+                      className="text-xs text-white/40 hover:text-white flex items-center gap-1"
+                    >
+                      {copied === 'js-install' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                      {copied === 'js-install' ? 'Copied' : 'Copy'}
+                    </button>
+                  </div>
+                  <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm overflow-x-auto">
+                    <code>{installGenerate}</code>
+                  </pre>
+                </div>
+              </div>
+
+              {/* Python */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+                    <Terminal className="w-6 h-6 text-yellow-400" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-semibold">Python</h3>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-white/60">Install</span>
+                    <button
+                      onClick={() => copyToClipboard(installPython, 'py-install')}
+                      className="text-xs text-white/40 hover:text-white flex items-center gap-1"
+                    >
+                      {copied === 'py-install' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                      {copied === 'py-install' ? 'Copied' : 'Copy'}
+                    </button>
+                  </div>
+                  <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm overflow-x-auto">
+                    <code>{installPython}</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-16">
+              <h3 className="text-2xl font-heading font-semibold text-center mb-8">Quick Verify Example (Python)</h3>
+              
+              <div className="max-w-3xl mx-auto">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-white/60">Usage</span>
+                  <button
+                    onClick={() => copyToClipboard(verifyExamplePython, 'py-verify-example')}
+                    className="text-xs text-white/40 hover:text-white flex items-center gap-1"
+                  >
+                    {copied === 'py-verify-example' ? <CheckCircle2 className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                    {copied === 'py-verify-example' ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <pre className="bg-white/5 rounded-lg border border-white/10 p-4 font-mono text-sm overflow-x-auto whitespace-pre-wrap">
+                  <code>{verifyExamplePython}</code>
+                </pre>
+                
+                <div className="mt-6 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                  <p className="text-sm text-white/80">
+                    <strong>Both packages are MIT-licensed</strong>, fully open-source, and include the complete receipt schema, Ed25519 verification, and hash-chain validation.
+                  </p>
+                  <p className="text-sm text-white/70 mt-2">
+                    The Python package also ships with <strong>digital attestations</strong> so enterprises can cryptographically confirm the package itself was built from the public GitHub source.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12">
+              Full SDK Documentation
             </h2>
 
             <div className="grid md:grid-cols-2 gap-12">

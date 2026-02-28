@@ -109,6 +109,43 @@ graph TD
 - **Status Dashboard**: System health and uptime metrics
 - **Community Forum**: Developer support and discussions
 
+### 📦 SDKs
+
+#### JavaScript / TypeScript SDK
+```bash
+npm install @yseeku/trust-receipts
+```
+
+#### Python SDK (just shipped!)
+```bash
+pip install sonate-trust-receipts
+```
+
+**Quick Verify Example (Python)**:
+```python
+from sonate_trust_receipts import verify_receipt
+
+receipt = {
+    "id": "rec_9f3a2b1c8d...",
+    "contentHash": "...",
+    "signature": "...",
+    "publicKey": "...",
+    # ... full receipt JSON
+}
+
+result = verify_receipt(receipt)
+print(result.valid)          # True
+print(result.trustScore)     # 72.0
+print(result.chainValid)     # True
+```
+
+Both packages are MIT-licensed, fully open-source, and include:
+- Complete receipt schema
+- Ed25519 verification
+- Hash-chain validation
+
+The Python package also ships with **digital attestations** so enterprises can cryptographically confirm the package itself was built from the public GitHub source.
+
 ## 📁 Project Structure
 
 ```
