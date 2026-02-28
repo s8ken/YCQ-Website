@@ -73,7 +73,8 @@ receipt = {
 result = verify_receipt(receipt)
 print(result.valid)          # True
 print(result.trustScore)     # 72.0
-print(result.chainValid)     # True`;
+print(result.chainValid)     # True
+print(result.principles)     # { 'consent': 88.5, 'inspection': 92.0, ... }`;
 
 const curlGenerate = `curl -X POST ${API_URL}/public-demo/generate \\
   -H "Content-Type: application/json" \\
@@ -377,7 +378,7 @@ export default function DevelopersPage() {
                   <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
                     <Terminal className="w-6 h-6 text-yellow-400" />
                   </div>
-                  <h3 className="text-2xl font-heading font-semibold">Python</h3>
+                  <h3 className="text-2xl font-heading font-semibold">Python SDK — Now Live on PyPI</h3>
                 </div>
 
                 <div>
