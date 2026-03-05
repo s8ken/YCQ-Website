@@ -95,22 +95,24 @@ export default function HomePage() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-[1.1] tracking-tight">
-              The Standard for<br />
-              <span className="gradient-text">Verifiable AI Trust</span>
+              AI actions should be<br />
+              <span className="gradient-text">verifiable.</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-blue-300 max-w-3xl mx-auto mb-4 font-semibold">
-              The Open Standard for Cryptographically-Verifiable AI Governance
+              SONATE creates cryptographic receipts for every AI decision.
             </p>
             
             <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed">
-              SONATE Trust Receipt Specification v1.0 — Ed25519-signed receipts, hash-chained audit trails, independently verifiable. No vendor lock-in. No backend required.
+              The Open Standard for AI Trust. Signed, hash-chained, and verifiable
+              independent of the provider. Experience the YSEEKU enterprise orchestration 
+              platform in action.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <Link href="/developers#quickstart">
+              <Link href="https://www.npmjs.com/package/sonate-receipt" target="_blank">
                 <Button size="lg" className="w-full sm:w-auto gap-2 bg-blue-600 hover:bg-blue-700">
-                  Get Started <ArrowRight className="w-4 h-4" />
+                  npm install sonate-receipt <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
               <Link href="/developers#specification">
@@ -118,9 +120,9 @@ export default function HomePage() {
                   Read the Specification <BookOpen className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link href="/verify">
+              <Link href={DEMO_URL} target="_blank">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2">
-                  Verify a Receipt <Shield className="w-4 h-4" />
+                  Enter Platform Demo <Zap className="w-4 h-4" />
                 </Button>
               </Link>
               <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Enterprise`}>
