@@ -76,24 +76,41 @@ export default function RoadmapPage() {
       ]
     },
     {
-      phase: "Phase 4: Adaptive Governance Systems (Planned)",
+      phase: "Phase 3: Autonomous Governance & Intelligence",
+      status: "complete",
+      date: "Delivered",
+      description: "From static rule enforcement to autonomous AI governance with emergent behavior detection.",
+      enables: "Continuous, adaptive oversight that detects risks no static policy could anticipate.",
+      items: [
+        { title: "Overseer Agent (Brain Cycle)", status: "complete", desc: "Autonomous governance agent: Sense → Analyze → Plan → Execute → Measure → Learn" },
+        { title: "Trust Kernel Architecture", status: "complete", desc: "Constitutional framework defining the Overseer's own boundaries — refusals as a feature" },
+        { title: "Emergence Detection (Bedau Index)", status: "complete", desc: "Computational emergence index identifies novel patterns across agent workflows" },
+        { title: "Multi-Model Comparison Lab", status: "complete", desc: "Run same prompt across OpenAI, Anthropic, Gemini — compare trust scores, latency, compliance" },
+        { title: "Compliance Reporting Engine", status: "complete", desc: "Automated compliance report generation with policy violation summaries" },
+        { title: "Prompt Safety Scoring", status: "complete", desc: "Real-time prompt risk assessment with injection and jailbreak detection" },
+        { title: "Live Alerting System", status: "complete", desc: "Real-time trust violation alerts, consent withdrawals, and emergence notifications" },
+        { title: "30+ Page Governance Dashboard", status: "complete", desc: "Trust trends, agent comparison, drift monitoring, experiment tracking, audit trails" },
+      ]
+    },
+    {
+      phase: "Phase 4: Adaptive Governance & Scale (Planned)",
       status: "planned",
       date: "Planned",
-      description: "Moving from static enforcement to longitudinal intelligence.",
-      enables: "Continuous governance across AI workflows with proactive risk detection.",
+      description: "Multi-agent coordination, on-chain anchoring, and governance marketplace.",
+      enables: "Enterprise-scale governance across multi-agent workflows with immutable audit trails.",
       items: [
-        { title: "Longitudinal Behavior Analysis", status: "planned", desc: "Detect structural shifts in model outputs, reasoning patterns, volatility, and policy alignment across time windows" },
-        { title: "Emergent Workflow Risk Detection", status: "planned", desc: "Identify risk patterns that do not appear in single interactions but emerge across chained agent actions" },
-        { title: "Policy Drift Monitoring", status: "planned", desc: "Detect gradual degradation in safety, compliance, or trust metrics before thresholds are violated" },
-        { title: "Adaptive Remediation Engine", status: "planned", desc: "Recommend or automatically apply mitigations (re-prompting, constraint tightening, human escalation)" },
-        { title: "Governance Simulation Mode", status: "planned", desc: "Replay historical sessions under new policy versions to evaluate impact before deployment" },
-        { title: "Autonomous Advisory Mode", status: "planned", desc: "System-generated risk summaries and governance insights for operators and compliance teams" },
+        { title: "Multi-Agent Swarm Governance", status: "planned", desc: "Governance protocols for coordinated multi-agent workflows with delegation and oversight chains" },
+        { title: "On-Chain Receipt Anchoring", status: "planned", desc: "Anchor receipt hashes to blockchain for immutable, third-party-verifiable audit trails" },
+        { title: "Governance Policy Marketplace", status: "planned", desc: "Shareable, composable policy templates for industry-specific compliance requirements" },
+        { title: "Cross-Organization Trust Federation", status: "planned", desc: "Enable multiple organizations to verify each other's AI governance through shared trust protocols" },
+        { title: "Advanced Drift Prediction", status: "planned", desc: "ML-based prediction of governance drift before threshold violations occur" },
+        { title: "Governance Simulation Sandbox", status: "planned", desc: "Replay historical sessions under new policy versions to evaluate impact before deployment" },
       ]
     }
   ];
 
   const getNoteText = () => {
-    return "As AI systems become agentic and persistent, governance must extend beyond single interactions. Phase 4 introduces adaptive oversight across sessions, workflows, and model behavior over time.";
+    return "As AI systems become agentic and persistent, governance must extend beyond single organizations. Phase 4 introduces cross-organizational trust federation, on-chain anchoring, and governance marketplaces for the multi-agent era.";
   };
 
   const getStatusIcon = (status: string) => {
@@ -233,7 +250,7 @@ export default function RoadmapPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl font-heading font-bold mb-6">Production Infrastructure Live Today</h2>
             <p className="text-white/60 mb-8">
-              Core platform complete. Phases 1–3 deployed and production-ready. Expansion phases (Phase 4+) underway.
+              Phases 1–3 deployed and production-ready. Autonomous governance, emergence detection, and multi-model comparison live today. Phase 4 expansion underway.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>

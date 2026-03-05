@@ -238,47 +238,47 @@ export default function HomePage() {
 
             <div className="grid md:grid-cols-4 gap-6 mb-12">
               <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5 text-center">
-                <div className="text-5xl font-bold text-green-400 mb-2">3,200+</div>
-                <p className="text-white/70">Lines of Code</p>
+                <div className="text-5xl font-bold text-green-400 mb-2">10</div>
+                <p className="text-white/70">Core Packages</p>
               </div>
               <div className="p-6 rounded-lg border border-blue-500/20 bg-blue-500/5 text-center">
-                <div className="text-5xl font-bold text-blue-400 mb-2">90+</div>
-                <p className="text-white/70">Regression Tests</p>
+                <div className="text-5xl font-bold text-blue-400 mb-2">28+</div>
+                <p className="text-white/70">Backend Services</p>
               </div>
               <div className="p-6 rounded-lg border border-purple-500/20 bg-purple-500/5 text-center">
-                <div className="text-5xl font-bold text-purple-400 mb-2">380</div>
-                <p className="text-white/70">Line Specification</p>
+                <div className="text-5xl font-bold text-purple-400 mb-2">30+</div>
+                <p className="text-white/70">Dashboard Pages</p>
               </div>
               <div className="p-6 rounded-lg border border-yellow-500/20 bg-yellow-500/5 text-center">
-                <div className="text-5xl font-bold text-yellow-400 mb-2">0</div>
-                <p className="text-white/70">Security Issues</p>
+                <div className="text-5xl font-bold text-yellow-400 mb-2">3</div>
+                <p className="text-white/70">Cross-Language SDKs</p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-4">
               <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-white/80">RFC-Style Specification</span>
+                <span className="text-white/80">RFC-Style Specification (380 lines)</span>
               </div>
               <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-white/80">Python SDK (PyPI-Ready)</span>
+                <span className="text-white/80">Autonomous Overseer Agent</span>
               </div>
               <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-white/80">Policy Engine (3 Policies)</span>
+                <span className="text-white/80">Emergence Detection (Bedau Index)</span>
               </div>
               <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-white/80">Verification Playground</span>
+                <span className="text-white/80">Multi-Model Comparison Lab</span>
               </div>
               <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-white/80">Multi-Model Examples</span>
+                <span className="text-white/80">Real-time Governance Dashboard</span>
               </div>
               <div className="p-4 rounded-lg bg-white/5 border border-white/10 flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-white/80">Cross-Language Tests</span>
+                <span className="text-white/80">90+ Regression Tests</span>
               </div>
             </div>
           </div>
@@ -309,6 +309,66 @@ export default function HomePage() {
                   <p className="text-sm text-white/50">{feature.description}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Autonomous Governance: The Overseer */}
+        <section className="py-20 px-6 border-t border-white/5 bg-gradient-to-r from-amber-900/20 to-orange-900/20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
+                <Brain className="w-4 h-4 text-amber-400" />
+                <span className="text-xs font-medium text-amber-400 uppercase tracking-widest">Beyond Static Rules</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">The Overseer: Autonomous AI Governance</h2>
+              <p className="text-white/60 max-w-3xl mx-auto">
+                Static policy engines catch known violations. The Overseer is a constitutional governance agent that continuously monitors, 
+                reasons about, and adapts to emergent AI behavior — operating under a Trust Kernel that defines what it can and cannot do.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+              {[
+                { step: "Sense", desc: "Ingest trust receipts, alerts, drift signals in real-time", color: "from-blue-500 to-blue-600" },
+                { step: "Analyze", desc: "Evaluate patterns against constitutional principles", color: "from-purple-500 to-purple-600" },
+                { step: "Plan", desc: "Generate governance actions within Trust Kernel bounds", color: "from-amber-500 to-amber-600" },
+                { step: "Execute", desc: "Apply mitigations: re-prompt, constrain, escalate, or refuse", color: "from-green-500 to-green-600" },
+                { step: "Measure", desc: "Track intervention effectiveness via CIQ metrics", color: "from-pink-500 to-pink-600" },
+                { step: "Learn", desc: "Adapt governance strategies based on outcomes", color: "from-orange-500 to-orange-600" },
+              ].map((item, i) => (
+                <div key={i} className="glass-card p-4 text-center">
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-3`}>
+                    <span className="font-bold text-xs text-white">{i + 1}</span>
+                  </div>
+                  <h3 className="font-heading font-semibold text-sm mb-1">{item.step}</h3>
+                  <p className="text-xs text-white/50">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="glass-card p-6">
+                <AlertTriangle className="w-6 h-6 text-amber-400 mb-4" />
+                <h3 className="font-heading font-semibold mb-2">Emergence Detection</h3>
+                <p className="text-sm text-white/60">
+                  Uses the Bedau computational emergence index to detect novel behavioral patterns that don&apos;t appear in any single interaction but emerge across agent workflows.
+                </p>
+              </div>
+              <div className="glass-card p-6">
+                <Shield className="w-6 h-6 text-blue-400 mb-4" />
+                <h3 className="font-heading font-semibold mb-2">Trust Kernel</h3>
+                <p className="text-sm text-white/60">
+                  Constitutional framework defining the Overseer&apos;s own boundaries. Refusals are a feature, not a bug — the system can refuse unsafe actions even when instructed.
+                </p>
+              </div>
+              <div className="glass-card p-6">
+                <Activity className="w-6 h-6 text-green-400 mb-4" />
+                <h3 className="font-heading font-semibold mb-2">Live Governance Dashboard</h3>
+                <p className="text-sm text-white/60">
+                  30+ pages of real-time governance controls. Trust trends, agent comparisons, policy violations, drift monitoring, compliance reports — all live.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -532,12 +592,12 @@ receipt = await wrap(
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { title: "Policy Engine v1", desc: "Built-in Safety, Hallucination, and Compliance policies. Extensible JSON Schema rules." },
-                { title: "Privacy-by-Default", desc: "Hash-only mode for GDPR/HIPAA. Never transmit raw content without consent." },
-                { title: "W3C DID Identity", desc: "Decentralized identifiers for platforms and agents. Standard did:web with public key resolution." },
-                { title: "Zero-Backend Verification", desc: "Enterprise customers can verify receipts without calling home. Full audit autonomy." },
-                { title: "NIST/ISO Alignment", desc: "Mapped to NIST SP 800-32, ISO 27001, SOC2 Type II, and GDPR Article 22." },
-                { title: "Custom Policy Support", desc: "Build domain-specific policies. Patent scores, medical accuracy, regulatory compliance." },
+                { title: "Autonomous Overseer Agent", desc: "Constitutional governance brain that monitors, reasons, and intervenes autonomously — with built-in refusal capabilities." },
+                { title: "Multi-Model Comparison Lab", desc: "Run the same prompt across OpenAI, Anthropic, Gemini side-by-side. Compare trust scores, latency, and policy compliance." },
+                { title: "Emergence Detection", desc: "Bedau computational emergence index identifies novel patterns across agent workflows that no single interaction reveals." },
+                { title: "30+ Page Governance Dashboard", desc: "Trust trends, agent performance, policy violations, drift monitoring, compliance reports, experiment tracking — all real-time." },
+                { title: "Provider-Agnostic Gateway", desc: "Single API for OpenAI, Anthropic, Gemini, local LLMs. Switch models without changing governance infrastructure." },
+                { title: "Privacy-by-Default", desc: "Hash-only mode for GDPR/HIPAA. W3C DID identity. Zero-backend verification. Full audit autonomy." },
               ].map((item, i) => (
                 <div key={i} className="glass-card p-6">
                   <CheckCircle2 className="w-6 h-6 text-blue-400 mb-4" />
@@ -638,9 +698,11 @@ receipt = await wrap(
                 <tbody>
                   {[
                     { feature: "Cryptographic Receipts", sonate: true, alt1: false, alt2: false, alt3: false },
+                    { feature: "Autonomous Governance Agent", sonate: true, alt1: false, alt2: false, alt3: false },
+                    { feature: "Emergence Detection", sonate: true, alt1: false, alt2: false, alt3: false },
                     { feature: "Zero-Backend Verification", sonate: true, alt1: false, alt2: false, alt3: false },
                     { feature: "Privacy-by-Default (Hash-Only)", sonate: true, alt1: false, alt2: false, alt3: false },
-                    { feature: "Multi-Model Support", sonate: true, alt1: true, alt2: true, alt3: true },
+                    { feature: "Multi-Model Comparison", sonate: true, alt1: true, alt2: false, alt3: false },
                     { feature: "Policy Engine", sonate: true, alt1: false, alt2: true, alt3: false },
                     { feature: "Open Specification", sonate: true, alt1: false, alt2: false, alt3: false },
                     { feature: "Cross-Language SDKs", sonate: true, alt1: true, alt2: false, alt3: true },
@@ -794,7 +856,7 @@ receipt = await wrap(
                 {
                   step: "5",
                   title: "Launch Your Pilot",
-                  desc: "Work with our team on a 12-week pilot. $50K-150K typically.",
+                  desc: "Work with our team to scope and launch a governance pilot for your organization.",
                   link: `mailto:${CONTACT_EMAIL}?subject=SONATE Pilot`,
                   linkText: "Request Pilot"
                 },
