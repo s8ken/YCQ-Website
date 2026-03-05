@@ -22,7 +22,8 @@ import {
   BookOpen,
   Zap,
   Eye,
-  Check
+  Check,
+  Play
 } from "lucide-react";
 import Link from "next/link";
 import { DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
@@ -163,6 +164,68 @@ export default function HomePage() {
                       <span className="text-green-400">94/100 PASS</span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* See It In Action — Demo Videos */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                <Play className="w-4 h-4 text-blue-400" />
+                <span className="text-xs font-medium text-blue-400 uppercase tracking-widest">See It In Action</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Platform Demo</h2>
+              <p className="text-white/60 max-w-2xl mx-auto">
+                Watch SONATE in action — from trust receipt generation to the full governance dashboard.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Full Platform Demo */}
+              <div className="glass-card overflow-hidden">
+                <video
+                  className="w-full aspect-video bg-black"
+                  controls
+                  preload="metadata"
+                  poster=""
+                >
+                  <source src="/sonate-demo-full.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="p-5">
+                  <h3 className="text-lg font-heading font-semibold mb-2 flex items-center gap-2">
+                    <Eye className="w-5 h-5 text-blue-400" />
+                    Full Platform Walkthrough
+                  </h3>
+                  <p className="text-sm text-white/60">
+                    Complete overview of the SONATE governance dashboard — agents, trust scores, Overseer brain cycles, compliance reports, and real-time monitoring.
+                  </p>
+                </div>
+              </div>
+
+              {/* Trust Demo */}
+              <div className="glass-card overflow-hidden">
+                <video
+                  className="w-full aspect-video bg-black"
+                  controls
+                  preload="metadata"
+                  poster=""
+                >
+                  <source src="/sonate-trust-demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="p-5">
+                  <h3 className="text-lg font-heading font-semibold mb-2 flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-green-400" />
+                    Trust Receipt Flow
+                  </h3>
+                  <p className="text-sm text-white/60">
+                    See Ed25519-signed trust receipts generated in real-time — hash-chained, independently verifiable, with full SONATE principle scoring.
+                  </p>
                 </div>
               </div>
             </div>
