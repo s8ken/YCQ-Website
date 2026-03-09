@@ -15,7 +15,14 @@ import {
   Copy,
   Code,
   ArrowRight,
-  Info
+  Info,
+  Share2,
+  Lock,
+  Eye,
+  FileText,
+  Link2,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 import { API_URL, DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 
@@ -58,6 +65,7 @@ export default function VerifyPage() {
   const [receipt, setReceipt] = useState<ReceiptToVerify | null>(null);
   const [copied, setCopied] = useState(false);
   const [showSampleReceipt, setShowSampleReceipt] = useState(false);
+  const [sonateExpanded, setSonateExpanded] = useState(false);
 
   // Sample receipt for testing
   const sampleReceipt = {
@@ -338,6 +346,24 @@ export default function VerifyPage() {
     }
   };
 
+  const shareResult = () => {
+    if (overallStatus && checks.length > 0) {
+      const shareText = `I verified a SONATE trust receipt. Status: ${overallStatus.toUpperCase()}`;
+      const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+      
+      if (navigator.share) {
+        navigator.share({
+          title: 'SONATE Receipt Verification',
+          text: shareText,
+          url: shareUrl,
+        }).catch(console.error);
+      } else {
+        navigator.clipboard.writeText(`${shareText}\n\n${shareUrl}`);
+        alert('Share link copied to clipboard!');
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-blue-500/30">
       {/* Background Effects */}
@@ -361,6 +387,54 @@ export default function VerifyPage() {
             <p className="text-lg text-white/60 max-w-2xl mx-auto mb-8">
               Verify any SONATE trust receipt independently. Paste the receipt JSON below to check its cryptographic signature and integrity.
             </p>
+          </div>
+        </section>
+
+                {/* Trust Badges Strip */}
+        <section className="px-6 pb-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+              <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10">
+                <Lock className="w-4 h-4 text-green-400" />
+                <span className="text-white/70">Ed25519 Signed</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10">
+                <Shield className="w-4 h-4 text-blue-400" />
+                <span className="text-white/70">Cryptographic Integrity</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10">
+                <Link2 className="w-4 h-4 text-purple-400" />
+                <span className="text-white/70">Hash Chain Verified</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10">
+                <Eye className="w-4 h-4 text-amber-400" />
+                <span className="text-white/70">Independent Audit</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Public Key Display */}
+        <section className="px-6 pb-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+              <div className="flex items-center gap-2 text-white/60">
+                <Lock className="w-4 h-4 text-green-400" />
+                <span className="text-sm">Ed25519 Signed</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/60">
+                <Shield className="w-4 h-4 text-blue-400" />
+                <span className="text-sm">SHA-256 Chained</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/60">
+                <Eye className="w-4 h-4 text-purple-400" />
+                <span className="text-sm">Publicly Verifiable</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/60">
+                <Fingerprint className="w-4 h-4 text-amber-400" />
+                <span className="text-sm">Immutable Records</span>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -456,6 +530,15 @@ export default function VerifyPage() {
                 >
                   <Copy className="w-4 h-4" />
                 </Button>
+                <Button
+                  onClick={shareResult}
+                  disabled={!overallStatus}
+                  variant="outline"
+                  size="lg"
+                  className="border-white/20 hover:bg-white/5"
+                >
+                  <Share2 className="w-4 h-4" />
+                </Button>
               </div>
 
               {/* Sample Receipt Badge */}
@@ -518,6 +601,97 @@ export default function VerifyPage() {
                 </div>
               )}
 
+              {/* Trust Chain Visualizer */}
+              {receipt?.chain?.chain_hash && (
+                <div className="mt-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Link2 className="w-4 h-4 text-blue-400" />
+                    <div className="text-sm font-medium text-white/70">Trust Chain Visualization</div>
+                  </div>
+                  <div className="glass-card p-4 border border-blue-500/20">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="text-xs text-white/50 font-mono">
+                        SHA-256 Hash Chain
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs px-2 py-1 rounded bg-blue-500/20 text-blue-300">
+                          Length: {receipt.chain.chain_length || 1}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      {/* Current Receipt */}
+                      <div className="flex items-start gap-3">
+                        <div className="flex flex-col items-center">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <FileText className="w-4 h-4 text-white" />
+                          </div>
+                          <div className="w-0.5 h-8 bg-gradient-to-b from-purple-500/50 to-transparent" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-xs font-medium text-blue-300">Current Receipt</span>
+                            <span className="text-xs text-white/40">#{receipt.chain.chain_length || 1}</span>
+                          </div>
+                          <div className="bg-white/5 rounded border border-white/10 p-2 font-mono text-xs text-white/70 break-all">
+                            {receipt.chain.chain_hash}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Previous Hash */}
+                      {receipt.chain.previous_hash && receipt.chain.previous_hash !== 'GENESIS' && (
+                        <div className="flex items-start gap-3">
+                          <div className="flex flex-col items-center">
+                            <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+                              <span className="text-xs text-white/60">{(receipt.chain.chain_length || 1) - 1}</span>
+                            </div>
+                            <div className="w-0.5 h-8 bg-gradient-to-b from-purple-500/50 to-transparent" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="text-xs font-medium text-white/60">Previous Receipt</span>
+                              <span className="text-xs text-white/40">#{(receipt.chain.chain_length || 1) - 1}</span>
+                            </div>
+                            <div className="bg-white/5 rounded border border-white/10 p-2 font-mono text-xs text-white/50 break-all">
+                              {receipt.chain.previous_hash}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Genesis */}
+                      <div className="flex items-start gap-3">
+                        <div className="flex flex-col items-center">
+                          <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+                            <Lock className="w-3 h-3 text-white/40" />
+                          </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-xs font-medium text-white/40">Genesis Block</span>
+                            <span className="text-xs text-white/40">#0</span>
+                          </div>
+                          <div className="bg-white/5 rounded border border-white/10 p-2 font-mono text-xs text-white/30">
+                            GENESIS
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-white/10">
+                      <div className="flex items-start gap-2">
+                        <Info className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                        <div className="text-xs text-white/50">
+                          Each receipt is cryptographically linked to the previous one via its hash. This creates an immutable chain where tampering with any receipt would break all subsequent links.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Receipt Details (if parsed) */}
               {receipt && (
                 <div className="mt-6 p-4 bg-white/5 border border-white/10 rounded-lg">
@@ -556,6 +730,99 @@ export default function VerifyPage() {
                         <span className="text-green-400 break-all">{receipt.chain.chain_hash.substring(0, 40)}...</span>
                       </div>
                     )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* SONATE Explainer */}
+        <section className="py-16 px-6 border-t border-white/5">
+          <div className="max-w-4xl mx-auto">
+            <div className="glass-card p-6 md:p-8">
+              <button
+                onClick={() => setSonateExpanded(!sonateExpanded)}
+                className="w-full flex items-center justify-between text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-heading font-bold">What is SONATE?</h2>
+                    <p className="text-sm text-white/50">The Sovereign Ownership and Networked Agent Trust Engine</p>
+                  </div>
+                </div>
+                {sonateExpanded ? (
+                  <ChevronUp className="w-5 h-5 text-white/40" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-white/40" />
+                )}
+              </button>
+
+              {sonateExpanded && (
+                <div className="mt-6 space-y-6">
+                  <p className="text-white/70 leading-relaxed">
+                    SONATE is a cryptographic protocol that provides verifiable trust for AI systems. It creates immutable records of AI interactions using Ed25519 signatures and SHA-256 hash chains, enabling independent verification of AI behavior.
+                  </p>
+
+                  <div>
+                    <h3 className="text-lg font-heading font-semibold mb-3 flex items-center gap-2">
+                      <Lock className="w-5 h-5 text-blue-400" />
+                      Six Constitutional Principles
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                        <div className="font-medium text-blue-300 mb-1">1. Consent</div>
+                        <p className="text-xs text-white/50">All AI interactions require explicit human consent before execution</p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                        <div className="font-medium text-green-300 mb-1">2. Inspection</div>
+                        <p className="text-xs text-white/50">Full audit trail of all AI decisions and reasoning is preserved</p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                        <div className="font-medium text-purple-300 mb-1">3. Validation</div>
+                        <p className="text-xs text-white/50">Continuous verification of AI outputs against safety policies</p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                        <div className="font-medium text-amber-300 mb-1">4. Override</div>
+                        <p className="text-xs text-white/50">Human operators can immediately override AI decisions</p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                        <div className="font-medium text-red-300 mb-1">5. Disconnect</div>
+                        <p className="text-xs text-white/50">Ability to immediately terminate any AI connection</p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                        <div className="font-medium text-cyan-300 mb-1">6. Recognition</div>
+                        <p className="text-xs text-white/50">Human operators are recognized as the ultimate authority</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                    <div className="flex items-start gap-2">
+                      <Info className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium text-blue-300 mb-1">Trust Receipts</div>
+                        <p className="text-xs text-white/60">
+                          Each AI interaction generates a cryptographically signed trust receipt containing the prompt, response, trust scores, and policy compliance metrics. These receipts form an immutable chain that cannot be tampered with.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-center gap-4 pt-2">
+                    <Link href="/how-it-works">
+                      <Button variant="ghost" size="sm" className="gap-2 text-purple-400 hover:text-purple-300">
+                        Learn More <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </Link>
+                    <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+                      <Button variant="ghost" size="sm" className="gap-2 text-blue-400 hover:text-blue-300">
+                        Try Full Demo <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               )}
