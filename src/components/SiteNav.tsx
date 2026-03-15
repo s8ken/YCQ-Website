@@ -7,20 +7,32 @@ import { Shield, ExternalLink, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DEMO_URL, CONTACT_EMAIL } from "@/lib/site";
 
-const NAV_SECTIONS = [
+interface NavItem {
+  label: string;
+  href: string;
+  coming?: boolean;
+  external?: boolean;
+}
+
+interface NavSection {
+  label: string;
+  items: NavItem[];
+}
+
+const NAV_SECTIONS: NavSection[] = [
   {
     label: "Product",
     items: [
       { label: "How It Works", href: "/how-it-works" },
       { label: "Archive Validation", href: "/archive-validation" },
-      { label: "Use Cases", href: "/use-cases", coming: true },
+      { label: "Use Cases", href: "/use-cases" },
     ],
   },
   {
     label: "Developers",
     items: [
       { label: "Documentation", href: "/developers" },
-      { label: "API Reference", href: "/api-docs", coming: true },
+      { label: "API Reference", href: "/api-docs" },
       { label: "SDK", href: "https://github.com/s8ken/sonate-verify-sdk", external: true },
     ],
   },
