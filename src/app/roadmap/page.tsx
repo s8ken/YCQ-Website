@@ -26,7 +26,7 @@ export default function RoadmapPage() {
         { title: "Hash-Chained Receipts", status: "complete", desc: "Each receipt links to previous - tamper-evident audit trail" },
         { title: "W3C DID Implementation", status: "complete", desc: "did:web method with /.well-known/did.json resolution" },
         { title: "Public Key Endpoint", status: "complete", desc: "/.well-known/sonate-pubkey for independent verification" },
-        { title: "6-Constraint Policy Engine", status: "complete", desc: "Real-time governance scoring (<50ms)" },
+        { title: "6-Constraint Policy Engine", status: "complete", desc: "Low-latency governance scoring" },
         { title: "Independent Verification Page", status: "complete", desc: "Verify any receipt at /verify without account" },
         { title: "Multi-Agent DIDs", status: "complete", desc: "Each agent gets own DID with platform as controller" },
         { title: "Domain Linkage Proofs", status: "complete", desc: "/.well-known/did-configuration.json for DID verification" },
@@ -151,7 +151,7 @@ export default function RoadmapPage() {
               Roadmap
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              What we've built, what we're building, and where we're headed. No vapor - just shipped features and committed plans.
+              What we&apos;ve built, what we&apos;re building, and where we&apos;re headed. No vapor - just shipped features and committed plans.
             </p>
           </div>
         </section>
@@ -236,8 +236,8 @@ export default function RoadmapPage() {
                 <div>
                   <h3 className="font-heading font-semibold mb-2">About This Roadmap</h3>
                   <p className="text-sm text-white/60">
-                    "Delivered" phases are production-ready and live. "Planned" phases represent committed directions - timelines may shift based on market demand and customer feedback. 
-                    We don't announce features until confident we can deliver them with enterprise quality.
+                    &quot;Delivered&quot; phases represent modules implemented in the current platform or public demos. &quot;Planned&quot; phases represent committed directions - timelines may shift based on market demand and customer feedback. 
+                    We don&apos;t announce features until confident we can deliver them with enterprise quality.
                   </p>
                 </div>
               </div>
@@ -248,9 +248,9 @@ export default function RoadmapPage() {
         {/* CTA */}
         <section className="py-16 px-6 border-t border-white/5">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-heading font-bold mb-6">Production Infrastructure Live Today</h2>
+            <h2 className="text-2xl font-heading font-bold mb-6">Current Platform Footprint</h2>
             <p className="text-white/60 mb-8">
-              Phases 1–3 deployed and production-ready. Autonomous governance, emergence detection, and multi-model comparison live today. Phase 4 expansion underway.
+              Phases 1–3 describe the current platform footprint: live trust receipts, deployed verification infrastructure, and advanced governance modules in active development and demos. Phase 4 expansion is underway.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
@@ -275,7 +275,7 @@ export default function RoadmapPage() {
                 <Shield className="w-4 h-4 text-white" />
               </div>
               <span className="font-heading font-bold">SONATE</span>
-              <span className="text-white/40 text-sm">by YCQ Labs</span>
+              <span className="text-white/40 text-sm">by yseeku</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>

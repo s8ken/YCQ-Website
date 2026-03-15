@@ -95,13 +95,13 @@ export default function DevelopersPage() {
   const [publicKeyError, setPublicKeyError] = useState<string | null>(null);
 
   const cryptographicFeatures = [
-    { label: "RFC 8785 Canonical JSON", icon: "✓" },
+    { label: "Deterministic Canonical JSON", icon: "✓" },
     { label: "SHA-256 Hashing", icon: "✓" },
     { label: "Ed25519 Signatures", icon: "✓" },
     { label: "Hash-Chained Temporal Ordering", icon: "✓" },
-    { label: "<50ms Verification", icon: "⚡" },
-    { label: "<5KB Per Receipt", icon: "📦" },
-    { label: "Zero-Backend Verification", icon: "🔓" },
+    { label: "Low-Latency Verification Path", icon: "⚡" },
+    { label: "Compact Receipt Payloads", icon: "📦" },
+    { label: "Local Verification Support", icon: "🔓" },
   ];
 
   const builtInPolicies = [
@@ -134,12 +134,12 @@ export default function DevelopersPage() {
   ];
 
   const auditorsFeatures = [
-    { item: "Independent verification (no backend)", icon: "✓" },
+    { item: "Independent local verification", icon: "✓" },
     { item: "Hash-chained audit trails", icon: "✓" },
     { item: "Privacy mode (hash-only by default)", icon: "✓" },
     { item: "Compliance mappings (NIST, ISO 27001, SOC 2)", icon: "✓" },
     { item: "Test vectors for interoperability", icon: "✓" },
-    { item: "Deterministic cryptography (RFC 8785)", icon: "✓" }
+    { item: "Deterministic receipt cryptography", icon: "✓" }
   ];
 
   const comparison = [
@@ -211,7 +211,7 @@ export default function DevelopersPage() {
         } else {
           setPublicKeyError("Failed to load public key");
         }
-      } catch (err) {
+      } catch {
         setPublicKeyError("Network error");
       } finally {
         setPublicKeyLoading(false);
@@ -261,12 +261,12 @@ export default function DevelopersPage() {
             </p>
             
             <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto mb-8">
-              Built on Ed25519, SHA-256, RFC 8785, and hash-chained receipts.  
+              Built on Ed25519, SHA-256, deterministic canonicalization, and hash-chained receipts.  
               Open, deterministic, and independently verifiable across languages.
             </p>
 
             <p className="text-white/60 max-w-3xl mx-auto mb-10">
-              This reframes SONATE from "a product" to "the standard everyone else will follow."
+              This reframes SONATE from &quot;a product&quot; to &quot;the standard everyone else will follow.&quot;
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -621,16 +621,16 @@ export default function DevelopersPage() {
             </h2>
             <div className="prose prose-invert max-w-none space-y-6">
               <p>
-                Every receipt is signed with <strong>Ed25519</strong> — fast, secure, and widely audited. The signature covers a deterministic hash of the entire receipt (RFC 8785 canonical JSON + SHA-256).
+                Every receipt is signed with <strong>Ed25519</strong> — fast, secure, and widely audited. The signature covers a deterministic hash of the entire receipt content.
               </p>
               <p>
-                Receipts are <strong>hash-chained</strong>: each new receipt includes the previous receipt's hash, creating an immutable audit trail without needing a blockchain.
+                Receipts are <strong>hash-chained</strong>: each new receipt includes the previous receipt&apos;s hash, creating an immutable audit trail without needing a blockchain.
               </p>
               <p>
                 Identity uses <strong>W3C Decentralized Identifiers (DIDs)</strong> — agent_did and human_did are resolvable via did:web, allowing anyone to fetch the current public key.
               </p>
               <p>
-                Verification requires <strong>zero API calls</strong> — just the public key and the receipt JSON.
+                Verification can be performed <strong>locally</strong> with the public key and receipt JSON, without relying on your application backend.
               </p>
             </div>
           </div>
@@ -644,10 +644,10 @@ export default function DevelopersPage() {
                 <Clock className="w-6 h-6 text-green-400" /> Performance
               </h3>
               <ul className="space-y-4 text-white/80">
-                <li>Receipt generation: <strong>&lt; 50 ms</strong> overhead</li>
-                <li>Local verification: <strong>&lt; 1 ms</strong></li>
-                <li>Hash chaining: constant-time append</li>
-                <li>Ed25519 signing/verification: ~10-20 us</li>
+                <li>Receipt generation path is designed for low-latency overhead</li>
+                <li>Local verification is fast enough for in-browser and CLI workflows</li>
+                <li>Hash chaining appends incrementally as new receipts are issued</li>
+                <li>Ed25519 signing and verification use standard modern cryptography</li>
               </ul>
             </div>
 
@@ -657,7 +657,7 @@ export default function DevelopersPage() {
               </h3>
               <ul className="space-y-4 text-white/80">
                 <li><strong>Ed25519</strong> signatures — 256-bit security</li>
-                <li><strong>SHA-256</strong> + RFC 8785 canonicalization — deterministic, collision-resistant</li>
+                <li><strong>SHA-256</strong> + deterministic canonicalization — stable, audit-friendly receipt content</li>
                 <li>Hash chaining prevents re-ordering or insertion attacks</li>
                 <li>Policy-as-Code evaluated at generation time</li>
                 <li>No central server required for verification</li>
@@ -717,7 +717,7 @@ export default function DevelopersPage() {
               Cryptography You Can Audit
             </h2>
             <p className="text-center text-white/70 mb-16 max-w-3xl mx-auto">
-              This is the kind of language CISOs and regulators trust.
+              These are the properties technical reviewers can inspect directly.
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -731,7 +731,7 @@ export default function DevelopersPage() {
 
             <div className="mt-12 p-6 rounded-lg border border-blue-500/20 bg-blue-500/5">
               <p className="text-white/80">
-                <strong>What this means:</strong> Every receipt is deterministically signed with Ed25519, verified with SHA-256 canonicalization (RFC 8785), and chained to prevent tampering. Verification happens completely offline — no backend calls, no vendor lock-in.
+                <strong>What this means:</strong> Receipts are deterministically signed with Ed25519, checked with SHA-256-based integrity rules, and chained to make tampering visible. Verification can happen locally without depending on your application backend.
               </p>
             </div>
           </div>
@@ -744,11 +744,11 @@ export default function DevelopersPage() {
               Verify Any Receipt — In Your Browser
             </h2>
             <p className="text-xl text-white/70 mb-8 max-w-3xl mx-auto">
-              This is your "Stripe Checkout" moment for AI trust.
+              This is your &quot;Stripe Checkout&quot; moment for AI trust.
             </p>
             <p className="text-white/70 mb-12 max-w-3xl mx-auto">
               Paste a receipt → verify signature, hash chain, privacy mode, and policy flags.  
-              <strong className="block mt-2 text-blue-300">No backend. No vendor lock-in. No trust required.</strong>
+              <strong className="block mt-2 text-blue-300">Local verification path. Public key based. Provider-independent evidence.</strong>
             </p>
             
             <Link href="/verify">
@@ -759,7 +759,7 @@ export default function DevelopersPage() {
 
             <div className="p-8 rounded-xl border border-purple-500/20 bg-purple-500/5">
               <p className="text-white/80">
-                This proves SONATE works without trusting SONATE. Regulators and auditors love this.
+                This demonstrates that verification does not have to rely on a proprietary dashboard session.
               </p>
             </div>
           </div>

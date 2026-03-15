@@ -23,19 +23,19 @@ export default function HowItWorksPage() {
       icon: MessageSquare,
       title: "1. User Interaction",
       description: "A user sends a message to your AI system. This could be a chatbot, agent, or any LLM-powered application.",
-      detail: "SONATE intercepts the request before it reaches the AI provider."
+      detail: "SONATE can sit in the request path before the AI provider is called."
     },
     {
       icon: Cpu,
       title: "2. AI Response",
       description: "The AI generates a response. SONATE captures both the prompt and the response for evaluation.",
-      detail: "Works with OpenAI, Anthropic, or any LLM provider."
+      detail: "Current integrations support major providers and can be extended to other LLM workflows."
     },
     {
       icon: Scale,
       title: "3. Policy-as-Code Evaluation",
-      description: "Each response scored against six enforceable governance constraints. Adds <50ms overhead per interaction.",
-      detail: "Each principle is scored and weighted to produce an overall trust score (0-100)."
+      description: "Responses can be evaluated against governance constraints in a low-latency scoring path.",
+      detail: "Principle-level outputs can be weighted into an overall trust score when enabled."
     },
     {
       icon: Fingerprint,
@@ -53,7 +53,7 @@ export default function HowItWorksPage() {
       icon: Bell,
       title: "6. Independent Verification",
       description: "Anyone can verify receipts using our public key at /.well-known/sonate-pubkey.",
-      detail: "No trust required - cryptographic verification is mathematical."
+      detail: "Verification can happen locally using the public key and receipt payload."
     },
   ];
 
@@ -112,7 +112,7 @@ export default function HowItWorksPage() {
               How SONATE Works
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              SONATE evaluates every AI interaction against constitutional principles and generates cryptographic proof of compliance.
+              SONATE evaluates supported AI interactions and generates signed receipts that can be independently verified.
             </p>
           </div>
         </section>
@@ -145,7 +145,7 @@ export default function HowItWorksPage() {
             <div className="text-center mb-12">
             <h2 className="text-2xl font-heading font-bold mb-4">Policy-as-Code Evaluation</h2>
               <p className="text-white/60 max-w-2xl mx-auto">
-              Each response scored against six enforceable governance constraints. The weighted scores combine into a single trust score.
+              Responses can be scored against governance constraints, with weighted outputs combined into a single trust score when that mode is enabled.
               </p>
             </div>
 
@@ -176,7 +176,7 @@ export default function HowItWorksPage() {
               <div className="glass-card p-6 text-center">
                 <Fingerprint className="w-10 h-10 text-blue-400 mx-auto mb-4" />
                 <h3 className="font-heading font-semibold mb-2">Trust Receipts</h3>
-                <p className="text-sm text-white/50">Cryptographic proof for every interaction with SHA-256 hash</p>
+                <p className="text-sm text-white/50">Cryptographic proof for supported interactions with SHA-256 receipt IDs and Ed25519 signatures</p>
               </div>
               <div className="glass-card p-6 text-center">
                 <Scale className="w-10 h-10 text-purple-400 mx-auto mb-4" />
@@ -197,7 +197,7 @@ export default function HowItWorksPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl font-heading font-bold mb-6">See It In Action</h2>
             <p className="text-white/60 mb-8">
-              Try the interactive demo to see trust receipts generated in real-time.
+              Try the interactive demo to see signed trust receipts generated and verified live.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href={`mailto:${CONTACT_EMAIL}?subject=SONATE Pilot Interest`}>
@@ -222,7 +222,7 @@ export default function HowItWorksPage() {
                 <Shield className="w-4 h-4 text-white" />
               </div>
               <span className="font-heading font-bold">SONATE</span>
-              <span className="text-white/40 text-sm">by YCQ Labs</span>
+              <span className="text-white/40 text-sm">by yseeku</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>

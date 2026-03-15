@@ -33,7 +33,7 @@ export default function HomePage() {
     {
       icon: Fingerprint,
       title: "Ed25519 Signed Receipts",
-      description: "Every interaction signed with Ed25519 digital signatures. Hash-chained for tamper-evident audit trails. Independently verifiable.",
+      description: "Instrumented interactions can be signed with Ed25519 and linked by hash chain for tamper-evident audit trails and independent verification.",
       status: "Live"
     },
     {
@@ -57,7 +57,7 @@ export default function HomePage() {
     {
       icon: Activity,
       title: "Real-time Policy Scoring",
-      description: "Each response scored against six enforceable governance constraints. Adds <50ms overhead per interaction. Scores from 0–100 with detailed breakdowns.",
+      description: "Responses can be evaluated against governance criteria with score outputs and supporting telemetry designed for low-latency use.",
       status: "Live"
     },
     {
@@ -91,7 +91,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-8">
               <span className="text-lg">⭐</span>
-              <span className="text-xs font-medium text-yellow-400 uppercase tracking-widest">Production Ready - Hardening Complete</span>
+              <span className="text-xs font-medium text-yellow-400 uppercase tracking-widest">Live Trust Receipt Infrastructure</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-[1.1] tracking-tight">
@@ -100,13 +100,12 @@ export default function HomePage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-blue-300 max-w-3xl mx-auto mb-4 font-semibold">
-              SONATE creates cryptographic receipts for every AI decision.
+              SONATE creates cryptographic receipts for instrumented AI interactions.
             </p>
             
             <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed">
-              The Open Standard for AI Trust. Signed, hash-chained, and verifiable
-              independent of the provider. Experience the YSEEKU enterprise orchestration 
-              platform in action.
+              Signed, hash-chained, and independently verifiable trust receipts for AI workflows.
+              Explore the yseeku platform demo and the public verification experience.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -226,7 +225,7 @@ export default function HomePage() {
                     Trust Receipt Flow
                   </h3>
                   <p className="text-sm text-white/60">
-                    See Ed25519-signed trust receipts generated in real-time — hash-chained, independently verifiable, with full SONATE principle scoring.
+                    See signed trust receipts generated live, inspect the proof fields, and verify the signature and chain checks.
                   </p>
                 </div>
               </div>
@@ -267,19 +266,19 @@ export default function HomePage() {
                 <ul className="space-y-4 text-white/70">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Cryptographic proof:</strong> Ed25519-signed receipts for every AI interaction. Tamper-evident via hash chains.</span>
+                    <span><strong>Cryptographic proof:</strong> Ed25519-signed receipts for instrumented AI interactions. Tamper-evident via hash chains.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Independent verification:</strong> Verify receipts in-browser with zero backend dependency. Full audit trail available.</span>
+                    <span><strong>Independent verification:</strong> Verify receipts locally or in-browser using the public key and receipt payload.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Open standard:</strong> RFC 8785 canonicalization, W3C DIDs, cross-language SDKs. No vendor lock-in.</span>
+                    <span><strong>Open verification layer:</strong> Deterministic canonicalization, did:web identities, and cross-language SDKs.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Compliance-ready:</strong> GDPR, HIPAA, SOC2, NIST-aligned. Privacy-by-default.</span>
+                    <span><strong>Compliance-oriented:</strong> Privacy-by-default receipts and evidence models designed to support regulated workflows.</span>
                   </li>
                 </ul>
               </div>
@@ -297,7 +296,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-4xl font-heading font-bold mb-4">SONATE Hardening Sprint Complete</h2>
               <p className="text-xl text-white/70">
-                From research prototype to production-ready enterprise platform in one intensive sprint.
+                From research prototype to a deployed trust-receipt platform baseline in one intensive sprint.
               </p>
             </div>
 
@@ -502,7 +501,7 @@ export default function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">The SONATE Architecture</h2>
               <p className="text-white/60 max-w-2xl mx-auto">
-                Cryptographic proof-of-behavior for every AI interaction. Four-step pipeline from request to independent verification.
+                Cryptographic proof-of-behavior for instrumented AI interactions. Four-step pipeline from request to independent verification.
               </p>
             </div>
 
@@ -698,7 +697,7 @@ receipt = await wrap(
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>RFC 8785 Determinism</strong> — Canonical JSON. Same input → identical hash across implementations.</span>
+                    <span><strong>Deterministic Canonicalization</strong> — Stable receipt content so the same signed payload verifies consistently.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
@@ -950,7 +949,7 @@ receipt = await wrap(
               Ready to Build Verifiable AI?
             </h2>
             <p className="text-white/60 mb-8 max-w-xl mx-auto">
-              SONATE is production-ready today. Start with the verification playground, read the spec, or schedule a governance demo with our team.
+              Start with the verification playground, read the spec, or schedule a governance demo with our team.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/verify">
@@ -980,7 +979,7 @@ receipt = await wrap(
                 <Shield className="w-4 h-4 text-white" />
               </div>
               <span className="font-heading font-bold">SONATE</span>
-              <span className="text-white/40 text-sm">by YCQ Labs</span>
+              <span className="text-white/40 text-sm">by yseeku</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>

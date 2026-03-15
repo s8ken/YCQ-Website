@@ -12,8 +12,6 @@ import {
   CheckCircle2,
   Brain,
   Activity,
-  BarChart3,
-  TrendingUp,
 } from "lucide-react";
 
 export default function InvestorsPage() {
@@ -63,7 +61,7 @@ export default function InvestorsPage() {
             <div className="glass-card p-6">
               <h2 className="text-2xl font-heading font-bold mb-4">The Solution</h2>
               <div className="space-y-3 text-sm text-white/60">
-                <p>SONATE converts every AI interaction into a cryptographically signed trust receipt.</p>
+                <p>SONATE converts instrumented AI interactions into cryptographically signed trust receipts.</p>
                 <div>
                   <div className="text-white/80 mb-2">Each receipt includes:</div>
                   <ul className="list-disc pl-5 space-y-2">
@@ -74,7 +72,7 @@ export default function InvestorsPage() {
                     <li>Ed25519 digital signature</li>
                   </ul>
                 </div>
-                <p>Receipts are independently verifiable via open SDK. Verification requires no API call and no vendor dependency.</p>
+                <p>Receipts are independently verifiable via SDKs and public keys, without depending on the application backend.</p>
                 <p>This creates a tamper-evident execution record for AI systems.</p>
               </div>
             </div>
@@ -84,21 +82,21 @@ export default function InvestorsPage() {
         <section className="py-12 px-6 border-t border-white/5">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl font-heading font-bold mb-6">Architecture</h2>
-            <p className="text-sm text-white/60 mb-6">SONATE operates as an infrastructure layer between applications and model providers. Six core subsystems — all production-deployed.</p>
+            <p className="text-sm text-white/60 mb-6">SONATE operates as an infrastructure layer between applications and model providers. These are the six core subsystems in the current platform and demo environment.</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="glass-card p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <Shield className="w-5 h-5 text-blue-400" />
                   <div className="font-heading font-semibold">Policy Engine</div>
                 </div>
-                <div className="text-sm text-white/60">Real-time governance evaluation (&lt;50ms latency). 6 constitutional principles scored per interaction.</div>
+                <div className="text-sm text-white/60">Low-latency governance evaluation with principle-level scoring on supported interaction paths.</div>
               </div>
               <div className="glass-card p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <FileText className="w-5 h-5 text-purple-400" />
                   <div className="font-heading font-semibold">Receipt Engine</div>
                 </div>
-                <div className="text-sm text-white/60">Deterministic canonicalization (RFC 8785), SHA-256 hashing, Ed25519 signing. Tamper-evident.</div>
+                <div className="text-sm text-white/60">Deterministic canonicalization, SHA-256 hashing, and Ed25519 signing for tamper-evident receipts.</div>
               </div>
               <div className="glass-card p-6">
                 <div className="flex items-center gap-3 mb-3">
@@ -129,7 +127,7 @@ export default function InvestorsPage() {
                 <div className="text-sm text-white/60">Provider-agnostic API. OpenAI, Anthropic, Gemini, local LLMs — one integration, full governance.</div>
               </div>
             </div>
-            <div className="mt-6 text-sm text-white/60">10 packages. 28+ services. 30+ dashboard pages. 3 SDKs. Built by one person. Production-ready today.</div>
+            <div className="mt-6 text-sm text-white/60">10 packages. 28+ services. 30+ dashboard pages. 3 SDKs. Built by one person. Live trust-receipt infrastructure today.</div>
           </div>
         </section>
 
@@ -188,7 +186,7 @@ export default function InvestorsPage() {
                   <li>Advanced compliance features</li>
                 </ul>
               </div>
-              <div className="text-xs text-white/40 pt-4 border-t border-white/10">Platform deployed and production-ready. Enterprise pilot conversations active. Usage-based pricing scales with AI interaction volume.</div>
+              <div className="text-xs text-white/40 pt-4 border-t border-white/10">Trust-receipt infrastructure and public verification endpoints are deployed. Usage-based pricing scales with AI interaction volume.</div>
             </div>
           </div>
         </section>
@@ -200,7 +198,7 @@ export default function InvestorsPage() {
               <div className="space-y-3">
                 <div>
                   <div className="text-sm text-white/80 font-semibold mb-1">First-Mover in AI Non-Repudiation</div>
-                  <p className="text-sm text-white/60">No incumbent has this integration depth. AWS/Azure can't build this without cannibalizing their own vendor lock-in.</p>
+                  <p className="text-sm text-white/60">No incumbent has this integration depth. AWS/Azure can&apos;t build this without cannibalizing their own vendor lock-in.</p>
                 </div>
                 <div>
                   <div className="text-sm text-white/80 font-semibold mb-1">Integrated Stack</div>
@@ -229,14 +227,14 @@ export default function InvestorsPage() {
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="text-sm text-white/80 font-semibold">Phase 2: Complete (Live)</div>
+                    <div className="text-sm text-white/80 font-semibold">Phase 2: Implemented in current platform</div>
                     <div className="text-xs text-white/60">Enterprise dashboard (30+ pages), policy engine, RBAC, SSO, webhooks, key rotation, multi-model gateway</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="text-sm text-white/80 font-semibold">Phase 3: Complete (Live)</div>
+                    <div className="text-sm text-white/80 font-semibold">Phase 3: Demonstrated in current platform</div>
                     <div className="text-xs text-white/60">Autonomous Overseer agent, emergence detection (Bedau Index), multi-model comparison lab, compliance reporting, live alerting</div>
                   </div>
                 </div>
@@ -272,7 +270,7 @@ export default function InvestorsPage() {
             <div className="glass-card p-6">
               <h2 className="text-2xl font-heading font-bold mb-4">Founder &amp; Team</h2>
               <div className="text-sm text-white/60 space-y-3">
-                <p><strong className="text-white">Solo founder</strong> — designed, built, and shipped a full enterprise governance platform in under 12 months. Not a prototype. Production infrastructure.</p>
+                <p><strong className="text-white">Solo founder</strong> — designed, built, and shipped a full trust-infrastructure platform in under 12 months. Beyond prototype, with live public verification infrastructure.</p>
                 <div>
                   <div className="text-white/80 font-semibold mb-2">What&apos;s Been Built (Solo):</div>
                   <ul className="space-y-1.5">
@@ -286,7 +284,7 @@ export default function InvestorsPage() {
                     <li>• RFC-style specification (380 lines)</li>
                   </ul>
                 </div>
-                <p>Deployed to production. Public verification endpoints live. Open-source SDK published.</p>
+                <p>Public verification endpoints are live. Open-source SDKs are published. Protected receipt generation and verification are running on the deployed backend.</p>
                 <p><strong className="text-white">Raising pre-seed to accelerate enterprise pilot acquisition and team hiring.</strong></p>
               </div>
             </div>
@@ -318,7 +316,7 @@ export default function InvestorsPage() {
                 <Shield className="w-4 h-4 text-white" />
               </div>
               <span className="font-heading font-bold">SONATE</span>
-              <span className="text-white/40 text-sm">by YCQ Labs</span>
+              <span className="text-white/40 text-sm">by yseeku</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-white/40">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
