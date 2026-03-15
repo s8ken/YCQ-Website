@@ -36,7 +36,7 @@ interface ReceiptToVerify {
   version?: string;
   agent_did?: string;
   signature?: string | { value: string; algorithm: string };
-  chain?: { chain_hash?: string; previous_hash?: string };
+  chain?: { chain_hash?: string; previous_hash?: string; chain_length?: number };
   interaction?: {
     prompt?: string;
     response?: string;
